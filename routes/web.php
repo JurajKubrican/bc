@@ -11,6 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/', [
+  'as'=>'list',
+  'uses'=>'pagesController@getList'
+])->name('list');
+
+
+Route::get('list', [
+  'as'=>'list',
+  'uses'=>'pagesController@getList'
+])->name('list');
+
+Route::get('help', function () {
+    return view('pages.help');
 });
+
+Route::get('me/settings', function () {
+    return view('pages.help');
+});
+
+Route::resource('place','PlaceController');

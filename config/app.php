@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Vinelab\NeoEloquent\NeoEloquentServiceProvider::class,
         //
 
         /*
