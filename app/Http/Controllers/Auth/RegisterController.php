@@ -6,6 +6,8 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -62,10 +64,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+      $user = User::create([
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'password' => bcrypt($data['password']),
+      ]);
     }
+
+    public function register(Request $request){
+      $validator = $this->validator($request->all());
+      if ($validator->fails()) {
+          return redirect('/register')
+                      ->withErrors($validator)
+                      ->withInput();
+      }
+
+      $user = [
+        'name' => $request['name'],
+        'email' => $request['email'],
+        'password' => bcrypt($request['password']),
+      ];
+
+      $oUser = new User($user);
+      $oUser->save();
+
+      if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']])){
+        return redirect('/');
+      }
+      //die;
+
+      //$user = User::all();
+
+    }
+
 }

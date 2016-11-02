@@ -2,13 +2,12 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
-class User extends Authenticatable
+class User extends \NeoEloquent  implements Authenticatable
 {
-    use Notifiable;
-
+use AuthenticableTrait;
     /**
      * The attributes that are mass assignable.
      *
@@ -26,4 +25,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+    * one user to many Places
+    */
+    public function follows()
+    {
+        return $this->hasMany('App\Place', 'FOLLOWS');
+    }
 }

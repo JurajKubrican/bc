@@ -16,6 +16,15 @@
     <!-- Custom CSS -->
     <link href="css/2-col-portfolio.css" rel="stylesheet">
 
+    @yield('css')
+
+
+    <script src="js/jquery.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/typeahead.bundle.js" charset="utf-8"></script>
+
+    @yield('js')
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
