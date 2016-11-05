@@ -14,6 +14,12 @@
 Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
+Route::get('place/crawl','PlaceController@crawl');
+Route::post('place/{id}','PlaceController@destroy');
 Route::resource('place','PlaceController');
+
+Route::resource('settings','settingsController');
+
+
 
 Auth::routes();

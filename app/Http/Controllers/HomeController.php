@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Place;
 
 class HomeController extends Controller
@@ -24,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $places = Place::all();
+      $user = Auth::user();
+      $places = $user->follows()->get();  
       return view('home')
         ->with('places',$places);
     }

@@ -33,4 +33,12 @@ use AuthenticableTrait;
     {
         return $this->hasMany('App\Place', 'FOLLOWS');
     }
+
+    /**
+    * one user to one Place - HOME
+    */
+    public function home()
+    {
+        return $this->hasOne('App\Place', 'HOME');
+    }
 }

@@ -14,10 +14,15 @@
                 <div class="panel-body">
                   @foreach ($places as $place)
                     <div class="row">
-                        <h3>
-                            <a href="#">{{$place['shortName']}}</a>
-                        </h3>
-                        <p>{{$place['description']}}</p>
+                      <div class="col-sm-3"><a href="#">{{$place['shortName']}}</a></div>
+                      <div class="col-sm-3">{{$place['description']}}</div>
+                      <div class="col-sm-1">
+                        <form action="/place/{{ $place['id'] }}/" method="POST">
+                          <input name="id" type="hidden" value="{{ $place['id'] }}"/>
+                          <input name="_method" type="hidden" value="DELETE"/>
+                          <input name="delete" value="X" type="submit"/>
+                        </form>
+                      </div>
                     </div>
                   @endforeach
                 </div>

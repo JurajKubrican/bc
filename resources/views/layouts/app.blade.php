@@ -46,13 +46,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                           @if (!Auth::guest())
-                            <form class="" action="/place" method="post">
-                              <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                            <form class="form-inline" action="/place" method="post">
+                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
                               <input id="search-data" type="hidden" name="search-data" value="" />
-                              <li><input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead"></li>
-                              <li><input class="button" type="submit"></li>
+                              <input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead">
+                              <input class="form-control button" type="submit">
                             </form>
-
                           @endif
                     </ul>
 
@@ -69,6 +68,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                  <li><a href="/settings">Settings</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
