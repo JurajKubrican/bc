@@ -16,6 +16,7 @@
                     <div class="row">
                       <div class="col-sm-3"><a href="#">{{$place['shortName']}}</a></div>
                       <div class="col-sm-3">{{$place['description']}}</div>
+                      <div class="col-sm-3">${{$place['price']}} (${{$place['priceLow']}} - ${{$place['priceHigh']}})</div>
                       <div class="col-sm-1">
                         <form action="/place/{{ $place['id'] }}/" method="POST">
                           <input name="id" type="hidden" value="{{ $place['id'] }}"/>

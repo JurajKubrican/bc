@@ -26,7 +26,18 @@ class HomeController extends Controller
     public function index()
     {
       $user = Auth::user();
-      $places = $user->follows()->get();  
+      $places = $user->follows()->get();
+      if(!$user->home()->get()->count())
+        return redirect('settings');
+      foreach($places as $key => $place){
+        $route =  $user->home()->first()->route()->edge($place);
+        if(!$route)
+          continue;
+          //TODO:refresh graph
+        $places[$key]->price = $route->price;
+        $places[$key]->priceLow = $route->priceLow;
+        $places[$key]->priceHigh = $route->priceHigh;
+      }
       return view('home')
         ->with('places',$places);
     }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Place;
+use App\User;
+use App\r2rSearch;
 use Illuminate\Support\Facades\Auth;
 
 class PlaceController extends Controller
@@ -18,15 +20,7 @@ class PlaceController extends Controller
       return redirect('/');
       }
 
-      //find or insert
-      $place = Place::where( 'canonicalName' , $data->canonicalName )->first();
-      if(!$place){
-        $place = new Place();
-        foreach($data as $key => $val){
-            $place->{$key} = $val;
-        }
-        $place->save();
-      };
+      $place = Place::findOrCreate($data);
 
       $user = Auth::user();
       //link to user
@@ -64,23 +58,64 @@ class PlaceController extends Controller
     /**
     * crawler entry point
     */
-    private function r2rRoute($from,$to){
 
-      
-      dd($from,$to);
+
+
+    private function enqueueAll(){
+
+      $allUsers = User::all();
+      foreach($allUsers as $user){
+        $home = $user->home()->first();
+        if(!$home)
+          continue;
+        foreach($user->follows()->get() as $dest){
+          if(!$home->queue()->edge($dest) ){
+            $home->queue()->save($dest);
+          }
+        }
+      }
 
     }
 
     public function crawl(){
-      $allPlaces = Place::all();
+      $this->enqueueAll();
 
+      $allPlaces = Place::all();
       foreach($allPlaces as $place){
-        $allRoutes = $place->route()->get();
-        //if($place->route()->get()->count())
-        //dd($place->route()->get(),$place->route()->getEdge()->related());
-        foreach($allRoutes as $dest){
-          $edge = $place->route()->edge($dest);
-          $response = $this->r2rRoute($place->canonicalName,$dest->canonicalName);
+        $allQueued = $place->queue()->get();
+        if(!$allQueued->count())
+          continue;
+        foreach($allQueued as $dest){
+          $queue = $place->queue()->edge($dest);
+          $search = new r2rSearch($place,$dest);
+
+          $place->deleteRoutesTo($dest);
+
+          foreach($search->getRoutes() as $route){
+            $previous = $place;
+
+            foreach($route->segments as $segment){
+              $segmentPlace = Place::findOrCreate($segment);
+
+              $segmentEdge = $previous->segment()->edge($segmentPlace);
+              if(!$segmentEdge){
+                $segmentEdge = $previous->segment()->save($segmentPlace);
+              }
+              //dd($segment);
+              $previous = $segmentPlace;
+            }
+            if(!$previous->segment()->edge($dest)){
+              $previous->segment()->save($dest);
+            }
+            $edge = $place->route()->save($dest);
+
+            $edge->priceLow = $route->priceLow;
+            $edge->priceHigh = $route->priceHigh;
+            $edge->price = $route->price;
+            //$edge->segments = $route->segments;
+            $edge->save();
+          }
+          $queue->delete();
         }
       }
     }
