@@ -1,9 +1,18 @@
 @extends('layouts.app')
 
 @section('js')
+<<<<<<< HEAD
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <script src="js/settings.js" charset="utf-8"></script>
 @endsection
+=======
+  <script src="js/map.js" charset="utf-8"></script>
+  <script src="js/settings.js" charset="utf-8"></script>
+@endsection
+
+
+@section('nav')
+>>>>>>> origin/master
 
 @section('css')
   <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
@@ -15,7 +24,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Home</div>
+                <div class="panel-heading">Home settings</div>
                 <div class="panel-body">
                   <div id="map_home"></div>
                   <form class="form-inline" action="/settings" method="post">
