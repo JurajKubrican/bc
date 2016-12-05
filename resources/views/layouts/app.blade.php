@@ -12,9 +12,12 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    @yield('css')
     <script src="js/jquery.js" charset="utf-8"></script>
     <script src="js/bootstrap.min.js" charset="utf-8"></script>
     <script src="js/typeahead.bundle.js" charset="utf-8"></script>
+    @yield('js')
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -45,14 +48,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                          @if (!Auth::guest())
-                            <form class="form-inline" action="/place" method="post">
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                              <input id="search-data" type="hidden" name="search-data" value="" />
-                              <input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead">
-                              <input class="form-control button" type="submit">
-                            </form>
-                          @endif
+                          @yield('nav')
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -90,35 +86,6 @@
 
         @yield('content')
     </div>
-
-    <script type="text/javascript">
-    $(document).ready(function() {
-      var r2rAutocomplete = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        remote: {
-          url: 'https://www.rome2rio.com/api/1.2/json/autocomplete?query=%QUERY&resultType=r2r',
-          wildcard: '%QUERY',
-          filter: function(response) {
-            return response.places;
-          }
-        }
-      });
-      $('#search-bar').typeahead({ hint: true,
-        highlight: true,
-        minLength: 1
-      }, {
-        name: 'best-pictures',
-        displayKey: function(countries) {
-          return countries.longName;
-        },
-        source: r2rAutocomplete
-      }).on('typeahead:selected', function(event, data){
-        console.log(data);
-        $('#search-data').val(JSON.stringify(data));
-      });
-    })
-    </script>
     <!-- Scripts -->
     <!--<script src="/js/app.js"></script>-->
 

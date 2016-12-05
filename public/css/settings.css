@@ -1,0 +1,7 @@
+#map_home{
+  width:100%;
+  height:300px;
+}
+input.invalid{
+  background-color: lightpink;
+}

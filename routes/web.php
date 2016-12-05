@@ -20,6 +20,10 @@ Route::resource('place','PlaceController');
 
 Route::resource('settings','settingsController');
 
+Route::get('backend', function()
+{
+    return View::make('backend', array());
+});
 
 
 Auth::routes();
