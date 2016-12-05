@@ -2,6 +2,9 @@
 
 return [
 
+    'currency' =>'EUR',
+    'currency_symbol' =>'€',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -12,7 +15,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Places',
 
     /*
     |--------------------------------------------------------------------------

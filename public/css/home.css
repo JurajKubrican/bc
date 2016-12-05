@@ -1,0 +1,6 @@
+.remove-button{
+  cursor:pointer;
+}
+.remove-button:hover{
+  color:#801515;
+}
