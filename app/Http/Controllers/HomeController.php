@@ -29,6 +29,14 @@ class HomeController extends Controller
       $places = $user->follows()->get();
       if(!$user->home()->get()->count())
         return redirect('settings');
+
+      $home = $user->home()->first();
+      $map = (object)[];
+      $map->home = (object)[
+        'lat'=>$home->lat,
+        'lng'=>$home->lng,
+      ];
+
       foreach($places as $key => $place){
         $route =  $user->home()->first()->route()->edge($place);
         if(!$route)
@@ -37,8 +45,14 @@ class HomeController extends Controller
         $places[$key]->price = $route->price;
         $places[$key]->priceLow = $route->priceLow;
         $places[$key]->priceHigh = $route->priceHigh;
+
+        $map->places[] = (object)[
+          'lat'=>$place->lat,
+          'lng'=>$place->lng,
+        ];
       }
       return view('home')
-        ->with('places',$places);
+        ->with('places',$places)
+        ->with('map',json_encode($map));
     }
 }

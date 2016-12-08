@@ -41,4 +41,9 @@ use AuthenticableTrait;
     {
         return $this->hasOne('App\Place', 'HOME');
     }
+
+    public function setPassword($pass){
+      $this->password = bcrypt($pass);
+      $this->save;
+    }
 }

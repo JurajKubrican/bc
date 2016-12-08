@@ -34,8 +34,6 @@ class PlaceController extends Controller
           $home->route()->save($place);
       }
 
-
-
       return redirect('/');
     }
 

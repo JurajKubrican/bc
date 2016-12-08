@@ -17,11 +17,13 @@ class SettingsController extends Controller
     public function index()
     {
       $user = Auth::user();
+      $home = $user->home()->first();
       $props = [
         'search' => false,
       ];
       return view('settings')
-        ->with('props',$props);
+        ->with('props',$props)
+        ->with('home',$home);
     }
 
     /**
@@ -42,25 +44,30 @@ class SettingsController extends Controller
      */
     public function store(Request $request)
     {
-      $data = json_decode($request->all()['search-data']);
-
-      if( empty($data->canonicalName) ){
-      return redirect('/settings');
-      }
-      $place = Place::where( 'canonicalName' , $data->canonicalName )->first();
-      if(!$place){
-        $place = new Place();
-        foreach($data as $key => $val){
-            $place->{$key} = $val;
-        }
-        $place->save();
-      };
-      //dd($place);
-
       $user = Auth::user();
+      $post = $request->all();
+
+      if(!empty($post['search-data'])){
+        $data = json_decode($post['search-data']);
+
+        if( empty($data->canonicalName) ){
+        return redirect('/settings');
+        }
+        $place = Place::findOrCreate($data);
+
+        $user->home()->save($place);
+
+      }elseif(!empty($post['password'])){
+        if(empty($post['password-configm']))
+        return redirect('/settings');
+
+        if($post['password']!==$post['password-confirm'])
+        return redirect('/settings');
+
+        $user->setPassword($post['password']);
+      }
 
 
-      $user->home()->save($place);
 
       //$user->follows()->delete($place);
 
