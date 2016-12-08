@@ -1,18 +1,10 @@
 @extends('layouts.app')
 
 @section('js')
-<<<<<<< HEAD
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <script src="js/settings.js" charset="utf-8"></script>
 @endsection
-=======
-  <script src="js/map.js" charset="utf-8"></script>
-  <script src="js/settings.js" charset="utf-8"></script>
-@endsection
 
-
-@section('nav')
->>>>>>> origin/master
 
 @section('css')
   <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />

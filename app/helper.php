@@ -3,6 +3,8 @@ namespace App;
 
 class Helper{
 
+
+
 public static function remove_accents($string) {
   if ( !preg_match('/[\x80-\xff]/', $string) )
       return $string;
