@@ -17,7 +17,12 @@ class SettingsController extends Controller
     public function index()
     {
       $user = Auth::user();
-      $home = $user->home()->first();
+      $home = $user->home()->first() ;
+
+      if(!$home){
+        $home = new Place();
+        $home->longName = '';
+      }
       $props = [
         'search' => false,
       ];

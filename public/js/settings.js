@@ -21,6 +21,8 @@
       data
     );
     data.forEach(function(item){
+      if(typeof(item.lng)==='undefined' && typeof(item.lat)==='undefined')
+      return;
       features.push({
         "type": "Feature",
         "geometry": {

@@ -54,7 +54,11 @@ class r2rSearch {
     if(!$cache)
       $cache = $from->cache()->save($to);
 
-    if( !($cache->file && $cache->time < time() + 3600 && $data = file_get_contents($cache->file))){
+    if(!file_exists($this->cacheDir)){
+      mkdir($this->cacheDir);
+    }
+
+    if( !($cache->file && $cache->time < time() + 3600 && file_exists($cache->file) && $data = file_get_contents($cache->file))){
       $data = $this->request($query_data);
       $fname = Helper::remove_accents($this->cacheDir.$from->canonicalName . '-' . $to->canonicalName);
       file_put_contents($fname,$data);
