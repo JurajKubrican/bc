@@ -117,6 +117,90 @@ class PlaceController extends Controller
         }
       }
     }
+    /*
+     * mandatory:
+     *  type[json,geojson];
+     */
+    public function api(Request $request){
+      $user = Auth::user();
+      $atts = $request->all();
+      $atts += ['filter'=> 'all'];
 
+      $data = [];
+      switch($atts['filter']){
+        case 'all':
+        default:
 
+        $places = $user->follows()->get();
+        $home = $user->home()->first();
+        $map = (object)[];
+        $data[] = (object)[
+          'shortName'=>$home->shortName,
+          'regionName'=>$home->regionName,
+          'lat'=>$home->lat,
+          'lng'=>$home->lng,
+          'symbol'=>'building',
+        ];
+
+        foreach($places as $key => $place){
+          $route =  $user->home()->first()->route()->edge($place);
+          if(!$route)
+            continue;
+            //dd($place);
+          $data[] = (object)[
+            'shortName'=>$place->shortName,
+            'regionName'=>$place->regionName,
+            'lat'=>$place->lat,
+            'lng'=>$place->lng,
+            'symbol'=>'',
+            'price'
+          ];
+        }
+      }
+
+      switch(strtolower($request->type)){
+        case 'template':
+          $result = $this->wrapTemplate($data);
+        break;
+        case 'geojson':
+          $result = $this->wrapGeoJSON($data);
+        break;
+      }
+      die($result);
+    }
+
+    private function wrapGeoJSON($data,$options = null){
+      $geojson = (object)[
+        'type'=> 'FeatureCollection',
+        'features'=> []
+      ];
+
+      foreach($data as $item){
+        //dd($item);
+        $geojson->features[] = (object)[
+          "type"=> "Feature",
+          "geometry"=> (object)[
+            "type"=> "Point",
+            "coordinates"=> [$item->lng,$item->lat]
+          ],
+          "properties"=> (object)[
+            "title"=> "Mapbox SF",
+            "description"=> "155 9th St, San Francisco",
+            'marker-color'=> '#f86767',
+            'marker-size'=> 'large',
+            'marker-symbol'=> $item->symbol,
+          ]
+        ];
+      }
+
+      return json_encode($geojson);
+    }
+
+    private function wrapTemplate($data){
+      $result = (object)[
+        'places'=>$data,
+      ];
+
+      return json_encode($result);
+    }
 }

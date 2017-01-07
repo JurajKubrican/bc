@@ -17,6 +17,9 @@ Route::get('place/crawl','PlaceController@crawl');
 Route::post('place/{id}','PlaceController@destroy');
 Route::resource('place','PlaceController');
 
+Route::get('/placeapi','PlaceController@api');
+
+
 Route::resource('settings','SettingsController');
 
 Route::get('backend', function()

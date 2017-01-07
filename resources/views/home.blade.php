@@ -12,6 +12,8 @@
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
   <script src="js/home.js" charset="utf-8"></script>
+  <script src="js/handlebars-v4.0.5.js" charset="utf-8"></script>
+
 @endsection
 
 @section('nav')
@@ -27,30 +29,24 @@
 
 @section('content')
 <div class="container">
-  <div id="main_map" data-map='{{$map}}'></div>
+  <div id="main_map"></div>
   <div class="row">
       <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-default">
               <div class="panel-heading">Dashboard</div>
+                @include('home-places')
+              <div id="places_body" class="panel-body">
+              </div>
+          </div>
+      </div>
+  </div>
 
-              <div class="panel-body">
-                @foreach ($places as $place)
-                  <div class="row">
-                    <div class="col-sm-3"><a href="#">{{$place['shortName']}}</a></div>
-                    <div class="col-sm-3">{{$place['description']}}</div>
-                    <div class="col-sm-3">{{$place['price']}}€ ({{$place['priceLow']}}€ - {{$place['priceHigh']}}€)</div>
-                    <div class="col-sm-1">
-                      <form action="/place/{{ $place['id'] }}/" method="POST">
-                        <input name="id" type="hidden" value="{{ $place['id'] }}"/>
-                        <input name="_method" type="hidden" value="DELETE"/>
-                        <label class="remove-button">
-                          <span class="glyphicon glyphicon-remove"></span>
-                          <input name="delete" class="hide" value="X" type="submit"/>
-                        </label>
-                      </form>
-                    </div>
-                  </div>
-                @endforeach
+  <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <div class="panel panel-default">
+              <div class="panel-heading">Recommendations</div>
+                @/include('home-places')
+              <div id="places_body" class="panel-body">
               </div>
           </div>
       </div>
