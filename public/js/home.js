@@ -1,9 +1,10 @@
 (function($) {
     ('use strict');
-    document.addEventListener("DOMContentLoaded", function(event) {
+    $(document).ready(function() {
         initSearchBar();
         initMap();
     });
+    $(document).on('appRefresh',mapRefresh);
 
 
     function initSearchBar() {
@@ -35,12 +36,13 @@
             });
         })
     }
-
+var gmap;
+var layer
 
     function initMap() {
         L.mapbox.accessToken = 'pk.eyJ1IjoidGhleXVycnkiLCJhIjoiY2lvOHRmMTZtMDA2c3Z5bHlicTNwZm9qaCJ9.TQBntaKZdYrhFkB2E7Zu7g';
 
-        var gmap = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
+        gmap = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
 
         L.mapbox.featureLayer()
             .loadURL("/placeapi?type=geojson")
@@ -53,6 +55,24 @@
                 gmap.addLayer(clusterGroup);
                 gmap.fitBounds(clusterGroup.getBounds());
             });
+    }
+
+    function mapRefresh(){
+      gmap.eachLayer(function (layer) {
+        if(layer.feature)
+        gmap.removeLayer(layer);
+      });
+      L.mapbox.featureLayer()
+          .loadURL("/placeapi?type=geojson")
+          .on('ready', function(e) {
+
+              var clusterGroup = new L.MarkerClusterGroup();
+              e.target.eachLayer(function(layer) {
+                  clusterGroup.addLayer(layer);
+              });
+              gmap.addLayer(clusterGroup);
+              gmap.fitBounds(clusterGroup.getBounds());
+          });
     }
 
 }(jQuery));
