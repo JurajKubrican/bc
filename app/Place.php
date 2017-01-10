@@ -27,6 +27,10 @@ class Place extends \NeoEloquent {
     return $this->hasMany('App\Place', 'ROUTE');
   }
 
+  public function routes() {
+    return $this->hasMany('App\Place', 'ROUTES');
+  }
+
   public function queue() {
     return $this->hasMany('App\Place', 'QUEUE');
   }
@@ -43,6 +47,9 @@ class Place extends \NeoEloquent {
     while ($oldRoute = $this->route()->edge($dest)) {
       $oldRoute->delete();
     }
+    // while ($oldRoute = $this->routes()->edge($dest)) {
+    //   $oldRoute->delete();
+    // }
   }
 
 }

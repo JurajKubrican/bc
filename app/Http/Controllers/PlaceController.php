@@ -29,9 +29,10 @@ class PlaceController extends Controller {
     }
 
     //link to home
+    //TODO: IS this needed?
     $home = $user->home()->first();
-    if (!$home->route()->get()->where('canonicalName', $data->canonicalName)->first()) {
-      $home->route()->save($place);
+    if (!$home->routes()->get()->where('canonicalName', $data->canonicalName)->first()) {
+      $home->routes()->save($place);
     }
 
     return redirect('/');
@@ -85,6 +86,11 @@ class PlaceController extends Controller {
 
         $place->deleteRoutesTo($dest);
 
+        if(null === $routesEdge = $place->routes()->edge($dest)){
+          $routesEdge = $place->routes()->save($dest);
+        }
+        $routesEdge->minPrice = 99999999;
+
         foreach ($search->getRoutes() as $route) {
           $previous = $place;
 
@@ -101,14 +107,25 @@ class PlaceController extends Controller {
           if (!$previous->segment()->edge($dest)) {
             $previous->segment()->save($dest);
           }
-          $edge = $place->route()->save($dest);
+          // $edge = $place->route()->save($dest);
+          //
+          // $edge->priceLow = $route->priceLow;
+          // $edge->priceHigh = $route->priceHigh;
+          // $edge->price = $route->price;
 
-          $edge->priceLow = $route->priceLow;
-          $edge->priceHigh = $route->priceHigh;
-          $edge->price = $route->price;
+          $edgeData = (object)[];
+          $edgeData->priceLow = $route->priceLow;
+          $edgeData->priceHigh = $route->priceHigh;
+          $edgeData->price = $route->price;
+
+          $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
+          $routesEdge->routes = json_encode($edgeData);
+
           //$edge->segments = $route->segments;
-          $edge->save();
+          //TODO:DELETE
+          // $edge->save();
         }
+        $routesEdge->save();
         $queue->delete();
       }
     }
@@ -180,6 +197,7 @@ class PlaceController extends Controller {
     return json_encode($result);
   }
 
+
   private function getAllPlaces($atts) {
     $user = Auth::user();
     $places = $user->follows()->get();
@@ -195,7 +213,7 @@ class PlaceController extends Controller {
     ];
 
     foreach ($places as $key => $place) {
-      $route = $user->home()->first()->route()->edge($place);
+      $route = $home->routes()->edge($place);
       if (!$route)
         continue;
       //dd($place);
@@ -206,7 +224,7 @@ class PlaceController extends Controller {
                   'lat' => $place->lat,
                   'lng' => $place->lng,
                   'symbol' => '',
-                  'price' =>'66',
+                  'price' => $route->minPrice,
       ];
     }
     return $data;
