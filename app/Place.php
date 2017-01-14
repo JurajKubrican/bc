@@ -23,9 +23,9 @@ class Place extends \NeoEloquent {
     return $place;
   }
 
-  public function route() {
-    return $this->hasMany('App\Place', 'ROUTE');
-  }
+  //public function route() {
+   // return $this->hasMany('App\Place', 'ROUTE');
+  //}
 
   public function routes() {
     return $this->hasMany('App\Place', 'ROUTES');

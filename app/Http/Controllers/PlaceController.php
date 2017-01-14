@@ -86,7 +86,7 @@ class PlaceController extends Controller {
 
         $place->deleteRoutesTo($dest);
 
-        if(null === $routesEdge = $place->routes()->edge($dest)){
+        if (null === $routesEdge = $place->routes()->edge($dest)) {
           $routesEdge = $place->routes()->save($dest);
         }
         $routesEdge->minPrice = 99999999;
@@ -101,19 +101,13 @@ class PlaceController extends Controller {
             if (!$segmentEdge) {
               $segmentEdge = $previous->segment()->save($segmentPlace);
             }
-            //dd($segment);
             $previous = $segmentPlace;
           }
           if (!$previous->segment()->edge($dest)) {
             $previous->segment()->save($dest);
           }
-          // $edge = $place->route()->save($dest);
-          //
-          // $edge->priceLow = $route->priceLow;
-          // $edge->priceHigh = $route->priceHigh;
-          // $edge->price = $route->price;
-
-          $edgeData = (object)[];
+          
+          $edgeData = (object) [];
           $edgeData->priceLow = $route->priceLow;
           $edgeData->priceHigh = $route->priceHigh;
           $edgeData->price = $route->price;
@@ -196,7 +190,6 @@ class PlaceController extends Controller {
 
     return json_encode($result);
   }
-
 
   private function getAllPlaces($atts) {
     $user = Auth::user();

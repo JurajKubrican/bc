@@ -12,7 +12,7 @@
     <div class="row">
       <div class="col-sm-3"><a href="#">{{shortName}}</a></div>
       <div class="col-sm-3">{{regionName}}</div>
-      <div class="col-sm-3">{{price}}</div>
+      <div class="col-sm-3">{{price}}€</div>
       <div class="col-sm-1"><a class="delete glyphicon glyphicon-remove" data-id="{{id}}" href="#"></a></div>
     </div>
     {{/if}}
@@ -20,7 +20,7 @@
 </script>
 
 <script>
-(function(){
+(function($){
   ('use strict');
   $(document).ready(refreshPage);
   $(document).on('appRefresh',refreshPage)
@@ -45,7 +45,5 @@
       });
     });
   }
-}())
-
-
+}($))
 </script>

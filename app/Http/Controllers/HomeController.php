@@ -6,44 +6,44 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Place;
 
-class HomeController extends Controller
-{
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('auth');
+class HomeController extends Controller {
+
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct() {
+    //$this->middleware('auth');
+  }
+
+  /**
+   * Show the application dashboard.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index() {
+
+    $user = Auth::user();
+    if (!$user) {
+      return redirect('/welcome');
+    }
+    if (!$user->home()->get()->count()) {
+      return redirect('settings');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      $user = Auth::user();
-      $places = $user->follows()->get();
-      if(!$user->home()->get()->count())
-        return redirect('settings');
 
-      $home = $user->home()->first();
+    return view('home');
+  }
 
-      foreach($places as $key => $place){
-        $route =  $user->home()->first()->route()->edge($place);
-        if(!$route)
-          continue;
-          //TODO:refresh graph
-        $places[$key]->price = $route->price;
-        $places[$key]->priceLow = $route->priceLow;
-        $places[$key]->priceHigh = $route->priceHigh;
+  /**
+   * Show the application dashboard.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function welcome() {
+    
+    return view('welcome');
+  }
 
-      }
-      return view('home')
-        ->with('places',$places);
-        // ->with('map',json_encode($map));
-    }
 }

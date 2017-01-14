@@ -1,32 +1,32 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | This file is where you may define all of the routes that are handled
+  | by your application. Just tell Laravel the URIs it should respond
+  | to using a Closure or controller method. Build something great!
+  |
+ */
 
 Route::get('/', 'HomeController@index');
+Route::get('/welcome', 'HomeController@welcome');
 
-Route::get('place/crawl','PlaceController@crawl');
-Route::post('place/{id}','PlaceController@destroy');
-Route::resource('place','PlaceController');
+Route::get('place/crawl', 'PlaceController@crawl');
+Route::post('place/{id}', 'PlaceController@destroy');
+Route::resource('place', 'PlaceController');
 
-Route::get('/placeapi','PlaceController@apiGet');
-Route::post('/placeapi/{place}','PlaceController@apiDelete');
+Route::get('/placeapi', 'PlaceController@apiGet');
+Route::post('/placeapi/{place}', 'PlaceController@apiDelete');
 //Route::get('/placeapi/{place}','PlaceController@apiDelete');
 
 
-Route::resource('settings','SettingsController');
+Route::resource('settings', 'SettingsController');
 
-Route::get('backend', function()
-{
-    return View::make('backend', array());
+Route::get('backend', function() {
+  return View::make('backend', array());
 });
 
 
