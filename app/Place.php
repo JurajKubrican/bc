@@ -43,13 +43,4 @@ class Place extends \NeoEloquent {
     return $this->hasMany('App\Place', 'CACHE');
   }
 
-  public function deleteRoutesTo($dest) {
-    while ($oldRoute = $this->route()->edge($dest)) {
-      $oldRoute->delete();
-    }
-    // while ($oldRoute = $this->routes()->edge($dest)) {
-    //   $oldRoute->delete();
-    // }
-  }
-
 }

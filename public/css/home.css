@@ -4,3 +4,9 @@
 .remove-button:hover{
   color:#801515;
 }
+
+
+.details-tab-plot{
+  width:100%;
+  height:400px;
+}

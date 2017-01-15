@@ -84,8 +84,6 @@ class PlaceController extends Controller {
         $queue = $place->queue()->edge($dest);
         $search = new r2rSearch($place, $dest);
 
-        $place->deleteRoutesTo($dest);
-
         if (null === $routesEdge = $place->routes()->edge($dest)) {
           $routesEdge = $place->routes()->save($dest);
         }
@@ -114,28 +112,24 @@ class PlaceController extends Controller {
 
           $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
           $routesEdge->routes = json_encode($edgeData);
-
-          //$edge->segments = $route->segments;
-          //TODO:DELETE
-          // $edge->save();
+         
         }
+        $history = (array)json_decode($routesEdge->history);
+        $history[time()] = (object)['minPrice' => $routesEdge->minPrice];
+        $routesEdge->history = json_encode($history);
         $routesEdge->save();
         $queue->delete();
       }
     }
   }
 
-  /*
-   * mandatory:
-   *  type[json,geojson];
-   */
-
+ 
   public function apiGet(Request $request) {
 
     $atts = $request->all();
     $atts += [
         'filter' => 'all',
-        'action' => 'get',
+       // 'action' => 'get',
     ];
 
     $data = [];
@@ -171,8 +165,8 @@ class PlaceController extends Controller {
                       "coordinates" => [$item->lng, $item->lat]
                   ],
                   "properties" => (object) [
-                      "title" => "Mapbox SF",
-                      "description" => "155 9th St, San Francisco",
+                      "title" => $item->shortName,
+                      "description" => $item->regionName,
                       'marker-color' => '#f86767',
                       'marker-size' => 'large',
                       'marker-symbol' => $item->symbol,
@@ -218,6 +212,7 @@ class PlaceController extends Controller {
                   'lng' => $place->lng,
                   'symbol' => '',
                   'price' => $route->minPrice,
+                  'history' => ($route->history),
       ];
     }
     return $data;

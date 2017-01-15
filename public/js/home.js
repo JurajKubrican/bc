@@ -1,4 +1,4 @@
-(function($) {
+(function($,CanvasJS) {
     ('use strict');
     $(document).ready(function() {
         initSearchBar();
@@ -74,5 +74,107 @@ var layer
               gmap.fitBounds(clusterGroup.getBounds());
           });
     }
+    
+  /*
+   * HANDLEBARS
+   */  
+    $(document).ready(refreshPage);
+  $(document).on('appRefresh',refreshPage)
 
-}(jQuery));
+  function refreshPage (){
+    var template = Handlebars.compile($("#places-template").html());
+    $.get('/placeapi?type=template', function (data) {
+      data = JSON.parse(data);
+      $('#places_body').html(template(data));
+      loadPlots();
+    });
+
+    $(document).on('click', '.delete', function (e) {
+      e.preventDefault();
+      $.ajax({
+        url: '/placeapi/' + $(this).data('id'),
+        type: 'POST',
+        success: function (data) {
+          data = JSON.parse(data);
+          //TODO error handling
+          $(document).trigger('appRefresh');
+        }
+      });
+    });
+  }
+  
+  function loadPlots(){
+    $('.details-tab-plot').each(function(){
+    var data = $(this).data('history');
+    var plotData=[];
+    for(i in data){
+      if(!data.hasOwnProperty(i))
+        continue;
+      
+     
+      plotData.push({
+        x:new Date(i*1000),
+        y:data[i].priceLow       
+      });
+      
+    }
+    console.log(plotData);
+    
+    var chart = new CanvasJS.Chart( $(this).attr('id'), {
+       title: {
+           text: ""
+       },
+       data:  [{
+            type: "line",
+            dataPoints: plotData
+         }]
+     });
+    chart.render();
+    
+  })
+  
+    
+    
+  }
+  
+  
+  
+  
+//    var data = [
+//      {
+//          type: "spline",
+//          axisYindex: 0,
+//          dataPoints: [],
+//        },
+//        {
+//          type: "spline",
+//          axisYindex: 1,
+//          dataPoints: [],
+//        }
+//    ];
+//
+//      var chart = new CanvasJS.Chart("myChart",
+//    {
+//      theme: "theme2",
+//      title:{
+//        text: "SSE SINE"
+//      },
+//      legend: {
+//          cursor: "pointer",
+//          itemclick: function (e) {
+//              if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+//                  e.dataSeries.visible = false;
+//              } else {
+//                  e.dataSeries.visible = true;
+//              }
+//              e.chart.render();
+//          }
+//      },
+//      animationEnabled: true,
+//      zoomEnabled: true,
+//      data: data,  // random generator below
+//    });
+//    chart.render();
+//    
+
+}(jQuery,CanvasJS));
