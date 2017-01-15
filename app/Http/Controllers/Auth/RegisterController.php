@@ -62,23 +62,17 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
-      $user = User::create([
-          'name' => $data['name'],
-          'email' => $data['email'],
-          'password' => bcrypt($data['password']),
-      ]);
-    }
-
+  
     public function register(Request $request){
+     
       $validator = $this->validator($request->all());
-      if ($validator->fails()) {
+      $unique = User::where('email',$request->email)->first();
+      if ($validator->fails() || $unique) {
           return redirect('/register')
                       ->withErrors($validator)
                       ->withInput();
       }
-
+       
       $user = [
         'name' => $request['name'],
         'email' => $request['email'],
@@ -86,7 +80,9 @@ class RegisterController extends Controller
       ];
 
       $oUser = new User($user);
+      
       $oUser->save();
+      
 
       if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']])){
         return redirect('/');

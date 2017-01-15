@@ -23,6 +23,9 @@ class HomeController extends Controller {
    * @return \Illuminate\Http\Response
    */
   public function index() {
+    
+    //phpinfo();
+    //die;
 
     $user = Auth::user();
     if (!$user) {
