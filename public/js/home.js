@@ -107,14 +107,14 @@ var layer
     $('.details-tab-plot').each(function(){
     var data = $(this).data('history');
     var plotData=[];
-    for(i in data){
+    for(var i in data){
       if(!data.hasOwnProperty(i))
         continue;
       
      
       plotData.push({
         x:new Date(i*1000),
-        y:data[i].priceLow       
+        y:data[i].minPrice       
       });
       
     }
@@ -131,50 +131,12 @@ var layer
      });
     chart.render();
     
-  })
+  });
   
     
     
   }
   
-  
-  
-  
-//    var data = [
-//      {
-//          type: "spline",
-//          axisYindex: 0,
-//          dataPoints: [],
-//        },
-//        {
-//          type: "spline",
-//          axisYindex: 1,
-//          dataPoints: [],
-//        }
-//    ];
-//
-//      var chart = new CanvasJS.Chart("myChart",
-//    {
-//      theme: "theme2",
-//      title:{
-//        text: "SSE SINE"
-//      },
-//      legend: {
-//          cursor: "pointer",
-//          itemclick: function (e) {
-//              if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-//                  e.dataSeries.visible = false;
-//              } else {
-//                  e.dataSeries.visible = true;
-//              }
-//              e.chart.render();
-//          }
-//      },
-//      animationEnabled: true,
-//      zoomEnabled: true,
-//      data: data,  // random generator below
-//    });
-//    chart.render();
-//    
+ 
 
 }(jQuery,CanvasJS));
