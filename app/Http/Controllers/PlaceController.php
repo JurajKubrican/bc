@@ -87,11 +87,13 @@ class PlaceController extends Controller {
         if (null === $routesEdge = $place->routes()->edge($dest)) {
           $routesEdge = $place->routes()->save($dest);
         }
-        $routesEdge->minPrice = 99999999;
 
+        $routesEdge->minPrice = 99999999;
+        $aEdgeData = [];
         foreach ($search->getRoutes() as $route) {
           $previous = $place;
 
+          //TODO: is this needed?
           foreach ($route->segments as $segment) {
             $segmentPlace = Place::findOrCreate($segment);
 
@@ -104,16 +106,19 @@ class PlaceController extends Controller {
           if (!$previous->segment()->edge($dest)) {
             $previous->segment()->save($dest);
           }
-          
+          //END SEGMENTS
           $edgeData = (object) [];
           $edgeData->priceLow = $route->priceLow;
           $edgeData->priceHigh = $route->priceHigh;
           $edgeData->price = $route->price;
+          $edgeData->typeName = $route->typeName;
 
           $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
-          $routesEdge->routes = json_encode($edgeData);
-         
+
+          $aEdgeData[] = $edgeData;
+          //$routesEdge->altRoutes = json_encode($altAroutes);
         }
+        $routesEdge->routes = json_encode($aEdgeData);
         $history = (array)json_decode($routesEdge->history);
         $history[time()] = (object)['minPrice' => $routesEdge->minPrice];
         $routesEdge->history = json_encode($history);
@@ -123,7 +128,6 @@ class PlaceController extends Controller {
     }
   }
 
- 
   public function apiGet(Request $request) {
 
     $atts = $request->all();

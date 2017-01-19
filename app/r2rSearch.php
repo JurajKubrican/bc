@@ -31,12 +31,12 @@ class r2rSearch {
         $routePriceHigh = isset($route->indicativePrices[0]->priceHigh) ? $route->indicativePrices[0]->priceHigh : $route->indicativePrices[0]->price;
         $routePrice = $route->indicativePrices[0]->price;
       }
-
       $result[] = (object)[
                 'price' => $routePrice,
                 'priceLow' => $routePriceLow,
                 'priceHigh' => $routePriceHigh,
                 'segments' => $this->parseSegments($route->segments),
+                'typeName' => $route->name,
                 ];
     }
     return $result;
