@@ -216,7 +216,7 @@ class PlaceController extends Controller {
                   'lng' => $place->lng,
                   'symbol' => '',
                   'price' => $route->minPrice,
-                  'history' => ($route->history),
+                  'history' => $route->history,
       ];
     }
     return $data;

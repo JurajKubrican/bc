@@ -8,6 +8,7 @@ class r2rSearch {
   private $aPlaces;
   private $aRoutes;
   private $cacheDir = __DIR__.'/cache/';
+  private $logDir = __DIR__.'/log/';
 
 
   public function __construct($from, $to, $options=['noCar'=>true,'noRideshare'=>true, 'noTowncar'=>true,'currencyCode'=>'EUR']){
@@ -57,6 +58,10 @@ class r2rSearch {
     if(!file_exists($this->cacheDir)){
       mkdir($this->cacheDir);
     }
+    if(!file_exists($this->logDir)){
+      mkdir($this->logDir);
+    }
+
 
     if( !($cache->file && $cache->time < time() + 3600 && file_exists($cache->file) && $data = file_get_contents($cache->file))){
       $data = $this->request($query_data);
@@ -65,6 +70,9 @@ class r2rSearch {
       $cache->file = $fname;
       $cache->time = time();
       $cache->save();
+      file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - request ' . var_export($cache->file) . "\n", FILE_APPEND);
+    }else{
+      file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - from CACHE ' . var_export($cache->file) . "\n", FILE_APPEND);
     }
     return json_decode($data);
   }
