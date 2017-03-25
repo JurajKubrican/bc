@@ -1,0 +1,15 @@
+\select@language {english}
+\thispagestyle {empty}
+\contentsline {section}{Introduction}{1}{section*.2}
+\contentsline {section}{\numberline {1}Mo\v znosti anonymiz\'acie}{2}{section.3}
+\contentsline {subsection}{\numberline {1.1}S\'ukromn\'e prehliadanie}{2}{subsection.4}
+\contentsline {subsection}{\numberline {1.2}Anonymn\'a sie\v t}{2}{subsection.7}
+\contentsline {subsection}{\numberline {1.3}Funkcionalita}{2}{subsection.8}
+\contentsline {subsubsection}{\numberline {1.3.1}Funkcionalita2}{2}{subsubsection.9}
+\contentsline {subsection}{\numberline {1.4}Vzh\v lad}{2}{subsection.10}
+\contentsline {section}{Conclusion}{6}{section*.28}
+\contentsline {section}{Resum\'{e}}{7}{section*.29}
+\contentsline {section}{Bibliography}{I}{section*.30}
+\contentsline {section}{Appendix}{I}{section*.31}
+\contentsline {section}{\numberline {A} \v Strukt\'ura elektronick\'eho nosi\v ca}{II}{section.33}
+\contentsline {section}{\numberline {B} Algoritmus}{III}{section.36}
