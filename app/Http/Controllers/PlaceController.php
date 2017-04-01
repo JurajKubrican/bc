@@ -57,6 +57,14 @@ class PlaceController extends Controller {
   /**
    * crawler entry point
    */
+  private function recountAll(){
+    $allPlaces = Place::all();
+    foreach ($allPlaces as $place){
+      $place->followerCount = $place->followers()->count();
+      $place->save();
+    }
+  }
+
   private function enqueueAll() {
 
     $allUsers = User::all();
@@ -74,6 +82,7 @@ class PlaceController extends Controller {
 
   public function crawl() {
     $this->enqueueAll();
+    $this->recountAll();
 
     $allPlaces = Place::all();
     foreach ($allPlaces as $place) {
@@ -132,17 +141,22 @@ class PlaceController extends Controller {
 
     $atts = $request->all();
     $atts += [
-        'filter' => 'all',
-       // 'action' => 'get',
+      'filter' => 'all',
+      // 'action' => 'get',
     ];
 
     $data = [];
     switch ($atts['filter']) {
+      case 'recommend':
+        $data = $this->getRecommendedPlaces($atts);
+        break;
+      case 'suggested':
+        $data = $this->getSuggestedPlaces($atts);
+        break;
       case 'all':
       default:
         $data = $this->getAllPlaces($atts);
     }
-
     switch (strtolower($request->type)) {
       case 'template':
         $result = $this->wrapTemplate($data);
@@ -156,25 +170,25 @@ class PlaceController extends Controller {
 
   private function wrapGeoJSON($data, $options = null) {
     $geojson = (object) [
-                'type' => 'FeatureCollection',
-                'features' => []
+      'type' => 'FeatureCollection',
+      'features' => []
     ];
 
     foreach ($data as $item) {
       //dd($item);
       $geojson->features[] = (object) [
-                  "type" => "Feature",
-                  "geometry" => (object) [
-                      "type" => "Point",
-                      "coordinates" => [$item->lng, $item->lat]
-                  ],
-                  "properties" => (object) [
-                      "title" => $item->shortName,
-                      "description" => $item->regionName,
-                      'marker-color' => '#f86767',
-                      'marker-size' => 'large',
-                      'marker-symbol' => $item->symbol,
-                  ]
+        "type" => "Feature",
+        "geometry" => (object) [
+          "type" => "Point",
+          "coordinates" => [$item->lng, $item->lat]
+        ],
+        "properties" => (object) [
+          "title" => $item->shortName,
+          "description" => $item->regionName,
+          'marker-color' => '#f86767',
+          'marker-size' => 'large',
+          'marker-symbol' => $item->symbol,
+        ]
       ];
     }
 
@@ -183,10 +197,15 @@ class PlaceController extends Controller {
 
   private function wrapTemplate($data) {
     $result = (object) [
-                'places' => $data,
+      'places' => $data,
     ];
 
     return json_encode($result);
+  }
+
+  private function reduceFollowers($prev,$next){
+    $prev [] = $next['name'];
+    return $prev;
   }
 
   private function getAllPlaces($atts) {
@@ -195,31 +214,105 @@ class PlaceController extends Controller {
     $home = $user->home()->first();
     $map = (object) [];
     $data[] = (object) [
-                'id' => $home->id,
-                'shortName' => $home->shortName,
-                'regionName' => $home->regionName,
-                'lat' => $home->lat,
-                'lng' => $home->lng,
-                'symbol' => 'building',
+      'id' => $home->id,
+      'shortName' => $home->shortName,
+      'regionName' => $home->regionName,
+      'lat' => $home->lat,
+      'lng' => $home->lng,
+      'symbol' => 'building',
     ];
 
     foreach ($places as $key => $place) {
       $route = $home->routes()->edge($place);
       if (!$route)
         continue;
-      //dd($place);
+
+      $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
+
       $data[] = (object) [
-                  'id' => $place->id,
-                  'shortName' => $place->shortName,
-                  'regionName' => $place->regionName,
-                  'lat' => $place->lat,
-                  'lng' => $place->lng,
-                  'symbol' => '',
-                  'price' => $route->minPrice,
-                  'history' => $route->history,
+        'id' => $place->id,
+        'shortName' => $place->shortName,
+        'regionName' => $place->regionName,
+        'lat' => $place->lat,
+        'lng' => $place->lng,
+        'symbol' => '',
+        'price' => $route->minPrice,
+        'followers' => $followers,
       ];
     }
     return $data;
+
+  }
+
+  private function recommnedReduce($prev,$new){
+    $prev[] = $new->data;
+    return $prev;
+  }
+
+  private function recommnedSort($a, $b){
+    if ($a->count == $b->count) {
+      return 0;
+    }
+    return ($a->count > $b->count) ? -1 : 1;
+  }
+
+  private function getRecommendedPlaces(){
+    $user = Auth::user();
+    $places = $user->follows()->get();
+    $recommended = [];
+
+    foreach($places as $place){
+      foreach($place->followers()->get() as $follower){
+        $followed = $follower->follows()->get();
+        foreach($followed as $val){
+
+
+
+          if(isset($recommended[$val->id])){
+            $recommended[$val->id]->count++;
+          }else{
+            $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
+            $recommended[$val->id] = (object)[
+              'count' => 1,
+              'data' => (object) [
+                'id' => $val->id,
+                'shortName' => $val->shortName,
+                'regionName' => $val->regionName,
+                'lat' => $val->lat,
+                'lng' => $val->lng,
+                'symbol' => '',
+                'followers' => $followers,
+              ]
+            ];
+          }
+        }
+
+
+      }
+    }
+    usort($recommended,[$this,'recommnedSort']);
+
+    $recommended = array_reduce($recommended,[$this,'recommnedReduce'],[]);
+    return $recommended;
+
+  }
+
+  private function getSuggestedPlaces(){
+
+    $places = Place::orderBy('followerCount', 'DESC')->take(30)->get();
+
+    foreach ($places as $key => $place) {
+      $data[] = (object) [
+        'id' => $place->id,
+        'shortName' => $place->shortName,
+        'regionName' => $place->regionName,
+        'lat' => $place->lat,
+        'lng' => $place->lng,
+        'symbol' => '',
+      ];
+    }
+    return $data;
+
   }
 
   public function apiDelete($placeId) {

@@ -22,7 +22,7 @@
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <input id="search-data" type="hidden" name="search-data" value="" />
   <input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead">
-  <input class="form-control button" type="submit" value="Follow">
+  <input style="margin-top: 6px;height: 30px;line-height: 17px;" class="form-control button" type="submit" value="Follow">
 </form>
 @endif
 @endsection
@@ -40,16 +40,15 @@
       </div>
     </div>
   </div>
-<!--
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-heading">Recommendations</div>
-        @include('home-suggested')
-        <div id="suggested_body" class="panel-body">
+        @include('home-recommended')
+        <div id="recommend_body" class="panel-body">
         </div>
       </div>
     </div>
   </div>
-</div>-->
+</div>
 @endsection

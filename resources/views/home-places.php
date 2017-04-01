@@ -15,14 +15,16 @@
           <div id="details-tab-{{id}}" class="place-details-tab row collapse">
             <ul class="nav nav-tabs">
               <li class="active"><a data-toggle="tab" href="#details-tab-{{id}}-tab-1">Prices</a></li>
-              <li><a data-toggle="tab" href="#details-tab-{{id}}-tab-2">Map</a></li>
+              <li><a data-toggle="tab" href="#details-tab-{{id}}-tab-2">People</a></li>
             </ul>
             <div class="tab-content">
               <div id="details-tab-{{id}}-tab-1" class="tab-pane fade in active">
                 <div id="details-tab-plot-{{id}}" class="details-tab-plot" data-history="{{history}}"></div>
               </div>
               <div id="details-tab-{{id}}-tab-2" class="tab-pane fade">
-                TODO: MAP
+                {{#each followers}}
+                  {{this}}<br>
+                {{/each}}
               </div>
             </div>
           </div>

@@ -43,4 +43,8 @@ class Place extends \NeoEloquent {
     return $this->hasMany('App\Place', 'CACHE');
   }
 
+  public function followers(){
+    return $this->belongsToMany('App\User','FOLLOWS');
+  }
+
 }
