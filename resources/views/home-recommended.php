@@ -5,10 +5,13 @@
       {{body}}
     </div>
   </div>
+  <table class="table">
   {{#each places}}
-  <div class="row">
-    <div class="col-sm-3"><a href="#">{{shortName}}</a></div>
-    <div class="col-sm-3">{{regionName}}</div>
-  </div>
+  <tr>
+    <td ><a href="#">{{shortName}}</a></td>
+    <td >{{regionName}}</td>
+    <td >{{count}}</td>
+    </tr>
   {{/each}}
+  </table>
 </script>

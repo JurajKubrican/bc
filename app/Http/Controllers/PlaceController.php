@@ -128,9 +128,11 @@ class PlaceController extends Controller {
           //$routesEdge->altRoutes = json_encode($altAroutes);
         }
         $routesEdge->routes = json_encode($aEdgeData);
-        $history = (array)json_decode($routesEdge->history);
-        $history[time()] = (object)['minPrice' => $routesEdge->minPrice];
-        $routesEdge->history = json_encode($history);
+        //$history = (array)json_decode($routesEdge->history);
+        //$history[time()] = (object)['minPrice' => $routesEdge->minPrice];
+        //$routesEdge->history = json_encode($history);
+        if(isset($routesEdge->history))
+          unset($routesEdge->history);
         $routesEdge->save();
         $queue->delete();
       }
@@ -238,6 +240,7 @@ class PlaceController extends Controller {
         'symbol' => '',
         'price' => $route->minPrice,
         'followers' => $followers,
+        'routes' => json_decode($route->routes),
       ];
     }
     return $data;
@@ -245,7 +248,9 @@ class PlaceController extends Controller {
   }
 
   private function recommnedReduce($prev,$new){
-    $prev[] = $new->data;
+    $temp = $new->data;
+    $temp->count = $new->count;
+    $prev[] = $temp;
     return $prev;
   }
 
@@ -272,18 +277,21 @@ class PlaceController extends Controller {
             $recommended[$val->id]->count++;
           }else{
             $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
+
             $recommended[$val->id] = (object)[
               'count' => 1,
               'data' => (object) [
                 'id' => $val->id,
                 'shortName' => $val->shortName,
-                'regionName' => $val->regionName,
+                'regionName' => $val->regionName?$val->regionName:'' ,
                 'lat' => $val->lat,
                 'lng' => $val->lng,
                 'symbol' => '',
                 'followers' => $followers,
-              ]
+
+              ],
             ];
+
           }
         }
 
@@ -291,7 +299,7 @@ class PlaceController extends Controller {
       }
     }
     usort($recommended,[$this,'recommnedSort']);
-
+    //dd($recommended);
     $recommended = array_reduce($recommended,[$this,'recommnedReduce'],[]);
     return $recommended;
 
@@ -305,7 +313,7 @@ class PlaceController extends Controller {
       $data[] = (object) [
         'id' => $place->id,
         'shortName' => $place->shortName,
-        'regionName' => $place->regionName,
+        'regionName' => $place->regionName ?  $place->regionName : ' ',
         'lat' => $place->lat,
         'lng' => $place->lng,
         'symbol' => '',

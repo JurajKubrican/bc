@@ -1,5 +1,6 @@
-(function($) {
+// var app = (function($) {
   ('use strict');
+
   $(document).ready(function() {
     initSearchBar();
     initMap();
@@ -42,7 +43,7 @@
 
     gmap = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
 
-    L.mapbox.featureLayer()
+    layer = L.mapbox.featureLayer()
       .loadURL("/placeapi?type=geojson")
       .on('ready', function(e) {
 
@@ -78,25 +79,16 @@
    */
   $(document).ready(refreshPage);
   $(document).on('appRefresh',refreshPage)
-
+  var template
+  $(document).ready(function(){
+    template = Handlebars.compile($("#places-template").html());
+  })
   function refreshPage (){
-    var template = Handlebars.compile($("#places-template").html());
+
     $.get('/placeapi?type=template', function (data) {
       data = JSON.parse(data);
+      console.log(data);
       $('#places_body').html(template(data));
-    });
-
-    $(document).on('click', '.delete', function (e) {
-      e.preventDefault();
-      $.ajax({
-        url: '/placeapi/' + $(this).data('id'),
-        type: 'POST',
-        success: function (data) {
-          data = JSON.parse(data);
-          //TODO error handling
-          $(document).trigger('appRefresh');
-        }
-      });
     });
 
     var recommendedTemplate = Handlebars.compile($("#recommended-template").html());
@@ -108,6 +100,28 @@
     });
   }
 
+  $(document).on('click', '.delete', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $.ajax({
+      url: '/placeapi/' + $(this).data('id'),
+      type: 'POST',
+      success: function (data) {
+        data = JSON.parse(data);
+        //TODO error handling
+        $(document).trigger('appRefresh');
+      }
+    });
+  });
 
 
-}(jQuery));
+  // $(document).on('click', '.focus-map', function (e) {
+  //   e.preventDefault();
+  //   e.stopPropagation()
+  //
+  //
+  // })
+
+
+  // return app;
+// }(jQuery));
