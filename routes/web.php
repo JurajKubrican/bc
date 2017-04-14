@@ -23,6 +23,7 @@ Route::post('/placeapi/{place}', 'PlaceController@apiDelete');
 //Route::get('/placeapi/{place}','PlaceController@apiDelete');
 
 
+
 Route::resource('settings', 'SettingsController');
 
 Route::get('backend', function() {

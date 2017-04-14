@@ -1,84 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-    <title>Laravel</title>
+@section('css')
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css' rel='stylesheet' />
+    <link href='css/home.css' rel='stylesheet' />
+@endsection
 
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('js')
 
-    <!-- Styles -->
-    <style>
-      html, body {
-        background-color: #fff;
-        color: #636b6f;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 100;
-        height: 100vh;
-        margin: 0;
-      }
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <script src="js/canvasjs.min.js" charset="utf-8"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+    <script src="js/welcome.js" charset="utf-8"></script>
+    <script src="js/handlebars-v4.0.5.js" charset="utf-8"></script>
+@endsection
 
-      .full-height {
-        height: 100vh;
-      }
+@section('nav')
+    @if (!Auth::guest())
+        <form class="form-inline" action="/place" method="post">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input id="search-data" type="hidden" name="search-data" value="" />
+            <input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead">
+            <input style="margin-top: 6px;height: 30px;line-height: 17px;" class="form-control button" type="submit" value="Follow">
+        </form>
+    @endif
+@endsection
 
-      .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-      }
+@section('content')
+    <div class="container">
 
-      .position-ref {
-        position: relative;
-      }
-
-      .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-      }
-
-      .content {
-        text-align: center;
-      }
-
-      .title {
-        font-size: 84px;
-      }
-
-      .links > a {
-        color: #636b6f;
-        padding: 0 25px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-
-      .m-b-md {
-        margin-bottom: 30px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="flex-center position-ref full-height">
-      @if (Route::has('login'))
-      <div class="top-right links">
-        <a href="{{ url('/login') }}">Login</a>
-        <a href="{{ url('/register') }}">Register</a>
-      </div>
-      @endif
-
-      <div class="content">
-        <div class="title m-b-md">
-          MyTrip
+        <div class="row">
+            <div id="main_map"></div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Recommendations</div>
+                    @include('home-top')
+                    <div id="suggested_body" class="panel-body">
+                    </div>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
-  </body>
-</html>
+@endsection

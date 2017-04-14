@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.16)  26 MAR 2017 14:31
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  12 APR 2017 01:55
+>>>>>>> refs/remotes/origin/master
 entering extended mode
 **C:/xampp/htdocs/bc/text/xkubricanj.tex
 (C:/xampp/htdocs/bc/text/xkubricanj.tex
@@ -27,6 +31,7 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\times.sty"
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\textcase\textcase.sty
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 )
@@ -34,6 +39,15 @@ Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\tocloft\tocloft.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
+Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
+Package: chngcntr 2009/09/02 v1.0a change counter resetting
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+>>>>>>> refs/remotes/origin/master
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 44.
 \cftparskip=\skip43
@@ -70,7 +84,11 @@ Package tocloft Info: The document has section divisions on input line 44.
 \cfttabindent=\skip72
 \cfttabnumwidth=\skip73
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\ifmtarg\ifmtarg.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\ifmtarg\ifmtarg.sty"
+>>>>>>> refs/remotes/origin/master
 Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
@@ -158,7 +176,11 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4735.
 \c@Hy@tempcnt=\count92
 
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+>>>>>>> refs/remotes/origin/master
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -236,7 +258,11 @@ Package: `anysize' 1.0 <1994/08/13>
 \@Rightmargin=\dimen110
 \@Topmargin=\dimen111
 \@Bottommargin=\dimen112
+<<<<<<< HEAD
 ) (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\xifthen\xifthen.sty
+=======
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\xifthen\xifthen.sty"
+>>>>>>> refs/remotes/origin/master
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
@@ -252,7 +278,11 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count103
 \calc@Cskip=\skip79
 ))
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\sectsty\sectsty.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty"
+>>>>>>> refs/remotes/origin/master
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
 )
@@ -314,15 +344,24 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\xstring\xstring.sty
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\generic\xstring\xstring.tex
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
+>>>>>>> refs/remotes/origin/master
 \@xs@message=\write3
 \integerpart=\count116
 \decimalpart=\count117
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titlesec.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
+>>>>>>> refs/remotes/origin/master
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box29
 \beforetitleunit=\skip83
@@ -334,7 +373,11 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen127
 \titlewidthfirst=\dimen128
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
+>>>>>>> refs/remotes/origin/master
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
@@ -349,7 +392,11 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@every@algorithm=\toks24
 \c@algorithm=\count119
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+>>>>>>> refs/remotes/origin/master
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
@@ -366,7 +413,11 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+>>>>>>> refs/remotes/origin/master
 \lst@mode=\count120
 \lst@gtempboxa=\box32
 \lst@token=\toks25
@@ -380,13 +431,21 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 \lst@lineno=\count125
 \lst@maxwidth=\dimen132
 
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+>>>>>>> refs/remotes/origin/master
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count126
 \lst@skipnumbers=\count127
 \lst@framebox=\box33
 )
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+>>>>>>> refs/remotes/origin/master
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
@@ -432,11 +491,19 @@ Package: babel 2016/04/23 3.9r The Babel package
 *************************************
 * Local config file bblopts.cfg used
 *
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-slovak\slovak.ldf
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-slovak\slovak.ldf"
+>>>>>>> refs/remotes/origin/master
 Language: slovak 2008/07/06 v3.1a Slovak support from the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
@@ -463,6 +530,7 @@ Package: fontenc 2017/01/24 v2.0c Standard LaTeX package
 File: t1enc.def 2017/01/24 v2.0c Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\changepage\changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count130
@@ -480,6 +548,26 @@ Package: scrbase 2017/01/03 v3.22 KOMA-Script package (KOMA-Script-independent
 basics and keyval usage)
 
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlfile.sty
+=======
+("C:\Program Files\MiKTeX 2.9\tex\latex\changepage\changepage.sty"
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count130
+\cp@tempcnt=\count131
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrextend.sty"
+Package: scrextend 2017/01/03 v3.22 KOMA-Script package (extend other classes w
+ith features of KOMA-Script classes)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
+Package: scrkbase 2017/01/03 v3.22 KOMA-Script package (KOMA-Script-dependent b
+asics and keyval usage)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
+Package: scrbase 2017/01/03 v3.22 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
+>>>>>>> refs/remotes/origin/master
 Package: scrlfile 2017/01/03 v3.22 KOMA-Script package (loading files)
 
 Package scrlfile, 2017/01/03 v3.22 KOMA-Script package (loading files)
@@ -552,7 +640,11 @@ LaTeX Info: Redefining \nameref on input line 9.
 \openout4 = `xkubricanj.out'.
 
 
+<<<<<<< HEAD
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+=======
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+>>>>>>> refs/remotes/origin/master
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count136
 \scratchdimen=\dimen134
@@ -589,7 +681,11 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 
 
+<<<<<<< HEAD
 {C:/Users/kubri/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
+=======
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
+>>>>>>> refs/remotes/origin/master
 <includes/assignment.jpeg, id=14, 596.4684pt x 843.99315pt>
 File: includes/assignment.jpeg Graphic file (type jpg)
 
@@ -605,6 +701,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--16
 
  []
 
+<<<<<<< HEAD
 (C:/xampp/htdocs/bc/text\abstract.tex)
 
 ! LaTeX Error: There's no line here to end.
@@ -631,12 +728,23 @@ Type  H <return>  for immediate help.
 l.16 ...tract}{Využitie grafovej databázy v praxi}
                                                   
 ? 
+=======
+(C:/xampp/htdocs/bc/text\includes/abstract.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--16
+
+ []
+
+>>>>>>> refs/remotes/origin/master
 [3]
 Underfull \hbox (badness 10000) in paragraph at lines 17--17
 
  []
 
+<<<<<<< HEAD
 (C:/xampp/htdocs/bc/text\abstractEN.tex)
+=======
+(C:/xampp/htdocs/bc/text\includes/abstractEN.tex)
+>>>>>>> refs/remotes/origin/master
 Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
@@ -733,11 +841,18 @@ Package pdftex.def Info: img/vzhlad.png used on input line 53.
 
 LaTeX Warning: Citation `anonlib' on page 2 undefined on input line 57.
 
+<<<<<<< HEAD
 [2] [3]
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
+=======
+[2] [3] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+>>>>>>> refs/remotes/origin/master
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 75.
@@ -886,12 +1001,20 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 37.
  ) 
 Here is how much of TeX's memory you used:
  11090 strings out of 493333
+<<<<<<< HEAD
  159492 string characters out of 3139194
+=======
+ 158666 string characters out of 3139194
+>>>>>>> refs/remotes/origin/master
  318838 words of memory out of 3000000
  14330 multiletter control sequences out of 15000+200000
  72348 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
+<<<<<<< HEAD
  40i,10n,50p,1381b,1577s stack positions out of 5000i,500n,10000p,200000b,50000s
+=======
+ 40i,10n,50p,1416b,1577s stack positions out of 5000i,500n,10000p,200000b,50000s
+>>>>>>> refs/remotes/origin/master
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
@@ -899,7 +1022,11 @@ lic/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C
 :/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/M
 iKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/public/lm/lmsso10.pfb>
+<<<<<<< HEAD
 Output written on xkubricanj.pdf (18 pages, 1971669 bytes).
+=======
+Output written on xkubricanj.pdf (18 pages, 1972359 bytes).
+>>>>>>> refs/remotes/origin/master
 PDF statistics:
  181 PDF objects out of 1000 (max. 8388607)
  70 named destinations out of 1000 (max. 500000)
