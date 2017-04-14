@@ -6,9 +6,13 @@
     {{else}}
     <tr>
       <td>
-        <div class="row" data-toggle="collapse" data-target="#details-tab-{{id}}" aria-expanded="false" aria-controls="details-tab-{{id}}">
-          <div class="col-sm-5"><a class="focus-map" data-id="{{id}}" href="#">{{shortName}}</a></div>
-          <div class="col-sm-5">{{regionName}}</div>
+        <div class="row" >
+          <div class="col-sm-1 collapsed" data-toggle="collapse" data-target="#details-tab-{{id}}" aria-expanded="false" aria-controls="details-tab-{{id}}">
+            <span class="hide-if-not-collapsed glyphicon glyphicon-chevron-down"></span>
+            <span class="hide-if-collapsed glyphicon glyphicon-chevron-up"></span>
+          </div>
+          <div class="col-sm-4"><a class="focus-map" data-id="{{id}}" href="#">{{shortName}}</a></div>
+          <div class="col-sm-4">{{regionName}}</div>
           <div class="col-sm-1">{{price}}€</div>
           <div class="col-sm-1"><a class="delete glyphicon glyphicon-remove" data-id="{{id}}" href="#"></a></div>
         </div>

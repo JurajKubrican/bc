@@ -10,7 +10,12 @@
   <tr>
     <td ><a href="#">{{shortName}}</a></td>
     <td >{{regionName}}</td>
-    <td >{{count}}</td>
+    <td >
+        {{#each followers}}
+        <div class="follower-head" title="{{this}}"><span>{{this}}</span></div>
+        {{/each }}
+    </td>
+    <td ><sapan class="glyphicon glyphicon-plus recommended-add" ></sapan></td>
     </tr>
   {{/each}}
   </table>

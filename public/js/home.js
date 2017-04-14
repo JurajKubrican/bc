@@ -1,4 +1,4 @@
-// var app = (function($) {
+var app = (function($) {
   ('use strict');
 
   $(document).ready(function() {
@@ -20,9 +20,11 @@
             return response.places;
           }
         }
-      });
+    });
       $('#search-bar').typeahead({
-        minLength: 1
+        minLength: 1,
+          hint:0
+          //TODO: placeholder
       }, {
         name: 'best-pictures',
         displayKey: function(countries) {
@@ -115,13 +117,15 @@
   });
 
 
-  // $(document).on('click', '.focus-map', function (e) {
-  //   e.preventDefault();
-  //   e.stopPropagation()
-  //
-  //
-  // })
+  $(document).on('click', '.focus-map', function (e) {
+    e.preventDefault();
+    e.stopPropagation()
+
+    console.log($(e.target).data('id'));
+    console.log(layer);
+
+  })
 
 
   // return app;
-// }(jQuery));
+}(jQuery));

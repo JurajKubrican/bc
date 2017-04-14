@@ -65,6 +65,21 @@ class PlaceController extends Controller {
     }
   }
 
+  private function removeOld(){
+    $allPlaces = Place::all();
+    foreach ($allPlaces as $place){
+      if($place->followers()->count() === 0){
+        $place->delete();
+      }
+//      foreach($place->routes()->get() as $dest ){
+//        $route = $place->routes()->edge($dest);
+//        unset($route->history) ;
+//        $route->save();
+//      }
+    }
+
+  }
+
   private function enqueueAll() {
 
     $allUsers = User::all();
@@ -131,12 +146,12 @@ class PlaceController extends Controller {
         //$history = (array)json_decode($routesEdge->history);
         //$history[time()] = (object)['minPrice' => $routesEdge->minPrice];
         //$routesEdge->history = json_encode($history);
-        if(isset($routesEdge->history))
-          unset($routesEdge->history);
         $routesEdge->save();
         $queue->delete();
       }
     }
+
+    $this->removeOld();
   }
 
   public function apiGet(Request $request) {
@@ -146,6 +161,8 @@ class PlaceController extends Controller {
       'filter' => 'all',
       // 'action' => 'get',
     ];
+
+
 
     $data = [];
     switch ($atts['filter']) {
@@ -206,15 +223,17 @@ class PlaceController extends Controller {
   }
 
   private function reduceFollowers($prev,$next){
+//    dd(Auth::user() && Auth::user()->id === $next['id']);
+    if(!(Auth::user() && Auth::user()->id === $next['id'] ))
     $prev [] = $next['name'];
     return $prev;
   }
 
-  private function getAllPlaces($atts) {
-    $user = Auth::user();
+  private function getAllPlaces($request) {
+    $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
+    if(!$user) $user = Auth::user();
     $places = $user->follows()->get();
     $home = $user->home()->first();
-    $map = (object) [];
     $data[] = (object) [
       'id' => $home->id,
       'shortName' => $home->shortName,
@@ -261,38 +280,70 @@ class PlaceController extends Controller {
     return ($a->count > $b->count) ? -1 : 1;
   }
 
-  private function getRecommendedPlaces(){
-    $user = Auth::user();
+  private function getIDs($prev,$next){
+    $prev [] = $next['id'];
+    return $prev;
+  }
+
+  private function recommendedFollowers($prev, $next){
+    $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
+    if(!$user) $user = Auth::user();
+    $place = Place::find($next);
+    $followers = $place->followers()->get();
+    foreach ($followers as $follower){
+      if($follower->id === $user->id)
+        continue;
+
+      if (!in_array($follower->id, $prev))
+      {
+        $prev[] = $follower->id;
+      }
+    }
+    return $prev;
+
+  }
+
+
+  private function getRecommendedPlaces($request){
+    $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
+    if(!$user) $user = Auth::user();
+
+
     $places = $user->follows()->get();
     $recommended = [];
 
-    foreach($places as $place){
-      foreach($place->followers()->get() as $follower){
-        $followed = $follower->follows()->get();
-        foreach($followed as $val){
+    $placeIDs = array_reduce((array)$places->toArray(),[$this,'getIDs'],[]);
+
+    $followers = array_reduce($placeIDs,[$this,'recommendedFollowers'],[]);
 
 
+    foreach($followers as $followerId) {
+      $follower = User::find($followerId);
+      $followed = $follower->follows()->get();
 
-          if(isset($recommended[$val->id])){
-            $recommended[$val->id]->count++;
-          }else{
-            $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
+      foreach ($followed as $val) {
+        if (in_array($val->id, $placeIDs))
+          continue;
 
-            $recommended[$val->id] = (object)[
-              'count' => 1,
-              'data' => (object) [
-                'id' => $val->id,
-                'shortName' => $val->shortName,
-                'regionName' => $val->regionName?$val->regionName:'' ,
-                'lat' => $val->lat,
-                'lng' => $val->lng,
-                'symbol' => '',
-                'followers' => $followers,
+        if (isset($recommended[$val->id])) {
+          $recommended[$val->id]->count++;
+        } else {
+          $followers = array_reduce($val->followers()->get()->toArray(), [$this, "reduceFollowers"], []);
 
-              ],
-            ];
+          $recommended[$val->id] = (object)[
+            'count' => 1,
+            'data' => (object)[
+              'id' => $val->id,
+              'shortName' => $val->shortName,
+              'regionName' => $val->regionName ? $val->regionName : '',
+              'lat' => $val->lat,
+              'lng' => $val->lng,
+              'symbol' => '',
+              'followers' => $followers,
 
-          }
+            ],
+          ];
+
         }
 
 
