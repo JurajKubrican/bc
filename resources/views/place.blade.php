@@ -11,7 +11,7 @@
 
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-  <script src="/js/home.js" charset="utf-8"></script>
+  <script src="/js/place.js" charset="utf-8"></script>
   <script src="/js/handlebars-v4.0.5.js" charset="utf-8"></script>
 @endsection
 

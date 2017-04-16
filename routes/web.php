@@ -23,6 +23,10 @@ Route::post('/placeapi/{place}', 'PlaceController@apiDelete');
 //Route::get('/placeapi/{place}','PlaceController@apiDelete');
 
 
+Route::get('/user/{id}', 'HomeController@indexUser');
+
+Route::get('/city/{id}', 'HomeController@indexCity');
+
 
 Route::resource('settings', 'SettingsController');
 

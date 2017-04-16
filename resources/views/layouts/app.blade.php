@@ -14,10 +14,10 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     @yield('css')
-    <script src="js/jquery.js" charset="utf-8"></script>
-    <script src="js/bootstrap.min.js" charset="utf-8"></script>
-    <script src="js/typeahead.bundle.js" charset="utf-8"></script>
-    @yield('js')
+    <script src="/js/jquery.js" charset="utf-8"></script>
+    <script src="/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="/js/typeahead.bundle.js" charset="utf-8"></script>
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -86,6 +86,7 @@
 
         @yield('content')
     </div>
+    @yield('js')
     <!-- Scripts -->
     <!--<script src="/js/app.js"></script>-->
 

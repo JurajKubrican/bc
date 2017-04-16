@@ -188,6 +188,7 @@ class PlaceController extends Controller {
   }
 
   private function wrapGeoJSON($data, $options = null) {
+
     $geojson = (object) [
       'type' => 'FeatureCollection',
       'features' => []
@@ -210,8 +211,11 @@ class PlaceController extends Controller {
         ]
       ];
     }
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST');
+    header("Access-Control-Allow-Headers: X-Requested-With");
+    return (json_encode($geojson));
 
-    return json_encode($geojson);
   }
 
   private function wrapTemplate($data) {
