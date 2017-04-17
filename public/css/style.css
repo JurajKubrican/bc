@@ -10,7 +10,7 @@
   color:red;
 }
 
-#places_body .row:hover .delete{
+#places_body div:hover > div > .delete{
   visibility: visible;
 }
 

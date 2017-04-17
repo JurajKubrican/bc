@@ -12,10 +12,12 @@
     <td >{{regionName}}</td>
     <td >
         {{#each followers}}
-        <div class="follower-head" title="{{this}}"><span>{{this}}</span></div>
+        <a href="/user/{{this.id}}">
+          <div class="follower-head" title="{{this.name}}"><span>{{this.name}}</span></div>
+        </a>
         {{/each }}
     </td>
-    <td ><sapan class="glyphicon glyphicon-plus recommended-add" ></sapan></td>
+    <td ><a class="glyphicon glyphicon-plus recommended-add" data-id="{{id}}" href="#" ></a></td>
     </tr>
   {{/each}}
   </table>

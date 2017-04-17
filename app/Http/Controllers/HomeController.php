@@ -35,7 +35,7 @@ class HomeController extends Controller {
     }
 
 
-    return view('home');
+    return view('home')->with('user',$user->id);
   }
 
   public function indexUser($id){

@@ -95,6 +95,45 @@ class PlaceController extends Controller {
     }
   }
 
+  private function fetchMissing($place,$dest){
+    $search = new r2rSearch($place, $dest);
+    if (null === $routesEdge = $place->routes()->edge($dest)) {
+      $routesEdge = $place->routes()->save($dest);
+    }
+
+    $routesEdge->minPrice = 99999999;
+    $aEdgeData = [];
+    foreach ($search->getRoutes() as $route) {
+      $previous = $place;
+
+      //TODO: is this needed?
+      foreach ($route->segments as $segment) {
+        $segmentPlace = Place::findOrCreate($segment);
+
+        $segmentEdge = $previous->segment()->edge($segmentPlace);
+        if (!$segmentEdge) {
+          $previous->segment()->save($segmentPlace);
+        }
+        $previous = $segmentPlace;
+      }
+      if (!$previous->segment()->edge($dest)) {
+        $previous->segment()->save($dest);
+      }
+      //END SEGMENTS
+      $edgeData = (object) [];
+      $edgeData->priceLow = $route->priceLow;
+      $edgeData->priceHigh = $route->priceHigh;
+      $edgeData->price = $route->price;
+      $edgeData->typeName = $route->typeName;
+
+      $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
+
+      $aEdgeData[] = $edgeData;
+      //$routesEdge->altRoutes = json_encode($altAroutes);
+    }
+
+  }
+
   public function crawl() {
     $this->enqueueAll();
     $this->recountAll();
@@ -170,7 +209,7 @@ class PlaceController extends Controller {
         $data = $this->getRecommendedPlaces($atts);
         break;
       case 'suggested':
-        $data = $this->getSuggestedPlaces($atts);
+        $data = $this->getSuggestedPlaces();
         break;
       case 'all':
       default:
@@ -229,7 +268,10 @@ class PlaceController extends Controller {
   private function reduceFollowers($prev,$next){
 //    dd(Auth::user() && Auth::user()->id === $next['id']);
     if(!(Auth::user() && Auth::user()->id === $next['id'] ))
-    $prev [] = $next['name'];
+    $prev [] = (object)[
+      "id"=>$next['id'],
+      "name"=>$next['name'],
+    ];
     return $prev;
   }
 
@@ -253,6 +295,12 @@ class PlaceController extends Controller {
         continue;
 
       $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
+
+      if(empty($route->minPrice)){
+        //dd($user->home()->first()->canonicalName,$place->canonicalName);
+        $this->fetchMissing($user->home()->first(),$place);
+      }
+
 
       $data[] = (object) [
         'id' => $place->id,
@@ -381,7 +429,16 @@ class PlaceController extends Controller {
   public function apiDelete($placeId) {
     $user = Auth::user();
     $place = Place::find($placeId);
-    $placeEdge = $user->deleteFollows($place);
+    $user->deleteFollows($place);
+    die(json_encode(['error' => 0]));
+  }
+
+
+
+  public function apiAdd($placeId) {
+    $user = Auth::user();
+    $place = Place::find($placeId);
+    $user->follows()->save($place);
     die(json_encode(['error' => 0]));
   }
 

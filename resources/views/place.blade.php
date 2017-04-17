@@ -29,6 +29,9 @@
 @section('content')
   @include('home-places')
   @include('home-recommended')
+  <script>const appData = {
+      user:"{{$user}}"
+    }</script>
   <div class="container">
     <div id="main_map"></div>
     <div class="row">

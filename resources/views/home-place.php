@@ -31,7 +31,7 @@
             <div id="details-tab-{{id}}-tab-2" class="tab-pane fade">
               <table class="table">
               {{#each followers}}
-                <tr><td>{{this}}</td></tr>
+                <tr><td><a href="/user/{{this.id}}">{{this.name}}</td></tr>
               {{/each}}
               </table>
             </div>

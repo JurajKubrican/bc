@@ -24,6 +24,9 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script>const appData = {
+        user:"{{$user}}"
+      }</script>
 </head>
 <body>
     <div id="app">

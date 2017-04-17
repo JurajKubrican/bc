@@ -1,7 +1,8 @@
 <?php
-use App\Place;
-use App\Helper;
+
+
 namespace App;
+
 
 class r2rSearch {
   private $aVehicles;
@@ -12,6 +13,7 @@ class r2rSearch {
 
 
   public function __construct($from, $to, $options=['noCar'=>true,'noRideshare'=>true, 'noTowncar'=>true,'currencyCode'=>'EUR']){
+
     $data = $this->cachedRequest($from,$to,$options);
 
     $this->aVehicles = $data->vehicles;
@@ -66,14 +68,16 @@ class r2rSearch {
     if( !($cache->file && $cache->time < time() + 3600 && file_exists($cache->file) && $data = file_get_contents($cache->file))){
       $data = $this->request($query_data);
       $fname = Helper::remove_accents($this->cacheDir.$from->canonicalName . '-' . $to->canonicalName);
-      file_put_contents($fname,$data);
+      //file_put_contents($fname,$data);
       $cache->file = $fname;
       $cache->time = time();
       $cache->save();
-      file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - request ' . var_export($cache->file) . "\n", FILE_APPEND);
+      file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - request ' . var_export($cache->file,true) . "\n", FILE_APPEND);
     }else{
-      file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - from CACHE ' . var_export($cache->file) . "\n", FILE_APPEND);
+      file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - from CACHE ' . var_export($cache->file,true) . "\n", FILE_APPEND);
     }
+
+
     return json_decode($data);
   }
 

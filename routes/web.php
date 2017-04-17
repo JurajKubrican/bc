@@ -20,7 +20,7 @@ Route::resource('place', 'PlaceController');
 
 Route::get('/placeapi', 'PlaceController@apiGet');
 Route::post('/placeapi/{place}', 'PlaceController@apiDelete');
-//Route::get('/placeapi/{place}','PlaceController@apiDelete');
+Route::post('/placeapi/add/{place}', 'PlaceController@apiAdd');
 
 
 Route::get('/user/{id}', 'HomeController@indexUser');

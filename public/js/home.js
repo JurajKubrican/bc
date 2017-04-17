@@ -116,6 +116,21 @@ var app = (function($,appData) {
     });
   });
 
+  $(document).on('click', '.recommended-add', function (e) {
+    e.preventDefault();
+    e.stopPropagation()
+
+    $.ajax({
+      url: '/placeapi/add/'+$(e.target).data('id'),
+      type: 'POST',
+      success: function (data) {
+        data = JSON.parse(data);
+        $(document).trigger('appRefresh');
+      }
+    });
+
+  })
+
 
   $(document).on('click', '.focus-map', function (e) {
     e.preventDefault();
@@ -127,5 +142,7 @@ var app = (function($,appData) {
   })
 
 
+
+
   // return app;
-}(jQuery,appData||{}));
+}(jQuery,appData));
