@@ -58,7 +58,7 @@ class HomeController extends Controller {
    */
   public function welcome() {
     
-    return view('welcome');
+    return view('welcome')->with('user',0);
   }
 
 }

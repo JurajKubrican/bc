@@ -296,7 +296,7 @@ class PlaceController extends Controller {
 
       $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
 
-      if(empty($route->minPrice)){
+      if(null == $route->minPrice){
         //dd($user->home()->first()->canonicalName,$place->canonicalName);
         $this->fetchMissing($user->home()->first(),$place);
       }
