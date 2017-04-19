@@ -3,12 +3,24 @@
 \noindent 
 
 
-\subsection{Grafové}
-%TODO cite 
-
-
 \subsection{Relaèné}
-\noindent Anonymná sie je sie serverov, medzi ktorımi dáta prechádzajú šifrované. V anonymnıch sieach dáta prechádzajú z poèítaèa pouívate¾a, odkia¾ bola poiadavka poslaná, cez viaceré proxy smerovaèe, z ktorıch kadı správu doplní o smerovanie a zašifruje vlastnım k¾úèom. Cesta od ...
+%https://en.wikipedia.org/wiki/Relational_database
+\noindent Relaèná databáza je databáza, v ktorej sú údaje uloené pod¾a relaèného databázového modelu podla  E. F. Codda z roku 1970. Pod¾a Relaèného modelu sú dáta uloené v tabu¾kách. Jeden riadok tabu¾y je jeden záznam. Stlpec tabu¾y reprezentuje jeden atribút objektu.
+\noindent Väzby (vztahy) medzi tabu¾ami sú riešené pomocou unikátnych identifikátorov tzv. k¾úèov. jhedna tabu¾ka obsahuje k¾úè, èo je atribút ktorı unikátne identifikuje kadı záznam a druhá tabu¾a obsahuje tzv cudzí k¾úè, atribút ktorı odkazuje na záznam v prvej tabu¾ke.
+\noindent Vıhodou tohto spôsobu ukladania dát je jednoduchos a preh¾adnos. Nevıhoda tohto prístupu sa však ukazuje v škálovatelnosti. Pri vyh¾adávaní kadé toto prepojenie pridáva vıpoètovú komplexitu, keïe v kadej da¾šej prepojeniej tabu¾ke treba vyhlada záznam s poadovanım k¾úèom (O(log(n))). Všetky pouívané relaèné databázové systémy riešia tento problém škálovate¾nosti pouitím indexov a rôznymi inımi optimalizáciami, no pokial sú naše dáta štrukturované s ve¾a prepojeniami systém sa spomalí.
+   
+%TODO obrazok relations in grapg vs relational
+%TODO types of data in relational  vs Ggraph
+
+
+
+
+\subsection{Grafové}
+%TODO history
+\noindent V grafovej databáze sú údaje štrukturované vo vrcholoch(node) a hranách(edge). Prepojenia medzi vrcholmi sú realizované priamo pomocou hrán.
+Grafové databázové systémy podporujú vlasnté sémantické prostriekdky ktoré umonuju priamu manipuláciu so štruktúrov dát.
+Jedna z hlavnıch vıhod
+Táto štruktúra umonuje priamo 
 
 
 \section{Cie¾ práce}
@@ -21,10 +33,10 @@
 
 \subsubsection{NEO4J}
 \noindent  
+
 \subsubsection{OrientDB}
 \noindent  
-\subsubsection{Titan}
-\noindent  
+
 \subsubsection{ArangoDB}
 \noindent  
 
@@ -35,7 +47,7 @@
 
 \subsection{Pouíté technológie}
 \subsubsection{NEO4J}
-\noindent Neo4J je najpou iva
+\noindent Neo4J je najpouívanejšia grafová databáza s
 
 \subsubsection{NeoEloquent ORM}
 
@@ -48,7 +60,6 @@
 \subsubsection{Rome2Rio Api}
 
 
-\funkcionalita{}
 \noindent  Rozšírenie tie okrem splnenia špecifikácie malo pre preh¾adnos a overenie funkènosti zobrazova údaje, ktoré boli na server odoslané. Zoznam údajov odoslanıch na server, sa mal uklada do krátkodobej histórie, aby nemal pouívate¾ k dispozícií len najnovšie údaje, ale aj údaje odoslané v nejakom èasovom období. 
 
 \subsubsection{Funkcionalita2}
@@ -57,5 +68,5 @@
 \subsection{Vzh¾ad}
 \noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie. Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
 
-\noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie.\cite{anonlib} Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
+\noindent \cite{anonlib} Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
 
