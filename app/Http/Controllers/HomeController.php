@@ -28,7 +28,7 @@ class HomeController extends Controller {
 
     $user = Auth::user();
     if (!$user) {
-      return redirect('/welcome');
+      return redirect('/welcome')->with('user',[]);
     }
     if (!$user->home()->get()->count()) {
       return redirect('settings');

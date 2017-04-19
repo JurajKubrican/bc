@@ -25,7 +25,7 @@
         ]); ?>
     </script>
     <script>const appData = {
-        user:"{{$user}}"
+        user:"{{isset($user) ? $user : false}}"
       }</script>
 </head>
 <body>
