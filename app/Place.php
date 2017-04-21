@@ -35,9 +35,9 @@ class Place extends \NeoEloquent {
     return $this->hasMany('App\Place', 'QUEUE');
   }
 
-  public function segment() {
-    return $this->hasMany('App\Place', 'SEGMENT');
-  }
+//  public function segment() {
+//    return $this->hasMany('App\Place', 'SEGMENT');
+//  }
 
   public function cache() {
     return $this->hasMany('App\Place', 'CACHE');

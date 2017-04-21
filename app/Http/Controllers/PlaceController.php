@@ -104,22 +104,8 @@ class PlaceController extends Controller {
     $routesEdge->minPrice = 99999999;
     $aEdgeData = [];
     foreach ($search->getRoutes() as $route) {
-      $previous = $place;
 
-      //TODO: is this needed?
-      foreach ($route->segments as $segment) {
-        $segmentPlace = Place::findOrCreate($segment);
 
-        $segmentEdge = $previous->segment()->edge($segmentPlace);
-        if (!$segmentEdge) {
-          $previous->segment()->save($segmentPlace);
-        }
-        $previous = $segmentPlace;
-      }
-      if (!$previous->segment()->edge($dest)) {
-        $previous->segment()->save($dest);
-      }
-      //END SEGMENTS
       $edgeData = (object) [];
       $edgeData->priceLow = $route->priceLow;
       $edgeData->priceHigh = $route->priceHigh;
@@ -129,8 +115,11 @@ class PlaceController extends Controller {
       $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
 
       $aEdgeData[] = $edgeData;
-      //$routesEdge->altRoutes = json_encode($altAroutes);
     }
+    $routesEdge->routes = json_encode($aEdgeData);
+
+
+    $routesEdge->save();
 
   }
 
@@ -138,55 +127,19 @@ class PlaceController extends Controller {
     $this->enqueueAll();
     $this->recountAll();
 
+
+
     $allPlaces = Place::all();
     foreach ($allPlaces as $place) {
       $allQueued = $place->queue()->get();
       if (!$allQueued->count())
         continue;
       foreach ($allQueued as $dest) {
-        $queue = $place->queue()->edge($dest);
-        $search = new r2rSearch($place, $dest);
-
-        if (null === $routesEdge = $place->routes()->edge($dest)) {
-          $routesEdge = $place->routes()->save($dest);
-        }
-
-        $routesEdge->minPrice = 99999999;
-        $aEdgeData = [];
-        foreach ($search->getRoutes() as $route) {
-          $previous = $place;
-
-          //TODO: is this needed?
-          foreach ($route->segments as $segment) {
-            $segmentPlace = Place::findOrCreate($segment);
-
-            $segmentEdge = $previous->segment()->edge($segmentPlace);
-            if (!$segmentEdge) {
-              $segmentEdge = $previous->segment()->save($segmentPlace);
-            }
-            $previous = $segmentPlace;
-          }
-          if (!$previous->segment()->edge($dest)) {
-            $previous->segment()->save($dest);
-          }
-          //END SEGMENTS
-          $edgeData = (object) [];
-          $edgeData->priceLow = $route->priceLow;
-          $edgeData->priceHigh = $route->priceHigh;
-          $edgeData->price = $route->price;
-          $edgeData->typeName = $route->typeName;
-
-          $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
-
-          $aEdgeData[] = $edgeData;
-          //$routesEdge->altRoutes = json_encode($altAroutes);
-        }
-        $routesEdge->routes = json_encode($aEdgeData);
-        //$history = (array)json_decode($routesEdge->history);
-        //$history[time()] = (object)['minPrice' => $routesEdge->minPrice];
-        //$routesEdge->history = json_encode($history);
-        $routesEdge->save();
-        $queue->delete();
+        //$place->queue()->edge($dest);
+        $this->fetchMissing($place, $dest);
+//        if ($place->queue()->edge($dest)) {
+//          $place->queue()->save($dest);
+//        }
       }
     }
 
@@ -203,7 +156,6 @@ class PlaceController extends Controller {
 
 
 
-    $data = [];
     switch ($atts['filter']) {
       case 'recommend':
         $data = $this->getRecommendedPlaces($atts);
@@ -318,14 +270,14 @@ class PlaceController extends Controller {
 
   }
 
-  private function recommnedReduce($prev,$new){
+  private function recommendReduce($prev,$new){
     $temp = $new->data;
     $temp->count = $new->count;
     $prev[] = $temp;
     return $prev;
   }
 
-  private function recommnedSort($a, $b){
+  private function recommendSort($a, $b){
     if ($a->count == $b->count) {
       return 0;
     }
@@ -401,9 +353,9 @@ class PlaceController extends Controller {
 
       }
     }
-    usort($recommended,[$this,'recommnedSort']);
+    usort($recommended,[$this,'recommendSort']);
     //dd($recommended);
-    $recommended = array_reduce($recommended,[$this,'recommnedReduce'],[]);
+    $recommended = array_reduce($recommended,[$this,'recommendReduce'],[]);
     return $recommended;
 
   }

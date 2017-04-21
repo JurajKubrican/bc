@@ -24,6 +24,7 @@ class r2rSearch {
   public function getRoutes(){
     $result = [];
     foreach ($this->aRoutes as $route){
+
       if(!isset($route->indicativePrices)){
         $route->indicativePrices = '?';
         $routePriceLow = 0;
@@ -76,7 +77,7 @@ class r2rSearch {
     }else{
       file_put_contents($this->logDir . "request-log.txt", date('Y-m-d H:i:s') . ' - from CACHE ' . var_export($cache->file,true) . "\n", FILE_APPEND);
     }
-
+    //dd(json_decode($data));
 
     return json_decode($data);
   }
