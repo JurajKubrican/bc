@@ -27,7 +27,47 @@ Táto štruktúra umonuje priamo
 \noindent Cie¾om práce je navrhnú a na implementova aplikáciu, ktorá vyuíva grafovú databázu, dalej zhodnoti vıhody tohto riešenia oproti inım typom databáz.
 
 
-\section{Návrh riešenia}
+\section{Proces tvroby systému}
+
+
+\section{Špecifikácia}
+\begin{enumerate}
+\item Funkcionálne poiadavky
+\begin{enumerate}
+\item Aplikácia bude umonoiva registráciu a prihlásenie pouívate¾a
+\item Pri registrácií sa budú vyadova rpihlasovacie údaje: e-mail, heslo. Okrem toho sa bude vyadova zadnie mena a domáceho miesta. Toto domáce miesto bude moné vyh¾ada v online databáze.
+\item Po prihlásení pouívate¾a sa mu zobrazí obrazovka s mapou, zoznamom ob¾úbenıch destinácií, ktoré chce navštívi a zoznam odporúèanıch destinácií
+\item Na mape bude vyobrazené pouívate¾ove domáce miesto a všetky destinácie ktoré ma v zozname ob¾úbenıch destinácií. Po kliknutí na destináciu sa pouívate¾ovi otvorí príslušnı riadok v zozname ob¾úbenıch.
+\item V zozname ob¾úbenıch budú všetky miesta, ktoré si pouívate¾ pridal. Zoznam bude vo forme tabu¾y riadok bude obsahova Meno destinácie a lokalitu v ktorej sa destinácia nachádza. V riadku tie bude tlaèidlo na vymazanie destinácie z ob¾úbenıch a tlaèidlo na zobrazenie detajlov.
+\item V detajloch ob¾úbeného miesta bude zoznam ostatnıch ¾udi ktorí dané miesto majú v ob¾úbenıch a vıpis monıch trás z domáceho miesta pouívate¾a do destinácie.
+\item V zozname odporúèanıch destinácií budú destinácie ktoré majú v ob¾úbenıch pouívate¾ia, ktorí majú v ob¾úbenıch rovnaké miesta ako miesta, ktoré má v ob¾úbenıch prihlásenı pouívate¾. Vynechané budú miesta, ktoré u prihlásenı pouívate¾ má  ob¾úbenıch. Kadá poloka z odporúcanıch sa bude da jednoducho prida do ob¾úbenıch prikáseného pouívate¾a.
+\item V aplikácií bude obrazovka s nastaveniami, na ktorej si bude èlovek môc zmeni heslo, domáce miesto.
+%TODO specifikacia zoradnia miest
+
+
+\end{enumerate}
+\item Nefunkcionálne poiadavky
+\begin{enumerate}
+\item Systém bude zrealizovanı na webovej platforme.
+\item Systém musí by kompatibilnı s webovımi prehliadaèmi Google Chrome Mozilla Firefox, Microsoft Edge, Microsoft Internet Explorer
+\item Uívate¾ské rozhranie systém musí by plne pouite¾né aj na mobilnıch telefónoch s OS Android a IOS.
+\item Aplikácia bude implementovanı s pouítím jayka PHP a PHP frameworku.
+\end{enumerate}
+
+\item Doménové poiadavky
+\begin{enumerate}
+\item Systém bude nasadenı na virtuálnom serveri poskytnutom Ústavom informatiky a matematiky FEI STU.
+\end{enumerate}
+\end{enumerate}
+
+
+\section{Návrh}
+
+
+\section{Implementácia}
+\noindent 
+
+
 \subsection{Vıber grafovej databázy}
 \noindent 
 
@@ -40,9 +80,6 @@ Táto štruktúra umonuje priamo
 \subsubsection{ArangoDB}
 \noindent  
 
-
-\section{Implementácia}
-\noindent 
 
 
 \subsection{Pouíté technológie}
@@ -66,8 +103,8 @@ Mapbox.js podporuje štandartnı formát dát GeoJSON, tento formát umonuje uklada
 \noindent Rome2Rio je portál ktorı zbiera údaje o cenách dopravy po celom svete a umonuje vyh¾ada cenu cesty medzi dvomi ¾ubovolnımi destináciami. Rome2Rio taktie poskytuje nieko¾ko otvorenıch a platenıch API.
 %TODO
 
-\subsubsection{Funkcionalita2}
-\noindent Samozrejmosou bolo nastavenie zapnutia rozšírenia pri štarte, prípadne interval zmeny odosielanıch údajov.
+
+
 
 \subsection{Vzh¾ad}
 \noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie. Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
