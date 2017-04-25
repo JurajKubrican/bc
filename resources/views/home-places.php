@@ -11,7 +11,7 @@
             <span class="hide-if-not-collapsed glyphicon glyphicon-chevron-down"></span>
             <span class="hide-if-collapsed glyphicon glyphicon-chevron-up"></span>
           </div>
-          <div class="col-sm-4"><a class="focus-map" data-id="{{id}}" href="#">{{shortName}}</a></div>
+          <div class="col-sm-4"><a class="focus-map" data-id="{{id}}" data-lat="{{lat}}" data-lng="{{lng}}" href="#">{{shortName}}</a></div>
           <div class="col-sm-4">{{regionName}}</div>
           <div class="col-sm-2">{{price}}€</div>
           <div class="col-sm-1"><a class="delete glyphicon glyphicon-remove" data-id="{{id}}" href="#"></a></div>

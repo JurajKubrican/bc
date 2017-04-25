@@ -1,6 +1,8 @@
 var app = (function($,appData) {
   ('use strict');
 
+  var home = {};
+
   $(document).ready(function() {
     initSearchBar();
     initMap();
@@ -76,6 +78,34 @@ var app = (function($,appData) {
       });
   }
 
+
+  var polyline = {};
+
+  $(document).on('click', '.focus-map', function (e) {
+    e.preventDefault();
+    e.stopPropagation()
+
+    gmap.eachLayer(function (layer) {
+
+      if(layer.feature || layer._featureGroup ){
+        gmap.removeLayer(layer);
+      }
+      gmap.removeLayer(polyline);
+
+    });
+
+    var latlngs = [
+      L.latLng($(e.target).data('lat'), $(e.target).data('lng')),
+      L.latLng(home.lat,home.lng)
+
+    ];
+     polyline = L.polyline(latlngs, {color: 'red'}).addTo(gmap);
+
+    gmap.fitBounds(polyline.getBounds());
+
+  })
+
+
   /*
    * HANDLEBARS
    */
@@ -89,7 +119,7 @@ var app = (function($,appData) {
 
     $.get('/placeapi?type=template', function (data) {
       data = JSON.parse(data);
-      console.log(data);
+      home = data.places[0];
       $('#places_body').html(template(data));
     });
 
@@ -132,14 +162,6 @@ var app = (function($,appData) {
   })
 
 
-  $(document).on('click', '.focus-map', function (e) {
-    e.preventDefault();
-    e.stopPropagation()
-
-    console.log($(e.target).data('id'));
-    console.log(layer);
-
-  })
 
 
 
