@@ -23,15 +23,16 @@
       <input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead">
       <input style="margin-top: 6px;height: 30px;line-height: 17px;" class="form-control button" type="submit" value="Follow">
     </form>
+    <a href="/tsp" class="button">TSP</a>
   @endif
 @endsection
 
 @section('content')
   @include('home-places')
   @include('home-recommended')
-  <script>const appData = {
-      user:"{{$user}}"
-    }</script>
+  {{--<script>const appData = {--}}
+      {{--user:"{{$user}}"--}}
+    {{--}</script>--}}
   <div class="container">
     <div id="main_map"></div>
     <div class="row">

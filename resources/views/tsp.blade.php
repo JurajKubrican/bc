@@ -11,28 +11,29 @@
 
   <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
   <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
-  <script src="/js/user.js" charset="utf-8"></script>
+  <script src="/js/tsp.js" charset="utf-8"></script>
   <script src="/js/handlebars-v4.0.5.js" charset="utf-8"></script>
 @endsection
 
 @section('nav')
-  @if (!Auth::guest())
-    <form class="form-inline" action="/place" method="post">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <input id="search-data" type="hidden" name="search-data" value="" />
-      <input id="search-bar" class="form-control" name="place" type="text" data-provide="typeahead">
-      <input style="margin-top: 6px;height: 30px;line-height: 17px;" class="form-control button" type="submit" value="Follow">
-    </form>
-  @endif
+
 @endsection
 
 @section('content')
-  @include('home-user')
-  {{--<script>const appData = {--}}
-    {{--user:"{{$user}}"--}}
-    {{--}</script>--}}
+  @include('tsp-places')
+  @include('tsp-path')
   <div class="container">
     <div id="main_map"></div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">Dashboard</div>
+          <div id="path_body" class="panel">
+
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">

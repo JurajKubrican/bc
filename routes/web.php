@@ -22,6 +22,11 @@ Route::get('/placeapi', 'PlaceController@apiGet');
 Route::post('/placeapi/{place}', 'PlaceController@apiDelete');
 Route::post('/placeapi/add/{place}', 'PlaceController@apiAdd');
 
+Route::get('/tsp','HomeController@indexTsp');
+Route::get('/tsp/solve','TSPController@run');
+Route::post('/tsp/add/{place}','TSPController@add');
+Route::post('/tsp/remove/{place}','TSPController@remove');
+
 
 Route::get('/user/{id}', 'HomeController@indexUser');
 

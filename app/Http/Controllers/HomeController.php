@@ -51,6 +51,14 @@ class HomeController extends Controller {
 
   }
 
+  public function indexTsp(){
+    $user = empty($_GET['user']) ? Auth::user() : User::find($_GET['user']) ;
+    if (!$user) {
+      return redirect('/welcome')->with('user',[]);
+    }
+    return view('tsp')->with('user',$user->id);
+  }
+
   /**
    * Show the application dashboard.
    *

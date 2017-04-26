@@ -15,7 +15,7 @@ class User extends \NeoEloquent implements Authenticatable {
    * @var array
    */
   protected $fillable = [
-      'name', 'email', 'password',
+      'name', 'email', 'password', 'tspCache'
   ];
 
   /**
@@ -38,6 +38,9 @@ class User extends \NeoEloquent implements Authenticatable {
     if ($edge = $this->follows()->edge($dest)) {
       $edge->delete();
     }
+    if ($edge = $this->tsp()->edge($dest)) {
+      $edge->delete();
+    }
   }
 
   /**
@@ -50,6 +53,10 @@ class User extends \NeoEloquent implements Authenticatable {
   public function setPassword($pass) {
     $this->password = bcrypt($pass);
     $this->save;
+  }
+
+  public function tsp() {
+    return $this->hasMany('App\Place', 'TSP');
   }
 
 }

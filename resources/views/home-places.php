@@ -13,7 +13,7 @@
           </div>
           <div class="col-sm-4"><a class="focus-map" data-id="{{id}}" data-lat="{{lat}}" data-lng="{{lng}}" href="#">{{shortName}}</a></div>
           <div class="col-sm-4">{{regionName}}</div>
-          <div class="col-sm-2">{{price}}€</div>
+          <div class="col-sm-1">{{price}}€</div>
           <div class="col-sm-1"><a class="delete glyphicon glyphicon-remove" data-id="{{id}}" href="#"></a></div>
         </div>
         <div id="details-tab-{{id}}" class="place-details-tab collapse">

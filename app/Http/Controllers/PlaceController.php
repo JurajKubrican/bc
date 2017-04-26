@@ -80,6 +80,25 @@ class PlaceController extends Controller {
 
   }
 
+
+  public static function enqueueAllTSP() {
+
+    $user = Auth::user();
+    $places = $user->follows()->get();
+    foreach ($places as $place1) {
+      foreach($places as $place2){
+          if($place1===$place2){
+            continue;
+          }
+
+        if (!$place1->queue()->edge($place2)) {
+          $place1->queue()->save($place2);
+        }
+      }
+    }
+  }
+
+
   private function enqueueAll() {
 
     $allUsers = User::all();
@@ -95,8 +114,9 @@ class PlaceController extends Controller {
     }
   }
 
-  private function fetchMissing($place,$dest){
+  public static function fetchMissing($place,$dest){
     $search = new r2rSearch($place, $dest);
+    //dump(['fetching',$place->shortName,$dest->shortName]);
     if (null === $routesEdge = $place->routes()->edge($dest)) {
       $routesEdge = $place->routes()->save($dest);
     }
@@ -112,7 +132,10 @@ class PlaceController extends Controller {
       $edgeData->price = $route->price;
       $edgeData->typeName = $route->typeName;
 
-      $routesEdge->minPrice = min($routesEdge->minPrice, $route->priceLow);
+      if($routesEdge->minPrice > $route->priceLow && $route->priceLow != 0){
+        $routesEdge->minPrice = $route->priceLow;
+      }
+
 
       $aEdgeData[] = $edgeData;
     }
@@ -253,6 +276,10 @@ class PlaceController extends Controller {
         $this->fetchMissing($user->home()->first(),$place);
       }
 
+      $tsp = $user->tsp()->edge($place) ? 1 : '';
+//      if($tsp)
+//        dd($user->tsp()->edge($place));
+
 
       $data[] = (object) [
         'id' => $place->id,
@@ -264,6 +291,7 @@ class PlaceController extends Controller {
         'price' => $route->minPrice,
         'followers' => $followers,
         'routes' => json_decode($route->routes),
+        'tsp' => $tsp,
       ];
     }
     return $data;

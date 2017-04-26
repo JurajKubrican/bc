@@ -29,6 +29,7 @@
 @section('content')
   @include('home-places')
   @include('home-recommended')
+  <button class="tsp-run"></button>
   <div class="container">
     <div id="main_map"></div>
     <div class="row">
