@@ -73,30 +73,6 @@ var app = (function($,appData) {
 
 
    var polyline = {};
-  //
-  // $(document).on('click', '.focus-map', function (e) {
-  //   e.preventDefault();
-  //   e.stopPropagation()
-  //
-  //   gmap.eachLayer(function (layer) {
-  //
-  //     if(layer.feature || layer._featureGroup ){
-  //       gmap.removeLayer(layer);
-  //     }
-  //     gmap.removeLayer(polyline);
-  //
-  //   });
-  //
-  //   var latlngs = [
-  //     L.latLng($(e.target).data('lat'), $(e.target).data('lng')),
-  //     L.latLng(home.lat,home.lng)
-  //
-  //   ];
-  //    polyline = L.polyline(latlngs, {color: 'red'}).addTo(gmap);
-  //
-  //   gmap.fitBounds(polyline.getBounds());
-  //
-  // })
 
 
   /*
@@ -126,6 +102,7 @@ var app = (function($,appData) {
       data = JSON.parse(data);
       home = data.places[0];
       $('#path_body').html(template(data));
+      $('.loader').hide();
     });
 
   }
@@ -145,11 +122,8 @@ var app = (function($,appData) {
   });
 
 
-  $(document).on('click','.tsp-run',function(e){
-    mapRefresh();
-  })
-
   $(document).on('click','.tsp-add',function(e){
+    $('.loader').show();
 
     e.preventDefault();
     e.stopPropagation()
@@ -159,6 +133,7 @@ var app = (function($,appData) {
       type: 'POST',
       success: function (data) {
         $(document).trigger('appRefresh');
+
       }
     });
 

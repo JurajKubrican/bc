@@ -19,6 +19,9 @@
         var clusterGroup = new L.MarkerClusterGroup();
         e.target.eachLayer(function(layer) {
           clusterGroup.addLayer(layer);
+          $(document).on('click','.zoom-map[data-id="' +layer.feature.properties.title + '"]',function(){
+            gmap.setView(layer.getLatLng(),8);
+          })
         });
         gmap.addLayer(clusterGroup);
         gmap.fitBounds(clusterGroup.getBounds());

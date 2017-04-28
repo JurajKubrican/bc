@@ -37,7 +37,7 @@ class TSPController extends Controller {
 
 
 
-    set_time_limit(30 * 60);
+    set_time_limit(5 * 60);
 
     $home = $user->home()->first();
 
@@ -55,7 +55,7 @@ class TSPController extends Controller {
 
     }
 
-    $cacheKey = implode($aPlaces);
+    $cacheKey = $home->id.implode($aPlaces);
     if(!isset($user->tspCache)){
       $user->tspCache = serialize([]);
       $user->save();

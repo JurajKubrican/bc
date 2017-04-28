@@ -22,6 +22,7 @@
 @section('content')
   @include('tsp-places')
   @include('tsp-path')
+  <div class="loader"></div>
   <div class="container">
     <div id="main_map"></div>
     <div class="row">

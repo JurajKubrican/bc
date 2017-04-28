@@ -241,11 +241,10 @@ class PlaceController extends Controller {
   }
 
   private function reduceFollowers($prev,$next){
-//    dd(Auth::user() && Auth::user()->id === $next['id']);
     if(!(Auth::user() && Auth::user()->id === $next['id'] ))
     $prev [] = (object)[
       "id"=>$next['id'],
-      "name"=>$next['name'],
+      "name"=>empty($next['name']) ? $next['email'] : $next['name'],
     ];
     return $prev;
   }
@@ -393,6 +392,9 @@ class PlaceController extends Controller {
     $places = Place::orderBy('followerCount', 'DESC')->take(30)->get();
 
     foreach ($places as $key => $place) {
+
+      $followers = array_reduce($place->followers()->get()->toArray(), [$this, "reduceFollowers"], []);
+
       $data[] = (object) [
         'id' => $place->id,
         'shortName' => $place->shortName,
@@ -400,6 +402,7 @@ class PlaceController extends Controller {
         'lat' => $place->lat,
         'lng' => $place->lng,
         'symbol' => '',
+        'followers' => $followers,
       ];
     }
     return $data;

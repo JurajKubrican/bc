@@ -40,17 +40,28 @@ class HomeController extends Controller {
 
   public function indexUser($id){
 
-    return view('user')->with('user',$id);
+    $user = User::find($id);
+
+    return view('user')
+      ->with('user',$id)
+      ->with('name',$user->name);
 
   }
 
 
+  /**
+   * @param $id
+   * @return $this
+   */
   public function indexCity($id){
 
     return view('place')->with('place',$id);
 
   }
 
+  /**
+   * @return $this|\Illuminate\Http\RedirectResponse
+   */
   public function indexTsp(){
     $user = empty($_GET['user']) ? Auth::user() : User::find($_GET['user']) ;
     if (!$user) {
