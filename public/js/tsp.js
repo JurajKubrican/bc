@@ -2,6 +2,7 @@ var app = (function($,appData) {
   ('use strict');
 
   var home = {};
+  var busy = false;
 
   $(document).ready(function() {
     initSearchBar();
@@ -57,18 +58,16 @@ var app = (function($,appData) {
         });
         gmap.fitBounds(group.getBounds())
         refreshPath();
+        $('.glyphicon-refresh').each(function(){
+          $(this).addClass( $(this).data('class') ).removeClass('glyphicon-refresh');
+        })
       });
 
 
   }
 
   function mapRefresh(){
-
     layer.loadURL("/tsp/solve?type=geojson&user="+appData.user);
-
-
-
-    //gmap.fitBounds(layer.getBounds());
   }
 
 
@@ -80,11 +79,8 @@ var app = (function($,appData) {
    */
   $(document).ready(refreshPage);
   $(document).on('appRefresh',refreshPage)
-  var template
-  $(document).ready(function(){
-    template = Handlebars.compile($("#places-template").html());
-  })
   function refreshPage (){
+    var template = Handlebars.compile($("#places-template").html());
 
     $.get('/placeapi?type=template&user='+appData.user, function (data) {
       data = JSON.parse(data);
@@ -102,40 +98,27 @@ var app = (function($,appData) {
       data = JSON.parse(data);
       home = data.places[0];
       $('#path_body').html(template(data));
-      $('.loader').hide();
+      $('.loader').removeClass('loader');
+      busy = false;
     });
 
   }
 
-  $(document).on('click', '.delete', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    $.ajax({
-      url: '/placeapi/' + $(this).data('id'),
-      type: 'POST',
-      success: function (data) {
-        data = JSON.parse(data);
-        //TODO error handling
-        $(document).trigger('appRefresh');
-      }
-    });
-  });
-
 
   $(document).on('click','.tsp-add',function(e){
-    $('.loader').show();
-
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
 
     $.ajax({
       url: '/tsp/' + ($(e.target).hasClass('glyphicon-plus')? 'add' : 'remove') + '/' + $(e.target).data('id')+'?user='+appData.user,
       type: 'POST',
       success: function (data) {
-        $(document).trigger('appRefresh');
-
+        mapRefresh();
       }
     });
+
+    $(e.target).data('class',($(e.target).hasClass('glyphicon-plus') ? 'glyphicon-ok' : 'glyphicon-plus'))
+      .removeClass('glyphicon-plus').removeClass('glyphicon-ok').addClass('glyphicon-refresh');
 
   })
 

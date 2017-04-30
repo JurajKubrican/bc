@@ -32,50 +32,110 @@ Táto štruktúra umonuje priamo
 
 \section{Špecifikácia}
 \begin{enumerate}
-\item Funkcionálne poiadavky
+	\item Funkcionálne poiadavky
+	\begin{enumerate}
+		\item Aplikácia bude umonoiva registráciu a prihlásenie pouívate¾a
+		\item Pri registrácií sa budú vyadova rpihlasovacie údaje: e-mail, heslo. Okrem toho sa bude vyadova zadnie mena a domáceho miesta. Toto domáce miesto bude moné vyh¾ada v online databáze.
+		\item Po prihlásení pouívate¾a sa mu zobrazí obrazovka s mapou, zoznamom ob¾úbenıch destinácií, ktoré chce navštívi a zoznam odporúèanıch destinácií
+		\item Na mape bude vyobrazené pouívate¾ove domáce miesto a všetky destinácie ktoré ma v zozname ob¾úbenıch destinácií. Po kliknutí na destináciu sa pouívate¾ovi otvorí príslušnı riadok v zozname ob¾úbenıch.
+		\item V zozname ob¾úbenıch budú všetky miesta, ktoré si pouívate¾ pridal. Zoznam bude vo forme tabu¾y riadok bude obsahova Meno destinácie a lokalitu v ktorej sa destinácia nachádza. V riadku tie bude tlaèidlo na vymazanie destinácie z ob¾úbenıch a tlaèidlo na zobrazenie detajlov.
+		\item V detajloch ob¾úbeného miesta bude zoznam ostatnıch ¾udi ktorí dané miesto majú v ob¾úbenıch a vıpis monıch trás z domáceho miesta pouívate¾a do destinácie.
+		\item V zozname odporúèanıch destinácií budú destinácie ktoré majú v ob¾úbenıch pouívate¾ia, ktorí majú v ob¾úbenıch rovnaké miesta ako miesta, ktoré má v ob¾úbenıch prihlásenı pouívate¾. Vynechané budú miesta, ktoré u prihlásenı pouívate¾ má  ob¾úbenıch. Kadá poloka z odporúcanıch sa bude da jednoducho prida do ob¾úbenıch prikáseného pouívate¾a.
+		\item V aplikácií bude obrazovka s nastaveniami, na ktorej si bude èlovek môc zmeni heslo, domáce miesto.
+		\item V aplikácií bude obrazovka kde si bude pouívate¾ vybra niko¾ko zo svojich ob¾úbenıch miest a necha si vyráta najkratšiu trasu z domáceho miesta cez všetky zvolené miesta a potom spa. (TSP)
+
+
+
+	\end{enumerate}
+	\item Nefunkcionálne poiadavky
+	\begin{enumerate}
+		\item Systém bude zrealizovanı na webovej platforme.
+		\item Aplikácia bude vyuíva natívnu grafovú databázu.
+		\item Aplikácia bude by kompatibilná s webovımi prehliadaèmi Google Chrome Mozilla Firefox, Microsoft Edge, Microsoft Internet Explorer.
+		\item Uívate¾ské rozhranie systém musí by plne pouite¾né aj na mobilnıch telefónoch s OS Android a IOS.
+		\item Aplikácia bude implementovanı s pouítím jayka PHP a PHP frameworku.
+		\item Systém bude nasadenı na virtuálnom serveri s operaènım systémom  Ubuntu 16.04.2 LTS poskytnutom Ústavom informatiky a matematiky FEI STU.
+	\end{enumerate}
+
+\end{enumerate}
+
+
+\section{Vıvoj}
+%\noindent Fáza vıvoja sa delí na dve èasti: návrh a implementácia. V èasti návrhu narvhneme štruktúru projektu, upresníme 
+
+\subsection{Návrh}
+\noindent V èasti návrhu projektu popíšeme prípady pouitia, 
+
+\subsubsection{Usecase diagramy}
+\noindent
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm]{uml/usecase-login-settings.pdf}
+	\caption{Usecase - Registrácia, autentikácia a nastavenia}
+	\label{usecase-login-settings}
+\end{figure}
+\begin{figure}
+	\centering
+	\makebox[\textwidth]{\includegraphics[width=10cm]{uml/usecase-dash.pdf}}	
+	\caption{Usecase - dashboard}
+	\label{usecase-dash}
+\end{figure}
+\begin{figure}
+	\centering
+	\makebox[\textwidth]{\includegraphics[width=10cm]{uml/usecase-tsp.pdf}}	
+	\caption{Usecase - tsp}
+	\label{usecase-tsp}
+\end{figure}
+
+%\begin{enumerate}
+%	\item Usecase - Registrácia, autentikácia a nastavenia
+%	\item Usecase - dashboard
+%	\item Usecase - ts
+%\end{enumerate}
+
+\subsubsection{Class diagram}
+\begin{figure}
+	\centering
+	\makebox[\textwidth]{\includegraphics[width=12cm]{uml/database.pdf}}	
+	\caption{Class diagram}
+	\label{class}
+\end{figure}
+
+
+\subsubsection{Role hráèov}
 \begin{enumerate}
-\item Aplikácia bude umonoiva registráciu a prihlásenie pouívate¾a
-\item Pri registrácií sa budú vyadova rpihlasovacie údaje: e-mail, heslo. Okrem toho sa bude vyadova zadnie mena a domáceho miesta. Toto domáce miesto bude moné vyh¾ada v online databáze.
-\item Po prihlásení pouívate¾a sa mu zobrazí obrazovka s mapou, zoznamom ob¾úbenıch destinácií, ktoré chce navštívi a zoznam odporúèanıch destinácií
-\item Na mape bude vyobrazené pouívate¾ove domáce miesto a všetky destinácie ktoré ma v zozname ob¾úbenıch destinácií. Po kliknutí na destináciu sa pouívate¾ovi otvorí príslušnı riadok v zozname ob¾úbenıch.
-\item V zozname ob¾úbenıch budú všetky miesta, ktoré si pouívate¾ pridal. Zoznam bude vo forme tabu¾y riadok bude obsahova Meno destinácie a lokalitu v ktorej sa destinácia nachádza. V riadku tie bude tlaèidlo na vymazanie destinácie z ob¾úbenıch a tlaèidlo na zobrazenie detajlov.
-\item V detajloch ob¾úbeného miesta bude zoznam ostatnıch ¾udi ktorí dané miesto majú v ob¾úbenıch a vıpis monıch trás z domáceho miesta pouívate¾a do destinácie.
-\item V zozname odporúèanıch destinácií budú destinácie ktoré majú v ob¾úbenıch pouívate¾ia, ktorí majú v ob¾úbenıch rovnaké miesta ako miesta, ktoré má v ob¾úbenıch prihlásenı pouívate¾. Vynechané budú miesta, ktoré u prihlásenı pouívate¾ má  ob¾úbenıch. Kadá poloka z odporúcanıch sa bude da jednoducho prida do ob¾úbenıch prikáseného pouívate¾a.
-\item V aplikácií bude obrazovka s nastaveniami, na ktorej si bude èlovek môc zmeni heslo, domáce miesto.
-\item V aplikácií bude obrazovka kde si bude pouívate¾ vybra niko¾ko zo svojich ob¾úbenıch miest a necha si vyráta najkratšiu trasu z domáceho miesta cez všetky zvolené miesta a potom spa. (TSP)
-
-
-
+	\item Neprihlázenı pouívate¾ bude ma prístup na úvodnú stránku. Na úvodnej stánke sa bude môc  buï zaregistrovat, prihlási ak u má vytvornı úèet, alebo si bude môc pozrie mapu a zoznam s najpolulárnejšími destináciami pouívate¾ov aplikácie.
+	\item Prihlásenı pouívate¾ má prísup do štyroch subsystémov
+	\begin{enumerate}
+		\item Dashboard je domáca obrazovka pouívate¾a bude môc na nej vyh¾adáva, pridáva a odstraòova miesta medzi svoje ob¾úbené. Ïaåej si bude môc pozrie detajly destinácie ako rôzne trasy ktoré vedú z jeho domáceho miesta do destinácie a zoznam ostatnıch poívate¾ov, ktorí majú rovnaké miest v ob¾úbenıch. Kliknutím na pouívate¾a bude môc prejs na obrazovku pouívate¾a.
+		\item Na obrazovke nastaveni si bude môc pouívate¾ nastavi heslo a zmeni svoje domáce miesto.
+		\item Na obrazovke TSP si bude pouívate¾ môc naplánova trasu medzi niektorımi zo svojich ob¾úbenıch miest. Bude si môc pridáva miesta do trasy a odobera ich. Dalej si bude môc prezrie detajly aktuálnej trasy s cenami a mapu s vyobrazenou trasou.
+		\item Na obrazovke pouívate¾a si bude prihlásenı pouívate¾ prezrie ob¾úbené destinácie konkrétneho pouívate¾a na mape a v zozname.
+	\end{enumerate}
+	
 \end{enumerate}
-\item Nefunkcionálne poiadavky
+
+
+\subsection{Implementácia}
+
+
+\subsubsection{Vıber grafovej databázy}
+\noindent Vybrali sme si troch najpopulárnejších predstavie¾ov grafovıch databáz pod¾a \cite{dbrank} rebríèka na  DB-Engines.com. V nasledujúcej v skratke èasti priblíime hitóriu kadého GDBMS ich vıhody, nevıhody pre naše pouitie a proces vıberu pouitej databázy.
+
+%TODO  reasons
+%TODO  citations
+
 \begin{enumerate}
-\item Systém bude zrealizovanı na webovej platforme.
-\item Aplikácia bude vyuíva natívnu grafovú databázu.
-\item Aplikácia bude by kompatibilná s webovımi prehliadaèmi Google Chrome Mozilla Firefox, Microsoft Edge, Microsoft Internet Explorer.
-\item Uívate¾ské rozhranie systém musí by plne pouite¾né aj na mobilnıch telefónoch s OS Android a IOS.
-\item Aplikácia bude implementovanı s pouítím jayka PHP a PHP frameworku.
+	\item{NEO4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvıjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantách': Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edíciia, ktorá má rozšírené funkcie ako Shardovanie cache pamäte, rozšírené monitorovanie a zálohovnaie za behu.
+
+	\item{OrientDB}OrientDb je vyvıjané od roku 2010 firmou OrientDB LTD. Databáza OrientDB rıchlo nabralo nabrala na popularite a v roku 2015 sa doslatala na druhé miestov rebríèku db-engines. OrientDB sa rovnako ako Neo4j distribuuje v dvoch edíciach: Community - open source (Apache Licence 2.0) so základnımi funkciami a Enterprise edíciou s podpodou migrácie a synchronizácie na Neo4J a pridanymi analytickımi nástrojmi. 
++	OrientDB podporuje okrem grafového modelu ukladania dát aj dokumentovı a key/value model ukladania údajov.
+	
+
+	\item{Titan} Titan bol od 2012 vyvıjanı skupinou thinkaurelius, no v roku 2017 bol odkúpenı firmou Datstax a projekt Titan bol zastavenı. Projekt je dalej udriavanı ako open source verzia pod menom JanusGraph. Titan je projekt urèenı na ve¾ké distribuovane enterpriese riešenia, je nasadzovanı na  cloudové platformy ako napr. Apache Hadoop, Apache Spark, ... podporuje rôzne distribuované úloné priestory ako napr. Apache HBase,Oracle BerkeleyDB, ... Dalej podporuje rôzne vyhladávacie enginy  ako napr Elasticsearch, Solr, ...\\
+	Toto riešenie je pre naše pouitie nevhodné, lebo vyaduje distribuovanı systém.
+
 \end{enumerate}
-
-\item Doménové poiadavky
-\begin{enumerate}
-\item Systém bude nasadenı na virtuálnom serveri poskytnutom Ústavom informatiky a matematiky FEI STU.
-\end{enumerate}
-\end{enumerate}
-
-
-\section{Návrh}
-
-\subsection{Vıber grafovej databázy}
-\noindent 
-
-\subsubsection{NEO4J}
-\noindent  
-
-\subsubsection{OrientDB}
-\noindent  
-
-\subsubsection{ArangoDB}
-\noindent  
 
 
 \section{Implementácia}
@@ -85,8 +145,6 @@ Táto štruktúra umonuje priamo
 
 
 \subsection{Pouíté technológie}
-\subsubsection{NEO4J}
-\noindent Neo4J je najpouívanejšia grafová databáza s
 
 \subsubsection{Laravel framework}
 \noindent Laravel Framework je komplexnı vo¾ne šíríte¾nı framework. Tento framework je od roku 2015 najpopulárnejší PHP framework. Medzi jeho hlavné vıhody patrí pouitie relatívne novej verzie PHP 5.4, ktorá obsahuje technológie, ktoré v minulosti v PHP chıbali ako menové priestory a anonymné funkcie. Dalej obsahuje velmi silnı nástroj Eloquent ORM pre objektovo relaèné mapovanie darabázy, Blade šablónovací nástroj na rıchlu tvorbu dynamického obsahu. \\
@@ -109,7 +167,8 @@ Mapbox.js podporuje štandartnı formát dát GeoJSON, tento formát umonuje uklada
 
 
 \subsection{Vzh¾ad}
-\noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie. Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
+\noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie. Z~tohto dôvodu malo rozšírenie obsahova 
+ modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
 
 \noindent \cite{anonlib} Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
 

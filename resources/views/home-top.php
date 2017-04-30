@@ -6,7 +6,10 @@
       <td >{{regionName}}</td>
       <td >
         {{#each followers}}
-        <a class="person-link" href="/user/{{this.id}}"><div class="follower-head" title="{{this.name}}"><div>{{this.name}}</div></div></a>&nbsp;
+        <a class="person-link" href="/user/{{this.id}}">
+          <div class="follower-head" title="{{this.name}}"></div>
+          <div class="follower-letter">{{this.name}}</div>
+        </a>
         {{/each }}
       </td>
     </tr>

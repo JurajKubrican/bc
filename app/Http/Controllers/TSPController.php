@@ -51,8 +51,12 @@ class TSPController extends Controller {
     $aPlaces = [];
 
     foreach($places as $place){
-      $aPlaces[$place->id] = $place;
-
+      if(!$user->follows()->edge($place)){
+        if($user->tsp()->edge($place))
+          $user->tsp()->edge($place)->delete();
+      }else{
+        $aPlaces[$place->id] = $place;
+      }
     }
 
     $cacheKey = $home->id.implode($aPlaces);
@@ -236,6 +240,7 @@ class TSPController extends Controller {
     if(!$user) $user = Auth::user();
 
     $place = Place::find($place);
+    if($user->tsp()->edge($place))
     $user->tsp()->edge($place)->delete();
 
   }

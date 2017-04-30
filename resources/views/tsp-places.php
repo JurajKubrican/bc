@@ -17,12 +17,10 @@
           <div class="col-sm-1"><a href="#" class="tsp-add glyphicon glyphicon-{{#if tsp }}ok{{else}}plus{{/if}}" data-id="{{id}}"></a></div>
         </div>
         <div id="details-tab-{{id}}" class="place-details-tab collapse">
-          {{#if followers}}
           <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#details-tab-{{id}}-tab-1">Routes</a></li>
             <li><a data-toggle="tab" href="#details-tab-{{id}}-tab-2">People</a></li>
           </ul>
-          {{/if}}
           <div class="tab-content">
             <div id="details-tab-{{id}}-tab-1" class="tab-pane fade in active">
               <table class="table">
@@ -33,9 +31,13 @@
             </div>
             <div id="details-tab-{{id}}-tab-2" class="tab-pane fade">
               <table class="table">
-              {{#each followers}}
-                <tr><td><a href="/user/{{this.id}}">{{this.name}}</td></tr>
-              {{/each}}
+                {{#if followers}}
+                  {{#each followers}}
+                    <tr><td><a href="/user/{{this.id}}">{{this.name}}</a></td></tr>
+                  {{/each}}
+                {{else}}
+                  <tr><td>No followers</td></tr>
+                {{/if}}
               </table>
             </div>
           </div>
