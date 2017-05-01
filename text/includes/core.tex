@@ -126,22 +126,24 @@ Táto štruktúra umonuje priamo
 %TODO  citations
 
 \begin{enumerate}
-	\item{NEO4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvıjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantách': Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edíciia, ktorá má rozšírené funkcie ako Shardovanie cache pamäte, rozšírené monitorovanie a zálohovnaie za behu.
+	\item{NEO4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvıjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantách': Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edíciia, ktorá má rozšírené funkcie ako Shardovanie cache pamäte, rozšírené monitorovanie a zálohovnaie za behu.\\
+	\noindent Medzi hlavné vıhody neo4j patrí to, e je to dlhodobo najrozšírenejšia grafová datáza, má dobrú dokumentáciu, podporuje mapovanie na objekty\\
+	\noindent Nevıhodou je, e podporuje iba grafovı model ukladania údajov.
 
-	\item{OrientDB}OrientDb je vyvıjané od roku 2010 firmou OrientDB LTD. Databáza OrientDB rıchlo nabralo nabrala na popularite a v roku 2015 sa doslatala na druhé miestov rebríèku db-engines. OrientDB sa rovnako ako Neo4j distribuuje v dvoch edíciach: Community - open source (Apache Licence 2.0) so základnımi funkciami a Enterprise edíciou s podpodou migrácie a synchronizácie na Neo4J a pridanymi analytickımi nástrojmi. 
-+	OrientDB podporuje okrem grafového modelu ukladania dát aj dokumentovı a key/value model ukladania údajov.
+	\item{OrientDB}OrientDb je vyvıjané od roku 2010 firmou OrientDB LTD. Databáza OrientDB rıchlo nabralo nabrala na popularite a v roku 2015 sa doslatala na druhé miestov rebríèku db-engines. OrientDB sa rovnako ako Neo4j distribuuje v dvoch edíciach: Community - open source (Apache Licence 2.0) so základnımi funkciami a Enterprise edíciou s podpodou migrácie a synchronizácie na Neo4J a pridanymi analytickımi nástrojmi. \\
+	\noindent Vıhodou OrientDB je podpora okrem grafového modelu ukladania dát aj dokumentovı a key/value model ukladania údajov.\\
+	\noindent Nevıhodou je horšia podpora pre nami vybranı framework Laravel 
+
 	
-
 	\item{Titan} Titan bol od 2012 vyvıjanı skupinou thinkaurelius, no v roku 2017 bol odkúpenı firmou Datstax a projekt Titan bol zastavenı. Projekt je dalej udriavanı ako open source verzia pod menom JanusGraph. Titan je projekt urèenı na ve¾ké distribuovane enterpriese riešenia, je nasadzovanı na  cloudové platformy ako napr. Apache Hadoop, Apache Spark, ... podporuje rôzne distribuované úloné priestory ako napr. Apache HBase,Oracle BerkeleyDB, ... Dalej podporuje rôzne vyhladávacie enginy  ako napr Elasticsearch, Solr, ...\\
-	Toto riešenie je pre naše pouitie nevhodné, lebo vyaduje distribuovanı systém.
+	\noindent Toto riešenie je pre naše pouitie nevhodné, lebo na správne fungovanie vyaduje distribuovanı systém.
 
 \end{enumerate}
 
 
+
 \section{Implementácia}
 \noindent 
-
-
 
 
 \subsection{Pouíté technológie}
@@ -149,6 +151,7 @@ Táto štruktúra umonuje priamo
 \subsubsection{Laravel framework}
 \noindent Laravel Framework je komplexnı vo¾ne šíríte¾nı framework. Tento framework je od roku 2015 najpopulárnejší PHP framework. Medzi jeho hlavné vıhody patrí pouitie relatívne novej verzie PHP 5.4, ktorá obsahuje technológie, ktoré v minulosti v PHP chıbali ako menové priestory a anonymné funkcie. Dalej obsahuje velmi silnı nástroj Eloquent ORM pre objektovo relaèné mapovanie darabázy, Blade šablónovací nástroj na rıchlu tvorbu dynamického obsahu. \\
 \indent Komplexita Frameworku Laravel je však aj jeho hlavnou nevıhodou, nieje vhodnı na menšie projekty. V rıchlosti patrí medzi priemer PHP frameworkov. 
+
 
 \subsubsection{NeoEloquent OGM}
 \noindent NeoEloquent OGM je v¾ne šírite¾ná kninica, ktorá umoòuje vyuíva grafovú databázu neo4j spolu s existujúcim dátovım modelom vo frameworku Laravel. Štruktúra NeoEloquent je modelovaná podla existujúceho  Eloquent Modelu a preto je jeho integrácia do ekosystému Laravel 
@@ -163,6 +166,103 @@ Mapbox.js podporuje štandartnı formát dát GeoJSON, tento formát umonuje uklada
 \noindent Rome2Rio je portál ktorı zbiera údaje o cenách dopravy po celom svete a umonuje vyh¾ada cenu cesty medzi dvomi ¾ubovolnımi destináciami. Rome2Rio taktie poskytuje nieko¾ko otvorenıch a platenıch API.
 %TODO
 
+\subsection{inštalácia a nastavnie Laravel Framework-u}
+\noindent Na inštaláciu frameworku Laravel sme pouili nástroj pre správu PHP balíkov \textit{Composer}. Pomocou tohto nástroja sme nainštalovali balík \textit{laravel/installer}  \cite{laravel}, následne sme poitím prikazu \textit{laravel new projekt} vytvorili prieèinok so základnou inštaláciou frameworku.
+
+
+%https://debian.neo4j.org/
+\subsection{Inšatlácia a Konfigurácia Databázy neo4j}
+\noindent Aby sme mohli nainštalova databázu Neo4j muíme si najprv do systému prida repozitár Neotechnology, potom je nám k dispozicií na inštaláciu balík neo4j. Po inštalácií je nám heï dostupné administráèné rozhraniel databázy na adrese: \textit{localhost:7474}. Pri prvom prihásení sme vyzvaní na zmenu hesla.\\
+\noindent Keïe základná inštalácia frameworku Larave lneobsahuje ovládaè pre databázu neo4j museli sme pou ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po  zaregistrovaní sluny NeoEloquentServiceProvider sa automaticky zaregistuje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandartnú konfiguráciu mena hostite¾a, port a prístupovıch úrajov.\\
+Na získanie zvialeného prístupu k administraènému rozhaniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
+
+\begin{lstlisting}
+
+
+
+    $app->register('Vinelab\NeoEloquent\NeoEloquentServiceProvider');
+...
+ 'default' => env('DB_CONNECTION', 'neo4j'),
+
+    'connections' => [
+        'neo4j' => [
+            'driver' => 'neo4j',
+            'host'   => env('DB_HOST', 'neo4j'),
+            'port'   => env('DB_PORT', 'neo4j'),
+            'username' => env('DB_USERNAME', 'neo4j'),
+            'password' =>  env('DB_PASSWORD', 'neo4j'),
+        ],
+    ],
+ \end{lstlisting}
+
+
+
+
+\subsection{OGM}
+\noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent. 
+Pouili sme volne šírite¾nı balík NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej datbázy. NeoEloquent umonuje manipuláciu s vrcholmy aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umonuje vytvára periztentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich typom a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako objekt, dá sa vytvára mupravova a v prípade vyššej kardinality aj vyhladáva. \\
+V nasledujúcom príklade vidíme implementáciu dvoch rôznych tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menováho pristoru v ktorom bol vytovrenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objektı hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedys ktorou vzach chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovanı typ hrany v databáze. 
+\begin{lstlisting}
+namespace App;
+
+class User extends \NeoEloquent implements Authenticatable {
+
+  //  Jeden pouívate¾ môe ma v ob¾úbenıch viac miest 
+  public function follows() {
+    return $this->hasMany('App\Place', 'FOLLOWS');
+  }
+
+  //  Jeden pouívate¾ má jedno miesto ako domáce
+  public function home() {
+    return $this->hasOne('App\Place', 'HOME');
+  }
+  ...
+}
+...
+class Place extends \NeoEloquent {
+   // Inverznı vzah - jedno miesto má v ob¾úbenıch viac pouívate¾ov
+   public function followers(){
+    return $this->belongsToMany('App\User','FOLLOWS');
+  }
+  ...
+}
+\end{lstlisting}
+
+
+
+\subsection{Autentifikácia}
+\noindent  Jednou zo silnıch stránok Frameworku Laravel je práve autentifikácia. Pre vytvornie základnej funkcionality registrácie, prihlasovania a obnovenia zabudnutého hesla staèí poui Artisan - konzolu frameworku, ktorá vytovrí URL cesty, obrazovky, triedu pouívate¾a a treidy obluhujúce túto funkcionalitu. My sme potrebovali poui vlastnú triedu pouívate¾a, ktorá dedí od našeho balíka NeoEloquent, na implementáciu autentifikácie staèilo naimplementova rozhranie Authenticatable, prida do treidy pouívate¾a pole skrytıch a verejnıch atribútov, a poui charakteristiku 'AuthenticableTrait' a autentifikácia fungovala rovnako ako s relaènou databázov vïaka tomu, e NeoEloquent pokrıva všetky funckie natívneho Eloquent ORM. 
+\begin{lstlisting}
+php artisan make:auth
+\end{lstlisting}
+\begin{lstlisting}
+
+namespace App;
+
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+
+class User extends \NeoEloquent implements Authenticatable {
+
+  use AuthenticableTrait;
+
+// pole verejnıch atribútov
+  protected $fillable = [
+      'name', 'email', 'password', 'tspCache'
+  ];
+
+  // pole skrıtıch atribútov
+  protected $hidden = [
+      'password', 'remember_token',
+  ];
+...
+}
+\end{lstlisting}
+
+
+\subsection{Smerovaè}
+\noindent Framework Laravel poskyruje silnı nástroj pre tvorenie ciest. 
+
 
 
 
@@ -170,5 +270,5 @@ Mapbox.js podporuje štandartnı formát dát GeoJSON, tento formát umonuje uklada
 \noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie. Z~tohto dôvodu malo rozšírenie obsahova 
  modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
 
-\noindent \cite{anonlib} Z~tohto dôvodu malo rozšírenie obsahova zoznam modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
+
 
