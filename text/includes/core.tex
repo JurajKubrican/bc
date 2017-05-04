@@ -2,32 +2,39 @@
 %Súèasnı stav riešenej problematiky
 \noindent 
 
+\subsection{Cie¾ práce}
+\noindent Cie¾om práce je navrhnú a na implementova aplikáciu, ktorá vyuíva grafovú databázu, dalej zhodnoti vıhody tohto riešenia oproti inım typom databáz.
+
+
 
 \subsection{Relaèné}
 %https://en.wikipedia.org/wiki/Relational_database
 \noindent Relaèná databáza je databáza, v ktorej sú údaje uloené pod¾a relaèného databázového modelu podla  E. F. Codda z roku 1970. Pod¾a Relaèného modelu sú dáta uloené v tabu¾kách. Jeden riadok tabu¾y je jeden záznam. Stlpec tabu¾y reprezentuje jeden atribút objektu.
 \noindent Väzby (vztahy) medzi tabu¾ami sú riešené pomocou unikátnych identifikátorov tzv. k¾úèov. jhedna tabu¾ka obsahuje k¾úè, èo je atribút ktorı unikátne identifikuje kadı záznam a druhá tabu¾a obsahuje tzv cudzí k¾úè, atribút ktorı odkazuje na záznam v prvej tabu¾ke.
-\noindent Vıhodou tohto spôsobu ukladania dát je jednoduchos a preh¾adnos. Nevıhoda tohto prístupu sa však ukazuje v škálovatelnosti. Pri vyh¾adávaní kadé toto prepojenie pridáva vıpoètovú komplexitu, keïe v kadej da¾šej prepojeniej tabu¾ke treba vyhlada záznam s poadovanım k¾úèom (O(log(n))). Všetky pouívané relaèné databázové systémy riešia tento problém škálovate¾nosti pouitím indexov a rôznymi inımi optimalizáciami, no pokial sú naše dáta štrukturované s ve¾a prepojeniami systém sa spomalí.
+\noindent Relaèné databázy majú vıhodu prípadoch keï dáta neobsahujú prive¾a prepojení a je dôleitejšie vedie rıchlo preh¾ada celú databázu. Na tieto úèely majú predstavite¾ia relaènıch databáz silné\\
+\noindent Nevıhoda tohto prístupu sa však ukazuje v škálovatelnosti. Pri vyh¾adávaní kadé toto prepojenie pridáva vıpoètovú komplexitu, keïe v kadej da¾šej prepojeniej tabu¾ke treba vyhlada záznam s poadovanım k¾úèom (O(log(n))). Všetky pouívané relaèné databázové systémy riešia tento problém škálovate¾nosti pouitím indexov a rôznymi inımi optimalizáciami, no pokial sú naše dáta štrukturované s ve¾a prepojeniami systém sa spomalí.
    
 %TODO obrazok relations in grapg vs relational
 %TODO types of data in relational  vs Ggraph
 
 
 
-
+%TODO whatis this?
 \subsection{Grafové}
-%TODO history
-\noindent V grafovej databáze sú údaje štrukturované vo vrcholoch(node) a hranách(edge). Prepojenia medzi vrcholmi sú realizované priamo pomocou hrán.
-Grafové databázové systémy podporujú vlasnté sémantické prostriekdky ktoré umonuju priamu manipuláciu so štruktúrov dát.
-Jedna z hlavnıch vıhod
-Táto štruktúra umonuje priamo 
+
+\subsection{Grafovı model}
+%TODO pekny uvod
+\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi opisujeme šipkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databézová tachnológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo naimplementova v našej grafovej databáze.\\
+\noindent Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaené jednou alebo viacerymi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. \\
+Hrany v grafovıch databázach spájajú vrcholy a budujú štrukúru grafu. Hrana grafu má dy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak svolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany mô u rovnako ako vrcholy obsahova aj atribúty. Atrbúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
 
 
-\section{Cie¾ práce}
-\noindent Cie¾om práce je navrhnú a na implementova aplikáciu, ktorá vyuíva grafovú databázu, dalej zhodnoti vıhody tohto riešenia oproti inım typom databáz.
+\subsection{Vıkon grafovej databázy}
+%TODO oh god...
+V poslednej dobe je èím dalej tım viac systémov vyaduje spravova a navigova sie vzahov. V tejto oblasti excelujú grafové databázy.
 
 
-\section{Proces tvroby systému}
+
 
 
 \section{Špecifikácia}
@@ -176,10 +183,25 @@ Mapbox.js podporuje štandartnı formát dát GeoJSON, tento formát umonuje uklada
 \noindent Keïe základná inštalácia frameworku Larave lneobsahuje ovládaè pre databázu neo4j museli sme pou ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po  zaregistrovaní sluny NeoEloquentServiceProvider sa automaticky zaregistuje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandartnú konfiguráciu mena hostite¾a, port a prístupovıch úrajov.\\
 Na získanie zvialeného prístupu k administraènému rozhaniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
 
+
+ 
+\begin{algorithm}
+\lstset{
+   language=PHP,
+   basicstyle=\small\sffamily,
+   frame=none,
+   numbers=left,
+   xleftmargin=5.0ex,
+   numberstyle=\tiny,
+   stepnumber=1,
+   showstringspaces=false,
+   keywordstyle=\color{blue}\bfseries
+   }
+\lstset{emph={%  Adjust any special keywords
+   printf%
+   },emphstyle={\color[rgb]{1,0,0}\bfseries}%
+}%
 \begin{lstlisting}
-
-
-
     $app->register('Vinelab\NeoEloquent\NeoEloquentServiceProvider');
 ...
  'default' => env('DB_CONNECTION', 'neo4j'),
@@ -194,6 +216,9 @@ Na získanie zvialeného prístupu k administraènému rozhaniu databázy bez otvoreni
         ],
     ],
  \end{lstlisting}
+\caption{Ukáka algoritmu}
+\label{euclid}
+\end{algorithm}
 
 
 
@@ -202,6 +227,23 @@ Na získanie zvialeného prístupu k administraènému rozhaniu databázy bez otvoreni
 \noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent. 
 Pouili sme volne šírite¾nı balík NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej datbázy. NeoEloquent umonuje manipuláciu s vrcholmy aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umonuje vytvára periztentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich typom a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako objekt, dá sa vytvára mupravova a v prípade vyššej kardinality aj vyhladáva. \\
 V nasledujúcom príklade vidíme implementáciu dvoch rôznych tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menováho pristoru v ktorom bol vytovrenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objektı hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedys ktorou vzach chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovanı typ hrany v databáze. 
+
+\begin{algorithm}
+\lstset{
+   language=PHP,
+   basicstyle=\small\sffamily,
+   frame=none,
+   numbers=left,
+   xleftmargin=5.0ex,
+   numberstyle=\tiny,
+   stepnumber=1,
+   showstringspaces=false,
+   keywordstyle=\color{blue}\bfseries
+   }
+\lstset{emph={%  Adjust any special keywords
+   printf%
+   },emphstyle={\color[rgb]{1,0,0}\bfseries}%
+}%
 \begin{lstlisting}
 namespace App;
 
@@ -227,14 +269,32 @@ class Place extends \NeoEloquent {
   ...
 }
 \end{lstlisting}
+\caption{Ukáka tiredy neoEoquent}
+\label{codeauth}
+\end{algorithm}
+
 
 
 
 \subsection{Autentifikácia}
-\noindent  Jednou zo silnıch stránok Frameworku Laravel je práve autentifikácia. Pre vytvornie základnej funkcionality registrácie, prihlasovania a obnovenia zabudnutého hesla staèí poui Artisan - konzolu frameworku, ktorá vytovrí URL cesty, obrazovky, triedu pouívate¾a a treidy obluhujúce túto funkcionalitu. My sme potrebovali poui vlastnú triedu pouívate¾a, ktorá dedí od našeho balíka NeoEloquent, na implementáciu autentifikácie staèilo naimplementova rozhranie Authenticatable, prida do treidy pouívate¾a pole skrytıch a verejnıch atribútov, a poui charakteristiku 'AuthenticableTrait' a autentifikácia fungovala rovnako ako s relaènou databázov vïaka tomu, e NeoEloquent pokrıva všetky funckie natívneho Eloquent ORM. 
-\begin{lstlisting}
-php artisan make:auth
-\end{lstlisting}
+\noindent  Jednou zo silnıch stránok Frameworku Laravel je práve autentifikácia. Pre vytvornie základnej funkcionality registrácie, prihlasovania a obnovenia zabudnutého hesla staèí poui Artisan - konzolu frameworku príkaz (\textit{php artisan make:auth}) , ktorá vytovrí URL cesty, obrazovky, triedu pouívate¾a a treidy obluhujúce túto funkcionalitu. My sme potrebovali poui vlastnú triedu pouívate¾a, ktorá dedí od našeho balíka NeoEloquent, na implementáciu autentifikácie staèilo naimplementova rozhranie Authenticatable, prida do treidy pouívate¾a pole skrytıch a verejnıch atribútov, a poui charakteristiku 'AuthenticableTrait' a autentifikácia fungovala rovnako ako s relaènou databázov vïaka tomu, e NeoEloquent pokrıva všetky funckie natívneho Eloquent ORM. 
+
+\begin{algorithm}
+\lstset{
+   language=PHP,
+   basicstyle=\small\sffamily,
+   frame=none,
+   numbers=left,
+   xleftmargin=5.0ex,
+   numberstyle=\tiny,
+   stepnumber=1,
+   showstringspaces=false,
+   keywordstyle=\color{blue}\bfseries
+   }
+\lstset{emph={%  Adjust any special keywords
+   printf%
+   },emphstyle={\color[rgb]{1,0,0}\bfseries}%
+}%
 \begin{lstlisting}
 
 namespace App;
@@ -258,6 +318,10 @@ class User extends \NeoEloquent implements Authenticatable {
 ...
 }
 \end{lstlisting}
+\caption{Ukáka autentifikovat¾nej triedy}
+\label{codeauth}
+\end{algorithm}
+
 
 
 \subsection{Smerovaè}
