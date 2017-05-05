@@ -22,11 +22,11 @@ var app = (function($,appData) {
             return response.places;
           }
         }
-    });
+      });
       $('#search-bar').typeahead({
         minLength: 1,
-          hint:0
-          //TODO: placeholder
+        hint:0
+        //TODO: placeholder
       }, {
         name: 'best-pictures',
         displayKey: function(countries) {
@@ -39,13 +39,13 @@ var app = (function($,appData) {
       });
     })
   }
-  var gmap;
+  var map;
   var layer
 
   function initMap() {
     L.mapbox.accessToken = 'pk.eyJ1IjoidGhleXVycnkiLCJhIjoiY2lvOHRmMTZtMDA2c3Z5bHlicTNwZm9qaCJ9.TQBntaKZdYrhFkB2E7Zu7g';
 
-    gmap = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
+    map = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
 
     layer = L.mapbox.featureLayer()
       .loadURL("/placeapi?type=geojson")
@@ -55,15 +55,15 @@ var app = (function($,appData) {
         e.target.eachLayer(function(layer) {
           clusterGroup.addLayer(layer);
         });
-        gmap.addLayer(clusterGroup);
-        gmap.fitBounds(clusterGroup.getBounds());
+        map.addLayer(clusterGroup);
+        map.fitBounds(clusterGroup.getBounds());
       });
   }
 
   function mapRefresh(){
-    gmap.eachLayer(function (layer) {
+    map.eachLayer(function (layer) {
       if(layer.feature)
-        gmap.removeLayer(layer);
+        map.removeLayer(layer);
     });
     L.mapbox.featureLayer()
       .loadURL("/placeapi?type=geojson")
@@ -73,8 +73,8 @@ var app = (function($,appData) {
         e.target.eachLayer(function(layer) {
           clusterGroup.addLayer(layer);
         });
-        gmap.addLayer(clusterGroup);
-        gmap.fitBounds(clusterGroup.getBounds());
+        map.addLayer(clusterGroup);
+        map.fitBounds(clusterGroup.getBounds());
       });
   }
 
@@ -85,12 +85,12 @@ var app = (function($,appData) {
     e.preventDefault();
     e.stopPropagation()
 
-    gmap.eachLayer(function (layer) {
+    map.eachLayer(function (layer) {
 
       if(layer.feature || layer._featureGroup ){
-        gmap.removeLayer(layer);
+        map.removeLayer(layer);
       }
-      gmap.removeLayer(polyline);
+      map.removeLayer(polyline);
 
     });
 
@@ -99,9 +99,9 @@ var app = (function($,appData) {
       L.latLng(home.lat,home.lng)
 
     ];
-     polyline = L.polyline(latlngs, {color: 'red'}).addTo(gmap);
+    polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
 
-    gmap.fitBounds(polyline.getBounds());
+    map.fitBounds(polyline.getBounds());
 
   })
 
@@ -109,12 +109,11 @@ var app = (function($,appData) {
   /*
    * HANDLEBARS
    */
-  $(document).ready(refreshPage);
-  $(document).on('appRefresh',refreshPage)
   var template
+  $(document).ready(refreshPage).on('appRefresh',refreshPage)
   $(document).ready(function(){
     template = Handlebars.compile($("#places-template").html());
-  })
+  });
   function refreshPage (){
 
     $.get('/placeapi?type=template', function (data) {

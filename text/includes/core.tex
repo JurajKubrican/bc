@@ -2,31 +2,21 @@
 %Súèasnı stav riešenej problematiky
 \noindent 
 
-\subsection{Cie¾ práce}
-\noindent Cie¾om práce je navrhnú a na implementova aplikáciu, ktorá vyuíva grafovú databázu, dalej zhodnoti vıhody tohto riešenia oproti inım typom databáz.
-
-
 
 \subsection{Relaèné}
 %https://en.wikipedia.org/wiki/Relational_database
 \noindent Relaèná databáza je databáza, v ktorej sú údaje uloené pod¾a relaèného databázového modelu podla  E. F. Codda z roku 1970. Pod¾a Relaèného modelu sú dáta uloené v tabu¾kách. Jeden riadok tabu¾y je jeden záznam. Stlpec tabu¾y reprezentuje jeden atribút objektu.
 \noindent Väzby (vztahy) medzi tabu¾ami sú riešené pomocou unikátnych identifikátorov tzv. k¾úèov. jhedna tabu¾ka obsahuje k¾úè, èo je atribút ktorı unikátne identifikuje kadı záznam a druhá tabu¾a obsahuje tzv cudzí k¾úè, atribút ktorı odkazuje na záznam v prvej tabu¾ke.
-\noindent Relaèné databázy majú vıhodu prípadoch keï dáta neobsahujú prive¾a prepojení a je dôleitejšie vedie rıchlo preh¾ada celú databázu. Na tieto úèely majú predstavite¾ia relaènıch databáz silné\\
 \noindent Nevıhoda tohto prístupu sa však ukazuje v škálovatelnosti. Pri vyh¾adávaní kadé toto prepojenie pridáva vıpoètovú komplexitu, keïe v kadej da¾šej prepojeniej tabu¾ke treba vyhlada záznam s poadovanım k¾úèom (O(log(n))). Všetky pouívané relaèné databázové systémy riešia tento problém škálovate¾nosti pouitím indexov a rôznymi inımi optimalizáciami, no pokial sú naše dáta štrukturované s ve¾a prepojeniami systém sa spomalí.
    
 %TODO obrazok relations in grapg vs relational
-%TODO types of data in relational  vs Ggraph
-
-
-
-%TODO whatis this?
-\subsection{Grafové}
 
 \subsection{Grafovı model}
 %TODO pekny uvod
 \noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi opisujeme šipkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databézová tachnológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo naimplementova v našej grafovej databáze.\\
+
 \noindent Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaené jednou alebo viacerymi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. \\
-Hrany v grafovıch databázach spájajú vrcholy a budujú štrukúru grafu. Hrana grafu má dy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak svolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany mô u rovnako ako vrcholy obsahova aj atribúty. Atrbúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
+\noindent Hrany v grafovıch databázach spájajú vrcholy a budujú štrukúru grafu. Hrana grafu má dy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak svolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany mô u rovnako ako vrcholy obsahova aj atribúty. Atrbúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
 
 
 \subsection{Vıkon grafovej databázy}
@@ -93,12 +83,6 @@ V poslednej dobe je èím dalej tım viac systémov vyaduje spravova a navigova s
 	\caption{Usecase - tsp}
 	\label{usecase-tsp}
 \end{figure}
-
-%\begin{enumerate}
-%	\item Usecase - Registrácia, autentikácia a nastavenia
-%	\item Usecase - dashboard
-%	\item Usecase - ts
-%\end{enumerate}
 
 \subsubsection{Class diagram}
 \begin{figure}
@@ -274,8 +258,6 @@ class Place extends \NeoEloquent {
 \end{algorithm}
 
 
-
-
 \subsection{Autentifikácia}
 \noindent  Jednou zo silnıch stránok Frameworku Laravel je práve autentifikácia. Pre vytvornie základnej funkcionality registrácie, prihlasovania a obnovenia zabudnutého hesla staèí poui Artisan - konzolu frameworku príkaz (\textit{php artisan make:auth}) , ktorá vytovrí URL cesty, obrazovky, triedu pouívate¾a a treidy obluhujúce túto funkcionalitu. My sme potrebovali poui vlastnú triedu pouívate¾a, ktorá dedí od našeho balíka NeoEloquent, na implementáciu autentifikácie staèilo naimplementova rozhranie Authenticatable, prida do treidy pouívate¾a pole skrytıch a verejnıch atribútov, a poui charakteristiku 'AuthenticableTrait' a autentifikácia fungovala rovnako ako s relaènou databázov vïaka tomu, e NeoEloquent pokrıva všetky funckie natívneho Eloquent ORM. 
 
@@ -324,15 +306,126 @@ class User extends \NeoEloquent implements Authenticatable {
 
 
 
-\subsection{Smerovaè}
+\subsection{API}
 \noindent Framework Laravel poskyruje silnı nástroj pre tvorenie ciest. 
 
+%geojson  lonLat
+\subsection{GeoJson}
+\noindent Ako zdrojovvı formát dát pre všetky mapy v našej aplikácií pouívame šantdartnı formát GeoJson. Na priklade \ref{geojson} vidíme kolekciu mapovıch
+
+
+\subsection{Mapa}
+\noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a plikácií pouili JavaScriptovú kniènicu Mapbox.js. Na inicializáciu mapu sme naimplementovali funkciu \ref{coderecommendmap}.\\ 
+%todo ref tech
+\noindent Keïze Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïze sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme naprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inizializuje samotná mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı paramete id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicialiácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíeni mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu clusterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do clusterov, následne skryje znaky tıchto bodov a nahradí ich znaèkou clusteru. Na pridanie bodov do clusterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy clusterov. Následne sa vrstva clusterov pridá do objektu mapy.\\
+%TODO screenshoot markercluster ref
+
+
+\begin{algorithm}
+\lstset{
+   language=JavaScript,
+   basicstyle=\small\sffamily,
+   frame=none,
+   numbers=left,
+   xleftmargin=5.0ex,
+   numberstyle=\tiny,
+   stepnumber=1,
+   showstringspaces=false,
+   keywordstyle=\color{blue}\bfseries
+   }
+\lstset{emph={%  Adjust any special keywords
+   printf%
+   },emphstyle={\color[rgb]{1,0,0}\bfseries}%
+}%
+\begin{lstlisting}
+  var map;
+  function initMap() {
+    // API k¾úè
+    L.mapbox.accessToken = 'key';
+
+    // Inicializácia mapy s vo¾bou typu mapy
+    map = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
+
+    // Pridávanie vrstiev na mapu
+    L.mapbox.featureLayer()
+      .loadURL("/placeapi?type=geojson&filter=suggested")
+      .on('ready', function(e) {
+	
+    //Vytváranie vrstvy clusterov
+        var clusterGroup = new L.MarkerClusterGroup();
+        e.target.eachLayer(function(layer) {
+          clusterGroup.addLayer(layer);
+          
+    //Pridanie funkcionality kliknutia na mesto v zozname
+          $(document).on('click','.zoom-map[data-id="' + layer.feature.properties.title + '"]',function(){
+            map.setView(layer.getLatLng(),8);
+          })
+        });
+        
+     // Úvodné pridanie vrstvy a centrovanie 
+        map.addLayer(clusterGroup);
+        map.fitBounds(clusterGroup.getBounds());
+      });
+  }
+}
+\end{lstlisting}
+\caption{Zobrazenie odporúèanıch miest}
+\label{coderecommendmap}
+\end{algorithm}
 
 
 
-\subsection{Vzh¾ad}
-\noindent Dôleitou poiadavkou kladenou na rozšírenie bolo príjemné pouívate¾ské rozhranie. Z~tohto dôvodu malo rozšírenie obsahova 
- modifikovanıch vlastností a tlaèidlo pre prístup k nastaveniam rozšírenia v jednoduchej a praktickej forme. Predpokladanı vzh¾ad je zobrazenı na obrázku è. \ref{vzhladobr}.
+\subsection{Vykreslovanie tabu¾iek}
+\noindent Aby sme zpelšili UX stránky rozhodli sme sa na vykreslovanie dynamického obsahu vyui namiesto HTML obsahu renderovaného na serveri javascriptovú kninicu na prácu so šablónami a, dynamickı obsah naèítavame z API našej aplikácie vo formáte JSON. Na vykreslovanie dynamickáho obsahu sme zvolili kninicu Handlebars.js. Na príklade \ref{dynamictable} môeme ukáza príklad našej implementácie dynamickej tabu¾ky pre hlavnú tabu¾ku zobrazujúcu destinácie a ich detajly.\\
+Najprv je zadeklarovaná premenná v \textit{template} ktorá bude neksôr obsahova funkciu renderujúcu šablónu. Potom je zadeklarovaná funckia \textit{refreshPage}, ktorá bude volaná vdy, keï nejaká funkcia spustí event s menom \textit{appRefresh}. Táto funkcia vyuije AJAX API kninice jQuery a stiahne potrebné dáta, potom vyuije funkciu \textit{template}, ktorá do argumentu berie dáta vo forme po¾a obejktov a vracia vyrenderované HTML ktoré sa následne vkladá na stránku.\\
+\noindent V druhej èasti kódu sa najprv zavolá funkcia \textit{Handlebars.compile} do argumentu zoberie šablónu ktorá je uloená v elemente s id \textit{places-template}. Ako návratovú hodnotu vráti funkciu, ktorú uloíme pod menom \textit{template}. Následne sa na event \textit{appRefresh} naviae volanie funkcie \textit{refreshPage} a prvı krát sa spustí tento event.\\
+\noindent Naša šablona \textit{places-template} obashuje aj aktívne linky a v nasledujúcom bloku je príklad implemenácie vymazania miesta z ob¾úbenıch. Na generálny event \textit{click} je naviazanı filtrovanı event, torı spustí AJAX dotaz na vymazanie miesta z ob¾úbenıch ak element ktorı event spustil obsahuje triedu \textit{delete} a atribút\textit{data-id}.
+
+\begin{algorithm}
+\lstset{
+   language=JavaScript,
+   basicstyle=\small\sffamily,
+   frame=none,
+   numbers=left,
+   xleftmargin=5.0ex,
+   numberstyle=\tiny,
+   stepnumber=1,
+   showstringspaces=false,
+   keywordstyle=\color{blue}\bfseries
+   }
+\lstset{emph={%  Adjust any special keywords
+   printf%
+   },emphstyle={\color[rgb]{1,0,0}\bfseries}%
+}%
+\begin{lstlisting}
+var template;  
+function refreshPage (){
+  $.get('/placeapi?type=template', function (data) {
+    data = JSON.parse(data);
+    home = data.places[0];
+    $('#places_body').html(template(data));
+  });
+}
+
+$(document).ready(function() {
+
+  template = Handlebars.compile($("#places-template").html());
+  
+}).on('appRefresh',refreshPage).trigger('appRefresh');
+
+ $(document).on('click', '.delete[data-id]', function (e) {
+    e.preventDefault();
+    $.ajax({ url: '/placeapi/' + $(this).data('id'), type: 'POST',
+      success: function () {
+        $(document).trigger('appRefresh');
+      }
+    });
+  });
+\end{lstlisting}
+\caption{Implementácia dynamickej tabulky}
+\label{dynamictable}
+\end{algorithm}
+
 
 
 
