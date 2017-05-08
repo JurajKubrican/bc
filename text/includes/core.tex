@@ -8,24 +8,27 @@
 \label{relational}
 %https://en.wikipedia.org/wiki/Relational_database
 \noindent Relaèná databáza je databáza, v ktorej sú údaje uloené pod¾a relaèného databázového modelu pod¾a E. F. Codda z roku 1970. Pod¾a Relaèného modelu sú dáta uloené v tabu¾kách. Jeden riadok tabu¾ky je jeden záznam. Ståpec tabu¾ky reprezentuje jeden atribút objektu.
-\noindent Väzby (vzahy) medzi tabu¾ami sú riešené pomocou unikátnych identifikátorov tzv. k¾úèov. Jedna tabu¾ka obsahuje k¾úè, èo je atribút ktorı unikátne identifikuje kadı záznam a druhá tabu¾a obsahuje tzv. cudzí k¾úè, atribút ktorı odkazuje na záznam v prvej tabu¾ke.
-\noindent Nevıhoda tohto prístupu sa však ukazuje v škálovate¾nosti. Pri vyh¾adávaní kadé toto prepojenie pridáva vıpoètovú komplexitu, keïe v kadej ïalšej prepojenej tabu¾ke treba vyh¾ada záznam s poadovanım k¾úèom (O(log(n))). Všetky pouívané relaèné databázové systémy riešia tento problém škálovate¾nosti pouitím indexov a rôznymi inımi optimalizáciami, no pokia¾ sú naše dáta štruktúrované s ve¾a prepojeniami systém sa spomalí.
+
+Väzby (vzahy) medzi tabu¾ami sú riešené pomocou unikátnych identifikátorov tzv. k¾úèov. Jedna tabu¾ka obsahuje k¾úè, èo je atribút ktorı unikátne identifikuje kadı záznam a druhá tabu¾a obsahuje tzv. cudzí k¾úè, atribút ktorı odkazuje na záznam v prvej tabu¾ke.
+
+Nevıhoda tohto prístupu sa však ukazuje v škálovate¾nosti. Pri vyh¾adávaní kadé toto prepojenie pridáva vıpoètovú komplexitu, keïe v kadej ïalšej prepojenej tabu¾ke treba vyh¾ada záznam s poadovanım k¾úèom (O(log(n))). Všetky pouívané relaèné databázové systémy riešia tento problém škálovate¾nosti pouitím indexov a rôznymi inımi optimalizáciami, no pokia¾ sú naše dáta štruktúrované s ve¾a prepojeniami systém sa spomalí.
 %TODO obrázok relations in grapg vs relational
 
 \subsection{Grafovı model}
-%TODO peknı úvod
-\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo neimplementova v našej grafovej databáze.\\
+\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo neimplementova v našej grafovej databáze.
 
-\noindent Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaèené jednou alebo viacerımi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. \\
-\noindent Hrany v grafovıch databázach spájajú vrcholy a budujú štruktúru grafu. Hrana grafu má vdy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak zvolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany môu rovnako ako vrcholy obsahova aj atribúty. Atribúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
+Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaèené jednou alebo viacerımi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie.
 
-%TODO REWORD
+Hrany v grafovıch databázach spájajú vrcholy a budujú štruktúru grafu. Hrana grafu má vdy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak zvolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany môu rovnako ako vrcholy obsahova aj atribúty. Atribúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
+
 \subsection{Vıkon grafovej databázy}
 \noindent Ako sme u spomínali v èasti \ref{relational} preh¾adanie kadého ïalšieho vsahu v relaènej databáze má teoretickú vıpoètovú zloitos (O(log(n))). Na druhej strane natívne grafové databázy pouívajú bezindexovú pri¾ahlos \cite{graphDBs}. Toto v praxi znamená, e pri preh¾adávaní vzahov v klesá vıpoètová zlitos na O(1). Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamimi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Tak isto vo vrcholoch sú uloené priame ukazovate¾e na všetky hrany vychádzajúce z a mieriace do dtyèného vycholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos O(1) v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom. Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
 
 
 
 \section{Špecifikácia}
+%ODO uvodne slovo k specifikacii - co budeme robit
+
 \begin{enumerate}
 \item Funkcionálne poiadavky
 \begin{enumerate}
@@ -112,16 +115,17 @@
 %TODO citations
 
 \begin{enumerate}
-\item{NEO4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvíjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantoch': Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edícia, ktorá má rozšírené funkcie ako shardovanie cache pamäte, rozšírené monitorovanie a zálohovanie za behu.\\
-\noindent Medzi hlavné vıhody neo4j patrí to, e je to dlhodobo najrozšírenejšia grafová databáza, má dobrú dokumentáciu, podporuje mapovanie na objekty\\
-\noindent Nevıhodou je, e podporuje iba grafovı model ukladania údajov.
+\item{NEO4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvíjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantoch': Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edícia, ktorá má rozšírené funkcie ako shardovanie cache pamäte, rozšírené monitorovanie a zálohovanie za behu.
+
+Medzi hlavné vıhody neo4j patrí to, e je to dlhodobo najrozšírenejšia grafová databáza, má dobrú dokumentáciu, podporuje mapovanie na objekty. Nevıhodou je, e podporuje iba grafovı model ukladania údajov.
 
 \item{OrientDB}OrientDB je vyvíjané od roku 2010 firmou OrientDB LTD. Databáza OrientDB rıchlo nabralo nabrala na popularite a v roku 2015 sa dostala na druhé miesto v rebríèku DB-engines. OrientDB sa rovnako ako Neo4j distribuuje v dvoch edíciách: Community - open source (Apache Licence 2.0) so základnımi funkciami a Enterprise edíciou s podporou migrácie a synchronizácie na Neo4J a pridanımi analytickımi nástrojmi. \\
-\noindent Vıhodou OrientDB je podpora okrem grafového modelu ukladania dát aj dokumentovı a key/value model ukladania údajov.\\
-\noindent Nevıhodou je horšia podpora pre nami vybranı framework Laravel 
 
-\item{Titan} Titan bol od 2012 vyvíjanı skupinou ThinkAurelius, no v roku 2017 bol odkúpenı firmou Datstax a projekt Titan bol zastavenı. Projekt je ïalej udriavanı ako open source verzia pod menom JanusGraph. Titan je projekt urèenı na ve¾ké distribuovane enterprise riešenia, je nasadzovanı na cloudové platformy ako napr. Apache Hadoop, Apache Spark, ... podporuje rôzne distribuované úloné priestory ako napr. Apache HBase, Oracle BerkeleyDB, ... Ïalej podporuje rôzne vyh¾adávacie enginy ako napr. Elasticsearch, Solr, ...\\
-\noindent Toto riešenie je pre naše pouitie nevhodné, lebo na správne fungovanie vyaduje distribuovanı systém.
+Vıhodou OrientDB je podpora okrem grafového modelu ukladania dát aj dokumentovı a key/value model ukladania údajov. Nevıhodou je horšia podpora pre nami vybranı framework Laravel 
+
+\item{Titan} Titan bol od 2012 vyvíjanı skupinou ThinkAurelius, no v roku 2017 bol odkúpenı firmou Datstax a projekt Titan bol zastavenı. Projekt je ïalej udriavanı ako open source verzia pod menom JanusGraph. Titan je projekt urèenı na ve¾ké distribuovane enterprise riešenia, je nasadzovanı na cloudové platformy ako napr. Apache Hadoop, Apache Spark, ... podporuje rôzne distribuované úloné priestory ako napr. Apache HBase, Oracle BerkeleyDB, ... Ïalej podporuje rôzne vyh¾adávacie enginy ako napr. Elasticsearch, Solr, ...
+
+Toto riešenie je pre naše pouitie nevhodné, lebo na správne fungovanie vyaduje distribuovanı systém.
 
 \end{enumerate}
 
@@ -139,12 +143,15 @@
 
 
 \subsubsection{NeoEloquent OGM}
-\noindent NeoEloquent OGM je vo¾ne šírite¾ná kninica, ktorá umoòuje vyuíva grafovú databázu neo4j spolu s existujúcim dátovım modelom vo frameworku Laravel. Štruktúra NeoEloquent je modelovaná pod¾a existujúceho Eloquent Modelu a preto je ideálny na integráciu do ekosystému Laravel.
+\noindent NeoEloquent OGM je vo¾ne šírite¾ná kninica, ktorá umoòuje vyuíva grafovú databázu neo4j spolu s existujúcim dátovım modelom vo frameworku Laravel. Štruktúra NeoEloquent je modelovaná pod¾a natívneho Eloquent Modelu Laravel. Kninica je vydávaná od roku 2014 pod licenciou MIT spoloènosou Vinelab
 
 
 \subsubsection{Mapbox.js}
-\noindent Mapbox.js je komerèná kninica na vytváranie projektov s interaktívnymi mapami. Je zaloená na vo¾ne šírite¾nej kninici Leaflet, rozširuje túto kninicu o funkcie ako automatické zoskupovanie bodov do skupín a poskytuje bohatú a preh¾adnú dokumentáciu. My pouívame verziu zdarma, ktorá je obmedzená na 50000 zobrazení maky na mesiac.\\
-Mapbox.js podporuje štandardnı formát dát GeoJSON, tento formát umoòuje uklada dáta o polohe, type bodu, rôznych atribútov upresòujúcich vizuál zobrazovaného bodu. Tento formát ïalej umoòuje uklada geometrické útvary a krivky.
+\noindent Mapbox.js je kninica na vytváranie projektov s interaktívnymi mapami. Je zaloená na vo¾ne šírite¾nej kninici Leaflet vyvıjanou Vladimirom Agafonkinom, rozširuje túto kninicu o funkcie ako automatické zoskupovanie bodov do skupín a poskytuje preh¾adnú dokumentáciu. My pouívame verziu zdarma, ktorá je obmedzená na 50000 zobrazení mapy na mesiac. 
+Túto kninicu postupne nahrádza Mapbox-gl.js vyvıjaná tou istou firmou, ktorá vyuíva technológiu WebGL na lepšiu akceleráciu vykreslovania, no v èase zaèiatku projektu táto knonica ešte nepodporovala vyššie spomenuté zoskupovanie bodov.
+
+\subsubsection{Handlebars.js}
+\noindent Handlebars.js je jednoduchá silná open source kninica na prácu z šablónami, vyvıjaná je Yehudom Katzom a komunitou na GitHube od roku 2010 a vydávaná pod licenciou MIT. 
 
 \subsubsection{Rome2Rio Api}
 \noindent Rome2Rio je portál ktorı zbiera údaje o cenách dopravy po celom svete a umoòuje vyh¾ada cenu cesty medzi dvomi ¾ubovo¾nımi destináciami. Rome2Rio taktie poskytuje nieko¾ko otvorenıch a platenıch API. My vyuívame dve z nich: Search API a Autocomplete API. Autocomplete API slúi na vyh¾adávanie destinácií z databázy rome2rio a nieje obmedzené na poèet volaní. Search API slúi na vyh¾adávanie trás medzi jednotlivímy destináciami, je potrebné sa identifikova API k¾úèom a je obmedzené na 100 000 volaní za mesiac.
@@ -154,11 +161,15 @@ Mapbox.js podporuje štandardnı formát dát GeoJSON, tento formát umoòuje uklada
 \subsection{Inštalácia a konfigurácia Laravel Framework-u}
 \noindent Na inštaláciu frameworku Laravel sme pouili nástroj pre správu PHP balíkov \textit{Composer}. Pomocou tohto nástroja sme nainštalovali balík \textit{laravel/installer} \cite{laravel}, následne sme poitím príkazu \textit{laravel new projekt} vytvorili prieèinok so základnou inštaláciou frameworku.
 
+Jediné nastavanie ktoré bolo po tom potrebné bolo u len nastavenie názvu aplikácie, a databázy, o tom dalej v sekcii \ref{installneo}.
 
 \subsection{Inštalácia a konfigurácia Databázy neo4j}
+\label{installneo}
 \cite{neoinstall}
-\noindent Aby sme mohli nainštalova databázu Neo4j musíme si najprv do systému prida repozitár Neotechnology, potom je nám k dispozícií na inštaláciu balík neo4j. Po inštalácií je nám ihneï dostupné administraèné rozhranie databázy na adrese: \textit{localhost:7474}. Pri prvom prihasení sme vyzvaní na zmenu hesla.\\
-\noindent Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu neo4j museli sme poui ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po zaregistrovaní sluby NeoEloquentServiceProvider sa automaticky zaregistruje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandardnú konfiguráciu mena hostite¾a, port a prístupovıch údajov.\\
+\noindent Aby sme mohli nainštalova databázu Neo4j musíme si najprv do systému prida repozitár Neotechnology, potom je nám k dispozícií na inštaláciu balík neo4j. Po inštalácií je nám ihneï dostupné administraèné rozhranie databázy na adrese: \textit{localhost:7474}. Pri prvom prihasení sme vyzvaní na zmenu hesla.
+
+Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu neo4j museli sme poui ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po zaregistrovaní sluby NeoEloquentServiceProvider sa automaticky zaregistruje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandardnú konfiguráciu mena hostite¾a, port a prístupovıch údajov.
+
 Na získanie vzdialeného prístupu k administraènému rozhraniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
 
 
@@ -201,9 +212,14 @@ $app->register('Vinelab\NeoEloquent\NeoEloquentServiceProvider');
 
 
 \subsection{OGM}
-\noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent. 
-Pouili sme open source balík NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej databázy. NeoEloquent umoòuje manipuláciu s vrcholmi aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umoòuje vytvára perzistentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich typom a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako objekt, dá sa vytvára upravova a v prípade vyššej kardinality aj vyh¾adáva. \\
-V nasledujúcom príklade vidíme implementáciu dvoch rôznych tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menového priestoru v ktorom bol vytvorenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objekty hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedy ktorou vzah chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovanı typ hrany v databáze. 
+\label{ogm}
+\noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent.
+ 
+Pouili sme open source balík NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej databázy. NeoEloquent umoòuje manipuláciu s vrcholmi aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umoòuje vytvára perzistentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich typom a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako štandartná entitná trieda Eloquent.
+
+V nasledujúcom príklade \ref{codeauth} vidíme implementáciu dvoch rôznych tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menového priestoru v ktorom bol vytvorenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objekty hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedy ktorou vzah chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovanı typ hrany v databáze. 
+
+Trieda NeoEloquent funguje vo väèšine prípadov presne ako Eloquent no v jednom príade sme mali probém z CSRF tokenmi. CSRF tokken je bezpeènostnı prvok, ktorı ochranuje webovú stránku pred útokom falšovania poiadaviek z inej adresy. Laravel má tento bezpeènostnı prvok vstavanı v sebe, je to 40 znakovı retazec, ktorı sa generuje kadému pouívate¾ovi pri zobrazení formulára, tento istı reazec sa zároveò uloí do databázy a keï Laravel príjme formulár overí èi sa jeho token nachádza v databáze. Táto funkcionalita však po prejdení na grafovú databázu nefungovala. Pri kadom odoslaní formulára vyhlasovalo nezhodu CSRIF tokenu a v databáze sa neobjavila entita ktorá by tieto tokeny mohla obsahova.  Tento problém sme zatia¾ obiši deaktováciu tohto bezpeènostného prvku. 
 
 \begin{algorithm}
 \lstset{
@@ -300,57 +316,29 @@ protected $hidden = [
 
 
 \subsection{API}
-\noindent Keïze sme sa rozhodli vyui javascriptové zobrazovanie dynamického obsahu museli sme vytvor interné API, aby sme mohli javascriptu poskytnú údaje. Na tento úèel sme vytvorili nieko¾ko ciest pomocou routovacieho nástroja frameworku. Príklad vytvárania ciest \ref{settingsRoutes}. 
+\noindent Keïze sme sa rozhodli vyui javascriptové zobrazovanie dynamického obsahu museli sme vytvor interné API, aby sme mohli javascriptu poskytnú údaje. Na tento úèel sme vytvorili nieko¾ko ciest pomocou routovacieho nástroja frameworku. Routrer Laravel-u je relatívne jednoduchı, ale silnı nástroj na vytváranie RESTful API. Na naše potreby sme potrebovali vytvori tri REST cesty: \textit{/place}, \textit{/placeapi} a \textit{/tsp}. Prvá je na pridávanie destinácií, druhá na pridávanie do, odoberanie z ob¾úbenıch a zobrazovanie ob¾úbenıch ma mape, tretia na pridávanie odoberanie a zobrazovanie destinácií na zozname TSP.
 
 
-Preplnú funkènos našej aplikácie potrebujeme vedie vymaz existujúcu a prida novú destináciu, prida do a odobra destianáciu z ob¾úbenıch a prida a odobra miesto zo zoznamu pre TSP.
-
-\begin{algorithm}
-	\lstset{
-		language=PHP,
-		basicstyle=\small\sffamily,
-		frame=none,
-		numbers=left,
-		xleftmargin=5.0ex,
-		numberstyle=\tiny,
-		stepnumber=1,
-		showstringspaces=false,
-		keywordstyle=\color{blue}\bfseries
-	}
-	\lstset{emph={% Adjust any special keywords
-			printf%
-		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
-	}%
-	\begin{lstlisting}
-//zobrazí obrazovku TSP
-Route::get('/tsp','HomeController@indexTsp');
-//vráti vısledok TSP vo formáte JSON
-Route::get('/tsp/solve','TSPController@run');
-//pridanie a odstánenie miezta z TSP
-Route::post('/tsp/add/{place}','TSPController@add');
-Route::post('/tsp/remove/{place}','TSPController@remove');
-	\end{lstlisting}
-	\caption{Nastavenia ciest}
-	\label{settingsRoutes}
-\end{algorithm}
-%TODO Rome2rio cached
-%TODO autocomplete api security risk
+%todo we want to universal not ony r2r
 
 \subsection{Rome2rio API}
-\noindent 
+\noindent Všetky údaje o destináciách a trasách berieme z API Rome2Rio. Pomocou Autocomplete API umonujeme pouívate¾ovi pridáva destinácie. Pouívate¾ zadáva písmená do autocomplete textového po¾a na stránke toto pole posiela dotazy na Autocomplete api a ono vracia pole objektov s miestami. Tieto objekty obahujú informácie o type desinácie(obec, mesto, región, štát, letisko,), geografickú polohu, názov v dlhom a krátkom tvare a kanonickı názov. Pouívate¾ si potom vyberie jenu z testinácií a prísluènı objekt sa zašle na náš server. Na unikátnu identifikáciu objetku pouívame ple kanonikı názov, ktoré je pod¾a dokumentácie unikátnym identifikátorom miesta. 
 
+Ak miesto miesto este nemáme v databáze, pridáme tento objekt do databázy. Toto riešenie nieje úplne ideálne z bezpeènostného hladiska, lebo umonuje zaslanie falošného miesta do našej databázy. AK by utoèník vyrobil objekt s reálnym kanonickım názvom no falošnımi údajmi napr o zemepisnej šírke, dåke toto miesto by sa potom nespávne zobrazovalo všetkım pouívate¾om. Na vyriešenie tohto problému by postaèilo urobi eše jeden dotaz z nášho servera na autocomplete api ktorım by sme si len vypıtali údaje k miestu za pomoci kanonického názvu.
 
+Dalšie údaje berieme z Rome2Rio Search API. Sú to údaje o monıch trasách a ich cenách. Toto API je obmedzené na poet volaní preto sme na volanie toho API implementovali pamat cache. Vdy keï voláme search api voláme ho na dve miesta ,ktoré u máme uloené v našej databázer ako vrcholy. Tento fakt sme vyuili a vytvroili sme da¾ší typ hrany - CACHE. Keïe pri mestách ktoré sú dopravné uzly vystúpala ve¾kos odpoveïe API a na rádovo 500kb a tento typ dopytu sa nerobí ve¾mi èasto rozhodli sme sa odpoveï servra neuklada priamo do databázy ale v nezmenenej podobe na disk a do databázy uloi len vek cache súboru a referenciu na súbor na disku. Keïze v momentálnej podobe nevyuívame celú odpoveï tohto api mohli by sme zoptimalizova vyuitie miesta na disku tım, e by sme najprv údaje zpracovali a uloili len tie, ktoré vyuívame.
 
-%TODO geojson lonLat
-\subsection{GeoJson}
-\noindent Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. Na príklade \ref{geojson} vidíme kolekciu mapovıch
+%TODO KIWI.com ANOTHER SOURCES Problémom takejto integrácie Rome2Rio API do našej plikácie je, e ak by sme chceli bra údaje z inıch zdrojov boli by nutné zmeny v štruktúre ukladania dát aby boli 
 
 
 \subsection{Mapa}
-\noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a aplikácií pouili JavaScriptovú kninicu Mapbox.js. Na inicializáciu mapu sme naimplementovali funkciu \ref{coderecommendmap}.\\ 
+\noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a aplikácií pouili JavaScriptovú kninicu Mapbox.js. Na inicializáciu mapu sme naimplementovali funkciu \ref{coderecommendmap}.
+
 %TODO ref tech
-\noindent Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializuje samotná mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu clusterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do clusterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou clusteru. Na pridanie bodov do clusterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy clusterov. Následne sa vrstva clusterov pridá do objektu mapy.\\
+Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializuje samotná mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu clusterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do clusterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou clusteru. Na pridanie bodov do clusterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy clusterov. Následne sa vrstva clusterov pridá do objektu mapy.
 %TODO screenshoot markercluster ref
+
+Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. GeoJson je dátová štruktúra zakódvaná do formátu JSON obsahujúca informácie potrebné na vykreslovanie kartografickıch velièin. V našej implementácií pouívame nasledovnú štruktúru GeoJson objektu. Hlavnı objekt GeoJson obsahuje typ, u nás \textit{FeatureCollection}, a pole objektov typu \textit{Feature}. Kadı z tıchto objektov obsahuje pole koordinátov, a objekt dodatoènıch atribútov slúiacich na upresnenie vizuálu vykresleného objektu. Spomínané pole koordinátov nám spôsovalo mierne nedorozumenia, lebo v èíslovanom poli je ako prvı prvok je uloená zemepisná dåka (longitude) a ako druhı zemepisná šíka (latitude) \cite{geojson}, èo je presne opaène ako šetky ostatné API ktoré sme pouívali.
 
 
 \begin{algorithm}
@@ -405,10 +393,13 @@ map.fitBounds(clusterGroup.getBounds());
 
 
 \subsection{Vykres¾ovanie tabuliek}
-\noindent Aby sme zlepšili UX stránky rozhodli sme sa na vykres¾ovanie dynamického obsahu vyui namiesto HTML obsahu renderovaného na serveri javascriptovú kninicu na prácu so šablónami a, dynamickı obsah naèítavame z API našej aplikácie vo formáte JSON. Na vykres¾ovanie dynamického obsahu sme zvolili kninicu Handlebars.js. Na príklade \ref{dynamictable} môeme ukáza príklad našej implementácie dynamickej tabu¾ky pre hlavnú tabu¾ku zobrazujúcu destinácie a ich detaily.\\
-Najprv je zadeklarovaná premenná v \textit{template} ktorá bude neskôr obsahova funkciu renderujúcu šablónu. Potom je zadeklarovaná funkcia \textit{refreshPage}, ktorá bude volaná vdy, keï nejaká funkcia spustí event s menom \textit{appRefresh}. Táto funkcia vyuije AJAX API kninice jQuery a stiahne potrebné dáta, potom vyuije funkciu \textit{template}, ktorá do argumentu berie dáta vo forme po¾a objektov a vracia vygenerované HTML ktoré sa následne vkladá na stránku.\\
-\noindent V druhej èasti kódu sa najprv zavolá funkcia \textit{Handlebars.compile} do argumentu zoberie šablónu ktorá je uloená v elemente s id \textit{places-template}. Ako návratovú hodnotu vráti funkciu, ktorú uloíme pod menom \textit{template}. Následne sa na event \textit{appRefresh} naviae volanie funkcie \textit{refreshPage} a prvı krát sa spustí tento event.\\
-\noindent Naša šablóna \textit{places-template} obsahuje aj aktívne linky a v nasledujúcom bloku je príklad implementácie vymazania miesta z ob¾úbenıch. Na generálny event \textit{click} je naviazanı filtrovanı event, ktorı spustí AJAX dotaz na vymazanie miesta z ob¾úbenıch ak element ktorı event spustil obsahuje triedu \textit{delete} a atribút\textit{data-id}.
+\noindent Aby sme zlepšili UX stránky rozhodli sme sa na vykres¾ovanie dynamického obsahu vyui namiesto HTML obsahu renderovaného na serveri javascriptovú kninicu na prácu so šablónami a, dynamickı obsah naèítavame z API našej aplikácie vo formáte JSON. Na vykres¾ovanie dynamického obsahu sme zvolili kninicu Handlebars.js. Na príklade \ref{dynamictable} môeme ukáza príklad našej implementácie dynamickej tabu¾ky pre hlavnú tabu¾ku zobrazujúcu destinácie a ich detaily.
+
+Najprv je zadeklarovaná premenná v \textit{template} ktorá bude neskôr obsahova funkciu renderujúcu šablónu. Potom je zadeklarovaná funkcia \textit{refreshPage}, ktorá bude volaná vdy, keï nejaká funkcia spustí event s menom \textit{appRefresh}. Táto funkcia vyuije AJAX API kninice jQuery a stiahne potrebné dáta, potom vyuije funkciu \textit{template}, ktorá do argumentu berie dáta vo forme po¾a objektov a vracia vygenerované HTML ktoré sa následne vkladá na stránku.
+
+V druhej èasti kódu sa najprv zavolá funkcia \textit{Handlebars.compile} do argumentu zoberie šablónu ktorá je uloená v elemente s id \textit{places-template}. Ako návratovú hodnotu vráti funkciu, ktorú uloíme pod menom \textit{template}. Následne sa na event \textit{appRefresh} naviae volanie funkcie \textit{refreshPage} a prvı krát sa spustí tento event.
+
+Naša šablóna \textit{places-template} obsahuje aj aktívne linky a v nasledujúcom bloku je príklad implementácie vymazania miesta z ob¾úbenıch. Na generálny event \textit{click} je naviazanı filtrovanı event, ktorı spustí AJAX dotaz na vymazanie miesta z ob¾úbenıch ak element ktorı event spustil obsahuje triedu \textit{delete} a atribút\textit{data-id}.
 
 \begin{algorithm}
 \lstset{

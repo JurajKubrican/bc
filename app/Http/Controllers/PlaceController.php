@@ -270,15 +270,10 @@ class PlaceController extends Controller {
 
       $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
 
-      if(null == $route->minPrice){
-        //dd($user->home()->first()->canonicalName,$place->canonicalName);
+      if(null == $route->minPrice)
         $this->fetchMissing($user->home()->first(),$place);
-      }
 
       $tsp = $user->tsp()->edge($place) ? 1 : '';
-//      if($tsp)
-//        dd($user->tsp()->edge($place));
-
 
       $data[] = (object) [
         'id' => $place->id,

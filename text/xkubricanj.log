@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  6 MAY 2017 22:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  8 MAY 2017 21:55
 entering extended mode
 **./xkubricanj.tex
 (xkubricanj.tex
@@ -593,7 +593,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
-<includes/assignment.jpeg, id=130, 614.295pt x 794.97pt>
+<includes/assignment.jpeg, id=138, 614.295pt x 794.97pt>
 File: includes/assignment.jpeg Graphic file (type jpg)
 
 <use includes/assignment.jpeg>
@@ -608,7 +608,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--17
 
  []
 
-(abstract.tex)
+(includes/abstract.tex)
+Overfull \hbox (3.07289pt too wide) in paragraph at lines 1--17
+\T1/lmr/m/n/12 naim-ple-men-to-vaním ap-liká-cie ktorá bude vyuºí-va´ jed-ného 
+pred-stavi´e©a grafovej databázy.
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
@@ -618,7 +624,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--18
 
  []
 
-(abstractEN.tex)
+(includes/abstractEN.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 1--18
 
  []
@@ -660,22 +666,23 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [5
 
 
-]
+] [6]
 \mylenf=\skip90
- (xkubricanj.lof)
+
+(xkubricanj.lof)
 \tf@lof=\write6
 \openout6 = `xkubricanj.lof'.
 
-
-(xkubricanj.lot)
+ (xkubricanj.lot)
 \tf@lot=\write7
 \openout7 = `xkubricanj.lot'.
 
- [6] (includes/AbbreviationsAndSymbols.tex) [7] (xkubricanj.loa)
+ [7] (includes/AbbreviationsAndSymbols.tex)
+[8] (xkubricanj.loa)
 \tf@loa=\write8
 \openout8 = `xkubricanj.loa'.
 
- [8] (includes/introduction.tex)
+ [9] (includes/introduction.tex)
 Overfull \hbox (34.03862pt too wide) in paragraph at lines 31--32
 \T1/lmr/m/n/12 Pri návrhu ap-liká-cie treba mys-lie´ na ²tuk-túru dát a pod©a t
 oho vy-bra´ správnu databázu/DBMS.
@@ -693,66 +700,68 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                removing `\textasciicaron' on input line 7.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--18
-
- []
-
-
-LaTeX Warning: Citation `graphDBs' on page 2 undefined on input line 24.
+LaTeX Warning: Citation `graphDBs' on page 2 undefined on input line 25.
 
 [2] [3]
-Overfull \hbox (17.7256pt too wide) in paragraph at lines 34--35
+Overfull \hbox (17.7256pt too wide) in paragraph at lines 37--38
 []\T1/lmr/m/n/12 Po prih-lásení pouºí-vate©a sa mu zo-brazí obra-zovka s mapou,
  zoz-namom ob©úbených
  []
 
-[4] [5] <uml/usecase-login-settings.pdf, id=249, 338.01282pt x 529.22719pt>
+[4] [5] <uml/usecase-login-settings.pdf, id=261, 338.01282pt x 529.22719pt>
 File: uml/usecase-login-settings.pdf Graphic file (type pdf)
 
 <use uml/usecase-login-settings.pdf>
-Package pdftex.def Info: uml/usecase-login-settings.pdf used on input line 68.
+Package pdftex.def Info: uml/usecase-login-settings.pdf used on input line 71.
 (pdftex.def)             Requested size: 284.52756pt x 445.50069pt.
 
-<uml/usecase-dash.pdf, id=250, 453.19313pt x 403.5075pt>
+<uml/usecase-dash.pdf, id=262, 453.19313pt x 403.5075pt>
 File: uml/usecase-dash.pdf Graphic file (type pdf)
 
 <use uml/usecase-dash.pdf>
-Package pdftex.def Info: uml/usecase-dash.pdf used on input line 74.
+Package pdftex.def Info: uml/usecase-dash.pdf used on input line 77.
 (pdftex.def)             Requested size: 284.52756pt x 253.33061pt.
 
-<uml/usecase-tsp.pdf, id=251, 326.72063pt x 290.58563pt>
+<uml/usecase-tsp.pdf, id=263, 326.72063pt x 290.58563pt>
 File: uml/usecase-tsp.pdf Graphic file (type pdf)
 
 <use uml/usecase-tsp.pdf>
-Package pdftex.def Info: uml/usecase-tsp.pdf used on input line 80.
+Package pdftex.def Info: uml/usecase-tsp.pdf used on input line 83.
 (pdftex.def)             Requested size: 284.52756pt x 253.05576pt.
 
-<uml/database.pdf, id=252, 536.75531pt x 423.83344pt>
+<uml/database.pdf, id=264, 536.75531pt x 423.83344pt>
 File: uml/database.pdf Graphic file (type pdf)
  <use uml/database.pdf>
-Package pdftex.def Info: uml/database.pdf used on input line 88.
+Package pdftex.def Info: uml/database.pdf used on input line 91.
 (pdftex.def)             Requested size: 341.43306pt x 269.60333pt.
 
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 94.
+(hyperref)                removing `\textasciicaron' on input line 97.
 
 
-LaTeX Warning: Citation `dbrank' on page 6 undefined on input line 109.
+LaTeX Warning: Citation `dbrank' on page 6 undefined on input line 112.
 
 [6] [7 <./uml/usecase-login-settings.pdf>] [8 <./uml/usecase-dash.pdf> <./uml/u
 secase-tsp.pdf
 
 pdfTeX warning: pdflatex.exe (file ./uml/usecase-tsp.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
->] [9 <./uml/database.pdf>] [10]
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
-LaTeX Warning: Citation `laravel' on page 11 undefined on input line 155.
+ []
 
-[11]
+[9 <./uml/database.pdf>] [10] [11]
 
-LaTeX Warning: Citation `neoinstall' on page 12 undefined on input line 159.
+LaTeX Warning: Citation `laravel' on page 12 undefined on input line 162.
+
+
+LaTeX Warning: Reference `neoinstall' on page 12 undefined on input line 164.
+
+
+LaTeX Warning: Citation `neoinstall' on page 12 undefined on input line 167.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -760,57 +769,52 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
 File: lstlang2.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 181.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 191.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 182.
+(Font)              <10.95> on input line 192.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 196.
- [12]
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 229.
+put line 206.
 
-Overfull \hbox (2.71304pt too wide) in paragraph at lines 242--243
+Overfull \hbox (1.31577pt too wide) in paragraph at lines 217--218
+\T1/lmr/m/n/12 Neo4J a zárove¬ roz²iruje dá-tový model o prvky grafovej databáz
+y. NeoElo-quent umoº¬uje
+ []
+
+[12]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 244.
+
+Overfull \hbox (2.71304pt too wide) in paragraph at lines 257--258
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [13] [14] [15]
 
-LaTeX Warning: Reference `geojson' on page 16 undefined on input line 340.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 344--348
-
- []
-
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 369.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Overfull \hbox (74.98363pt too wide) in paragraph at lines 383--384
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][] 
- []
-
-
-Overfull \hbox (357.49591pt too wide) in paragraph at lines 384--385
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
-[][][][][][][][][][][][][][][][] 
- []
+LaTeX Warning: Citation `geojson' on page 16 undefined on input line 333.
 
 [16]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 363.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (199.81464pt too wide) in paragraph at lines 378--379
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][] 
+ []
+
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 401.
+(hyperref)                removing `\textasciicaron' on input line 395.
 
-[17]) [18] [19] (includes/conclusion.tex) [20
+[17] [18]) [19] (includes/conclusion.tex) [20
 
 
 ]
@@ -833,7 +837,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
 Package rerunfilecheck Info: File `xkubricanj.out' has not changed.
-(rerunfilecheck)             Checksum: 21B5F845EA2F2FA01C8E3F7C741DF2AD;1880.
+(rerunfilecheck)             Checksum: E2990CE1BF0C0DE119ABB795E03464C9;2012.
 
 
 LaTeX Warning: There were undefined references.
@@ -844,13 +848,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 13293 strings out of 493333
- 195544 string characters out of 3139194
- 594702 words of memory out of 3000000
- 16362 multiletter control sequences out of 15000+200000
+ 13280 strings out of 493333
+ 195489 string characters out of 3139194
+ 590332 words of memory out of 3000000
+ 16355 multiletter control sequences out of 15000+200000
  80277 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,8n,41p,1359b,3131s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,8n,41p,1363b,3131s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
@@ -860,9 +864,9 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program
 ic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on xkubricanj.pdf (30 pages, 1076785 bytes).
+Output written on xkubricanj.pdf (31 pages, 1076335 bytes).
 PDF statistics:
- 691 PDF objects out of 1000 (max. 8388607)
- 220 named destinations out of 1000 (max. 500000)
- 258 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 692 PDF objects out of 1000 (max. 8388607)
+ 214 named destinations out of 1000 (max. 500000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
 

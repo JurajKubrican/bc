@@ -17,15 +17,17 @@
 \contentsline {subsubsection}{\numberline {4.1.1}Laravel framework}{11}{subsubsection.50}
 \contentsline {subsubsection}{\numberline {4.1.2}NeoEloquent OGM}{11}{subsubsection.51}
 \contentsline {subsubsection}{\numberline {4.1.3}Mapbox.js}{11}{subsubsection.52}
-\contentsline {subsubsection}{\numberline {4.1.4}Rome2Rio Api}{11}{subsubsection.53}
-\contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{12}{subsection.54}
-\contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia Datab\'azy neo4j}{12}{subsection.55}
-\contentsline {subsection}{\numberline {4.4}OGM}{13}{subsection.71}
-\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{13}{subsection.97}
-\contentsline {subsection}{\numberline {4.6}API}{13}{subsection.121}
-\contentsline {subsection}{\numberline {4.7}GeoJson}{16}{subsection.131}
-\contentsline {subsection}{\numberline {4.8}Mapa}{16}{subsection.132}
-\contentsline {subsection}{\numberline {4.9}Vykres\v lovanie tabuliek}{17}{subsection.162}
-\contentsline {section}{Z\'{a}ver}{20}{section*.187}
-\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{I}{section*.188}
-\contentsline {section}{Pr\'{i}lohy}{I}{section*.189}
+\contentsline {subsubsection}{\numberline {4.1.4}Handlebars.js}{11}{subsubsection.53}
+\contentsline {subsubsection}{\numberline {4.1.5}Rome2Rio Api}{11}{subsubsection.54}
+\contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{12}{subsection.55}
+\contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia Datab\'azy neo4j}{12}{subsection.56}
+\contentsline {subsection}{\numberline {4.4}OGM}{12}{subsection.72}
+\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{15}{subsection.98}
+\contentsline {subsection}{\numberline {4.6}API}{16}{subsection.122}
+\contentsline {subsection}{\numberline {4.7}Rome2rio API}{16}{subsection.123}
+\contentsline {subsection}{\numberline {4.8}GeoJson}{17}{subsection.124}
+\contentsline {subsection}{\numberline {4.9}Mapa}{17}{subsection.125}
+\contentsline {subsection}{\numberline {4.10}Vykres\v lovanie tabuliek}{17}{subsection.155}
+\contentsline {section}{Z\'{a}ver}{20}{section*.180}
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{I}{section*.181}
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.182}
