@@ -92,13 +92,9 @@ class r2rSearch {
     $s = curl_init();
     curl_setopt($s,CURLOPT_URL,$sQuery);
     curl_setopt($s,CURLOPT_RETURNTRANSFER,true);
-    curl_setopt($s,CURLOPT_HEADER,true);
     $response = curl_exec($s);
-    $header_size = curl_getinfo($s, CURLINFO_HEADER_SIZE);
-    $header = substr($response, 0, $header_size);
-    $body = substr($response, $header_size);
 
-    return $body;
+    return $response;
   }
 
   private function parseSegments($segments){

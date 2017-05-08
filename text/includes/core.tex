@@ -1,9 +1,11 @@
+% !TeX spellcheck = sk_SK
 \section{Analıza problému}
 %Súèasnı stav riešenej problematiky
 \noindent 
 
 
 \subsection{Relaèné}
+\label{relational}
 %https://en.wikipedia.org/wiki/Relational_database
 \noindent Relaèná databáza je databáza, v ktorej sú údaje uloené pod¾a relaèného databázového modelu pod¾a E. F. Codda z roku 1970. Pod¾a Relaèného modelu sú dáta uloené v tabu¾kách. Jeden riadok tabu¾ky je jeden záznam. Ståpec tabu¾ky reprezentuje jeden atribút objektu.
 \noindent Väzby (vzahy) medzi tabu¾ami sú riešené pomocou unikátnych identifikátorov tzv. k¾úèov. Jedna tabu¾ka obsahuje k¾úè, èo je atribút ktorı unikátne identifikuje kadı záznam a druhá tabu¾a obsahuje tzv. cudzí k¾úè, atribút ktorı odkazuje na záznam v prvej tabu¾ke.
@@ -12,17 +14,14 @@
 
 \subsection{Grafovı model}
 %TODO peknı úvod
-\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi opisujeme šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo neimplementova v našej grafovej databáze.\\
+\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo neimplementova v našej grafovej databáze.\\
 
 \noindent Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaèené jednou alebo viacerımi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. \\
 \noindent Hrany v grafovıch databázach spájajú vrcholy a budujú štruktúru grafu. Hrana grafu má vdy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak zvolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany môu rovnako ako vrcholy obsahova aj atribúty. Atribúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
 
-
+%TODO REWORD
 \subsection{Vıkon grafovej databázy}
-%TODO oh god...
-V poslednej dobe je èím ïalej tım viac systémov vyaduje spravova a navigova sie vzahov. V tejto oblasti excelujú grafové databázy.
-
-
+\noindent Ako sme u spomínali v èasti \ref{relational} preh¾adanie kadého ïalšieho vsahu v relaènej databáze má teoretickú vıpoètovú zloitos (O(log(n))). Na druhej strane natívne grafové databázy pouívajú bezindexovú pri¾ahlos \cite{graphDBs}. Toto v praxi znamená, e pri preh¾adávaní vzahov v klesá vıpoètová zlitos na O(1). Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamimi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Tak isto vo vrcholoch sú uloené priame ukazovate¾e na všetky hrany vychádzajúce z a mieriace do dtyèného vycholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos O(1) v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom. Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
 
 
 
@@ -105,10 +104,8 @@ V poslednej dobe je èím ïalej tım viac systémov vyaduje spravova a navigova s
 \end{enumerate}
 
 
-\subsection{Implementácia}
 
-
-\subsubsection{Vıber grafovej databázy}
+\subsection{Vıber grafovej databázy}
 \noindent Vybrali sme si troch najpopulárnejších predstavite¾ov grafovıch databáz pod¾a \cite{dbrank} rebríèka na DB-Engines.com. V nasledujúcej v skratke èasti priblíime históriu kadého GDBMS ich vıhody, nevıhody pre naše pouitie a proces vıberu pouitej databázy.
 
 %TODO reasons
@@ -150,15 +147,16 @@ V poslednej dobe je èím ïalej tım viac systémov vyaduje spravova a navigova s
 Mapbox.js podporuje štandardnı formát dát GeoJSON, tento formát umoòuje uklada dáta o polohe, type bodu, rôznych atribútov upresòujúcich vizuál zobrazovaného bodu. Tento formát ïalej umoòuje uklada geometrické útvary a krivky.
 
 \subsubsection{Rome2Rio Api}
-\noindent Rome2Rio je portál ktorı zbiera údaje o cenách dopravy po celom svete a umoòuje vyh¾ada cenu cesty medzi dvomi ¾ubovo¾nımi destináciami. Rome2Rio taktie poskytuje nieko¾ko otvorenıch a platenıch API.
-%TODO
+\noindent Rome2Rio je portál ktorı zbiera údaje o cenách dopravy po celom svete a umoòuje vyh¾ada cenu cesty medzi dvomi ¾ubovo¾nımi destináciami. Rome2Rio taktie poskytuje nieko¾ko otvorenıch a platenıch API. My vyuívame dve z nich: Search API a Autocomplete API. Autocomplete API slúi na vyh¾adávanie destinácií z databázy rome2rio a nieje obmedzené na poèet volaní. Search API slúi na vyh¾adávanie trás medzi jednotlivímy destináciami, je potrebné sa identifikova API k¾úèom a je obmedzené na 100 000 volaní za mesiac.
 
-\subsection{inštalácia a nastavenie Laravel Framework-u}
+
+
+\subsection{Inštalácia a konfigurácia Laravel Framework-u}
 \noindent Na inštaláciu frameworku Laravel sme pouili nástroj pre správu PHP balíkov \textit{Composer}. Pomocou tohto nástroja sme nainštalovali balík \textit{laravel/installer} \cite{laravel}, následne sme poitím príkazu \textit{laravel new projekt} vytvorili prieèinok so základnou inštaláciou frameworku.
 
 
-%https://debian.neo4j.org/
-\subsection{Inštalácia a Konfigurácia Databázy neo4j}
+\subsection{Inštalácia a konfigurácia Databázy neo4j}
+\cite{neoinstall}
 \noindent Aby sme mohli nainštalova databázu Neo4j musíme si najprv do systému prida repozitár Neotechnology, potom je nám k dispozícií na inštaláciu balík neo4j. Po inštalácií je nám ihneï dostupné administraèné rozhranie databázy na adrese: \textit{localhost:7474}. Pri prvom prihasení sme vyzvaní na zmenu hesla.\\
 \noindent Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu neo4j museli sme poui ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po zaregistrovaní sluby NeoEloquentServiceProvider sa automaticky zaregistruje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandardnú konfiguráciu mena hostite¾a, port a prístupovıch údajov.\\
 Na získanie vzdialeného prístupu k administraènému rozhraniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
@@ -302,9 +300,48 @@ protected $hidden = [
 
 
 \subsection{API}
-\noindent Framework Laravel poskytuje silnı nástroj pre tvorenie ciest. 
+\noindent Keïze sme sa rozhodli vyui javascriptové zobrazovanie dynamického obsahu museli sme vytvor interné API, aby sme mohli javascriptu poskytnú údaje. Na tento úèel sme vytvorili nieko¾ko ciest pomocou routovacieho nástroja frameworku. Príklad vytvárania ciest \ref{settingsRoutes}. 
 
-%geojson lonLat
+
+Preplnú funkènos našej aplikácie potrebujeme vedie vymaz existujúcu a prida novú destináciu, prida do a odobra destianáciu z ob¾úbenıch a prida a odobra miesto zo zoznamu pre TSP.
+
+\begin{algorithm}
+	\lstset{
+		language=PHP,
+		basicstyle=\small\sffamily,
+		frame=none,
+		numbers=left,
+		xleftmargin=5.0ex,
+		numberstyle=\tiny,
+		stepnumber=1,
+		showstringspaces=false,
+		keywordstyle=\color{blue}\bfseries
+	}
+	\lstset{emph={% Adjust any special keywords
+			printf%
+		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
+	}%
+	\begin{lstlisting}
+//zobrazí obrazovku TSP
+Route::get('/tsp','HomeController@indexTsp');
+//vráti vısledok TSP vo formáte JSON
+Route::get('/tsp/solve','TSPController@run');
+//pridanie a odstánenie miezta z TSP
+Route::post('/tsp/add/{place}','TSPController@add');
+Route::post('/tsp/remove/{place}','TSPController@remove');
+	\end{lstlisting}
+	\caption{Nastavenia ciest}
+	\label{settingsRoutes}
+\end{algorithm}
+%TODO Rome2rio cached
+%TODO autocomplete api security risk
+
+\subsection{Rome2rio API}
+\noindent 
+
+
+
+%TODO geojson lonLat
 \subsection{GeoJson}
 \noindent Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. Na príklade \ref{geojson} vidíme kolekciu mapovıch
 

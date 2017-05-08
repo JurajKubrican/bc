@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.3.16)  26 MAR 2017 14:31
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  12 APR 2017 01:55
->>>>>>> refs/remotes/origin/master
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  6 MAY 2017 22:24
 entering extended mode
-**C:/xampp/htdocs/bc/text/xkubricanj.tex
-(C:/xampp/htdocs/bc/text/xkubricanj.tex
+**./xkubricanj.tex
+(xkubricanj.tex
 LaTeX2e <2017/01/01> patch level 1
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-(C:/xampp/htdocs/bc/text\FEIstyle.cls
+(FEIstyle.cls
 Document Class: FEIstyle 2014/07/22 v. 1.2c Sablona pre pisanie zaverecnych pra
 c - FEI STUBA
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
@@ -31,15 +27,6 @@ File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\times.sty"
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\textcase\textcase.sty
-Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
-)
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\chngcntr\chngcntr.sty
-Package: chngcntr 2009/09/02 v1.0a change counter resetting
-)
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\tocloft\tocloft.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 )
@@ -47,7 +34,6 @@ Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
->>>>>>> refs/remotes/origin/master
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has section divisions on input line 44.
 \cftparskip=\skip43
@@ -84,11 +70,7 @@ Package tocloft Info: The document has section divisions on input line 44.
 \cfttabindent=\skip72
 \cfttabnumwidth=\skip73
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\ifmtarg\ifmtarg.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ifmtarg\ifmtarg.sty"
->>>>>>> refs/remotes/origin/master
 Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
@@ -176,11 +158,7 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4735.
 \c@Hy@tempcnt=\count92
 
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
->>>>>>> refs/remotes/origin/master
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
@@ -258,11 +236,7 @@ Package: `anysize' 1.0 <1994/08/13>
 \@Rightmargin=\dimen110
 \@Topmargin=\dimen111
 \@Bottommargin=\dimen112
-<<<<<<< HEAD
-) (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\xifthen\xifthen.sty
-=======
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\xifthen\xifthen.sty"
->>>>>>> refs/remotes/origin/master
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
@@ -278,11 +252,7 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \calc@Ccount=\count103
 \calc@Cskip=\skip79
 ))
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\sectsty\sectsty.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty"
->>>>>>> refs/remotes/origin/master
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
 )
@@ -344,24 +314,15 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\xstring\xstring.sty
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\generic\xstring\xstring.tex
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xstring\xstring.sty"
 ("C:\Program Files\MiKTeX 2.9\tex\generic\xstring\xstring.tex"
->>>>>>> refs/remotes/origin/master
 \@xs@message=\write3
 \integerpart=\count116
 \decimalpart=\count117
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titlesec.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty"
->>>>>>> refs/remotes/origin/master
 Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \ttl@box=\box29
 \beforetitleunit=\skip83
@@ -373,11 +334,7 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidthlast=\dimen127
 \titlewidthfirst=\dimen128
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\algorithms\algorithm.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
->>>>>>> refs/remotes/origin/master
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
@@ -392,11 +349,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@every@algorithm=\toks24
 \c@algorithm=\count119
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
->>>>>>> refs/remotes/origin/master
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
@@ -413,11 +366,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
->>>>>>> refs/remotes/origin/master
 \lst@mode=\count120
 \lst@gtempboxa=\box32
 \lst@token=\toks25
@@ -431,21 +380,13 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 \lst@lineno=\count125
 \lst@maxwidth=\dimen132
 
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
->>>>>>> refs/remotes/origin/master
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count126
 \lst@skipnumbers=\count127
 \lst@framebox=\box33
 )
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\listings.cfg
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
->>>>>>> refs/remotes/origin/master
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
@@ -491,19 +432,11 @@ Package: babel 2016/04/23 3.9r The Babel package
 *************************************
 * Local config file bblopts.cfg used
 *
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\babel-slovak\slovak.ldf
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
 File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
  babel
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\babel-slovak\slovak.ldf"
->>>>>>> refs/remotes/origin/master
 Language: slovak 2008/07/06 v3.1a Slovak support from the babel system
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
@@ -530,25 +463,6 @@ Package: fontenc 2017/01/24 v2.0c Standard LaTeX package
 File: t1enc.def 2017/01/24 v2.0c Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
 ))
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\changepage\changepage.sty
-Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count130
-\cp@tempcnt=\count131
-) (C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrextend.st
-y
-Package: scrextend 2017/01/03 v3.22 KOMA-Script package (extend other classes w
-ith features of KOMA-Script classes)
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrkbase.sty
-Package: scrkbase 2017/01/03 v3.22 KOMA-Script package (KOMA-Script-dependent b
-asics and keyval usage)
-
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrbase.sty
-Package: scrbase 2017/01/03 v3.22 KOMA-Script package (KOMA-Script-independent 
-basics and keyval usage)
-
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\koma-script\scrlfile.sty
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\latex\changepage\changepage.sty"
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count130
@@ -567,7 +481,6 @@ Package: scrbase 2017/01/03 v3.22 KOMA-Script package (KOMA-Script-independent
 basics and keyval usage)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
->>>>>>> refs/remotes/origin/master
 Package: scrlfile 2017/01/03 v3.22 KOMA-Script package (loading files)
 
 Package scrlfile, 2017/01/03 v3.22 KOMA-Script package (loading files)
@@ -596,10 +509,10 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 218.
 \c@pridepth=\count134
 \cftbeforeprititleskip=\skip88
 \cftafterprititleskip=\skip89
-)
-(C:/xampp/htdocs/bc/text\xkubricanj.aux
+) (xkubricanj.aux
+(includes/misc.aux)
 
-LaTeX Warning: Label `euclid' multiply defined.
+LaTeX Warning: Label `codeauth' multiply defined.
 
 )
 \openout1 = `xkubricanj.aux'.
@@ -636,15 +549,13 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
+
+(xkubricanj.out) (xkubricanj.out)
 \@outlinefile=\write4
 \openout4 = `xkubricanj.out'.
 
 
-<<<<<<< HEAD
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
-=======
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
->>>>>>> refs/remotes/origin/master
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count136
 \scratchdimen=\dimen134
@@ -675,321 +586,254 @@ G,.JBIG2,.JB2,.eps]
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 12.
+(hyperref)                removing `\textasciicaron' on input line 13.
 
 [1
 
 
 
-<<<<<<< HEAD
-{C:/Users/kubri/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
-=======
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
->>>>>>> refs/remotes/origin/master
-<includes/assignment.jpeg, id=14, 596.4684pt x 843.99315pt>
+<includes/assignment.jpeg, id=130, 614.295pt x 794.97pt>
 File: includes/assignment.jpeg Graphic file (type jpg)
 
 <use includes/assignment.jpeg>
-Package pdftex.def Info: includes/assignment.jpeg used on input line 15.
-(pdftex.def)             Requested size: 597.50787pt x 845.49783pt.
+Package pdftex.def Info: includes/assignment.jpeg used on input line 16.
+(pdftex.def)             Requested size: 597.50787pt x 773.2913pt.
 
-Overfull \vbox (181.262pt too high) has occurred while \output is active []
+Overfull \vbox (109.05547pt too high) has occurred while \output is active []
 
 
-[2 <C:/xampp/htdocs/bc/text/includes/assignment.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 16--16
-
- []
-
-<<<<<<< HEAD
-(C:/xampp/htdocs/bc/text\abstract.tex)
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...tract}{Využitie grafovej databázy v praxi}
-                                                  
-? H
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-? I
-insert>
-
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.16 ...tract}{Využitie grafovej databázy v praxi}
-                                                  
-? 
-=======
-(C:/xampp/htdocs/bc/text\includes/abstract.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--16
-
- []
-
->>>>>>> refs/remotes/origin/master
-[3]
+[2 <./includes/assignment.jpeg>]
 Underfull \hbox (badness 10000) in paragraph at lines 17--17
 
  []
 
-<<<<<<< HEAD
-(C:/xampp/htdocs/bc/text\abstractEN.tex)
-=======
-(C:/xampp/htdocs/bc/text\includes/abstractEN.tex)
->>>>>>> refs/remotes/origin/master
+(abstract.tex)
 Underfull \hbox (badness 10000) in paragraph at lines 1--17
 
  []
 
-[4]
-No file xkubricanj.toc.
-\tf@toc=\write5
-\openout5 = `xkubricanj.toc'.
-
-[5]
-\mylenf=\skip90
-
-No file xkubricanj.lof.
-\tf@lof=\write6
-\openout6 = `xkubricanj.lof'.
-
-No file xkubricanj.lot.
-\tf@lot=\write7
-\openout7 = `xkubricanj.lot'.
-
-[6] (C:/xampp/htdocs/bc/text\includes/AbbreviationsAndSymbols.tex
-Underfull \hbox (badness 10000) in paragraph at lines 22--2
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 18--18
 
  []
 
-) [7]
-No file xkubricanj.loa.
-\tf@loa=\write8
-\openout8 = `xkubricanj.loa'.
+(abstractEN.tex)
+Underfull \hbox (badness 10000) in paragraph at lines 1--18
 
-[8] (C:/xampp/htdocs/bc/text\introduction.tex) [1
+ []
 
+[4]
+\openout2 = `includes/misc.aux'.
 
+ (includes/misc.tex) (xkubricanj.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 3.
 
-
-]
-(C:/xampp/htdocs/bc/text\core.tex
-
-LaTeX Warning: Citation `anonlib' on page 2 undefined on input line 2.
-
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 10.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 10.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 10.
-
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 10.
-
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 3.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 10.
+(Font)              <12> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 10.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 10.
-
-Underfull \hbox (badness 2809) in paragraph at lines 23--23
-[]\T1/lmr/m/n/12 User agent aw-itcher
- []
-
-
-Underfull \hbox (badness 1168) in paragraph at lines 30--30
-[]\T1/lmr/m/n/12 Get anony-mous per-
- []
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+t'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 39.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+l'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 49.
-
-<img/vzhlad.png, id=51, 390.7398pt x 413.3844pt>
-File: img/vzhlad.png Graphic file (type png)
- <use img/vzhlad.png>
-Package pdftex.def Info: img/vzhlad.png used on input line 53.
-(pdftex.def)             Requested size: 227.62204pt x 240.8102pt.
-
-
-LaTeX Warning: Citation `anonlib' on page 2 undefined on input line 57.
-
-<<<<<<< HEAD
-[2] [3]
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
+(Font)              <6> on input line 3.
 )
-(C:\Users\kubri\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstmisc.sty
-=======
-[2] [3] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
->>>>>>> refs/remotes/origin/master
-File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 75.
+\tf@toc=\write5
+\openout5 = `xkubricanj.toc'.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
-File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 76.
-LaTeX Font Info:    Try loading font information for OMS+lmss on input line 76.
-
-LaTeX Font Info:    No file OMSlmss.fd. on input line 76.
-
-
-LaTeX Font Warning: Font shape `OMS/lmss/m/it' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 76.
-
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 89.
-) [4 <C:/xampp/htdocs/bc/text/img/vzhlad.png>] [5]
-(C:/xampp/htdocs/bc/text\conclusion.tex) [6
+ [5
 
 
 ]
-No file xkubricanj.bbl.
-No file xkubricanj.pri.
-\tf@pri=\write9
-\openout9 = `xkubricanj.pri'.
+\mylenf=\skip90
+ (xkubricanj.lof)
+\tf@lof=\write6
+\openout6 = `xkubricanj.lof'.
+
+
+(xkubricanj.lot)
+\tf@lot=\write7
+\openout7 = `xkubricanj.lot'.
+
+ [6] (includes/AbbreviationsAndSymbols.tex) [7] (xkubricanj.loa)
+\tf@loa=\write8
+\openout8 = `xkubricanj.loa'.
+
+ [8] (includes/introduction.tex)
+Overfull \hbox (34.03862pt too wide) in paragraph at lines 31--32
+\T1/lmr/m/n/12 Pri návrhu ap-liká-cie treba mys-lie´ na ²tuk-túru dát a pod©a t
+oho vy-bra´ správnu databázu/DBMS.
+ []
 
 [1
 
 
 
 
-
-
-]
+] (includes/core.tex
 
 Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
+(hyperref)                removing `\textasciicaron' on input line 7.
 
 
-Package hyperref Warning: Composite letter `\textasciicaron+t'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+t'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+l'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+l'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+t'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+l'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+t'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+t'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-
-Package hyperref Warning: Composite letter `\textasciicaron+c'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 35.
-
-(C:/xampp/htdocs/bc/text\includes/prilohaA.tex
-Underfull \hbox (badness 10000) in paragraph at lines 1--21
+Underfull \hbox (badness 10000) in paragraph at lines 17--18
 
  []
 
-) [2
+
+LaTeX Warning: Citation `graphDBs' on page 2 undefined on input line 24.
+
+[2] [3]
+Overfull \hbox (17.7256pt too wide) in paragraph at lines 34--35
+[]\T1/lmr/m/n/12 Po prih-lásení pouºí-vate©a sa mu zo-brazí obra-zovka s mapou,
+ zoz-namom ob©úbených
+ []
+
+[4] [5] <uml/usecase-login-settings.pdf, id=249, 338.01282pt x 529.22719pt>
+File: uml/usecase-login-settings.pdf Graphic file (type pdf)
+
+<use uml/usecase-login-settings.pdf>
+Package pdftex.def Info: uml/usecase-login-settings.pdf used on input line 68.
+(pdftex.def)             Requested size: 284.52756pt x 445.50069pt.
+
+<uml/usecase-dash.pdf, id=250, 453.19313pt x 403.5075pt>
+File: uml/usecase-dash.pdf Graphic file (type pdf)
+
+<use uml/usecase-dash.pdf>
+Package pdftex.def Info: uml/usecase-dash.pdf used on input line 74.
+(pdftex.def)             Requested size: 284.52756pt x 253.33061pt.
+
+<uml/usecase-tsp.pdf, id=251, 326.72063pt x 290.58563pt>
+File: uml/usecase-tsp.pdf Graphic file (type pdf)
+
+<use uml/usecase-tsp.pdf>
+Package pdftex.def Info: uml/usecase-tsp.pdf used on input line 80.
+(pdftex.def)             Requested size: 284.52756pt x 253.05576pt.
+
+<uml/database.pdf, id=252, 536.75531pt x 423.83344pt>
+File: uml/database.pdf Graphic file (type pdf)
+ <use uml/database.pdf>
+Package pdftex.def Info: uml/database.pdf used on input line 88.
+(pdftex.def)             Requested size: 341.43306pt x 269.60333pt.
 
 
-] (C:/xampp/htdocs/bc/text\includes/prilohaB.tex)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 37.
- [3
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 94.
+
+
+LaTeX Warning: Citation `dbrank' on page 6 undefined on input line 109.
+
+[6] [7 <./uml/usecase-login-settings.pdf>] [8 <./uml/usecase-dash.pdf> <./uml/u
+secase-tsp.pdf
+
+pdfTeX warning: pdflatex.exe (file ./uml/usecase-tsp.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>] [9 <./uml/database.pdf>] [10]
+
+LaTeX Warning: Citation `laravel' on page 11 undefined on input line 155.
+
+[11]
+
+LaTeX Warning: Citation `neoinstall' on page 12 undefined on input line 159.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 181.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
+File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 182.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 196.
+ [12]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 229.
+
+Overfull \hbox (2.71304pt too wide) in paragraph at lines 242--243
+[][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[13] [14] [15]
+
+LaTeX Warning: Reference `geojson' on page 16 undefined on input line 340.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 344--348
+
+ []
+
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 369.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Overfull \hbox (74.98363pt too wide) in paragraph at lines 383--384
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][] 
+ []
+
+
+Overfull \hbox (357.49591pt too wide) in paragraph at lines 384--385
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][] 
+ []
+
+[16]
+
+Package hyperref Warning: Composite letter `\textasciicaron+l'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 401.
+
+[17]) [18] [19] (includes/conclusion.tex) [20
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 37.
- (xkubricanj.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 37.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 37.
+No file xkubricanj.bbl.
+(xkubricanj.pri)
+\tf@pri=\write9
+\openout9 = `xkubricanj.pri'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
+ [1
 
 
-Package rerunfilecheck Warning: File `xkubricanj.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
 
-Package rerunfilecheck Info: Checksums for `xkubricanj.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  55ED7925C9BD77EE9010CB9CDE0927D6;740.
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+ (xkubricanj.aux (includes/misc.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
+Package rerunfilecheck Info: File `xkubricanj.out' has not changed.
+(rerunfilecheck)             Checksum: 21B5F845EA2F2FA01C8E3F7C741DF2AD;1880.
 
 
 LaTeX Warning: There were undefined references.
@@ -997,38 +841,28 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 37.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 11090 strings out of 493333
-<<<<<<< HEAD
- 159492 string characters out of 3139194
-=======
- 158666 string characters out of 3139194
->>>>>>> refs/remotes/origin/master
- 318838 words of memory out of 3000000
- 14330 multiletter control sequences out of 15000+200000
- 72348 words of font info for 46 fonts, out of 3000000 for 9000
+ 13293 strings out of 493333
+ 195544 string characters out of 3139194
+ 594702 words of memory out of 3000000
+ 16362 multiletter control sequences out of 15000+200000
+ 80277 words of font info for 50 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
-<<<<<<< HEAD
- 40i,10n,50p,1381b,1577s stack positions out of 5000i,500n,10000p,200000b,50000s
-=======
- 40i,10n,50p,1416b,1577s stack positions out of 5000i,500n,10000p,200000b,50000s
->>>>>>> refs/remotes/origin/master
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
-lic/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C
-:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/lm/lmsso10.pfb>
-<<<<<<< HEAD
-Output written on xkubricanj.pdf (18 pages, 1971669 bytes).
-=======
-Output written on xkubricanj.pdf (18 pages, 1972359 bytes).
->>>>>>> refs/remotes/origin/master
+ 40i,8n,41p,1359b,3131s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}<C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
+r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
+Output written on xkubricanj.pdf (30 pages, 1076785 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 70 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 691 PDF objects out of 1000 (max. 8388607)
+ 220 named destinations out of 1000 (max. 500000)
+ 258 words of extra memory for PDF output out of 10000 (max. 10000000)
 

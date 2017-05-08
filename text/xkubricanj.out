@@ -1,0 +1,29 @@
+\BOOKMARK [1][]{section*.2}{\332vod}{}% 1
+\BOOKMARK [1][]{section.3}{Anal\375za probl\351mu}{}% 2
+\BOOKMARK [2][]{subsection.4}{Relacn\351}{section.3}% 3
+\BOOKMARK [2][]{subsection.5}{Grafov\375 model}{section.3}% 4
+\BOOKMARK [2][]{subsection.6}{V\375kon grafovej datab\341zy}{section.3}% 5
+\BOOKMARK [1][]{section.7}{\227pecifik\341cia}{}% 6
+\BOOKMARK [1][]{section.25}{V\375voj}{}% 7
+\BOOKMARK [2][]{subsection.26}{N\341vrh}{section.25}% 8
+\BOOKMARK [3][]{subsubsection.27}{Usecase diagramy}{subsection.26}% 9
+\BOOKMARK [3][]{subsubsection.34}{Class diagram}{subsection.26}% 10
+\BOOKMARK [3][]{subsubsection.37}{Role hr\341cov}{subsection.26}% 11
+\BOOKMARK [2][]{subsection.44}{V\375ber grafovej datab\341zy}{section.25}% 12
+\BOOKMARK [1][]{section.48}{Implement\341cia}{}% 13
+\BOOKMARK [2][]{subsection.49}{Pou\236it\351 technol\363gie}{section.48}% 14
+\BOOKMARK [3][]{subsubsection.50}{Laravel framework}{subsection.49}% 15
+\BOOKMARK [3][]{subsubsection.51}{NeoEloquent OGM}{subsection.49}% 16
+\BOOKMARK [3][]{subsubsection.52}{Mapbox.js}{subsection.49}% 17
+\BOOKMARK [3][]{subsubsection.53}{Rome2Rio Api}{subsection.49}% 18
+\BOOKMARK [2][]{subsection.54}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.48}% 19
+\BOOKMARK [2][]{subsection.55}{In\235tal\341cia a konfigur\341cia Datab\341zy neo4j}{section.48}% 20
+\BOOKMARK [2][]{subsection.71}{OGM}{section.48}% 21
+\BOOKMARK [2][]{subsection.97}{Autentifik\341cia}{section.48}% 22
+\BOOKMARK [2][]{subsection.121}{API}{section.48}% 23
+\BOOKMARK [2][]{subsection.131}{GeoJson}{section.48}% 24
+\BOOKMARK [2][]{subsection.132}{Mapa}{section.48}% 25
+\BOOKMARK [2][]{subsection.162}{Vykreslovanie tabuliek}{section.48}% 26
+\BOOKMARK [1][]{section*.187}{Z\341ver}{}% 27
+\BOOKMARK [1][]{section*.188}{Zoznam pou\236itej literat\372ry}{}% 28
+\BOOKMARK [1][]{section*.189}{Pr\355lohy}{}% 29

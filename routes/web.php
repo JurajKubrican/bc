@@ -27,21 +27,13 @@ Route::get('/tsp/solve','TSPController@run');
 Route::post('/tsp/add/{place}','TSPController@add');
 Route::post('/tsp/remove/{place}','TSPController@remove');
 
-Route::get('door/{user}',function($user){
-  Auth::login(\App\User::find($user));
-});
-
+//Route::get('door/{user}',function($user){
+//  Auth::login(\App\User::find($user));
+//});
 
 Route::get('/user/{id}', 'HomeController@indexUser');
-
 Route::get('/city/{id}', 'HomeController@indexCity');
 
-
 Route::resource('settings', 'SettingsController');
-
-Route::get('backend', function() {
-  return View::make('backend', array());
-});
-
 
 Auth::routes();

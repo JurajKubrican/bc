@@ -136,10 +136,8 @@ var app = (function($,appData) {
     e.stopPropagation();
     $.ajax({
       url: '/placeapi/' + $(this).data('id'),
-      type: 'POST',
-      success: function (data) {
-        data = JSON.parse(data);
-        //TODO error handling
+      type: 'DELETE',
+      success: function () {
         $(document).trigger('appRefresh');
       }
     });
@@ -152,8 +150,7 @@ var app = (function($,appData) {
     $.ajax({
       url: '/placeapi/add/'+$(e.target).data('id'),
       type: 'POST',
-      success: function (data) {
-        data = JSON.parse(data);
+      success: function () {
         $(document).trigger('appRefresh');
       }
     });

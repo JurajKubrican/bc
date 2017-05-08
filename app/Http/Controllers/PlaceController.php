@@ -317,8 +317,7 @@ class PlaceController extends Controller {
   }
 
   private function recommendedFollowers($prev, $next){
-    $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
-    if(!$user) $user = Auth::user();
+    $user = Auth::user();
     $place = Place::find($next);
     $followers = $place->followers()->get();
     foreach ($followers as $follower){
