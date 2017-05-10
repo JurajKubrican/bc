@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: xkubricanj.aux
+A level-1 auxiliary file: includes/misc.aux
+The style file: FEIstyle.bst
+Database file #1: includes/bibliography.bib
+Warning--entry type for "dbrank" isn't style-file defined
+--line 16 of file includes/bibliography.bib
+Warning--entry type for "laravel" isn't style-file defined
+--line 24 of file includes/bibliography.bib
+Warning--entry type for "geojson" isn't style-file defined
+--line 33 of file includes/bibliography.bib
+Warning--entry type for "neoinstall" isn't style-file defined
+--line 50 of file includes/bibliography.bib
+(There were 4 warnings)

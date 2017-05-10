@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class TSPController extends Controller {
 
-  private $minCost = PHP_INT_MAX;
   private $routeCache = [[]];
 
   private function getRoutePrice($from,$to){
@@ -128,30 +127,29 @@ class TSPController extends Controller {
   }
 
 
+  /**
+   * @param $from
+   * @param $left
+   * @param $home
+   * @return object
+   */
   private function tsp($from, $left, $home){
 
-
-
     if(empty($left)){
-
       return (object)[
         'cost' => $this->getRoutePrice($from,$home),
         'path' => [$home]
       ];
-
     }
-
 
     $minCost = PHP_INT_MAX;
     $path = [];
     foreach($left as $to){
 
-
       $newLeft = $left;
       unset($newLeft[$to->id]);
 
       $routePrice = $this->getRoutePrice($from,$to);
-
       $tspResult = $this->tsp($to, $newLeft, $home);
       if(!$tspResult || !is_array($tspResult->path))
         continue;
@@ -160,9 +158,7 @@ class TSPController extends Controller {
 
       if($newCost < $minCost && $tspResult)
       {
-
         $minCost = $newCost;
-
         array_push($tspResult->path,$to);
         $path = $tspResult->path;
 

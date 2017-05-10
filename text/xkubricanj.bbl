@@ -1,0 +1,27 @@
+\begin{thebibliography}{1}
+
+\bibitem{dbrank}
+{\sc AT, S.~I.}
+\newblock Db-engines ranking - popularity ranking of graph dbms, 2017.
+
+\bibitem{graphDBs}
+Ian Robinson, Jim Webber, Emil Eifrem.
+\newblock {\em Graph Databases}.
+\newblock 2.
+\newblock O’Reilly Media, Inc. USA, 2015.
+\newblock s. 224.
+\newblock ISBN: 9781491932001.
+
+\bibitem{geojson}
+{\sc (IETF), I. E. T.~F.}
+\newblock The geojson format, 2016.
+
+\bibitem{neoinstall}
+{\sc neotechnology}.
+\newblock Neo4j debian packages, 2017.
+
+\bibitem{laravel}
+{\sc Otwell, T.}
+\newblock Laravel - the php framework for web artisans, 2017.
+
+\end{thebibliography}

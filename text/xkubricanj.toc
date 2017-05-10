@@ -2,32 +2,33 @@
 \thispagestyle {empty}
 \contentsline {section}{\'{U}vod}{1}{section*.2}
 \contentsline {section}{\numberline {1}Anal\'yza probl\'emu}{2}{section.3}
-\contentsline {subsection}{\numberline {1.1}Rela\v cn\'e}{2}{subsection.4}
+\contentsline {subsection}{\numberline {1.1}Rela\v cn\'e datab\'azy}{2}{subsection.4}
 \contentsline {subsection}{\numberline {1.2}Grafov\'y model}{2}{subsection.5}
 \contentsline {subsection}{\numberline {1.3}V\'ykon grafovej datab\'azy}{3}{subsection.6}
 \contentsline {section}{\numberline {2}\v Specifik\'acia}{4}{section.7}
-\contentsline {section}{\numberline {3}V\'yvoj}{6}{section.25}
-\contentsline {subsection}{\numberline {3.1}N\'avrh}{6}{subsection.26}
-\contentsline {subsubsection}{\numberline {3.1.1}Usecase diagramy}{6}{subsubsection.27}
-\contentsline {subsubsection}{\numberline {3.1.2}Class diagram}{6}{subsubsection.34}
-\contentsline {subsubsection}{\numberline {3.1.3}Role hr\'a\v cov}{6}{subsubsection.37}
-\contentsline {subsection}{\numberline {3.2}V\'yber grafovej datab\'azy}{6}{subsection.44}
-\contentsline {section}{\numberline {4}Implement\'acia}{11}{section.48}
-\contentsline {subsection}{\numberline {4.1}Pou\v zit\'e technol\'ogie}{11}{subsection.49}
-\contentsline {subsubsection}{\numberline {4.1.1}Laravel framework}{11}{subsubsection.50}
-\contentsline {subsubsection}{\numberline {4.1.2}NeoEloquent OGM}{11}{subsubsection.51}
-\contentsline {subsubsection}{\numberline {4.1.3}Mapbox.js}{11}{subsubsection.52}
-\contentsline {subsubsection}{\numberline {4.1.4}Handlebars.js}{11}{subsubsection.53}
-\contentsline {subsubsection}{\numberline {4.1.5}Rome2Rio Api}{11}{subsubsection.54}
-\contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{12}{subsection.55}
-\contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia Datab\'azy neo4j}{12}{subsection.56}
-\contentsline {subsection}{\numberline {4.4}OGM}{12}{subsection.72}
-\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{15}{subsection.98}
-\contentsline {subsection}{\numberline {4.6}API}{16}{subsection.122}
-\contentsline {subsection}{\numberline {4.7}Rome2rio API}{16}{subsection.123}
-\contentsline {subsection}{\numberline {4.8}GeoJson}{17}{subsection.124}
-\contentsline {subsection}{\numberline {4.9}Mapa}{17}{subsection.125}
-\contentsline {subsection}{\numberline {4.10}Vykres\v lovanie tabuliek}{17}{subsection.155}
-\contentsline {section}{Z\'{a}ver}{20}{section*.180}
-\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{I}{section*.181}
-\contentsline {section}{Pr\'{i}lohy}{I}{section*.182}
+\contentsline {section}{\numberline {3}N\'avrh}{6}{section.25}
+\contentsline {subsubsection}{\numberline {3.0.1}Pr\IeC {\'\i }pady pou\v zitia}{6}{subsubsection.26}
+\contentsline {subsubsection}{\numberline {3.0.2}\v Strukt\'ura datab\'azy}{6}{subsubsection.39}
+\contentsline {subsection}{\numberline {3.1}V\'yber grafovej datab\'azy}{8}{subsection.42}
+\contentsline {subsubsection}{\numberline {3.1.1}NEO4J}{8}{subsubsection.43}
+\contentsline {subsubsection}{\numberline {3.1.2}OrientDB}{9}{subsubsection.44}
+\contentsline {subsubsection}{\numberline {3.1.3}Titan}{9}{subsubsection.45}
+\contentsline {section}{\numberline {4}Implement\'acia}{10}{section.46}
+\contentsline {subsection}{\numberline {4.1}Pou\v zit\'e technol\'ogie}{10}{subsection.47}
+\contentsline {subsubsection}{\numberline {4.1.1}Laravel framework}{10}{subsubsection.48}
+\contentsline {subsubsection}{\numberline {4.1.2}NeoEloquent OGM}{10}{subsubsection.49}
+\contentsline {subsubsection}{\numberline {4.1.3}Mapbox.js}{10}{subsubsection.50}
+\contentsline {subsubsection}{\numberline {4.1.4}Handlebars.js}{10}{subsubsection.51}
+\contentsline {subsubsection}{\numberline {4.1.5}Rome2Rio Api}{10}{subsubsection.52}
+\contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{11}{subsection.53}
+\contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia datab\'azy neo4j}{11}{subsection.54}
+\contentsline {subsection}{\numberline {4.4}OGM}{11}{subsection.70}
+\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{13}{subsection.96}
+\contentsline {subsection}{\numberline {4.6}API}{14}{subsection.120}
+\contentsline {subsection}{\numberline {4.7}Rome2rio API}{15}{subsection.121}
+\contentsline {subsection}{\numberline {4.8}TSP}{15}{subsection.122}
+\contentsline {subsection}{\numberline {4.9}Mapa}{17}{subsection.134}
+\contentsline {subsection}{\numberline {4.10}Vykres\v lovanie tabuliek}{18}{subsection.135}
+\contentsline {section}{Z\'{a}ver}{20}{section*.160}
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{21}{section*.161}
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.162}
