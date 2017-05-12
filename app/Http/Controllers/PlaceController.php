@@ -19,9 +19,7 @@ class PlaceController extends Controller {
     if (empty($data->canonicalName)) {
       return redirect('/');
     }
-
     $place = Place::findOrCreate($data);
-
     $user = Auth::user();
     //link to user
     if (!$user->follows()->get()->where('canonicalName', $data->canonicalName)->first()) {
@@ -29,7 +27,6 @@ class PlaceController extends Controller {
     }
 
     //link to home
-    //TODO: IS this needed?
     $home = $user->home()->first();
     if (!$home->routes()->get()->where('canonicalName', $data->canonicalName)->first()) {
       $home->routes()->save($place);
@@ -107,6 +104,7 @@ class PlaceController extends Controller {
       if (!$home)
         continue;
       foreach ($user->follows()->get() as $dest) {
+        //dd([$home,$dest]);
         if (!$home->queue()->edge($dest)) {
           $home->queue()->save($dest);
         }
@@ -265,13 +263,14 @@ class PlaceController extends Controller {
 
     foreach ($places as $key => $place) {
       $route = $home->routes()->edge($place);
-      if (!$route)
-        continue;
+      if(null == $route)
+        $this->fetchMissing($user->home()->first(),$place);
 
       $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
 
-      if(null == $route->minPrice)
-        $this->fetchMissing($user->home()->first(),$place);
+
+      if($route == null)
+        continue;
 
       $tsp = $user->tsp()->edge($place) ? 1 : '';
 

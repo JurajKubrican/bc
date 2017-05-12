@@ -16,9 +16,15 @@ class Place extends \NeoEloquent {
 
   public static function findOrCreate($data) {
     $place = static::where('canonicalName', $data->canonicalName)->first();
+
     if (!$place) {
-      $place = new static;
-      $place->setData($data)->save();
+      $place = new Place();
+      $place->setData($data);
+
+      $place->save();
+
+      //dd($place);
+        //->save();
     }
     return $place;
   }

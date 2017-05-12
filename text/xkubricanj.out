@@ -1,32 +1,38 @@
 \BOOKMARK [1][]{section*.2}{\332vod}{}% 1
 \BOOKMARK [1][]{section.3}{Anal\375za probl\351mu}{}% 2
-\BOOKMARK [2][]{subsection.4}{Relacn\351 datab\341zy}{section.3}% 3
-\BOOKMARK [2][]{subsection.5}{Grafov\375 model}{section.3}% 4
-\BOOKMARK [2][]{subsection.6}{V\375kon grafovej datab\341zy}{section.3}% 5
-\BOOKMARK [1][]{section.7}{\227pecifik\341cia}{}% 6
-\BOOKMARK [1][]{section.25}{N\341vrh}{}% 7
-\BOOKMARK [2][]{subsubsection.26}{Pr\355pady pou\236itia}{section.25}% 8
-\BOOKMARK [3][]{subsubsection.39}{\227trukt\372ra datab\341zy}{subsubsection.26}% 9
-\BOOKMARK [2][]{subsection.42}{V\375ber grafovej datab\341zy}{section.25}% 10
-\BOOKMARK [3][]{subsubsection.43}{NEO4J}{subsection.42}% 11
-\BOOKMARK [3][]{subsubsection.44}{OrientDB}{subsection.42}% 12
-\BOOKMARK [3][]{subsubsection.45}{Titan}{subsection.42}% 13
-\BOOKMARK [1][]{section.46}{Implement\341cia}{}% 14
-\BOOKMARK [2][]{subsection.47}{Pou\236it\351 technol\363gie}{section.46}% 15
-\BOOKMARK [3][]{subsubsection.48}{Laravel framework}{subsection.47}% 16
-\BOOKMARK [3][]{subsubsection.49}{NeoEloquent OGM}{subsection.47}% 17
-\BOOKMARK [3][]{subsubsection.50}{Mapbox.js}{subsection.47}% 18
-\BOOKMARK [3][]{subsubsection.51}{Handlebars.js}{subsection.47}% 19
-\BOOKMARK [3][]{subsubsection.52}{Rome2Rio Api}{subsection.47}% 20
-\BOOKMARK [2][]{subsection.53}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.46}% 21
-\BOOKMARK [2][]{subsection.54}{In\235tal\341cia a konfigur\341cia datab\341zy neo4j}{section.46}% 22
-\BOOKMARK [2][]{subsection.70}{OGM}{section.46}% 23
-\BOOKMARK [2][]{subsection.96}{Autentifik\341cia}{section.46}% 24
-\BOOKMARK [2][]{subsection.120}{API}{section.46}% 25
-\BOOKMARK [2][]{subsection.121}{Rome2rio API}{section.46}% 26
-\BOOKMARK [2][]{subsection.122}{TSP}{section.46}% 27
-\BOOKMARK [2][]{subsection.134}{Mapa}{section.46}% 28
-\BOOKMARK [2][]{subsection.135}{Vykreslovanie tabuliek}{section.46}% 29
-\BOOKMARK [1][]{section*.160}{Z\341ver}{}% 30
-\BOOKMARK [1][]{section*.161}{Zoznam pou\236itej literat\372ry}{}% 31
-\BOOKMARK [1][]{section*.162}{Pr\355lohy}{}% 32
+\BOOKMARK [2][]{subsection.4}{Grafov\351 datab\341zy}{section.3}% 3
+\BOOKMARK [2][]{subsection.5}{V\375kon grafovej datab\341zy pri dotazoch na vztahy}{section.3}% 4
+\BOOKMARK [2][]{subsection.6}{Vztahy v relacn\375ch datab\341zach}{section.3}% 5
+\BOOKMARK [2][]{subsection.9}{Vztahy v dokumentov\375ch datab\341zach}{section.3}% 6
+\BOOKMARK [2][]{subsection.12}{Popul\341rne grafov\351 datab\341zy}{section.3}% 7
+\BOOKMARK [3][]{subsubsection.13}{Neo4J}{subsection.12}% 8
+\BOOKMARK [3][]{subsubsection.14}{OrientDB}{subsection.12}% 9
+\BOOKMARK [3][]{subsubsection.15}{Titan}{subsection.12}% 10
+\BOOKMARK [2][]{subsection.16}{V\375ber grafovej datab\341zy}{section.3}% 11
+\BOOKMARK [3][]{subsubsection.17}{Cypher}{subsection.16}% 12
+\BOOKMARK [1][]{section.43}{\227pecifik\341cia}{}% 13
+\BOOKMARK [2][]{subsection.44}{Funkcion\341lne po\236iadavky}{section.43}% 14
+\BOOKMARK [2][]{subsection.55}{Nefunkcion\341lne po\236iadavky}{section.43}% 15
+\BOOKMARK [1][]{section.62}{N\341vrh}{}% 16
+\BOOKMARK [2][]{subsubsection.63}{Pr\355pady pou\236itia}{section.62}% 17
+\BOOKMARK [3][]{subsubsection.76}{\227trukt\372ra datab\341zy}{subsubsection.63}% 18
+\BOOKMARK [1][]{section.79}{Implement\341cia}{}% 19
+\BOOKMARK [2][]{subsection.80}{Pou\236it\351 technol\363gie}{section.79}% 20
+\BOOKMARK [3][]{subsubsection.81}{Laravel framework}{subsection.80}% 21
+\BOOKMARK [3][]{subsubsection.82}{NeoEloquent OGM}{subsection.80}% 22
+\BOOKMARK [3][]{subsubsection.83}{Mapbox.js}{subsection.80}% 23
+\BOOKMARK [3][]{subsubsection.84}{Handlebars.js}{subsection.80}% 24
+\BOOKMARK [3][]{subsubsection.85}{Rome2Rio Api}{subsection.80}% 25
+\BOOKMARK [2][]{subsection.86}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.79}% 26
+\BOOKMARK [2][]{subsection.87}{In\235tal\341cia a konfigur\341cia datab\341zy neo4j}{section.79}% 27
+\BOOKMARK [2][]{subsection.116}{OGM}{section.79}% 28
+\BOOKMARK [2][]{subsection.142}{Autentifik\341cia}{section.79}% 29
+\BOOKMARK [2][]{subsection.166}{API}{section.79}% 30
+\BOOKMARK [2][]{subsection.167}{Rome2rio API}{section.79}% 31
+\BOOKMARK [2][]{subsection.168}{TSP}{section.79}% 32
+\BOOKMARK [2][]{subsection.180}{Mapa}{section.79}% 33
+\BOOKMARK [2][]{subsection.181}{Vykreslovanie tabuliek}{section.79}% 34
+\BOOKMARK [1][]{section.186}{V\375sledky pr\341ce}{}% 35
+\BOOKMARK [1][]{section*.187}{Z\341ver}{}% 36
+\BOOKMARK [1][]{section*.188}{Zoznam pou\236itej literat\372ry}{}% 37
+\BOOKMARK [1][]{section*.189}{Pr\355lohy}{}% 38

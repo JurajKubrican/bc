@@ -1,5 +1,5 @@
-\contentsline {algorithm}{\numberline {1}{\ignorespaces Uk\'a\v zka algoritmu}}{12}{algorithm.69}
-\contentsline {algorithm}{\numberline {2}{\ignorespaces Uk\'a\v zka triedy neoEoquent}}{13}{algorithm.95}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces Uk\'a\v zka autentifikovate\v lnej triedy}}{14}{algorithm.119}
-\contentsline {algorithm}{\numberline {4}{\ignorespaces Uk\'a\v zka rie\v senia TSP pomocou dopytovacieho jazyka Cypher}}{17}{algorithm.133}
-\contentsline {algorithm}{\numberline {5}{\ignorespaces Implement\'acia dynamickej tabu\v lky}}{19}{algorithm.159}
+\contentsline {algorithm}{\numberline {1}{\ignorespaces Pr\IeC {\'\i }klady dopytov v jazyku Cypher}}{7}{algorithm.42}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces In\v stal\'acia a konfigur\'acia Frameworku Laravel pre pr\'acu z Neo4J}}{16}{algorithm.115}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces Uk\'a\v zka triedy neoEoquent}}{18}{algorithm.141}
+\contentsline {algorithm}{\numberline {4}{\ignorespaces Uk\'a\v zka autentifikovate\v lnej triedy}}{19}{algorithm.165}
+\contentsline {algorithm}{\numberline {5}{\ignorespaces Uk\'a\v zka rie\v senia TSP pomocou dopytovacieho jazyka Cypher}}{22}{algorithm.179}

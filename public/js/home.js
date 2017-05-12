@@ -136,7 +136,7 @@ var app = (function($,appData) {
     e.stopPropagation();
     $.ajax({
       url: '/placeapi/' + $(this).data('id'),
-      type: 'DELETE',
+      type: 'POST',
       success: function () {
         $(document).trigger('appRefresh');
       }
