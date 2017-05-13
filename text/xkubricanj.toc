@@ -6,35 +6,39 @@
 \contentsline {subsection}{\numberline {1.2}V\'ykon grafovej datab\'azy pri dotazoch na vz\v tahy}{2}{subsection.5}
 \contentsline {subsection}{\numberline {1.3}Vz\v tahy v rela\v cn\'ych datab\'azach}{2}{subsection.6}
 \contentsline {subsection}{\numberline {1.4}Vz\v tahy v dokumentov\'ych datab\'azach}{4}{subsection.9}
-\contentsline {subsection}{\numberline {1.5}Popul\'arne grafov\'e datab\'azy}{4}{subsection.12}
-\contentsline {subsubsection}{\numberline {1.5.1}Neo4J}{4}{subsubsection.13}
+\contentsline {subsection}{\numberline {1.5}V\'yber grafovej datab\'azy}{4}{subsection.12}
+\contentsline {subsubsection}{\numberline {1.5.1}Neo4J}{5}{subsubsection.13}
 \contentsline {subsubsection}{\numberline {1.5.2}OrientDB}{5}{subsubsection.14}
-\contentsline {subsubsection}{\numberline {1.5.3}Titan}{5}{subsubsection.15}
-\contentsline {subsection}{\numberline {1.6}V\'yber grafovej datab\'azy}{6}{subsection.16}
-\contentsline {subsubsection}{\numberline {1.6.1}Cypher}{6}{subsubsection.17}
-\contentsline {section}{\numberline {2}\v Specifik\'acia}{8}{section.43}
-\contentsline {subsection}{\numberline {2.1}Funkcion\'alne po\v ziadavky}{8}{subsection.44}
-\contentsline {subsection}{\numberline {2.2}Nefunkcion\'alne po\v ziadavky}{9}{subsection.55}
-\contentsline {section}{\numberline {3}N\'avrh}{10}{section.62}
-\contentsline {subsubsection}{\numberline {3.0.1}Pr\IeC {\'\i }pady pou\v zitia}{10}{subsubsection.63}
-\contentsline {subsubsection}{\numberline {3.0.2}\v Strukt\'ura datab\'azy}{10}{subsubsection.76}
-\contentsline {section}{\numberline {4}Implement\'acia}{14}{section.79}
-\contentsline {subsection}{\numberline {4.1}Pou\v zit\'e technol\'ogie}{14}{subsection.80}
-\contentsline {subsubsection}{\numberline {4.1.1}Laravel framework}{14}{subsubsection.81}
-\contentsline {subsubsection}{\numberline {4.1.2}NeoEloquent OGM}{14}{subsubsection.82}
-\contentsline {subsubsection}{\numberline {4.1.3}Mapbox.js}{14}{subsubsection.83}
-\contentsline {subsubsection}{\numberline {4.1.4}Handlebars.js}{14}{subsubsection.84}
-\contentsline {subsubsection}{\numberline {4.1.5}Rome2Rio Api}{15}{subsubsection.85}
-\contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{15}{subsection.86}
-\contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia datab\'azy neo4j}{15}{subsection.87}
-\contentsline {subsection}{\numberline {4.4}OGM}{15}{subsection.116}
-\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{17}{subsection.142}
-\contentsline {subsection}{\numberline {4.6}API}{19}{subsection.166}
-\contentsline {subsection}{\numberline {4.7}Rome2rio API}{20}{subsection.167}
-\contentsline {subsection}{\numberline {4.8}TSP}{20}{subsection.168}
-\contentsline {subsection}{\numberline {4.9}Mapa}{22}{subsection.180}
-\contentsline {subsection}{\numberline {4.10}Vykres\v lovanie tabuliek}{23}{subsection.181}
-\contentsline {section}{\numberline {5}V\'ysledky pr\'ace}{26}{section.186}
-\contentsline {section}{Z\'{a}ver}{27}{section*.187}
-\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{28}{section*.188}
-\contentsline {section}{Pr\'{i}lohy}{I}{section*.189}
+\contentsline {subsubsection}{\numberline {1.5.3}Titan}{6}{subsubsection.15}
+\contentsline {subsection}{\numberline {1.6}Dopytovac\IeC {\'\i } jazyk Cypher}{6}{subsection.16}
+\contentsline {section}{\numberline {2}\v Specifik\'acia}{8}{section.42}
+\contentsline {subsection}{\numberline {2.1}Funkcion\'alne po\v ziadavky}{8}{subsection.43}
+\contentsline {subsection}{\numberline {2.2}Nefunkcion\'alne po\v ziadavky}{9}{subsection.53}
+\contentsline {section}{\numberline {3}N\'avrh}{10}{section.60}
+\contentsline {subsubsection}{\numberline {3.0.1}Pr\IeC {\'\i }pady pou\v zitia}{10}{subsubsection.61}
+\contentsline {subsubsection}{\numberline {3.0.2}\v Strukt\'ura datab\'azy}{10}{subsubsection.74}
+\contentsline {section}{\numberline {4}Implement\'acia}{15}{section.79}
+\contentsline {subsection}{\numberline {4.1}Pou\v zit\'e technol\'ogie}{15}{subsection.80}
+\contentsline {subsubsection}{\numberline {4.1.1}Laravel framework}{15}{subsubsection.81}
+\contentsline {subsubsection}{\numberline {4.1.2}NeoEloquent OGM}{15}{subsubsection.82}
+\contentsline {subsubsection}{\numberline {4.1.3}GraphAware Neo4j PHP Client}{15}{subsubsection.83}
+\contentsline {subsubsection}{\numberline {4.1.4}Mapbox.js}{15}{subsubsection.84}
+\contentsline {subsubsection}{\numberline {4.1.5}Handlebars.js}{16}{subsubsection.85}
+\contentsline {subsubsection}{\numberline {4.1.6}Rome2Rio Api}{16}{subsubsection.86}
+\contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{16}{subsection.87}
+\contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia datab\'azy neo4j}{16}{subsection.88}
+\contentsline {subsection}{\numberline {4.4}OGM}{17}{subsection.117}
+\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{18}{subsection.144}
+\contentsline {subsection}{\numberline {4.6}Datab\'azov\'e dopyty pomocou OGM}{20}{subsection.168}
+\contentsline {subsection}{\numberline {4.7}Datab\'azov\'e dopyty pomocou Cypher klienta}{21}{subsection.182}
+\contentsline {subsection}{\numberline {4.8}TSP}{22}{subsection.195}
+\contentsline {subsection}{\numberline {4.9}Rome2rio API}{23}{subsection.207}
+\contentsline {subsection}{\numberline {4.10}Mapa}{25}{subsection.208}
+\contentsline {subsection}{\numberline {4.11}Vykres\v lovanie tabuliek}{25}{subsection.209}
+\contentsline {subsection}{\numberline {4.12}Vzh\v lad}{26}{subsection.210}
+\contentsline {section}{\numberline {5}V\'ysledky pr\'ace}{29}{section.215}
+\contentsline {subsection}{\numberline {5.1}Testy r\'ychlosti}{29}{subsection.216}
+\contentsline {section}{\numberline {6}Z\'aver}{32}{section.221}
+\contentsline {section}{Z\'{a}ver}{33}{section*.222}
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{34}{section*.223}
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.224}

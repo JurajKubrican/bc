@@ -9,6 +9,7 @@ use App\Place;
 use App\User;
 use App\r2rSearch;
 use Illuminate\Support\Facades\Auth;
+use GraphAware\Neo4j\Client\ClientBuilder;
 
 class PlaceController extends Controller {
 
@@ -21,6 +22,12 @@ class PlaceController extends Controller {
     }
     $place = Place::findOrCreate($data);
     $user = Auth::user();
+
+    if($user->home()->first() == $place){
+      return redirect('/');
+    }
+
+
     //link to user
     if (!$user->follows()->get()->where('canonicalName', $data->canonicalName)->first()) {
       $user->follows()->save($place);
@@ -30,6 +37,7 @@ class PlaceController extends Controller {
     $home = $user->home()->first();
     if (!$home->routes()->get()->where('canonicalName', $data->canonicalName)->first()) {
       $home->routes()->save($place);
+      $this->fetchMissing($home,$place);
     }
 
     return redirect('/');
@@ -101,10 +109,16 @@ class PlaceController extends Controller {
     $allUsers = User::all();
     foreach ($allUsers as $user) {
       $home = $user->home()->first();
-      if (!$home)
+      if (!$home){
         continue;
+      }
+
       foreach ($user->follows()->get() as $dest) {
-        //dd([$home,$dest]);
+       // dump([$home,$dest]);
+        if($home == $dest){
+          $user->deleteFollows($dest);
+          continue;
+        }
         if (!$home->queue()->edge($dest)) {
           $home->queue()->save($dest);
         }
@@ -184,6 +198,9 @@ class PlaceController extends Controller {
       case 'suggested':
         $data = $this->getSuggestedPlaces();
         break;
+      case 'new':
+        $data = $this->getAllPlacesNew($atts);
+        break;
       case 'all':
       default:
         $data = $this->getAllPlaces($atts);
@@ -248,8 +265,11 @@ class PlaceController extends Controller {
   }
 
   private function getAllPlaces($request) {
+
     $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
     if(!$user) $user = Auth::user();
+    return [];
+    $time = microtime();
     $places = $user->follows()->get();
     $home = $user->home()->first();
     $data[] = (object) [
@@ -262,11 +282,14 @@ class PlaceController extends Controller {
     ];
 
     foreach ($places as $key => $place) {
+
+      //dump([$home,$place]);
+      //dump($home->routes()->edge($place));
       $route = $home->routes()->edge($place);
       if(null == $route)
         $this->fetchMissing($user->home()->first(),$place);
 
-      $followers = array_reduce($place->followers()->get()->toArray(),[$this,"reduceFollowers"],[]);
+      $followers = array_reduce($place->followers()->take(5)->get()->toArray(),[$this,"reduceFollowers"],[]);
 
 
       if($route == null)
@@ -287,8 +310,66 @@ class PlaceController extends Controller {
         'tsp' => $tsp,
       ];
     }
+
+    $time = time() - $time;
+    die($time);
     return $data;
 
+}
+
+
+  private function getAllPlacesNew(){
+
+    $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
+    if(!$user) $user = Auth::user();
+
+    $userId = $user->id;
+
+    $client = ClientBuilder::create()
+      ->addConnection('bolt', 'bolt://neo4j:batlefield@localhost:7687')
+      ->build();
+    $query = "match (u:AppUser)-[:FOLLOWS]->(p) where id(u)=$userId
+      match (u)-[:HOME]->(h)
+      match (h)-[r:ROUTES]->(p)
+      match (f:AppUser)-[:FOLLOWS]->(p)
+      optional match (u)-[t:TSP]->(p)
+      WHERE f <> u
+      return r as route,p as place,ID(p)as id,f.name as follower,t as tsp;";
+    $result = $client->run($query);
+
+    foreach ($result->getRecords() as $record) {
+
+
+
+      $id = $record->value('id');
+      $place = $record->value('place');
+      $route = $record->value('route');
+      $tsp = $record->value('tsp') ? 1 : 0;
+      $follower =  $record->value('follower') ;
+
+
+      if(empty($data[$id])){
+
+        $data[$id] = (object) [
+          'id' => $id,
+          'shortName' => $place->value('shortName'),
+          'regionName' => $place->hasValue('regionName') ? $place->value('regionName') : '',
+          'lat' => $place->value('lat'),
+          'lng' => $place->value('lng'),
+          'symbol' => '',
+          'price' => $route->value('minPrice'),
+          'followers' => [$follower],
+          'routes' => json_decode($route->value('routes')),
+          'tsp' => $tsp,
+        ];
+
+      }else{
+
+        $data[$id]->folowers[] = $follower;
+      }
+    }
+    $data =  array_values($data);
+    return $data;
   }
 
   private function recommendReduce($prev,$new){
@@ -313,7 +394,7 @@ class PlaceController extends Controller {
   private function recommendedFollowers($prev, $next){
     $user = Auth::user();
     $place = Place::find($next);
-    $followers = $place->followers()->get();
+    $followers = $place->followers()->take(5)->get();
     foreach ($followers as $follower){
       if($follower->id === $user->id)
         continue;
@@ -352,7 +433,7 @@ class PlaceController extends Controller {
         if (isset($recommended[$val->id])) {
           $recommended[$val->id]->count++;
         } else {
-          $followers = array_reduce($val->followers()->get()->toArray(), [$this, "reduceFollowers"], []);
+          $followers = array_reduce($val->followers()->take(5)->get()->toArray(), [$this, "reduceFollowers"], []);
 
           $recommended[$val->id] = (object)[
             'count' => 1,
@@ -386,7 +467,7 @@ class PlaceController extends Controller {
 
     foreach ($places as $key => $place) {
 
-      $followers = array_reduce($place->followers()->get()->toArray(), [$this, "reduceFollowers"], []);
+      $followers = array_reduce($place->followers()->take(5)->get()->toArray(), [$this, "reduceFollowers"], []);
 
       $data[] = (object) [
         'id' => $place->id,
@@ -414,6 +495,7 @@ class PlaceController extends Controller {
   public function apiAdd($placeId) {
     $user = Auth::user();
     $place = Place::find($placeId);
+    if($user->home()->first() != $place);
     $user->follows()->save($place);
     die(json_encode(['error' => 0]));
   }
