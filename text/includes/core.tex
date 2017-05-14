@@ -257,7 +257,7 @@ Na obrázku è. \ref{example-simple-data} vidíme reprezentáciu dát uloenıch v naš
 \end{figure}
 
 \subsection{Štruktúra aplikácie}
-\noindent Aplikácia bude implementované pod¾a vıvojového vzoru MVC. Bude obsahova dve modelové triedy, jednu pre pouívate¾ov a jednu pre destinácie. Èas kontoléra bude obsahova tri triedy. Kadá trieda buïe obluhova dptyty jednej podstránky aplikácie. Podstránky sú nasledovné: domáca obrazovka, obrazovka nastavení, a obrazovka pre optimalizáciu trasy. 
+\noindent Aplikácia bude implementované pod¾a vıvojového vzoru MVC. Bude obsahova dve modelové triedy, jednu pre pouívate¾ov a jednu pre destinácie. Èas kontroléra bude obsahova tri triedy. Kadá trieda bude obsluhova dopyty jednej podstránky aplikácie. Podstránky sú nasledovné: domáca obrazovka, obrazovka nastavení, a obrazovka pre optimalizáciu trasy. 
 Zobrazovanie dynamického obsahu bude implementované pomocou JavaScript šablón a kninice na zobrazenie máp. Dáta na zobrazenie budú poskytované pomocou API našej aplikácie.
 
 
@@ -366,7 +366,7 @@ Kninicu sme nainštalovali pomocou správcu balíkov \textit{composer} pomocou prí
 
 V nasledujúcom príklade \ref{codeauth} vidíme implementáciu dvoch rôznych entitnıch tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menového priestoru v ktorom bol vytvorenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objekty hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedy ktorou vzah chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovaná znaèka hrany v databáze. 
 
-Po spustení aplikácie a zadaní prvıch dát sa v databáze vytvorili vrcholy a hrany pod¾a modelu ktorı sme si zadefinovali v kapitole \ref{db-struct}, vidualizáciu dát môeme vidie na obrázku \ref{example-simple-data}.
+Po spustení aplikácie a zadaní prvıch dát sa v databáze vytvorili vrcholy a hrany pod¾a modelu ktorı sme si zadefinovali v kapitole \ref{db-struct}, vizualizáciu dát môeme vidie na obrázku \ref{example-simple-data}.
 
 Trieda NeoEloquent funguje vo väèšine prípadov presne ako Eloquent no v jednom prípade sme mali problém z CSRF tokenmi. CSRF token je bezpeènostnı prvok, ktorı ochraòuje webovú stránku pred útokom falšovania poiadaviek z inej adresy. Laravel má tento bezpeènostnı prvok vstavanı v sebe, je to 40 znakovı reazec, ktorı sa generuje kadému pouívate¾ovi pri zobrazení formulára, tento istı reazec sa zároveò uloí do databázy a keï Laravel príjme formulár overí èi sa jeho token nachádza v databáze. Táto funkcionalita však po prejdení na grafovú databázu nefungovala. Pri kadom odoslaní formulára vyhlasovalo nezhodu CSRIF tokenu a v databáze sa neobjavila entita ktorá by tieto tokeny mohla obsahova. Tento problém sme zatia¾ obišli deaktiváciou tohto bezpeènostného prvku. 
 
@@ -552,7 +552,7 @@ Dopyt pozostáva vykoná nasledovné úkony (po riadkoch):
 
 
 
-\subsection{Implementácia optimaliácie trasy}
+\subsection{Implementácia optimalizácie trasy}
 \noindent V aplikácií sa nachádza obrazovka, na ktorej si môe pouívate¾ vybra destinácie, pre ktoré by chcel vyráta trasu optimálnu vzh¾adom na cenu. Táto trasa bude zaèína v domovskej lokácií pouívate¾a, prejde všetkımi vybranımi destináciami práve raz a vráti sa spä do domácej lokácie. Toto je klasickı prípad NP-kompletného problému pocestného obchodníka (ïalej TSP). 
 
 Pre jednoduchos a spo¾ahlivos sme implementovali prístup rekurzívneho preh¾adania všetkıch monosti trás. Implementovali sme rekurzívnu funkciu v PHP, ktorá prejde všetkımi monımi trasami medzi našimi destináciami a vyberie prechod grafom, ktorı je optimálny vzh¾adom na cenu celkovej trasy. Do argumentu naša funkcia berie vıchodzie miesto, zoznam destinácií ktoré ešte nepreh¾adala a domáce miesto do ktorého sa má nakoniec vráti. V kadom vnorení sa zoznam nepreh¾adanıch vrcholov zmenšuje. Vyššie spomenuté argumenty sú perzistentné objekty resp. polia inštancií perzistentnej triedy \textit{Place}.
@@ -563,7 +563,7 @@ Aj po naèítaní všetkıch potrebnıch trás však bolo naše riešenie príliš pomalé, p
 
 Naša implementácia front endu vyaduje dva dopyty na náš server, jeden na zobrazenie mapy a druhı na zobrazenie tabu¾ky s vısledkami, z tohto dôvodu sme pridali ešte jeden level cache na celé volanie funkcie pre rátanie TSP. Taktie sme upravili implementáciu front endu tak, aby sa tieto dva dopyty vykonali vdy synchrónne za sebou. Tımto sme zníili nároky na vıpoètové kapacity nášho serveru. 
 
-Dlhı èas vıpoètu pri dopytovaní sa na databázu pripisujeme tomu, e naše dopyty na databázu boli diskrétne pri kadom vnorení funkcie. Aj keï sme pouívali perzistentné objekty implementácia kadého dopytu NeoEloquent pozostáva z jedného dopytu v jazyku Cypher na databázu toto volanie obsahuje vyh¾adanie zaèiatoèného a koneèného bodu pod¾a id $O(log(n))$ a následne vyh¾adanie hrany $O(1)$. Tento prístup nevyuíva hlavnú vıhodu grafovej databázy, no s pouitím NeoEloquent nie je moné postavi komplexnı dopyt, ktorı by vedel vyrieši TSP za jeden beh. Takıto dopyt je v Neo4J moné implementova pomocou dopytovacieho jazyka Cypher príklad takéhoto dopytu môeme vidie na ukáke \ref{CypherTSP}. Teno dopyt sme však neimplementovali, kvoli jeho komplexite a faktu, e oproti našej funkcii v PHP neposkytuje lepšiu teoretickú vıpoètovú zloitos. 
+Dlhı èas vıpoètu pri dopytovaní sa na databázu pripisujeme tomu, e naše dopyty na databázu boli diskrétne pri kadom vnorení funkcie. Aj keï sme pouívali perzistentné objekty implementácia kadého dopytu NeoEloquent pozostáva z jedného dopytu v jazyku Cypher na databázu toto volanie obsahuje vyh¾adanie zaèiatoèného a koneèného bodu pod¾a id $O(log(n))$ a následne vyh¾adanie hrany $O(1)$. Tento prístup nevyuíva hlavnú vıhodu grafovej databázy, no s pouitím NeoEloquent nie je moné postavi komplexnı dopyt, ktorı by vedel vyrieši TSP za jeden beh. Takıto dopyt je v Neo4J moné implementova pomocou dopytovacieho jazyka Cypher príklad takéhoto dopytu môeme vidie na ukáke \ref{CypherTSP}. Tento dopyt sme však neimplementovali, kvôli jeho komplexite a faktu, e oproti našej funkcii v PHP neposkytuje lepšiu teoretickú vıpoètovú zloitos. 
 \begin{algorithm}
 	\lstset{
 		language=PHP,
@@ -611,9 +611,7 @@ Pri testovaní sme zistili, e pri niektorıch trasách API vrátilo niektoré z trás
 \subsection{Vykres¾ovanie máp}
 \noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a aplikácií pouili javascriptovú kninicu Mapbox.js.
 
-Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializuje samotná mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu clusterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do clusterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou clusteru. Na pridanie bodov do clusterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy clusterov. Následne sa vrstva clusterov pridá do objektu mapy.
-%TODO screenshoot markercluster ref
-
+Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializuje samotná mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu clusterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do clusterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou clusteru. Na pridanie bodov do clusterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy clusterov. Následne sa vrstva clusterov pridá do objektu mapy. Vısledok môeme vidie na obrázku \ref{screen-dash}.
 Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. GeoJson je dátová štruktúra zakódovaná do formátu JSON obsahujúca informácie potrebné na vykres¾ovanie kartografickıch velièín. V našej implementácií pouívame nasledovnú štruktúru GeoJson objektu. Hlavnı objekt GeoJson obsahuje typ, u nás \textit{FeatureCollection}, a pole objektov typu \textit{Feature}. Kadı z tıchto objektov obsahuje pole koordinátov, a objekt dodatoènıch atribútov slúiacich na upresnenie vizuálu vykresleného objektu. Spomínané pole koordinátov nám spôsobovalo mierne nedorozumenia, lebo v èíslovanom poli je ako prvı prvok je uloená zemepisná dåka (longitude) a ako druhı zemepisná šírka (latitude) \cite{geojson}, èo je presne opaène ako všetky ostatné API ktoré sme pouívali.
 
 
@@ -629,9 +627,9 @@ Naša šablóna \textit{places-template} obsahuje aj aktívne linky a v nasledujúcom
 
 
 \subsection{Pouívate¾ské rozhranie}
-\noindent Pouívate¾ské rozhranie je implementované pomocou HTML, CSS a JavaScript. Pouili sme CSS framework Bootstrap pre zabezpeèenie responzivity a konzistencie aplikácie. Vo vrchenj èasti rozhrania sa vdy nachádza navigaènı panel.
+\noindent Pouívate¾ské rozhranie je implementované pomocou HTML, CSS a JavaScript. Pouili sme CSS framework Bootstrap pre zabezpeèenie responzivity a konzistencie aplikácie. Vo vrchnej èasti rozhrania sa vdy nachádza navigaènı panel.
 
-Na hlavnej obrazovke (obrázok è.\ref{screen-dash}) je v navigaènom paneli pridané textové pole na pridávanie destinácií na zoznam ob¾úbenıch. V hlavnej èasti aplikácie sa nachádza mapa vyobrazenımi destináciami zo zoznamu, ïalej tabu¾ka s destináciami ,kde si môe pouívate¾ rozbali detajly konkrétnej destinácie alebo ju zmaza a tabu¾ka s odporúèanımi destináciami ktoré si môe pouívate¾ prida do svojho zoznamu.
+Na hlavnej obrazovke (obrázok è.\ref{screen-dash}) je v navigaènom paneli pridané textové pole na pridávanie destinácií na zoznam ob¾úbenıch. V hlavnej èasti aplikácie sa nachádza mapa vyobrazenımi destináciami zo zoznamu, ïalej tabu¾ka s destináciami ,kde si môe pouívate¾ rozbali detaily konkrétnej destinácie alebo ju zmaza a tabu¾ka s odporúèanımi destináciami ktoré si môe pouívate¾ prida do svojho zoznamu.
 
 \begin{figure}
 	\centering
@@ -640,8 +638,8 @@ Na hlavnej obrazovke (obrázok è.\ref{screen-dash}) je v navigaènom paneli pridan
 	\label{screen-dash}
 \end{figure}
 
-Na obrazovke TSP (obrázok è.\ref{screen-tsp}) sa nachádza mapa s reprezenáciou optimálnej trasy, na mape sú znaèky pospájané priamkami oèíslované pod¾a poradia v akom ich má pouívate¾ navštívi na dosiahnutie optimálnych nákladov.
-Nšie je tabu¾ka s podrobnejèím opisom trasy s vymenovanımi spôsobmi dopravy. V spodnej èasti stránky je zoznam ob¾úbenıch destinácií, z ktorıch môe desinácie prídáva a odobera zo zoznamu na optimalizáciu.
+Na obrazovke TSP (obrázok è.\ref{screen-tsp}) sa nachádza mapa s reprezentáciou optimálnej trasy, na mape sú znaèky pospájané priamkami oèíslované pod¾a poradia v akom ich má pouívate¾ navštívi na dosiahnutie optimálnych nákladov.
+Nišie je tabu¾ka s podrobnejším opisom trasy s vymenovanımi spôsobmi dopravy. V spodnej èasti stránky je zoznam ob¾úbenıch destinácií, z ktorıch môe destinácie pridáva a odobera zo zoznamu na optimalizáciu.
 
 \begin{figure}
 	\centering
@@ -654,40 +652,40 @@ Nšie je tabu¾ka s podrobnejèím opisom trasy s vymenovanımi spôsobmi dopravy. V 
 \section{Vısledky práce}
 
 \subsection{Testy latencie}
-\noindent Testy rıchlosti našej aplikácie sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze mysql verzie 5.7.18, tabu¾ky boli uloené pomcou innodb. 
+\noindent Testy rıchlosti našej aplikácie sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze MYSQL verzie 5.7.18, tabu¾ky boli uloené pomocou InnoDB. 
 
-Ako dátovú sadu sme pouili reálne dáta o destinácicah a trasách z Rome2Rio API. Aby sme zbezpeèili zvyšovnie ako ve¾kosi tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokrèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do mysql databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
+Ako dátovú sadu sme pouili reálne dáta o destináciách a trasách z Rome2Rio API. Aby sme zabezpeèili zvyšovanie ako ve¾kosti tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokraèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do MYSQL databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
 
-Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktroı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J nôeme vidie na príklade \ref{cypher-follows}. Dopyt v databáze MYSQL meeme vidie na priklade \ref{sql-follows}.
+Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktorı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J môeme vidie na príklade \ref{cypher-follows}. Dopyt v databáze MYSQL môeme vidie na príklade \ref{sql-follows}.
 
 \begin{algorithm}
-\lstset{
-language=SQL,
-basicstyle=\small\sffamily,
-frame=none,
-numbers=left,
-xleftmargin=5.0ex,
-numberstyle=\tiny,
-stepnumber=1,
-showstringspaces=false,
-keywordstyle=\color{blue}\bfseries
-}
-\lstset{emph={% Adjust any special keywords
-	printf%
-},emphstyle={\color[rgb]{1,0,0}\bfseries}%
-}%
-\begin{lstlisting}
-SELECT * FROM `follows` f 
-LEFT JOIN `home` h ON h.`id_user` = f.`id_user`
-LEFT JOIN `place` p ON f.`id_place` = p.`id` 
-LEFT JOIN `routes` r ON r.`id_from` = h.`id_place` AND r.`id_to` = p.`id`
-LEFT JOIN `follows` fo ON fo.`id_place` = p.`id` 
-LEFT JOIN `users` u ON u.id = fo.`id_user`
-LEFT JOIN `tsp` t ON t.`id_user` = f.`id_user` AND t.`id_place` = f.`id_place`
-WHERE f.`id_user` = 231
-\end{lstlisting}
-\caption{SQL dotaz pre testovanie rıchlosti}
-\label{sql-follows}
+	\lstset{
+		language=SQL,
+		basicstyle=\small\sffamily,
+		frame=none,
+		numbers=left,
+		xleftmargin=5.0ex,
+		numberstyle=\tiny,
+		stepnumber=1,
+		showstringspaces=false,
+		keywordstyle=\color{blue}\bfseries
+	}
+	\lstset{emph={% Adjust any special keywords
+			printf%
+		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
+	}%
+	\begin{lstlisting}
+	SELECT * FROM `follows` f 
+	LEFT JOIN `home` h ON h.`id_user` = f.`id_user`
+	LEFT JOIN `place` p ON f.`id_place` = p.`id` 
+	LEFT JOIN `routes` r ON r.`id_from` = h.`id_place` AND r.`id_to` = p.`id`
+	LEFT JOIN `follows` fo ON fo.`id_place` = p.`id` 
+	LEFT JOIN `users` u ON u.id = fo.`id_user`
+	LEFT JOIN `tsp` t ON t.`id_user` = f.`id_user` AND t.`id_place` = f.`id_place`
+	WHERE f.`id_user` = 231
+	\end{lstlisting}
+	\caption{SQL dotaz pre testovanie rıchlosti}
+	\label{sql-follows}
 \end{algorithm}
 
 
@@ -717,7 +715,7 @@ WHERE f.`id_user` = 231
 
 
 
-\noindent  Zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát, tımto pádom sme eliminovali vplyv ktorı mala na èas dopytu latencia siete. Testovali sme rıchlos aplikácie vo verzií s pouitím OGM a s pouitím PHP Neo4J Client s dopytom z príkladu \ref{Cypher-follows}. Na údajoch v tabu¾ke è. \ref{speed-table}  a grafe è. \ref{speed-table} môeme vidie ako latencia nášho API narastala s poètom záznamov na zozname ob¾úbenıch. Z údajov vidíme, e latencia s pristupu pomocou OGM rástla rıchlejšie ako PHP Neo4J Client. Dôvodom sa blisie venujeme v kapitole \ref{app-ogm}.
+\noindent  Zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát, tımto pádom sme eliminovali vplyv ktorı mala na èas dopytu latencia siete. Testovali sme rıchlos aplikácie vo verzií s pouitím OGM a s pouitím PHP Neo4J Client s dopytom z príkladu \ref{Cypher-follows}. Na údajoch v tabu¾ke è. \ref{speed-table}  a grafe è. \ref{speed-table} môeme vidie ako latencia nášho API narastala s poètom záznamov na zozname ob¾úbenıch. Z údajov vidíme, e latencia prístupu pomocou OGM rástla rıchlejšie ako PHP Neo4J Client. Dôvodom sa blišie venujeme v kapitole \ref{app-ogm}.
 
 \begin{table}[]
 	\centering
