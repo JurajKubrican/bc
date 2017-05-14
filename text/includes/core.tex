@@ -5,20 +5,20 @@
 
 
 \subsection{Grafové databázy}
-\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo implementova v našej grafovej databáze. \cite{graphDBs}
+\noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo implementova v našej grafovej databáze. \cite[25--27]{graphDBs}
 
 Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaèené jednou alebo viacerımi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. Hrany v grafovıch databázach spájajú vrcholy a budujú štruktúru grafu. Hrana grafu má vdy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak zvolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany môu rovnako ako vrcholy obsahova aj atribúty. Atribúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
 
 \subsection{Vıkon grafovej databázy pri dotazoch na vzahy}
-\noindent Natívne grafové databázy pouívajú bezindexovú pri¾ahlos \cite{graphDBs}. Absencia cudích k¾úèov praxi znamená, e pri preh¾adávaní vzahov v je vıpoètová zloitos na $O(1)$. Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamymi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Tak isto vo vrcholoch sú uloené priame ukazovatele na všetky hrany vychádzajúce z a mieriace do dotyèného vrcholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos $O(1)$ v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom. Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
+\noindent Natívne grafové databázy pouívajú bez indexovú pri¾ahlos . Absencia cudzích k¾úèov praxi znamená, e pri preh¾adávaní vzahov v je vıpoètová zloitos na $O(1)$. Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamymi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Tak isto vo vrcholoch sú uloené priame ukazovatele na všetky hrany vychádzajúce z a mieriace do dotyèného vrcholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos $O(1)$ v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom.\cite[149--158]{graphDBs} Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
 
 \subsection{Vzahy v relaènıch databázach}
-\label{relational}
+\label{relational} 
 \noindent Relaèná databáza je databáza, v ktorej sú údaje uloené pod¾a relaèného databázového modelu\cite{codd} pod¾a E. F. Codda z roku 1970. Relaènı model je zaloenı na matematickom aparáte relaènıch mnoí na predikátovej logiky. Databázová relácia sa od matematickej líši tım, e vyuíva pomocnı aparát nazvanı schéma. V databáze schéma definuje názov relácie (tabu¾ky) a ko¾ko obsahuje ståpcová akı dátovı typ obsahujú. 
 
-Vıvojári databáz sa u desaroèia snaia relaèné databázy prispôsobi na to aby boli schopné efektívne pracova s husto prepojenımi dátovımi sadami. Keïe však štruktúra relaènıch databáz bola pôvodne navrhnutá na ukladanie formulárov a tabu¾kovıch štruktúr, majú problém s keï sa snaia poòa ad-hoc vzahy, ktoré sa vyskytujú v dátach v reálnom svete. \cite{graphDBs}
+Vıvojári databáz sa u desaroèia snaia relaèné databázy prispôsobi na to aby boli schopné efektívne pracova s husto prepojenımi dátovımi sadami. Keïe však štruktúra relaènıch databáz bola pôvodne navrhnutá na ukladanie formulárov a tabu¾kovıch štruktúr, majú problém s keï sa snaia poòa ad-hoc vzahy, ktoré sa vyskytujú v dátach v reálnom svete. \cite[11--12]{graphDBs}
 
-Vzahy sa vyskytujú v modely relaènıch databáz no iba vo fáze návrhu, v reálnej implementácií to vyzerá tak, e keï pridávame vzahy do relaènej databázy, ve¾mi rıchlo narastá komplexita a zniuje sa preh¾adnos dátového modelu a pridáva sa záa na databázu vznikom ve¾kıch spájacích tabuliek a tabuliek s mnostvom buniek s prázdnymi cudzími k¾úèmi. \cite{graphDBs}
+Vzahy sa vyskytujú v modely relaènıch databáz no iba vo   fáze návrhu, v reálnej implementácií to vyzerá tak, e keï pridávame vzahy do relaènej databázy, ve¾mi rıchlo narastá komplexita a zniuje sa preh¾adnos dátového modelu a pridáva sa záa na databázu vznikom ve¾kıch spájacích tabuliek a tabuliek s mnostvom buniek s prázdnymi cudzími k¾úèmi. \cite[11--12]{graphDBs}
 
 Pri vyh¾adávaní kadé prepojenie pridáva vıpoètovú komplexitu. v kadej ïalšej prepojenej tabu¾ke treba vyh¾ada záznam s poadovanım k¾úèom $O(log(n))$. Pouívané relaèné databázové systémy riešia tento vıpoètovı problém pouitím indexov a inımi  optimalizáciami, no pokia¾ je dátová sada štruktúrovaná s ve¾kım mnostvom vzahov systém sa spravidla spomalí.
 
@@ -27,8 +27,7 @@ Na obrázku \ref{relational-relationships} vidíme prístup riešenia vzahov v rela
 \begin{figure}
 	\centering
 	\includegraphics[width=8cm]{img/relational-relationships.png}
-	\caption{Ukáka riešenia vzahov v relaènej databáze}
-	\cite{graphDBs}
+	\caption{Ukáka riešenia vzahov v relaènej databáze \cite[12]{graphDBs}}
 	\label{relational-relationships}
 \end{figure}
 
@@ -43,22 +42,21 @@ Na obrázku \ref{document-relationships} vidíme prístup riešenia vzahov v dokume
 \begin{figure}
 	\centering
 	\includegraphics[width=8cm]{img/document-relationships.png}
-	\caption{Ukáka riešenia vzahov v dokumentovej databáze}
-	\cite{graphDBs}
+	\caption{Ukáka riešenia vzahov v dokumentovej databáze \cite[15]{graphDBs}}
 	\label{document-relationships}
 \end{figure}
 
 \subsection{Vıber grafovej databázy} 
-\noindent Vybrali sme si troch najpopulárnejších predstavite¾ov grafovıch databáz pod¾a rebríèka DB-Engines.com\cite{dbrank}. V nasledujúcej èasti v skratke priblíime históriu kadej grafovej databázy ich vıhody, nevıhodya nevıhody.
+\noindent Vybrali sme si troch najpopulárnejších predstavite¾ov grafovıch databáz pod¾a rebríèka DB-Engines.com\cite{dbrank}. V nasledujúcej èasti v skratke priblíime históriu kadej grafovej databázy ich vıhody a nevıhody.
 
 %TODO citations
 
-\subsubsection{Neo4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvíjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantoch': Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edícia, ktorá má rozšírené funkcie ako shardovanie cache pamäte, rozšírené monitorovanie a zálohovanie za behu.
+\subsubsection{Neo4J}Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvíjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantoch: Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edícia, ktorá má rozšírené funkcie ako shardovanie cache pamäte, rozšírené monitorovanie a zálohovanie za behu.
 
-\textbf{Medzi hlavné vıhody neo4j patrí:}
+\textbf{Medzi hlavné vıhody Neo4J patrí:}
 \begin{itemize}
-	\item Je dlhodobo najpopulárnejšia grafová databáza, pod¾a rebríèka db-rank\cite{dbrank}. Z toho vyplıva dobrá dokumentácia a vyššia podpora pre integráciu s populárnymi frameworkami.
-	\item Dopytovací jazyk Cypher, ktorı táto databáza podporuje. Tento jazyk je vizuálne zrozumite¾nı a narvhnutı primárne na prácu z grafovvou databázou.
+	\item Je dlhodobo najpopulárnejšia grafová databáza, pod¾a rebríèka db-rank\cite{dbrank}. Z toho vyplıva dobrá dokumentácia a podpora na internete a väèšia podpora pre integráciu s populárnymi frameworkami.
+	\item Dopytovací jazyk Cypher, ktorı táto databáza podporuje. Tento jazyk je vizuálne zrozumite¾nı a navrhnutı primárne na prácu z grafovou databázou.
 	
 \end{itemize}
 \textbf{Nevıhodami Neo4J sú:}
@@ -77,7 +75,7 @@ Na obrázku \ref{document-relationships} vidíme prístup riešenia vzahov v dokume
 \end{itemize}
 \textbf{Nevıhodami OrientDB sú:}
 \begin{itemize}
-	\item Menšia podpora pre populárne frameworky, konkrétne OGM pre Laravel nepodporuje ukladanie a èítanie atrubutov z hrán.
+	\item Menšia podpora pre populárne frameworky, konkrétne OGM pre Laravel nepodporuje ukladanie a èítanie atribútov z hrán.
 	\item Menej intuitívny dopytovací jazyk v kontexte grafovıch databáz.
 \end{itemize}
 
@@ -86,7 +84,7 @@ Na obrázku \ref{document-relationships} vidíme prístup riešenia vzahov v dokume
 
 \textbf{Medzi hlavné vıhody databázy Titan patrí:}
 \begin{itemize}
-	\item Podpora rôznych zásuvnıch modulov vyívanıch v entreprise riešeniach.
+	\item Podpora rôznych zásuvnıch modulov vyívanıch v enterprise riešeniach.
 \end{itemize}
 
 \textbf{Nevıhodami databázy Titan sú:}
@@ -95,21 +93,21 @@ Na obrázku \ref{document-relationships} vidíme prístup riešenia vzahov v dokume
 	\item Jej urèenie na ve¾ké distribuované systémy.
 \end{itemize}
 
-\noindent V procese vıberu databázy sme prihliadali na rôzne faktory. Posudzovali sme kompatibilitu, jednoduchos pouitia, rıchlos a iné. Na koniec sme sa rozhodli pre Neo4J práve pre jeho rozšírenos a pouitie jazyka Cypher. Aj keï pod¾a rôznych nezávislıch testov je OrientDB rıchlejšie ako Neo4J v kontexte porovnávania relaènıch a grafovıch databáz tento fakt nezohral ve¾kú rolu, lebo obe databázy sú pri traverzovaní grafu rıchlejšie ak orelaèné.
-Dtatabázu Titan sme diskvalifikovali z vıberu z dôvodu ukonèenia jej vıvoja a urèenia primárne na distribuované systémy.
-
+\noindent V procese vıberu databázy sme prihliadali na rôzne faktory. Posudzovali sme kompatibilitu, jednoduchos pouitia, rıchlos a iné. Na koniec sme sa rozhodli pre Neo4J práve pre jeho rozšírenos a pouitie jazyka Cypher. Aj keï pod¾a rôznych nezávislıch testov je OrientDB rıchlejšie ako Neo4J v kontexte porovnávania relaènıch a grafovıch databáz tento fakt nezohral ve¾kú rolu, lebo obe databázy sú pri navigovaní grafu rıchlejšie ako relaèné.
+Databázu Titan sme diskvalifikovali z vıberu z dôvodu ukonèenia jej vıvoja a urèenia primárne na distribuované systémy.
+%TODO VYBER PRECITAT 
 \subsection{Dopytovací jazyk Cypher}
-\noindent Dopytovací jazyk Cypher bol vyvynutı formou NeoTechnology pre ich databázu Neo4J a prípadnú štandardizáciu tohto jazyka. Cypher bol navrhnutı tak, aby sa ¾ahko èítal a pochopil, preto pouíva intuitívnu \textit{"ASCII Art"} notáciu. Cypher pouíva oblé zátvorky na reprezentáciu vrcholov, hranaté zátvorky a pomlèky na reprezetáciu hrán a znaky väèší a menší na upresnenie smerovania hrany. Medzi hlavnı dopytovací príkaz v Cypher je MATCH, tımto príkazom podobne ako SELECT v SQL zaèína kady dopyt. 
+\noindent Dopytovací jazyk Cypher bol vyvinutı formou NeoTechnology pre ich databázu Neo4J a prípadnú štandardizáciu tohto jazyka. Cypher bol navrhnutı tak, aby sa ¾ahko èítal a pochopil, preto pouíva intuitívnu \textit{"ASCII Art"} notáciu. Cypher pouíva oblé zátvorky na reprezentáciu vrcholov, hranaté zátvorky a pomlèky na reprezentáciu hrán a znaky väèší a menší na upresnenie smerovania hrany. Medzi hlavnı dopytovací príkaz v Cypher je MATCH, tımto príkazom podobne ako SELECT v SQL zaèína kadı dopyt. 
 
-V na nasledujúcom príklade \ref{cypher} vidíme zopár príkladov dopytov. Na prvom príklade vidíme dopyt, ktorı vyh¾adávame vrchol n, ktorı má znaèku Osoba a meno Alenka, z tohto vrcholu vycházajuce (všimnime si smerovanie "ASCII ART šípky" ) hrany so znaèkou POZNA, ktoré vedú k cie¾ovım vrcholom so znaèkou Osoba. Všimnime si, e  v zátvorkách reprezentujúcich vrcholy a hrany priraïujeme premennım n, m a r kolekcie vrcholov a hrán. Deïe je v dopyte "RETURN r,m" vrátia sa a vrcholy v tıchto kolekciách, èie nie pôvodnı vrchol Alenka. Následujú klasické príkazy SQL pre zoradenie a obmedzenie poètu vısledkov.
+V na nasledujúcom príklade \ref{cypher} vidíme zopár príkladov dopytov. Na prvom príklade vidíme dopyt, ktorı vyh¾adávame vrchol n, ktorı má znaèku Osoba a meno Alenka, z tohto vrcholu vychádzajúce (všimnime si smerovanie "ASCII ART šípky" ) hrany so znaèkou POZNA, ktoré vedú k cie¾ovım vrcholom so znaèkou Osoba. Všimnime si, e  v zátvorkách reprezentujúcich vrcholy a hrany priraïujeme premennım n, m a r kolekcie vrcholov a hrán. Keïe je v dopyte "RETURN r, m" vrátia sa a vrcholy v tıchto kolekciách, èie nie pôvodnı vrchol Alenka. Nasledujú klasické príkazy SQL pre zoradenie a obmedzenie poètu vısledkov.
 
-Na druhom priklade vidíme dopyt, ktorı vráti všetky hrany s lubovo¾nımi znaèkami ktoré sa nachádzajú medzi vrcholom Barbora a vrcholmi, ktoıch atribút meno zaèína na M.
+Na druhom príklade vidíme dopyt, ktorı vráti všetky hrany s ¾ubovo¾nımi znaèkami ktoré sa nachádzajú medzi vrcholom Barbora a vrcholmi, ktorıch atribút meno zaèína na M.
 
-Na treom príklade vidíme dopyt, ktroı vráti všetkı vrcholy, ktoré sú vzdialené od vrchola s menom Lucia dve hrany typu POZNA 
+Na treom príklade vidíme dopyt, ktorı vráti všetky vrcholy, ktoré sú vzdialené od vrcholu s menom Lucia dve hrany typu POZNA 
 
-Na príklade èíslo štyri je dopyt, ktorı vytvrára vrchol a typu Osoba s atribútom meno a typ
+Na príklade èíslo štyri je dopyt, ktorı vytvára vrchol a typu Osoba s atribútom meno a typ
 
-Na poslednom príklade vidíme príkaz, ktorı najprv vyh¾adá vrcholy s menom Patrik a Adam pridá hranu smerujúcu od Adama k patrikovi s atribútom váha.
+Na poslednom príklade vidíme príkaz, ktorı najprv vyh¾adá vrcholy s menom Patrik a Adam pridá hranu smerujúcu od Adama k Patrikovi s atribútom váha.
 
 \begin{algorithm}
 	\lstset{
@@ -129,28 +127,28 @@ Na poslednom príklade vidíme príkaz, ktorı najprv vyh¾adá vrcholy s menom Patrik
 	}%
 	\begin{lstlisting}
 	
-1)
-MATCH (n:Osoba)-[r:POZNA]->(m:Osoba)
-WHERE n.meno = 'Alenka' RETURN r,m ORDER BY m.age LIMIT 42
-
-2)
-MATCH (n:Osoba)-[r]-(m:Osoba)
-WHERE n.meno = 'Barbora' AND m.meno=~ "M.*" RETURN r
-
-3)
-MATCH (n:Osoba)-[:POZNA]->(:Osoba)-[:POZNA]->(m:person)
-WHERE n.meno = 'Lucia' RETURN m
-
-4) 
-CREATE (n:Osoba { meno: 'Jozef', typ: 'Absolvent' })
-
-5) 
-MATCH (a:Osoba),(b:Osoba)
-WHERE a.meno = 'Adam' AND b.meno = 'Patrik'
-CREATE (a)-[r:POZNA { váha: 7  }]->(b)
-RETURN r
-
-
+	1)
+	MATCH (n:Osoba)-[r:POZNA]->(m:Osoba)
+	WHERE n.meno = 'Alenka' RETURN r,m ORDER BY m.age LIMIT 42
+	
+	2)
+	MATCH (n:Osoba)-[r]-(m:Osoba)
+	WHERE n.meno = 'Barbora' AND m.meno=~ "M.*" RETURN r
+	
+	3)
+	MATCH (n:Osoba)-[:POZNA]->(:Osoba)-[:POZNA]->(m:person)
+	WHERE n.meno = 'Lucia' RETURN m
+	
+	4) 
+	CREATE (n:Osoba { meno: 'Jozef', typ: 'Absolvent' })
+	
+	5) 
+	MATCH (a:Osoba),(b:Osoba)
+	WHERE a.meno = 'Adam' AND b.meno = 'Patrik'
+	CREATE (a)-[r:POZNA { váha: 7  }]->(b)
+	RETURN r
+	
+	
 	\end{lstlisting}
 	\caption{Príklady dopytov v jazyku Cypher}
 	\label{cypher}
@@ -160,39 +158,39 @@ RETURN r
 
 
 \section{Špecifikácia}
-\noindent Aplikácia ktorú sme sa rozhodli implementova bude slúi na plánovanie a optimalizáciu trasy cestovate¾a po svete. Bude umoòova pouívate¾ovi sledova ceny cesty z domáceho miest, ktoré si pouívate¾ zadá. Do destinácií, ktoré si prídá na zoznam ob¾úbenıch destinácí. Bude dalej pouívate¾ovi ukazova ostanıch pouívate¾ov, ktoı si zvolili rovnaké destinácie, a bude vedie pouívate¾ovi odporuèi ïalšie desinácie na základe zhody s ostatnımi pouívate¾mi. 
+\noindent Aplikácia ktorú sme sa rozhodli implementova bude slúi na plánovanie a optimalizáciu trasy cestovate¾a po svete. Bude umoòova pouívate¾ovi sledova ceny cesty z domáceho miest, ktoré si pouívate¾ zadá. Do destinácií, ktoré si pridá na zoznam ob¾úbenıch destinácií. Bude ïalej pouívate¾ovi ukazova ostatnıch pouívate¾ov, ktorı si zvolili rovnaké destinácie, a bude vedie pouívate¾ovi odporuèi ïalšie destinácie na základe zhody s ostatnımi pouívate¾mi. 
 
 \subsection{Funkcionálne poiadavky}
-	\begin{enumerate}
-		\item Aplikácia bude umoòova registráciu a prihlásenie pouívate¾a
-		\item Pri registrácií sa budú vyadova prihlasovacie údaje: e-mail, heslo. Okrem toho sa bude vyadova zdanie domácej destinácie.
-		\item Po prihlásení pouívate¾a sa mu zobrazí obrazovka s mapou, zoznamom ob¾úbenıch destinácií, ktoré chce navštívi a zoznam odporúèanıch destinácií.
-		\item Na mape bude vyobrazená pouívate¾ova domáca destinácia a všetky destinácie ktoré má v zozname ob¾úbenıch destinácií.
-		\item V zozname ob¾úbenıch budú všetky destinácie, ktoré si pouívate¾ pridal. Zoznam bude vo forme tabu¾ky ktorej riadok bude obsahova meno destinácie a cenu najlacenjšej trasy z domáceho miesta do destinácie nachádza. 
-		\item Budú sa da zobrazi informácie o všetkıch dostupnıch trasách ku konkrétnej destinácií s ich cenami a spôsobmi dopravy.
-		\item V detailoch ob¾úbenej destinácie bude zoznam ostatnıch pouívate¾ov ktorí danú destináciu majú tie na zozname ob¾úbenıch
-		\item V zozname odporúèanıch destinácií budú destinácie ktoré majú na zozname ¾udia s ktorımi má prihlásenı pouívate¾ najviac spoloènıch destinácií.
-		\item V aplikácií bude obrazovka kde si bude pouívate¾ vybra nieko¾ko zo svojich ob¾úbenıch destinácií a necha si vyráta optimálnu trasu z domáceho miesta cez všetky zvolené miesta a potom spa. (TSP)
-	\end{enumerate}	
-		
-		
-	
+\begin{enumerate}
+	\item Aplikácia bude umoòova registráciu a prihlásenie pouívate¾a
+	\item Pri registrácií sa budú vyadova prihlasovacie údaje: e-mail, heslo. Okrem toho sa bude vyadova zdanie domácej destinácie.
+	\item Po prihlásení pouívate¾a sa mu zobrazí obrazovka s mapou, zoznamom ob¾úbenıch destinácií, ktoré chce navštívi a zoznam odporúèanıch destinácií.
+	\item Na mape bude vyobrazená pouívate¾ova domáca destinácia a všetky destinácie ktoré má v zozname ob¾úbenıch destinácií.
+	\item V zozname ob¾úbenıch budú všetky destinácie, ktoré si pouívate¾ pridal. Zoznam bude vo forme tabu¾ky ktorej riadok bude obsahova meno destinácie a cenu najlacnejšej trasy z domáceho miesta do destinácie nachádza. 
+	\item Budú sa da zobrazi informácie o všetkıch dostupnıch trasách ku konkrétnej destinácií s ich cenami a spôsobmi dopravy.
+	\item V detailoch ob¾úbenej destinácie bude zoznam ostatnıch pouívate¾ov ktorí danú destináciu majú tie na zozname ob¾úbenıch
+	\item V zozname odporúèanıch destinácií budú destinácie ktoré majú na zozname ¾udia s ktorımi má prihlásenı pouívate¾ najviac spoloènıch destinácií.
+	\item V aplikácií bude obrazovka kde si bude pouívate¾ vybra nieko¾ko zo svojich ob¾úbenıch destinácií a necha si vyráta optimálnu trasu z domáceho miesta cez všetky zvolené miesta a potom spa. (TSP)
+\end{enumerate}	
+
+
+
 \subsection{Nefunkcionálne poiadavky}
-	\begin{enumerate}
-		\item Systém bude zrealizovanı na webovej platforme.
-		\item Aplikácia bude vyuíva natívnu grafovú databázu.
-		\item Aplikácia bude by kompatibilná s webovımi prehliadaèmi Google Chrome, Mozilla Firefox, Microsoft Edge.
-		\item Uívate¾ské rozhranie systém musí by plne pouite¾né aj na mobilnıch telefónoch s OS Android a IOS.
-		\item Aplikácia bude implementovanı s pouitím jazyka PHP a PHP frameworku.
-		\item Systém bude nasadenı na virtuálnom serveri s operaènım systémom Ubuntu 16.04.2 LTS poskytnutom Ústavom informatiky a matematiky FEI STU.
-	\end{enumerate}
-	
+\begin{enumerate}
+	\item Systém bude zrealizovanı na webovej platforme.
+	\item Aplikácia bude vyuíva natívnu grafovú databázu.
+	\item Aplikácia bude by kompatibilná s webovımi prehliadaèmi Google Chrome, Mozilla Firefox, Microsoft Edge.
+	\item Uívate¾ské rozhranie systém musí by plne pouite¾né aj na mobilnıch telefónoch s OS Android a IOS.
+	\item Aplikácia bude implementovanı s pouitím jazyka PHP a PHP frameworku.
+	\item Systém bude nasadenı na virtuálnom serveri s operaènım systémom Ubuntu 16.04.2 LTS poskytnutom Ústavom informatiky a matematiky FEI STU.
+\end{enumerate}
+
 
 \section{Návrh}
 %TODO NAVRH PO KAPITOLE
 \noindent V tejto kapitole si priblíime proces návrhu našej aplikácie, popíšeme prípady pouitia ktoré pre našu aplikáciu oèakávame. Ïalej priblíime návrh štruktúry databázy, ktorú plánujeme poui.
 
-\subsubsection{Prípady pouitia}
+\subsection{Prípady pouitia}
 \noindent Prípady pouitia popisujú interakcie medzi aplikáciou a pouívate¾om, popisujú roly, ktoré rôzny aktéri hrajú v tıchto interakciách. 
 
 \begin{enumerate}
@@ -231,7 +229,7 @@ RETURN r
 	\label{usecase-tsp}
 \end{figure}
 
-\subsubsection{Štruktúra databázy}
+\subsection{Štruktúra databázy}
 \label{db-struct}
 \noindent V našej databáze sa budú nachádza dve hlavné entity: entita pouívate¾a \textit{appUser} a entita destinácie \textit{appPlace}. Entita pouívate¾a bude obsahova iba základné atribúty ako meno a atribúty potrebné pre autentifikáciu pouívate¾a email, a heslo. 
 Entita destinácie bude obsahova atribúty potrebné na identifikáciu tejto destinácie: unikátny názov a krátky názov vhodnı na zobrazovanie a atribúty potrebné na lokalizáciu destinácie: zemepisná šírka a zemepisná dåka. 
@@ -242,7 +240,7 @@ Hrana trasy bude vdy vies od jedného miesta k druhému reprezentuje zoznam trás
 Hrany \textit{FOLLOWS} a \textit{TSP} budú vdy smerova od pouívate¾a k destinácií a nebudú obsahova iadne atribúty.
 
 Na obrázku è. \ref{database-diagram} vidíme UML diagram štruktúry našej databázy. 
-Na obrázku è. \ref{example-simple-data} vidíme reprezentáciu dát uloenych v našej databáze. Pouívate¾ \textit{user 3} má ako domáce miesto (HOME) nastavené mesto \textit{Bratislava}, v ob¾úbenıch destináciách (FOLLOWS) má mestá \textit{Praha}, \textit{Košice} a \textit{Budapeš}, systém pridal hranu \textit{ROUTES} smerom od domáceho miesta pouívate¾a k cie¾ovım miestam. Pouívate¾ má tie pridané mestá \textit{Budapeš} a \textit{Košice} na zozname optimalizácie take sme pridali hranu \textit{TSP}.
+Na obrázku è. \ref{example-simple-data} vidíme reprezentáciu dát uloenıch v našej databáze. Pouívate¾ \textit{user 3} má ako domáce miesto (HOME) nastavené mesto \textit{Bratislava}, v ob¾úbenıch destináciách (FOLLOWS) má mestá \textit{Praha}, \textit{Košice} a \textit{Budapeš}, systém pridal hranu \textit{ROUTES} smerom od domáceho miesta pouívate¾a k cie¾ovım miestam. Pouívate¾ má tie pridané mestá \textit{Budapeš} a \textit{Košice} na zozname optimalizácie take sme pridali hranu \textit{TSP}.
 
 \begin{figure}
 	\centering
@@ -258,23 +256,27 @@ Na obrázku è. \ref{example-simple-data} vidíme reprezentáciu dát uloenych v naš
 	\label{example-simple-data}
 \end{figure}
 
+\subsection{Štruktúra aplikácie}
+\noindent Aplikácia bude implementované pod¾a vıvojového vzoru MVC. Bude obsahova dve modelové triedy, jednu pre pouívate¾ov a jednu pre destinácie. Èas kontoléra bude obsahova tri triedy. Kadá trieda buïe obluhova dptyty jednej podstránky aplikácie. Podstránky sú nasledovné: domáca obrazovka, obrazovka nastavení, a obrazovka pre optimalizáciu trasy. 
+Zobrazovanie dynamického obsahu bude implementované pomocou JavaScript šablón a kninice na zobrazenie máp. Dáta na zobrazenie budú poskytované pomocou API našej aplikácie.
+
 
 \section{Implementácia}
 \noindent V tejto kapitole si priblíime proces implementácie a evolúcie našej aplikácie. Najprv si opíšeme niektoré z pouitıch technológii, potom
 
 
 \subsection{Pouité technológie}
-\noindent v tejto kapitole si priblíime niektoré z technológií ktoé sme vyuili na implementáciu našej aplikácie. V skrathe opíšeme históriu tecnhológie, jej vyuitie a licenciu pod ktorou je vydávaná.
+\noindent v tejto kapitole si priblíime niektoré z technológií ktoré sme vyuili na implementáciu našej aplikácie. V skrate opíšeme históriu technológie, jej vyuitie a licenciu pod ktorou je vydávaná.
 
 \subsubsection{Laravel framework}
-\noindent Laravel je open source framework pre aplikácie v jazyku PHP. Laravel je od roku 2011 vyvıjanı Taylorom Otwellom ako framework urèenı na stavbu webovıch aplikácií s vıvojovım vzorokm MVC. Niektoré funkcie sú implementované ako zásuvné moduly, ktoré sa inštalujú pomocou s vlastného správcu závislostí. Laravel je orientovanı na to, aby vıvoj v òom bol syntakticky èo najpreh¾adnejší a najjednoduchší. Toto je jeden z dôvodov preèo patrí od roku 2015 k najpopulárnejším PHP frameworkom.
+\noindent Laravel je open source framework pre aplikácie v jazyku PHP. Laravel je od roku 2011 vyvíjanı Taylorom Otwellom ako framework urèenı na stavbu webovıch aplikácií s vıvojovım vzorom MVC. Niektoré funkcie sú implementované ako zásuvné moduly, ktoré sa inštalujú pomocou s vlastného správcu závislostí. Laravel je orientovanı na to, aby vıvoj v òom bol syntakticky èo najpreh¾adnejší a najjednoduchší. Toto je jeden z dôvodov preèo patrí od roku 2015 k najpopulárnejším PHP frameworkom.
 Kód frameworku je vo¾ne dostupnı pod licenciou MIT.
 
 \subsubsection{NeoEloquent OGM}
-\noindent NeoEloquent OGM je vo¾ne šírite¾ná kninica, ktorá umoòuje vyuíva grafovú databázu neo4j spolu s existujúcim dátovım modelom vo frameworku Laravel. Štruktúra NeoEloquent je modelovaná pod¾a natívneho Eloquent Modelu Laravel. Kninica je vydávaná od roku 2014 pod licenciou MIT spoloènosou Vinelab
+\noindent NeoEloquent OGM je vo¾ne šírite¾ná kninica, ktorá umoòuje vyuíva grafovú databázu Neo4J spolu s existujúcim dátovım modelom vo frameworku Laravel. Štruktúra NeoEloquent je modelovaná pod¾a natívneho Eloquent Modelu Laravel. Kninica je vydávaná od roku 2014 pod licenciou MIT spoloènosou Vinelab
 
 \subsubsection{GraphAware Neo4j PHP Client}
-\noindent Neo4j PHP Client je klientská kninica pre databázu Neo4J. Na rozdiel od OGM je táto schopná vykonáva programátorky zadané dopyty, poskytuje tım pádom prístup k plnému rozsahu Cypher API databázy Neo4j. Kninica je vivıjané partnerskou firmou Neo Technology, firmou GraphAware od roku 2014. Je vydávaná pod licenciou MIT.
+\noindent Neo4j PHP Client je klientská kninica pre databázu Neo4J. Na rozdiel od OGM je táto schopná vykonáva programátorky zadané dopyty, poskytuje tım pádom prístup k plnému rozsahu Cypher API databázy Neo4j. Kninica je vyvíjané partnerskou firmou Neo Technology, firmou GraphAware od roku 2014. Je vydávaná pod licenciou MIT.
 
 \subsubsection{Mapbox.js}
 \noindent Mapbox.js je kninica na vytváranie projektov s interaktívnymi mapami. Je zaloená na vo¾ne šírite¾nej kninici Leaflet vyvíjanou Vladimírom Agafonkinom, rozširuje túto kninicu o funkcie ako automatické zoskupovanie bodov do skupín a poskytuje preh¾adnú dokumentáciu. My pouívame verziu zdarma, ktorá je obmedzená na 50000 zobrazení mapy na mesiac. 
@@ -289,21 +291,17 @@ Túto kninicu postupne nahrádza Mapbox-gl.js vyvíjaná tou istou firmou, ktorá vy
 
 
 
-
-
-
 \subsection{Inštalácia a konfigurácia Laravel Framework-u}
 \noindent Na inštaláciu frameworku Laravel sme pouili nástroj pre správu PHP balíkov \textit{Composer}. Pomocou tohto nástroja sme nainštalovali balík \textit{laravel/installer} \cite{laravel}, následne sme poitím príkazu \textit{laravel new projekt} vytvorili prieèinok so základnou inštaláciou frameworku.
 
 Jediné nastavanie ktoré bolo po tom potrebné bolo u len nastavenie názvu aplikácie, a databázy, o tom ïalej v sekcii \ref{installneo}.
 
 
-\subsection{Inštalácia a konfigurácia databázy neo4j}
+\subsection{Inštalácia a konfigurácia databázy Neo4J}
 \label{installneo}
-\cite{neoinstall}
-\noindent Aby sme mohli nainštalova databázu Neo4j musíme si najprv do systému prida repozitár Neo Technology, potom je nám k dispozícií na inštaláciu balík neo4j. Po inštalácií je nám ihneï dostupné administraèné rozhranie databázy na adrese: \textit{localhost:7474}. Pri prvom prihasení sme vyzvaní na zmenu hesla.
+\noindent Aby sme mohli nainštalova databázu Neo4j musíme si najprv do systému prida repozitár Neo Technology, potom je nám k dispozícií na inštaláciu balík Neo4J. Po inštalácií je nám ihneï dostupné administraèné rozhranie databázy na adrese: \textit{localhost:7474}. Pri prvom prihasení sme vyzvaní na zmenu hesla.
 
-Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu neo4j museli sme poui ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po zaregistrovaní sluby NeoEloquentServiceProvider sa automaticky zaregistruje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandardnú konfiguráciu mena hostite¾a, port a prístupovıch údajov.
+Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu Neo4J museli sme poui ovládaè integrovanı v balíku NeoEloquent, to sa registráciou poskytovate¾a sluby. Po zaregistrovaní sluby NeoEloquentServiceProvider sa automaticky zaregistruje ovládaè pre databázu a pridajú sa nové monosti pre konfiguráciu databázy. Následne staèí vykona štandardnú konfiguráciu mena hostite¾a, port a prístupovıch údajov.
 
 Na získanie vzdialeného prístupu k administraènému rozhraniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
 
@@ -325,53 +323,54 @@ Na získanie vzdialeného prístupu k administraènému rozhraniu databázy bez otvore
 		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
 	}%
 	\begin{lstlisting}
-
-#inštalácia databázy neo4j verzie 3.1.4
-wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
-echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee /etc/apt/sources.list.d/neo4j.list
-sudo apt-get update
-sudo apt-get install neo4j=3.1.4
-
-...
-
-//registrácia neoEloquent sevice rovider
-$app->register('Vinelab\NeoEloquent\NeoEloquentServiceProvider');
-
-...
-
-//nastvenie prístupovıch údajov do databázy
-'default' => env('DB_CONNECTION', 'neo4j'),
-
-'connections' => [
-'neo4j' => [
-'driver' => 'neo4j',
-'host' => env('DB_HOST', 'neo4j'),
-'port' => env('DB_PORT', 'neo4j'),
-'username' => env('DB_USERNAME', 'neo4j'),
-'password' => env('DB_PASSWORD', 'neo4j'),
-],
-],
+	
+	#inštalácia databázy Neo4J verzie 3.1.4
+	wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+	echo 'deb https://debian.neo4j.org/repo stable/' | sudo tee /etc/apt/sources.list.d/neo4j.list
+	sudo apt-get update
+	sudo apt-get install neo4j=3.1.4
+	
+	...
+	
+	//registrácia neoEloquent sevice provider
+	$app->register('Vinelab\NeoEloquent\NeoEloquentServiceProvider');
+	
+	...
+	
+	//nastavenie prístupovıch údajov do databázy
+	'default' => env('DB_CONNECTION', 'neo4j'),
+	
+	'connections' => [
+	'neo4j' => [
+	'driver' => 'neo4j',
+	'host' => env('DB_HOST', 'neo4j'),
+	'port' => env('DB_PORT', 'neo4j'),
+	'username' => env('DB_USERNAME', 'neo4j'),
+	'password' => env('DB_PASSWORD', 'neo4j'),
+	],
+	],
 	\end{lstlisting}
 	\caption{Inštalácia a konfigurácia Frameworku Laravel pre prácu z Neo4J}
 	\label{neo-conf}
+	\cite{neoinstall}
 \end{algorithm}
 
 
 
 
-\subsection{OGM}
+\subsection{Implementácia pomocou OGM}
 \label{ogm}
 \noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent Pouili sme open source kninicu NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej databázy. NeoEloquent umoòuje manipuláciu s vrcholmi aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umoòuje vytvára perzistentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich znaèkou a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako štandardná entitná trieda Eloquent. 
 
-Kninicu sme nainštalovali pomocou správcu balíkov \textit{composer} pomocou príákazu \textit{composer require vinelab/neoeloquent}.
+Kninicu sme nainštalovali pomocou správcu balíkov \textit{composer} pomocou príkazu \textit{composer require vinelab/neoeloquent}.
 
-V nasledujúcom príklade \ref{codeauth} vidíme implementáciu dvoch rôznych entitnıch tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menového priestoru v ktorom bol vytvorenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objekty hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedy ktorou vzah chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovanı typ hrany v databáze. 
+V nasledujúcom príklade \ref{codeauth} vidíme implementáciu dvoch rôznych entitnıch tried. Trieda poívate¾a dedí od triedy NeoEloquent a teda sa stáva naviazanou na vrchol v našej databáze. Názov tejto entity v databáze je spojením menového priestoru v ktorom bol vytvorenı a názvu triedy, take v našom prípade AppUser. Trieda obsahuje verejné funkcie, ktoré vracajú objekty hrán. Objekty hrán dostávame volaním zdedenıch funkcii hasMany, hasOne a belongToMany. Ako prvı argument funkcie berú názov triedy ktorou vzah chceme vráti, ako druhı argument berie typ hrany, pomocou tohto typu je identifikovaná znaèka hrany v databáze. 
 
-Po spustení aplikáce a zadaní prvıch dát sa v databáze vytvorili vrcholy a hrany pod¾a modelu ktorı sme si zadefinovali vv kapitole \ref{db-struct}.
+Po spustení aplikácie a zadaní prvıch dát sa v databáze vytvorili vrcholy a hrany pod¾a modelu ktorı sme si zadefinovali v kapitole \ref{db-struct}, vidualizáciu dát môeme vidie na obrázku \ref{example-simple-data}.
 
 Trieda NeoEloquent funguje vo väèšine prípadov presne ako Eloquent no v jednom prípade sme mali problém z CSRF tokenmi. CSRF token je bezpeènostnı prvok, ktorı ochraòuje webovú stránku pred útokom falšovania poiadaviek z inej adresy. Laravel má tento bezpeènostnı prvok vstavanı v sebe, je to 40 znakovı reazec, ktorı sa generuje kadému pouívate¾ovi pri zobrazení formulára, tento istı reazec sa zároveò uloí do databázy a keï Laravel príjme formulár overí èi sa jeho token nachádza v databáze. Táto funkcionalita však po prejdení na grafovú databázu nefungovala. Pri kadom odoslaní formulára vyhlasovalo nezhodu CSRIF tokenu a v databáze sa neobjavila entita ktorá by tieto tokeny mohla obsahova. Tento problém sme zatia¾ obišli deaktiváciou tohto bezpeènostného prvku. 
 
-Další problém na ktorı sme narazili poèas implementácie bol problém kompatibility kninice NeoEloquent verzie 1.4 s databázou Neo4J vo ve verzii 5.2. Pri ukladaní nového vrcholu vdy nastala chyba. Bolo potrebné zníi verziu databázy.
+Ïalší problém na ktorı sme narazili poèas implementácie bol problém kompatibility kninice NeoEloquent verzie 1.4 s databázou Neo4J vo verzii 5.2. Pri ukladaní nového vrcholu vdy nastala chyba. Bolo potrebné zníi verziu databázy.
 
 \begin{algorithm}
 	\lstset{
@@ -390,37 +389,35 @@ Další problém na ktorı sme narazili poèas implementácie bol problém kompatibilit
 		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
 	}%
 	\begin{lstlisting}
-namespace App;
-
-class User extends \NeoEloquent implements Authenticatable {
-
+	namespace App;
+	
+	class User extends \NeoEloquent implements Authenticatable {
+	
 	// Jeden pouívate¾ môe ma v ob¾úbenıch viac miest 
-		public function follows() {
-		return $this->hasMany('App\Place', 'FOLLOWS');
+	public function follows() {
+	return $this->hasMany('App\Place', 'FOLLOWS');
 	}
 	
 	// Jeden pouívate¾ má jedno miesto ako domáce
-		public function home() {
-		return $this->hasOne('App\Place', 'HOME');
+	public function home() {
+	return $this->hasOne('App\Place', 'HOME');
 	}
-...
-}
+	...
+	}
 	
-...
-class Place extends \NeoEloquent {
+	...
+	class Place extends \NeoEloquent {
 	// Inverznı vzah - jedno miesto má v ob¾úbenıch viac pouívate¾ov
 	public function followers(){
-		return $this->belongsToMany('App\User','FOLLOWS');
+	return $this->belongsToMany('App\User','FOLLOWS');
 	}
-...
-}
+	...
+	}
 	\end{lstlisting}
 	\caption{Ukáka triedy neoEoquent}
 	\label{codeNeoEloquent}
 \end{algorithm}
 
-
-\subsection{Autentifikácia}
 \noindent Jednou zo silnıch stránok Frameworku Laravel je práve autentifikácia. Pre vytvorenie základnej funkcionality registrácie, prihlasovania a obnovenia zabudnutého hesla staèí poui Artisan - konzolu frameworku príkaz \textit{php artisan make:auth} , ktorá vytvorí URL cesty, obrazovky, triedu pouívate¾a a triedy obsluhujúce túto funkcionalitu. My sme potrebovali poui vlastnú triedu pouívate¾a, ktorá dedí od nášho balíka NeoEloquent, na implementáciu autentifikácie staèilo implementova rozhranie Authenticatable, prida do triedy pouívate¾a pole skrytıch a verejnıch atribútov, a poui charakteristiku 'AuthenticableTrait' a autentifikácia fungovala rovnako ako s relaènou databázou vïaka tomu, e NeoEloquent implementuje podobnú funkcionalitu ako natívne ORM Eloquent. 
 
 \begin{algorithm}
@@ -441,26 +438,26 @@ class Place extends \NeoEloquent {
 	}%
 	\begin{lstlisting}
 	
-namespace App;
-
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as AuthenticableTrait;
-
-class User extends \NeoEloquent implements Authenticatable {
-
-use AuthenticableTrait;
-
-// pole verejnıch atribútov
-protected $fillable = [
-'name', 'email', 'password', 'tspCache'
-];
-
-// pole skrytıch atribútov
-protected $hidden = [
-'password', 'remember_token',
-];
-...
-}
+	namespace App;
+	
+	use Illuminate\Contracts\Auth\Authenticatable;
+	use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+	
+	class User extends \NeoEloquent implements Authenticatable {
+	
+	use AuthenticableTrait;
+	
+	// pole verejnıch atribútov
+	protected $fillable = [
+	'name', 'email', 'password', 'tspCache'
+	];
+	
+	// pole skrytıch atribútov
+	protected $hidden = [
+	'password', 'remember_token',
+	];
+	...
+	}
 	\end{lstlisting}
 	\caption{Ukáka autentifikovate¾nej triedy}
 	\label{codeauth}
@@ -469,14 +466,13 @@ protected $hidden = [
 
 
 \subsection{Databázové dopyty pomocou OGM}
-\label{app-api}
-%TODO THIS SOMEWHERE ELSE + reword this shit / change title
-\noindent Keïe sme sa rozhodli vyui javascriptové zobrazovanie dynamického obsahu museli sme vytvori interné API, aby sme mohli javascriptu poskytnú údaje. Na tento úèel sme vytvorili nieko¾ko ciest pomocou routovacieho nástroja frameworku. Router Laravel-u je relatívne jednoduchı, ale silnı nástroj na vytváranie RESTful API. Na naše potreby sme potrebovali vytvori tri REST cesty: \textit{/place}, \textit{/placeapi} a \textit{/tsp}. Prvá je na pridávanie destinácií, druhá na pridávanie, odoberanie ob¾úbenıch a zobrazovanie ob¾úbenıch destinácií, tretia na pridávanie odoberanie a zobrazovanie destinácií na zozname TSP.
+\label{app-ogm}
 
-API pre získanie dát na zobraznie zoznamu ob¾úbenıch destinácií sme v prvej verzii naimplemenovali pomocou OGM. Na príklade algorymtu è. \ref{pseudo-neoeloquent} vidíme pseudokód tohto prístupu. Naprv náša PHP funkcia urobila dopyt na všetky miesta, ktoré má pouívate¾ v ob¾úbenıch  potom v cykle prešla všetky vısledky a pre kadú destináciu poslada dopyt na trasu medzi domácim miesto ma touto destináciou. Ïalej poslala dopyt na získanie všetkıch pouívate¾ov ktorı majú destináciu tie v ob¾úbenıch. 
 
-Pri testovaní ryhlosti sme zistili, e pri takomto prístupe priemerná latencia nášho API vzrástla a na 1,857
-sekundy pri 200 polokách na zozname. Tento nárast latencie pripisujeme reií ktoru si vyaduje diskrétne volaní funkcii OGM v kadom cykle. Ïalej sa testovaniu rıchlosti venujeme v kapitole \ref{speedtest}.
+API pre získanie dát na zobrazenie zoznamu ob¾úbenıch destinácií sme v prvej verzii implementovali pomocou OGM. Na príklade algoritmu è. \ref{pseudo-neoeloquent} vidíme pseudokód tohto prístupu. Najprv naša PHP funkcia urobila dopyt na všetky miesta, ktoré má pouívate¾ v ob¾úbenıch  potom v cykle prešla všetky vısledky a pre kadú destináciu poslala dopyt na trasu medzi domácim miesto ma touto destináciou. Ïalej poslala dopyt na získanie všetkıch pouívate¾ov ktorı majú destináciu tie v ob¾úbenıch. 
+
+Pri testovaní rıchlosti sme zistili, e pri takomto prístupe priemerná latencia nášho API vzrástla a na 1,857
+sekundy pri 200 polokách na zozname. Tento nárast latencie pripisujeme réií ktorú si vyaduje diskrétne volaní funkcii OGM v kadom cykle. Ïalej sa testovaniu rıchlosti venujeme v kapitole \ref{speedtest}.
 
 \begin{algorithm}
 	\lstset{
@@ -495,34 +491,35 @@ sekundy pri 200 polokách na zozname. Tento nárast latencie pripisujeme reií kt
 		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
 	}%
 	\begin{lstlisting}
-pouívate¾ = dopytPouívate¾OGM()
-destinácie = pouívate¾->dopytOblubeneOGM()
-domov = pouívate¾->dopytdomovOGM()
-
-vısledok = []
-FOR kadú desinácia z destinácie
-	trasa = domov->dopytTrasaOGM(desinácia)
-	ludia = destinacia->dopytLudiaOGM()
+	pouívate¾ = dopytPouívate¾OGM()
+	destinácie = pouívate¾->dopytOblubeneOGM()
+	domov = pouívate¾->dopytdomovOGM()
 	
-	vısledok << desinácia, trasa, ludia
-ENDFOR
+	vısledok = []
+	FOR kadú destinácia z destinácie
+	trasa = domov->dopytTrasaOGM(destinácia)
+	¾udia = destinácia->dopytLudiaOGM()
+	
+	vısledok << destinácia, trasa, ¾udia
+	ENDFOR
 	\end{lstlisting}
 	\caption{Pseudokód algoritmu na získavanie dát pre zoznam ob¾úbenıch destinácií pomocou OGM }
 	\label{pseudo-neoeloquent}
 \end{algorithm}
 
 \subsection{Databázové dopyty pomocou Cypher klienta}
-\noindent Aby sme sa vyhli problému z kapitoly \ref{app-api} rohodli sme sa implementova dopyty na väšie dátové sady pomocou jedného dopytu v jazyku Cypher. Na vykonanie priameho dopytu sme pouili kninicu \textit{PHP Neo4J Client}. Táto kninica vykonáva dopyty v jazyku Cypher a teda nám poskytuje priamy prístup k Cypher API databázy. 
-Na príklade \ref{cypher-follows} je dotaz ktorı nahradzuje všetkú funkcionalitu kódu z príkladu \ref{pseudo-neoeloquent}.
+\noindent Aby sme sa vyhli problému z kapitoly \ref{app-api} rozhodli sme sa implementova dopyty na väèšie dátové sady pomocou jedného dopytu v jazyku Cypher. Na vykonanie priameho dopytu sme pouili kninicu \textit{PHP Neo4J Client}. Táto kninica vykonáva dopyty v jazyku Cypher a teda nám poskytuje priamy prístup k Cypher API databázy. 
+Na príklade \ref{cypher-follows} je dotaz ktorı nahradzuje celú funkcionalitu kódu z príkladu \ref{pseudo-neoeloquent}.
 Dopyt pozostáva vykoná nasledovné úkony (po riadkoch):
 \begin{enumerate}
-	\item Získa vrchol typu AppUser s ID = 1 a uloení ho do premennej user, ïalej získa všetkıvh vrcholov ku ktorım z vrcholu user vedie hrana typu FOLLOWS a uloí ich do premennej dest.
-	\item Získa vrchol ku ktorému vedie hrana typu home od vrcholu user a uloi ho do premennej home.
+	\item Získa vrchol typu AppUser s ID = 1 a uloení ho do premennej user, ïalej získa všetkıch vrcholov ku ktorım z vrcholu user vedie hrana typu FOLLOWS a uloí ich do premennej dest.
+	\item Získa vrchol ku ktorému vedie hrana typu home od vrcholu user a uloí ho do premennej home.
 	\item Získa všetky hrany, ktoré vedú od vrcholu home do jednotlivıch vrcholov v premennej dest.
 	\item Získa všetky vrcholy od ktorıch vedie hrana typu FOLLOWS k všetkım vrcholom v premennej dest, keïe aj vrchol user má hranu FOLLOWS do kadého vrcholu v dest, vynechá vrchol user z vıberu.
 	\item Definuje formát vıstupu.
 \end{enumerate}
-\noindent Po vykonaní dopytu sa nám vráti vıstup vo forme tabu¾ky obdobnej ako pri vykonaní JOIN príkazu v relaènej databáze. Keïe sme na jeden dopyt získali všetky informácie, ktoré potrebujeme na zobrazenie tabu¾ky nepotrebujeme vykonáva u iadne ïa¾šie dopyty. Tento prístup zníil priemernú latenciu nášho API na 37\% (695,7ms) oproti prístupu pomocou OGM z kapitoly \ref{app-api}
+
+\noindent Po vykonaní dopytu sa nám vráti vıstup vo forme tabu¾ky obdobnej ako pri vykonaní JOIN príkazu v relaènej databáze. Keïe sme na jeden dopyt získali všetky informácie, ktoré potrebujeme na zobrazenie tabu¾ky nepotrebujeme vykonáva u iadne ïalšie dopyty. Tento prístup zníil priemernú latenciu nášho API na 37\% (695,7ms) oproti prístupu pomocou OGM z kapitoly \ref{app-api}
 
 
 \begin{algorithm}
@@ -542,32 +539,31 @@ Dopyt pozostáva vykoná nasledovné úkony (po riadkoch):
 		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
 	}%
 	\begin{lstlisting}
-MATCH (user:AppUser)-[:FOLLOWS]->(dest) WHERE id(user)=1   
-MATCH (user)-[:HOME]->(home)
-MATCH (home)-[route:ROUTES]->(dest)
-MATCH (follower:AppUser)-[:FOLLOWS]->(dest) WHERE follower <> user
-RETURN dest, route, follower ;
+	MATCH (user:AppUser)-[:FOLLOWS]->(dest) WHERE id(user)=1   
+	MATCH (user)-[:HOME]->(home)
+	MATCH (home)-[route:ROUTES]->(dest)
+	MATCH (follower:AppUser)-[:FOLLOWS]->(dest) WHERE follower <> user
+	RETURN dest, route, follower ;
 	\end{lstlisting}
-	\caption{Dopyt na dáta pre zoznam ob¾úbenıch destinácií v jayku Cypher}
+	\caption{Dopyt na dáta pre zoznam ob¾úbenıch destinácií v jazyku Cypher}
 	\label{cypher-follows}
 \end{algorithm}
 
 
 
 
-\subsection{TSP}
-\noindent V aplikácií sa nachádza obrazovka, na ktorej si môe pouívate¾ vybra destinácie, pre ktoré by chcel vyráta trasu optimálnu vzh¾adom na cenu. Táto trasa bude zaèína v domovskej lokácií pouívate¾a, prejde všetkımi vybranımi destináciami práve raz a vráti sa spä do domácej lokácie. Toto je klasickı prípad NP-kompletnı problému pocestného obchodníka. 
+\subsection{Implementácia optimaliácie trasy}
+\noindent V aplikácií sa nachádza obrazovka, na ktorej si môe pouívate¾ vybra destinácie, pre ktoré by chcel vyráta trasu optimálnu vzh¾adom na cenu. Táto trasa bude zaèína v domovskej lokácií pouívate¾a, prejde všetkımi vybranımi destináciami práve raz a vráti sa spä do domácej lokácie. Toto je klasickı prípad NP-kompletného problému pocestného obchodníka (ïalej TSP). 
 
-Pre jednoduchos a spo¾ahlivos sme naimplementovali prístup rekurzívneho preh¾adania všetkıch monosti trás. Naimplementovali sme rekurzívnu funkciu v PHP, ktorá prejde všetkımi monımi trasami medzi našimi destináciami a vyberie prechod grafom, ktorı je optimálny vzh¾adom na cenu celkovej trasy. Do argumentu naša funkcia berie vıchodzie miesto, zoznam destinácií ktoré ešte nepreh¾adala a domáce miesto do ktorého sa má nakoniec vráti. V kadom vnorení sa zoznam nepreh¾adanıch vrcholov zmenšuje. Vyššie spomenuté argumenty sú perzistentné objekty resp. polia inštancií perzistentnej triedy \textit{Place}.
+Pre jednoduchos a spo¾ahlivos sme implementovali prístup rekurzívneho preh¾adania všetkıch monosti trás. Implementovali sme rekurzívnu funkciu v PHP, ktorá prejde všetkımi monımi trasami medzi našimi destináciami a vyberie prechod grafom, ktorı je optimálny vzh¾adom na cenu celkovej trasy. Do argumentu naša funkcia berie vıchodzie miesto, zoznam destinácií ktoré ešte nepreh¾adala a domáce miesto do ktorého sa má nakoniec vráti. V kadom vnorení sa zoznam nepreh¾adanıch vrcholov zmenšuje. Vyššie spomenuté argumenty sú perzistentné objekty resp. polia inštancií perzistentnej triedy \textit{Place}.
 
 Keï sa táto funkcia dopytuje na cenu trasy vedúcej z vıchodzieho vrcholu do cie¾ového zavolá ktorá dá dopyt na našu databázu, ak sa táto trasa nenachádza v databáze vypıta si údaje o konkrétnej trase od API Rome2Rio. Keïe kadı dopyt na API trvá cca 200ms prvé volanie pri väèšej trase trvá nieko¾ko násobne dlhšie ako kadé nasledujúce.
 
-Aj po naèítaní všetkıch potrebnıch trás však bolo naše riešenie príliš pomalé, pri siedmych miestach u trvalo rátanie TSP a 7 minút. Toto bolo spôsobené tım, e naša funkcia, ktorá poèíta s vıpoètovou komplexitou $O(n!)$ beí na vrstve PHP a pri kadom volaní funkcie invokuje kninicu NeoEloquent a dopytuje sa na hranu medzi dvoma destináciami. Keï funkcia v takomto reime beala videli sme, e proces neo4j konzistentné bral cca 30\% z procesorového èasu. Z tohto dôvodu sme naimplementovali cache na dopyt k databáze a priemernı èas sa zníil na 80 sekúnd. 
+Aj po naèítaní všetkıch potrebnıch trás však bolo naše riešenie príliš pomalé, pri siedmych miestach u trvalo rátanie TSP a 7 minút. Toto bolo spôsobené tım, e naša funkcia, ktorá poèíta s vıpoètovou komplexitou $O(n!)$ beí na vrstve PHP a pri kadom volaní funkcie invokuje kninicu NeoEloquent a dopytuje sa na hranu medzi dvoma destináciami. Keï funkcia v takomto reime beala videli sme, e proces Neo4J konzistentné bral cca 30\% z procesorového èasu. Z tohto dôvodu sme naimplementovali cache na dopyt k databáze a priemernı èas sa zníil na 80 sekúnd. 
 
 Naša implementácia front endu vyaduje dva dopyty na náš server, jeden na zobrazenie mapy a druhı na zobrazenie tabu¾ky s vısledkami, z tohto dôvodu sme pridali ešte jeden level cache na celé volanie funkcie pre rátanie TSP. Taktie sme upravili implementáciu front endu tak, aby sa tieto dva dopyty vykonali vdy synchrónne za sebou. Tımto sme zníili nároky na vıpoètové kapacity nášho serveru. 
 
-Dlhı èas vıpoètu pri dopytovaní sa na databázu pripisujeme tomu, e naše dopyty na databázu boli diskrétne pri kadom vnorení funkcie. Aj keï sme pouívali perzistentné objekty implementácia kadého dopytu NeoEloquent pozostáva z jedného dopytu v jazyku Cypher na databázu toto volanie obsahuje vyh¾adanie zaèiatoèného a koneèného bodu pod¾a id $O(log(n))$ a následne vyh¾adanie hrany $O(1)$. Tento prístup nevyuíva hlavnú vıhodu grafovej databázy, no s pouitím NeoEloquent nie je moné postavi komplexnı dopyt, ktorı by vedel vyrieši TSP za jeden beh. Takıto dopyt je v Neo4J moné implementova pomocou dopytovacieho jazyka Cypher príklad takéhoto dopytu môeme vidie na ukáke \ref{CypherTSP}. Aj tento dopyt však iba permutuje všetky riešenia a vráti optimálne a preto v je v reálnom prípade vhodnejšie poui známe algoritmy, v programovej vrstve.
-
+Dlhı èas vıpoètu pri dopytovaní sa na databázu pripisujeme tomu, e naše dopyty na databázu boli diskrétne pri kadom vnorení funkcie. Aj keï sme pouívali perzistentné objekty implementácia kadého dopytu NeoEloquent pozostáva z jedného dopytu v jazyku Cypher na databázu toto volanie obsahuje vyh¾adanie zaèiatoèného a koneèného bodu pod¾a id $O(log(n))$ a následne vyh¾adanie hrany $O(1)$. Tento prístup nevyuíva hlavnú vıhodu grafovej databázy, no s pouitím NeoEloquent nie je moné postavi komplexnı dopyt, ktorı by vedel vyrieši TSP za jeden beh. Takıto dopyt je v Neo4J moné implementova pomocou dopytovacieho jazyka Cypher príklad takéhoto dopytu môeme vidie na ukáke \ref{CypherTSP}. Teno dopyt sme však neimplementovali, kvoli jeho komplexite a faktu, e oproti našej funkcii v PHP neposkytuje lepšiu teoretickú vıpoètovú zloitos. 
 \begin{algorithm}
 	\lstset{
 		language=PHP,
@@ -607,16 +603,15 @@ Dlhı èas vıpoètu pri dopytovaní sa na databázu pripisujeme tomu, e naše dopyty 
 
 Ak destináciu ešte nemáme v databáze, pridáme tento objekt do databázy. Toto riešenie nie je úplne ideálne z bezpeènostného h¾adiska, lebo umoòuje zaslanie falošného miesta do našej databázy. AK by útoèník vyrobil objekt s reálnym kanonickım názvom no falošnımi údajmi napr. o zemepisnej šírke, dåke toto miesto by sa potom nesprávne zobrazovalo všetkım pouívate¾om. Na vyriešenie tohto problému by postaèilo urobi ešte jeden dotaz z nášho servera na autocomplete API ktorım by sme si len vypıtali údaje k miestu za pomoci kanonického názvu.
 
-Ïalšie údaje berieme z Rome2Rio Search API. Sú to údaje o monıch trasách a ich cenách. Toto API je obmedzené na poet volaní preto sme na volanie toho API implementovali pamä cache. Vdy keï voláme search API voláme ho na dve miesta ,ktoré u máme uloené v našej databáze ako vrcholy. Tento fakt sme vyuili a vytvorili sme ïalší typ hrany - CACHE. Keïe pri mestách ktoré sú dopravné uzly vystúpila ve¾kos odpovede API a na rádovo 500kb a tento typ dopytu sa nerobí ve¾mi èasto rozhodli sme sa odpoveï servera neuklada priamo do databázy ale v nezmenenej podobe na disk a do databázy uloi len vek cache súboru a referenciu na súbor na disku. Keïe v momentálnej podobe nevyuívame celú odpoveï tohto API mohli by sme zoptimalizova vyuitie miesta na disku tım, e by sme najprv údaje zapracovali a uloili len tie, ktoré vyuívame.
+Ïalšie údaje berieme z Rome2Rio Search API. Sú to údaje o monıch trasách a ich cenách. Toto API je obmedzené na poet volaní preto sme na volanie toho API implementovali pamä cache. Vdy keï voláme Search API voláme ho na dve miesta ,ktoré u máme uloené v našej databáze ako vrcholy. Tento fakt sme vyuili a vytvorili sme ïalší typ hrany - CACHE. Keïe pri mestách ktoré sú dopravné uzly vystúpila ve¾kos odpovede API a na rádovo 500kb a tento typ dopytu sa nerobí ve¾mi èasto rozhodli sme sa odpoveï servera neuklada priamo do databázy ale v nezmenenej podobe na disk a do databázy uloi len vek cache súboru a referenciu na súbor na disku. Keïe v momentálnej podobe nevyuívame celú odpoveï tohto API mohli by sme optimalizova vyuitie miesta na disku tım, e by sme najprv údaje zapracovali a uloili len tie, ktoré vyuívame.
 
-Pri implementácií sme zistili, e pri niektorıch trasách API vrátilo niektoré z trás s nulovou cenou. Tieto trasy sme ignorovali.
+Pri testovaní sme zistili, e pri niektorıch trasách API vrátilo niektoré z trás s nulovou cenou. Tieto trasy sme ignorovali.
 
 
-\subsection{Mapa}
+\subsection{Vykres¾ovanie máp}
 \noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a aplikácií pouili javascriptovú kninicu Mapbox.js.
 
 Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializuje samotná mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu clusterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do clusterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou clusteru. Na pridanie bodov do clusterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy clusterov. Následne sa vrstva clusterov pridá do objektu mapy.
-%TODO ref tech
 %TODO screenshoot markercluster ref
 
 Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. GeoJson je dátová štruktúra zakódovaná do formátu JSON obsahujúca informácie potrebné na vykres¾ovanie kartografickıch velièín. V našej implementácií pouívame nasledovnú štruktúru GeoJson objektu. Hlavnı objekt GeoJson obsahuje typ, u nás \textit{FeatureCollection}, a pole objektov typu \textit{Feature}. Kadı z tıchto objektov obsahuje pole koordinátov, a objekt dodatoènıch atribútov slúiacich na upresnenie vizuálu vykresleného objektu. Spomínané pole koordinátov nám spôsobovalo mierne nedorozumenia, lebo v èíslovanom poli je ako prvı prvok je uloená zemepisná dåka (longitude) a ako druhı zemepisná šírka (latitude) \cite{geojson}, èo je presne opaène ako všetky ostatné API ktoré sme pouívali.
@@ -633,15 +628,20 @@ Naša šablóna \textit{places-template} obsahuje aj aktívne linky a v nasledujúcom
 
 
 
-\subsection{Vzh¾ad}
-\noindent Aplikácia je beí vo webovom prostredí, preto je potrebné aby podporovala rózne v¾kosti obrazovky, 
-%TODO REDO SCREENSHOOTS
+\subsection{Pouívate¾ské rozhranie}
+\noindent Pouívate¾ské rozhranie je implementované pomocou HTML, CSS a JavaScript. Pouili sme CSS framework Bootstrap pre zabezpeèenie responzivity a konzistencie aplikácie. Vo vrchenj èasti rozhrania sa vdy nachádza navigaènı panel.
+
+Na hlavnej obrazovke (obrázok è.\ref{screen-dash}) je v navigaènom paneli pridané textové pole na pridávanie destinácií na zoznam ob¾úbenıch. V hlavnej èasti aplikácie sa nachádza mapa vyobrazenımi destináciami zo zoznamu, ïalej tabu¾ka s destináciami ,kde si môe pouívate¾ rozbali detajly konkrétnej destinácie alebo ju zmaza a tabu¾ka s odporúèanımi destináciami ktoré si môe pouívate¾ prida do svojho zoznamu.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=8cm]{img/screen-dash.png}
 	\caption{Ukáka hlavnej obrazovky pouívate¾a}
 	\label{screen-dash}
 \end{figure}
+
+Na obrazovke TSP (obrázok è.\ref{screen-tsp}) sa nachádza mapa s reprezenáciou optimálnej trasy, na mape sú znaèky pospájané priamkami oèíslované pod¾a poradia v akom ich má pouívate¾ navštívi na dosiahnutie optimálnych nákladov.
+Nšie je tabu¾ka s podrobnejèím opisom trasy s vymenovanımi spôsobmi dopravy. V spodnej èasti stránky je zoznam ob¾úbenıch destinácií, z ktorıch môe desinácie prídáva a odobera zo zoznamu na optimalizáciu.
 
 \begin{figure}
 	\centering
@@ -653,44 +653,111 @@ Naša šablóna \textit{places-template} obsahuje aj aktívne linky a v nasledujúcom
 
 \section{Vısledky práce}
 
-\subsection{Testy rıchlosti}
-%TODO REF API TO NEW API SECTION
-\noindent Testy rıchlosti našej aplikácie sme vykonávali na našom serveri pri nulovej záai, test pozostával z desiatich volaní nášho API pre zobrazenie zoznamu ob¾úbenıch destinácií spomínaného v kapitole \ref{app-api}. Zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát, tımto pádom sme eliminovali vplyv ktorı mala na èas dopytu latencia siete. Testovali sme rıchlos aplikácie vo verzií s pouitím OGM, s pouitím OGM s obmedzenou funkcionalitou o dopyty na ostatnıch pouívate¾ov, s pouitím PHP Neo4J klienta s dopytom z príkladu \ref{Cypher-follows} a s pouitím tohto istého dopytu priamo v bash konzole Neo4J.
+\subsection{Testy latencie}
+\noindent Testy rıchlosti našej aplikácie sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze mysql verzie 5.7.18, tabu¾ky boli uloené pomcou innodb. 
 
-Vısledky tohto testu môeme vidie v tabu¾ke \ref{speed-table} a na grafe.
+Ako dátovú sadu sme pouili reálne dáta o destinácicah a trasách z Rome2Rio API. Aby sme zbezpeèili zvyšovnie ako ve¾kosi tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokrèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do mysql databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
+
+Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktroı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J nôeme vidie na príklade \ref{cypher-follows}. Dopyt v databáze MYSQL meeme vidie na priklade \ref{sql-follows}.
+
+\begin{algorithm}
+\lstset{
+language=SQL,
+basicstyle=\small\sffamily,
+frame=none,
+numbers=left,
+xleftmargin=5.0ex,
+numberstyle=\tiny,
+stepnumber=1,
+showstringspaces=false,
+keywordstyle=\color{blue}\bfseries
+}
+\lstset{emph={% Adjust any special keywords
+	printf%
+},emphstyle={\color[rgb]{1,0,0}\bfseries}%
+}%
+\begin{lstlisting}
+SELECT * FROM `follows` f 
+LEFT JOIN `home` h ON h.`id_user` = f.`id_user`
+LEFT JOIN `place` p ON f.`id_place` = p.`id` 
+LEFT JOIN `routes` r ON r.`id_from` = h.`id_place` AND r.`id_to` = p.`id`
+LEFT JOIN `follows` fo ON fo.`id_place` = p.`id` 
+LEFT JOIN `users` u ON u.id = fo.`id_user`
+LEFT JOIN `tsp` t ON t.`id_user` = f.`id_user` AND t.`id_place` = f.`id_place`
+WHERE f.`id_user` = 231
+\end{lstlisting}
+\caption{SQL dotaz pre testovanie rıchlosti}
+\label{sql-follows}
+\end{algorithm}
+
 
 \begin{table}[]
 	\centering
-	\caption{Vısledky testu rıchlosti API pre zobrazenie zoznamu oblúbenıch destinácií}
-	\label{speed-table}
-	\begin{tabular}{llll}
-		Poèet záznamov & NeoEloquent & PHP neo4j client & cypher-shell \\
-		10  & 101,6ms       & 83,2ms             & 6,7ms          \\
-		50  & 281,7ms       & 195ms              & 25,2ms         \\
-		100 & 705,7ms       & 358,5ms            & 32ms           \\
-		200 & 1857ms        & 695,7ms            & 68ms          
+	\caption{My caption}
+	\label{my-label}
+	\begin{tabular}{llllllll}
+		Poèet poloiek& 10   & 50   & 100  & 200  & 500   & 1000   & 1400   \\
+		Cypher shell & 6,7  & 25,2 & 32   & 54   & 99,8  & 162,7  & 248,9  \\
+		SQL          & 15,5 & 16,1 & 31,6 & 62,5 & 387,3 & 1339,8 & 2396,6
 	\end{tabular}
 \end{table}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=14cm]{img/speed.pdf}
-	\caption{Vısledky testu rıchlosti API pre zobrazenie zoznamu oblúbenıch destinácií}
+	\caption{Vısledky testu rıchlosti API pre zobrazenie zoznamu ob¾úbenıch destinácií}
 	\label{speed-plot}
 \end{figure}
 
-Na grafe \ref{speed-plot} môeme vidie ako latencia nášho API narastala s poètom záznamov na zozname ob¾úbenıch s pouitím dvoch prístupov: OGM a Cypher dopytu cez PHP Neo4J Client. Ïalší udaj je latencia mauálne spusteného dopytu rovnakého ako v druhom prípade ale cez neo4j-shell. 
-Na údajoch vidíme, e latencia stúpa polynomiálne vo všetkıch prípadoch aj napriek tomu, e teoretická vıpoètová zloitos preh¾adávania hrán v grafe je $O(1)$, toto je spôsobené tım, e pre kadú poloku v zozname sme preh¾adávali n ïa¾ších hrán. 
 
-Napriek vıhodám OGM pre rıchlos a jendnoduchos implementácie sa ukazuje ako nevhodnı pre zloitejšie dopyty, lebo kvôli obmedzenému prístupu k databáze OGM tieto musia by impelentované cez viaceré dopyty èo sa ukazuje ako neefektívne. 
 
-Na zloitejšie dopyty je z dvoch testovanıch spôsobov vhodniejšie poui dopyt pomocou PHP Neo4J Client. Tento prístup však zïaleka nedosiahol rıchlos priameho dopytu pomocou cypher-shell. Hlavnı dôvod tohto rozdielu bude s najväèšou pravdepodobnosou spôsob nášho testovania údaj o rıchlosti cypher-shell zahàòa len èas ktorı trvalo vykonanie dopytu, zatia¾ èo ostatné údaje zahàòali aj latenciu jednorazovıcho operácií ako beh APACHE, PHP a štart frameworku Laravel,  tie zahàòali latenciu prenosu dát medzi Neo4J, konverzie JSON dokumentov na PHP objeky a spravoanie údajov v príslušnıh kniniciach.
+
+
+
+
+
+
+\noindent  Zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát, tımto pádom sme eliminovali vplyv ktorı mala na èas dopytu latencia siete. Testovali sme rıchlos aplikácie vo verzií s pouitím OGM a s pouitím PHP Neo4J Client s dopytom z príkladu \ref{Cypher-follows}. Na údajoch v tabu¾ke è. \ref{speed-table}  a grafe è. \ref{speed-table} môeme vidie ako latencia nášho API narastala s poètom záznamov na zozname ob¾úbenıch. Z údajov vidíme, e latencia s pristupu pomocou OGM rástla rıchlejšie ako PHP Neo4J Client. Dôvodom sa blisie venujeme v kapitole \ref{app-ogm}.
+
+\begin{table}[]
+	\centering
+	\caption{My caption}
+	\label{my-label}
+	\begin{tabular}{llllllll}
+		Poèet poloiek& 10   & 50   & 100  & 200  & 500   & 1000   & 1400   \\
+		Cypher shell & 6,7  & 25,2 & 32   & 54   & 99,8  & 162,7  & 248,9  \\
+		SQL          & 15,5 & 16,1 & 31,6 & 62,5 & 387,3 & 1339,8 & 2396,6
+	\end{tabular}
+\end{table}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=14cm]{img/speed.pdf}
+	\caption{Vısledky testu rıchlosti API pre zobrazenie zoznamu ob¾úbenıch destinácií}
+	\label{speed-plot}
+\end{figure}
+
+
+Ïalší udaj je latencia manuálne spusteného dopytu rovnakého ako v druhom prípade ale cez cypher-shell. Vısledky testovania latencie cypher-shell zahàòa len èas ktorı trvalo vykonanie dopytu (informáciu poskytuje cypher-shell), zatia¾ èo ostatné údaje zahàòali aj latenciu celej našej aplikácie ako: jednorazovıch operácií ako beh APACHE, PHP a štart frameworku Laravel, tie zahàòali latenciu prenosu dát medzi Neo4J a PHP, konverzie JSON dokumentov na PHP objekty a spravovanie údajov v príslušnıch kniniciach.
+
+
+
+\subsection{Zhodnotenie}
+\noindent
+
+
+Napriek vıhodám OGM pre rıchlos a jednoduchos implementácie sa ukazuje ako nevhodnı pre zloitejšie dopyty, lebo kvôli obmedzenému prístupu k databáze OGM tieto musia by implementované cez viaceré dopyty èo sa ukazuje ako neefektívne. 
+Na zloitejšie dopyty je z dvoch testovanıch spôsobov vhodnejšie poui dopyt pomocou PHP Neo4J Client. Tento prístup však zïaleka nedosiahol rıchlos priameho dopytu pomocou cypher-shell.
+
+
+
+
 
 
 +	RELATIOSNSHIPS 
 +	NoSQL flexibility
 ~   NeoEloquent
-	
+
 +	speed
 
 \section{Záver}

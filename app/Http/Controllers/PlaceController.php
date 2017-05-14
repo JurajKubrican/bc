@@ -201,6 +201,10 @@ class PlaceController extends Controller {
       case 'new':
         $data = $this->getAllPlacesNew($atts);
         break;
+
+      case 'export':
+        $data = $this->getAllPlacesExport($atts);
+        break;
       case 'all':
       default:
         $data = $this->getAllPlaces($atts);
@@ -269,7 +273,6 @@ class PlaceController extends Controller {
     $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
     if(!$user) $user = Auth::user();
     return [];
-    $time = microtime();
     $places = $user->follows()->get();
     $home = $user->home()->first();
     $data[] = (object) [
@@ -337,6 +340,16 @@ class PlaceController extends Controller {
       return r as route,p as place,ID(p)as id,f.name as follower,t as tsp;";
     $result = $client->run($query);
 
+    $home = $user->home()->first();
+    $data[] = (object) [
+      'id' => $home->id,
+      'shortName' => $home->shortName,
+      'regionName' => $home->regionName,
+      'lat' => $home->lat,
+      'lng' => $home->lng,
+      'symbol' => 'building',
+    ];
+
     foreach ($result->getRecords() as $record) {
 
 
@@ -357,9 +370,9 @@ class PlaceController extends Controller {
           'lat' => $place->value('lat'),
           'lng' => $place->value('lng'),
           'symbol' => '',
-          'price' => $route->value('minPrice'),
+          'price' => $route->hasValue('minPrice') ? $route->value('minPrice') : 999999999,
           'followers' => [$follower],
-          'routes' => json_decode($route->value('routes')),
+          'routes' => json_decode($route->hasValue('routes') ? $route->value('routes') : '[]'),
           'tsp' => $tsp,
         ];
 
@@ -459,6 +472,124 @@ class PlaceController extends Controller {
     $recommended = array_reduce($recommended,[$this,'recommendReduce'],[]);
     return $recommended;
 
+  }
+
+
+  private function generateCSV($data,$filename){
+
+    $file = '';
+
+    foreach ($data as $line)
+    {
+      $file .=implode("\t",$line)."\n";
+    }
+
+    file_put_contents($filename,$file);
+  }
+
+  private function getAllPlacesExport(){
+
+    $client = ClientBuilder::create()
+      ->addConnection('bolt', 'bolt://neo4j:batlefield@localhost:7687')
+      ->build();
+    $query = "match (u:AppUser) return u;";
+    $result = $client->run($query);
+    $data = [];
+    foreach ($result->getRecords() as $record) {
+      $values = $record->values();
+      $row = $values[0]->values();
+
+
+      $row['id'] = $values[0]->identity();
+
+      unset($row['tspCache']);
+      unset($row['remember_token']);
+
+      $data[] = $row;
+      //echo implode("\t",$row)."\n";
+    }
+    $this->generateCSV($data,__DIR__.'/users.csv');
+      echo "\n\n================================\n\n";
+
+    $query = "match (u:AppPlace) return u,id(u);";
+    $result = $client->run($query);
+
+    $data = [];
+    foreach ($result->getRecords() as $record) {
+      $values = $record->values();
+      $row = $values[0]->values();
+
+      $row[0] = $values[0]->identity();
+      $row = array_reverse($row);
+
+      //echo implode("\t",$row)."\n";
+      $data[] = $row;
+    }
+    $this->generateCSV($data,__DIR__.'/places.csv');
+
+    echo "\n\n================================\nFOLLOWS\n";
+
+    $query = "match (u)-[r:FOLLOWS]->(p) return id(u) as user, id(p) as place";
+    $result = $client->run($query);
+
+    $data = [];
+    foreach ($result->getRecords() as $record) {
+      $row = $record->values();
+      $data[] = $row;
+      //echo implode("\t",$record->values())."\n";
+    }
+    $this->generateCSV($data,__DIR__.'/follows.csv');
+
+    echo "\n\n================================\nROUTES\n";
+
+    $query = "match (u)-[r:ROUTES]->(p) return id(u) as user, id(p) as place , r";
+    $result = $client->run($query);
+
+    $data = [];
+    foreach ($result->getRecords() as $record) {
+      $row = [];
+
+      $row[] = $record->value('user');
+      $row[] = $record->value('place');
+
+
+      $row += (array)$record->values()[2]->values();
+
+      $data[] = $row;
+
+      //echo implode("\t",$row)."\n";
+    }
+    $this->generateCSV($data,__DIR__.'/routes.csv');
+
+
+    echo "\n\n================================\nHOME\n";
+
+    $query = "match (u)-[r:HOME]->(p) return id(u) as user, id(p) as place;";
+    $result = $client->run($query);
+
+    $data = [];
+    foreach ($result->getRecords() as $record) {
+
+      $row = $record->values();
+      $data[] = $row;
+      //echo implode("\t",$record->values())."\n";
+    }
+    $this->generateCSV($data,__DIR__.'/home.csv');
+
+    echo "\n\n================================\nTSP\n";
+
+    $query = "match (u)-[r:TSP]->(p) return id(u) as user, id(p) as place;";
+    $result = $client->run($query);
+
+    $data = [];
+    foreach ($result->getRecords() as $record) {
+
+      $row = $record->values();
+      $data[] = $row;
+      //echo implode("\t",$record->values())."\n";
+    }
+    $this->generateCSV($data,__DIR__.'/tsp.csv');
+    die;
   }
 
   private function getSuggestedPlaces(){

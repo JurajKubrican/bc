@@ -13,30 +13,31 @@
 \BOOKMARK [2][]{subsection.43}{Funkcion\341lne po\236iadavky}{section.42}% 13
 \BOOKMARK [2][]{subsection.53}{Nefunkcion\341lne po\236iadavky}{section.42}% 14
 \BOOKMARK [1][]{section.60}{N\341vrh}{}% 15
-\BOOKMARK [2][]{subsubsection.61}{Pr\355pady pou\236itia}{section.60}% 16
-\BOOKMARK [3][]{subsubsection.74}{\227trukt\372ra datab\341zy}{subsubsection.61}% 17
-\BOOKMARK [1][]{section.79}{Implement\341cia}{}% 18
-\BOOKMARK [2][]{subsection.80}{Pou\236it\351 technol\363gie}{section.79}% 19
-\BOOKMARK [3][]{subsubsection.81}{Laravel framework}{subsection.80}% 20
-\BOOKMARK [3][]{subsubsection.82}{NeoEloquent OGM}{subsection.80}% 21
-\BOOKMARK [3][]{subsubsection.83}{GraphAware Neo4j PHP Client}{subsection.80}% 22
-\BOOKMARK [3][]{subsubsection.84}{Mapbox.js}{subsection.80}% 23
-\BOOKMARK [3][]{subsubsection.85}{Handlebars.js}{subsection.80}% 24
-\BOOKMARK [3][]{subsubsection.86}{Rome2Rio Api}{subsection.80}% 25
-\BOOKMARK [2][]{subsection.87}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.79}% 26
-\BOOKMARK [2][]{subsection.88}{In\235tal\341cia a konfigur\341cia datab\341zy neo4j}{section.79}% 27
-\BOOKMARK [2][]{subsection.117}{OGM}{section.79}% 28
-\BOOKMARK [2][]{subsection.144}{Autentifik\341cia}{section.79}% 29
-\BOOKMARK [2][]{subsection.168}{Datab\341zov\351 dopyty pomocou OGM}{section.79}% 30
-\BOOKMARK [2][]{subsection.182}{Datab\341zov\351 dopyty pomocou Cypher klienta}{section.79}% 31
-\BOOKMARK [2][]{subsection.195}{TSP}{section.79}% 32
-\BOOKMARK [2][]{subsection.207}{Rome2rio API}{section.79}% 33
-\BOOKMARK [2][]{subsection.208}{Mapa}{section.79}% 34
-\BOOKMARK [2][]{subsection.209}{Vykreslovanie tabuliek}{section.79}% 35
-\BOOKMARK [2][]{subsection.210}{Vzhlad}{section.79}% 36
+\BOOKMARK [2][]{subsection.61}{Pr\355pady pou\236itia}{section.60}% 16
+\BOOKMARK [2][]{subsection.74}{\227trukt\372ra datab\341zy}{section.60}% 17
+\BOOKMARK [2][]{subsection.79}{\227trukt\372ra aplik\341cie}{section.60}% 18
+\BOOKMARK [1][]{section.80}{Implement\341cia}{}% 19
+\BOOKMARK [2][]{subsection.81}{Pou\236it\351 technol\363gie}{section.80}% 20
+\BOOKMARK [3][]{subsubsection.82}{Laravel framework}{subsection.81}% 21
+\BOOKMARK [3][]{subsubsection.83}{NeoEloquent OGM}{subsection.81}% 22
+\BOOKMARK [3][]{subsubsection.84}{GraphAware Neo4j PHP Client}{subsection.81}% 23
+\BOOKMARK [3][]{subsubsection.85}{Mapbox.js}{subsection.81}% 24
+\BOOKMARK [3][]{subsubsection.86}{Handlebars.js}{subsection.81}% 25
+\BOOKMARK [3][]{subsubsection.87}{Rome2Rio Api}{subsection.81}% 26
+\BOOKMARK [2][]{subsection.88}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.80}% 27
+\BOOKMARK [2][]{subsection.89}{In\235tal\341cia a konfigur\341cia datab\341zy neo4j}{section.80}% 28
+\BOOKMARK [2][]{subsection.118}{Implement\341cia pomocou OGM}{section.80}% 29
+\BOOKMARK [2][]{subsection.168}{Datab\341zov\351 dopyty pomocou OGM}{section.80}% 30
+\BOOKMARK [2][]{subsection.182}{Datab\341zov\351 dopyty pomocou Cypher klienta}{section.80}% 31
+\BOOKMARK [2][]{subsection.195}{Implement\341cia optimali\341cie trasy}{section.80}% 32
+\BOOKMARK [2][]{subsection.207}{Rome2rio API}{section.80}% 33
+\BOOKMARK [2][]{subsection.208}{Vykreslovanie m\341p}{section.80}% 34
+\BOOKMARK [2][]{subsection.209}{Vykreslovanie tabuliek}{section.80}% 35
+\BOOKMARK [2][]{subsection.210}{Pou\236\355vatelsk\351 rozhranie}{section.80}% 36
 \BOOKMARK [1][]{section.215}{V\375sledky pr\341ce}{}% 37
-\BOOKMARK [2][]{subsection.216}{Testy r\375chlosti}{section.215}% 38
-\BOOKMARK [1][]{section.221}{Z\341ver}{}% 39
-\BOOKMARK [1][]{section*.222}{Z\341ver}{}% 40
-\BOOKMARK [1][]{section*.223}{Zoznam pou\236itej literat\372ry}{}% 41
-\BOOKMARK [1][]{section*.224}{Pr\355lohy}{}% 42
+\BOOKMARK [2][]{subsection.216}{Testy latencie}{section.215}% 38
+\BOOKMARK [2][]{subsection.235}{Zhodnotenie}{section.215}% 39
+\BOOKMARK [1][]{section.236}{Z\341ver}{}% 40
+\BOOKMARK [1][]{section*.237}{Z\341ver}{}% 41
+\BOOKMARK [1][]{section*.238}{Zoznam pou\236itej literat\372ry}{}% 42
+\BOOKMARK [1][]{section*.239}{Pr\355lohy}{}% 43

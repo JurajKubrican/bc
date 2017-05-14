@@ -3,6 +3,14 @@
 \bibitem{dbrank}
 {\sc AT, S.~I.}
 \newblock Db-engines ranking - popularity ranking of graph dbms, 2017.
+\newblock \url{https://db-engines.com/en/ranking/graph+dbms} [Online; prístupné
+  dòa 14. 05. 2017].
+
+\bibitem{codd}
+{\sc Codd, E.~F.}
+\newblock A relational model of data for large shared data banks, 1970.
+\newblock \url{http://dl.acm.org/citation.cfm?id=362685} [Online; prístupné dòa
+  14. 05. 2017].
 
 \bibitem{graphDBs}
 Ian Robinson, Jim Webber, Emil Eifrem.
@@ -15,13 +23,25 @@ Ian Robinson, Jim Webber, Emil Eifrem.
 \bibitem{geojson}
 {\sc (IETF), I. E. T.~F.}
 \newblock The geojson format, 2016.
+\newblock \url{https://tools.ietf.org/html/rfc7946} [Online; prístupné dòa 14.
+  05. 2017].
+
+\bibitem{dbspeed}
+{\sc Myiuru~Dayarathana, T.~S.}
+\newblock A relational model of data for large shared data banks, 2013.
+\newblock
+  \url{https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnx0b2t5b3RlY2hzdXp1bXVyYWxhYmVuZ3xneDoyMGRiOGFlM2Y2OGY5Mzhj}
+  [Online; prístupné dòa 14. 05. 2017].
 
 \bibitem{neoinstall}
 {\sc neotechnology}.
 \newblock Neo4j debian packages, 2017.
+\newblock \url{https://debian.neo4j.org} [Online; prístupné dòa 14. 05. 2017].
 
 \bibitem{laravel}
 {\sc Otwell, T.}
 \newblock Laravel - the php framework for web artisans, 2017.
+\newblock \url{https://laravel.com/docs/5.0} [Online; prístupné dòa 14. 05.
+  2017].
 
 \end{thebibliography}

@@ -1,7 +1,8 @@
 \contentsline {algorithm}{\numberline {1}{\ignorespaces Pr\IeC {\'\i }klady dopytov v jazyku Cypher}}{7}{algorithm.41}
-\contentsline {algorithm}{\numberline {2}{\ignorespaces In\v stal\'acia a konfigur\'acia Frameworku Laravel pre pr\'acu z Neo4J}}{17}{algorithm.116}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces Uk\'a\v zka triedy neoEoquent}}{19}{algorithm.143}
-\contentsline {algorithm}{\numberline {4}{\ignorespaces Uk\'a\v zka autentifikovate\v lnej triedy}}{20}{algorithm.167}
-\contentsline {algorithm}{\numberline {5}{\ignorespaces Pseudok\'od algoritmu na z\IeC {\'\i }skavanie d\'at pre zoznam ob\v l\'uben\'ych destin\'aci\IeC {\'\i } pomocou OGM }}{21}{algorithm.181}
-\contentsline {algorithm}{\numberline {6}{\ignorespaces Dopyt na d\'ata pre zoznam ob\v l\'uben\'ych destin\'aci\IeC {\'\i } v jayku Cypher}}{22}{algorithm.194}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces In\v stal\'acia a konfigur\'acia Frameworku Laravel pre pr\'acu z Neo4J}}{18}{algorithm.117}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces Uk\'a\v zka triedy neoEoquent}}{20}{algorithm.144}
+\contentsline {algorithm}{\numberline {4}{\ignorespaces Uk\'a\v zka autentifikovate\v lnej triedy}}{21}{algorithm.167}
+\contentsline {algorithm}{\numberline {5}{\ignorespaces Pseudok\'od algoritmu na z\IeC {\'\i }skavanie d\'at pre zoznam ob\v l\'uben\'ych destin\'aci\IeC {\'\i } pomocou OGM }}{22}{algorithm.181}
+\contentsline {algorithm}{\numberline {6}{\ignorespaces Dopyt na d\'ata pre zoznam ob\v l\'uben\'ych destin\'aci\IeC {\'\i } v jazyku Cypher}}{23}{algorithm.194}
 \contentsline {algorithm}{\numberline {7}{\ignorespaces Uk\'a\v zka rie\v senia TSP pomocou dopytovacieho jazyka Cypher}}{24}{algorithm.206}
+\contentsline {algorithm}{\numberline {8}{\ignorespaces SQL dotaz pre testovanie r\'ychlosti}}{30}{algorithm.226}

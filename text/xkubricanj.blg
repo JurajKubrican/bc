@@ -10,4 +10,8 @@ Warning--entry type for "geojson" isn't style-file defined
 --line 33 of file includes/bibliography.bib
 Warning--entry type for "neoinstall" isn't style-file defined
 --line 50 of file includes/bibliography.bib
-(There were 4 warnings)
+Warning--entry type for "codd" isn't style-file defined
+--line 59 of file includes/bibliography.bib
+Warning--entry type for "dbspeed" isn't style-file defined
+--line 68 of file includes/bibliography.bib
+(There were 6 warnings)
