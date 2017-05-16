@@ -13,7 +13,7 @@ var app = (function($,appData) {
     gmap = L.mapbox.map('main_map', 'mapbox.k8xv42t9');
 
     layer = L.mapbox.featureLayer()
-      .loadURL("/placeapi?type=geojson&user=" + appData.user)
+      .loadURL("/placeapi?type=geojson&filter=new&user=" + appData.user)
       .on('ready', function(e) {
 
         var clusterGroup = new L.MarkerClusterGroup();
@@ -54,7 +54,7 @@ var app = (function($,appData) {
   })
   function refreshPage (){
 
-    $.get('/placeapi?type=template&user=' + appData.user, function (data) {
+    $.get('/placeapi?type=template&filter=new&user=' + appData.user, function (data) {
       data = JSON.parse(data);
       console.log(data);
       $('#places_body').html(template(data));

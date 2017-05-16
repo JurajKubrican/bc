@@ -15,6 +15,7 @@ class SettingsController extends Controller {
    */
   public function index() {
     $user = Auth::user();
+    if(!$user) return redirect('/welcome');
     $home = $user->home()->first();
 
     if (!$home) {

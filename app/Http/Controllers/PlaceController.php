@@ -321,7 +321,7 @@ class PlaceController extends Controller {
 }
 
 
-  private function getAllPlacesNew(){
+  private function getAllPlacesNew($request){
 
     $user = empty($request['user']) ? Auth::user() : User::find($request['user']) ;
     if(!$user) $user = Auth::user();

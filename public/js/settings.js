@@ -66,7 +66,8 @@
       }
     });
     $('#home-place').typeahead({ hint: true,
-      highlight: true,
+      minLength: 1,
+      hint:0,
       minLength: 1
     }, {
       name: 'best-pictures',
