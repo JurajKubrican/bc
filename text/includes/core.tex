@@ -303,7 +303,7 @@ Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu Neo
 
 Na získanie vzdialeného prístupu k administraènému rozhraniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
 
-% TODO READ  THIS!!!
+% TODO READ  THIS be4 seding to Z!!!
 \subsection{Implementácia pomocou OGM}
 \label{ogm}
 \noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent Pouili sme open source kninicu NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej databázy. NeoEloquent umoòuje manipuláciu s vrcholmi aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umoòuje vytvára perzistentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich znaèkou a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako štandardná entitná trieda Eloquent. 
@@ -558,7 +558,7 @@ Pri testovaní sme zistili, e pri niektorıch trasách API vrátilo niektoré z trás
 \subsection{Vykres¾ovanie máp}
 \noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a aplikácií pouili javascriptovú kninicu Mapbox.js.
 
-Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z CDN Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializujeme samotnú mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu klasterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do klasterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou klasteru. Na pridanie bodov do klasterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy klasterov. Následne sa vrstva klasterov pridá do objektu mapy. Vısledok môeme vidie na obrázku \ref{screen-dash}.
+Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z servro Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializujeme samotnú mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu klasterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do klasterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou klasteru. Na pridanie bodov do klasterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy klasterov. Následne sa vrstva klasterov pridá do objektu mapy. Vısledok môeme vidie na obrázku \ref{screen-dash}.
 Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. GeoJson je dátová štruktúra zakódovaná do formátu JSON obsahujúca informácie potrebné na vykres¾ovanie kartografickıch velièín. V našej implementácií pouívame nasledovnú štruktúru GeoJson objektu. Hlavnı objekt GeoJson obsahuje typ, u nás \textit{FeatureCollection}, a pole objektov typu \textit{Feature}. Kadı z tıchto objektov obsahuje pole koordinátov, a objekt dodatoènıch atribútov slúiacich na upresnenie vizuálu vykresleného objektu. nané pole koordinátov nám spôsobovalo mierne nedorozumenia, lebo v èíslovanom poli je ako prvı prvok je uloená zemepisná dåka (longitude) a ako druhı zemepisná šírka (latitude) \cite{geojson}, èo je presne opaène ako všetky ostatné API ktoré sme pouívali.
 
 
@@ -597,17 +597,15 @@ Nišie je tabu¾ka s podrobnejším opisom trasy s vymenovanımi spôsobmi dopravy. V
 
 Na obrazovke Nastavní sa nacháda mapa, ktorá vyobrazuje aktuálne domáce miesto pouívate¾a, pod òou sa nachádza textové pole, pomocouk torého môe pouívate¾ vyh¾ada a nastavi domáce miesto. V spodnej èasti obrazovnky nastavní je sekcia kde si môe pouívate¾ zmeni heslo.
 
+%TODO Skolitel napisal, ze tato kapitol sa m
 
-\section{Vısledky práce}
-\noindent V tejto kapitole sa nachádzajú vısledky testovania, ktroé sme v rámci projektu vykonávali, dalej zhodnotíme 
-
-\subsection{Testovanie}
+\section{Testovanie}
 \noindent Všetky testy sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze MYSQL verzie 5.7.18, tabu¾ky boli uloené pomocou InnoDB. Pri testovaní rıchlosti naša aplikácia beala na serveri Apache verzie 2.4.18 s intepretétom PHP verzie 7.0.15.
 
 Ako dátovú sadu sme pouili reálne dáta o destináciách a trasách z Rome2Rio API. Aby sme zabezpeèili zvyšovanie ako ve¾kosti tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokraèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do MYSQL databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
 
 
-\subsubsection{Test latencie databázy Neo4j a MySQL}
+\subsection{Test latencie databázy Neo4j a MySQL}
 \label{chap-test}
 Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na databázu. Cie¾om testu bolo porovna škálovate¾nos relaènej a grafovej databázy v prípadoch podobnıch nášmu. Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktorı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J môeme vidie na príklade \ref{cypher-follows}. Dopyt v databáze MYSQL môeme vidie na príklade \ref{sql-follows}.
 
@@ -662,7 +660,7 @@ Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na 
 
 \noindent Na vysledkoch testu vidíme, pri zväèšovaní a zahusovaní grafu latencia databázy MySQL rastie omnoho rıchlejšie ako Neo4j. Pri 1400 záznamoch vysúpala priemerná latencia a na 2,3966 sekundy. Tento rıchli nárast latencie MySQL prisudzujeme rastu ve¾kosti spájacích tabuliek ktorıch preh¾adávanie je hlavnou príèinou spomalenia relaènej databázy pri preh¾adávaní dátovej sady so zloitou štruktúrou s mnohımi vzahmi. Na rozdiel od toho databáza Neo4J dosahovala pri rovnakej dátovej sade priemernú latenciu 248,9ms. Tieto vısledky ukazujú vhodnos pouitia grafovej databázy oproti relaènej pre prípad pouitia, kde má dátová sada štruktúru grafu. 
 
-\subsubsection{Test latencie rôznych prístupov k databáze Neo4J}
+\subsection{Test latencie rôznych prístupov k databáze Neo4J}
 Druhı test ktorı sme robili bol reálny test latencie nami implementovaného API v dvoch verziách. V prvej verzii s pouitím OGM a v druhej s pouitím PHP Neo4J Client. Tento test sme vykonali ako súèas implementácie, aby sme vedeli posúdi ktoré riešenie pouijeme vo finálnej verzií aplikácie. 
 Pri teste sme pouívali rovnakú dátovú sadu ako v prvom teste. Latenciu sme merali tak, e sme posielali dopyty na naše API pre vykreslenie zoznamu ob¾úbenıch destinácií a zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát. test sme opakovali desa krát. 
 
@@ -688,10 +686,8 @@ V tabu¾ke è. \ref{speed-neo-table} vidíme priemernú latenciu nášho API v závislo
 \end{figure}
 
 
-//nazov kapitoly... 
-\subsection{Zhodnotenie }
-\noindent  Priebehu našej práce na bakalárskom projekte sme sa mali monos oboznámi s rôznymi predstavite¾mi grafovıch databáz a vıhodami, ktoré poskytujú oproti v inım typom databáz v prípadoch pouitia podobnı tomu nášmu. 
-
+\section{Zhodnotenie vıhod pouitia grafovej databázy}
+%TODO SOMETHING ABOUT THIS
 Za hlavné vıhody grafovej databázy pre povaujeme jej škálovate¾nos a štruktúru dátového modelu vhodnú pre našu aplikáciu. Ako u bolo spomenuté v kapitole \ref{chap-test} škálovate¾nos grafovej databázy Neo4J bola v našom testovanom prípade omnoho lepšia ako databázy MySQL.
 
 Keïe štruktúra drafovej databázjy je primárne urèená na prácu s grafmi, pre optimálny vıkon sme nemuseli pridáva cudzie k¾úèe ani indexy. Naša dátová sada prirodzene zapadla do modelu našej grafovej databázy.
