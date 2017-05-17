@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {4.2}In\v stal\'acia a konfigur\'acia Laravel Framework-u}{16}{subsection.78}
 \contentsline {subsection}{\numberline {4.3}In\v stal\'acia a konfigur\'acia datab\'azy Neo4J}{16}{subsection.79}
 \contentsline {subsection}{\numberline {4.4}Implement\'acia OGM}{16}{subsection.80}
-\contentsline {subsection}{\numberline {4.5}Autetifik\'acia}{17}{subsection.107}
+\contentsline {subsection}{\numberline {4.5}Autentifik\'acia}{17}{subsection.107}
 \contentsline {subsection}{\numberline {4.6}Datab\'azov\'e dopyty pomocou OGM}{19}{subsection.131}
 \contentsline {subsection}{\numberline {4.7}Datab\'azov\'e dopyty pomocou Cypher klienta}{20}{subsection.145}
 \contentsline {subsection}{\numberline {4.8}Implement\'acia optimaliz\'acie trasy}{21}{subsection.158}
