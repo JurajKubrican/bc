@@ -1,12 +1,12 @@
 \section{Analıza problému}
-\noindent V tejto kapitole si predstavíme koncept grafovıch databáz a opíšeme ako natívne nieši vzahy medzi dátami. Ïalej si priblíime ako riešia vzahy relaèné a dokumentové databázy. Následne si predstavíme troch najpopulárnejších predstavite¾ov grafovej databázy a vybeieme z nich jednu s ktorou budem dalej pracova. Na koniec si predstavíme syntax dopytovacieho jazyka vybranej databázy.
+\noindent V tejto kapitole si predstavíme koncept grafovıch databáz a opíšeme ako natívne rieši vzahy medzi dátami. Ïalej si priblíime ako riešia vzahy relaèné a dokumentové databázy. Následne si predstavíme troch najpopulárnejších predstavite¾ov grafovej databázy a vyberieme z nich jednu s ktorou budem ïalej pracova. Na koniec si predstavíme syntax dopytovacieho jazyka vybranej databázy.
 
 \subsection{Grafové databázy}
 \noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo implementova v našej grafovej databáze. \cite[25--27]{graphDBs}
 
 Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaèené jednou alebo viacerımi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. Hrany v grafovıch databázach spájajú vrcholy a budujú štruktúru grafu. Hrana grafu má vdy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak zvolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany môu rovnako ako vrcholy obsahova aj atribúty. Atribúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
 
-Natívne grafové databázy pouívajú bez indexovú pri¾ahlos, toto znamená, e prepojenia sa riešia pomocou ukazovate¾ov a nie cudích k¾úèov ako v relaènıch databázach. Absencia cudzích k¾úèov praxi znamená, e pri preh¾adávaní vzahov v je vıpoètová zloitos preh¾adania jednj hrany $O(1)$. Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamymi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Takisto vo vrcholoch sú uloené priame ukazovatele na všetky hrany vychádzajúce z a mieriace do dotyèného vrcholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos $O(1)$ v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom.\cite[149--158]{graphDBs} Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
+Natívne grafové databázy pouívajú bez indexovú pri¾ahlos, toto znamená, e prepojenia sa riešia pomocou ukazovate¾ov a nie cudzích k¾úèov ako v relaènıch databázach. Absencia cudzích k¾úèov praxi znamená, e pri preh¾adávaní vzahov v je vıpoètová zloitos preh¾adania jednej hrany $O(1)$. Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamymi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Takisto vo vrcholoch sú uloené priame ukazovatele na všetky hrany vychádzajúce z a mieriace do dotyèného vrcholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos $O(1)$ v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom.\cite[149--158]{graphDBs} Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
 
 \subsection{Vzahy v relaènıch databázach}
 \label{relational} 
@@ -14,9 +14,9 @@ Natívne grafové databázy pouívajú bez indexovú pri¾ahlos, toto znamená, e pre
 
 Vıvojári databáz sa u desaroèia snaia relaèné databázy prispôsobi na to aby boli schopné efektívne pracova s husto prepojenımi dátovımi sadami. Keïe však štruktúra relaènıch databáz bola pôvodne navrhnutá na ukladanie formulárov a tabu¾kovıch štruktúr, majú problém s keï sa snaia poòa ad-hoc vzahy, ktoré sa vyskytujú v dátach v reálnom svete. \cite[11--12]{graphDBs}
 
-Vzahy sa vyskytujú v relaènıch databázach no iba vo fáze návrhu, v reálnej implementácií tieto vzahy nahradzujú spájacie tabu¾ky a cudzie k¾úèe. Tımto prístupom rıchlo narastá komplexita a zniuje sa preh¾adnos dátového modelu a pridáva sa záa na databázu vznikom ve¾kıch spájacích tabuliek a ståpcov s cudzími k¾úèami, ktoré môu by riedko populované, no zaberajú diskovı priestor. \cite[11--12]{graphDBs}
+Vzahy sa vyskytujú v relaènıch databázach no iba vo fáze návrhu, v reálnej implementácií tieto vzahy nahradzujú spájacie tabu¾ky a cudzie k¾úèe. Tımto prístupom rıchlo narastá komplexita a zniuje sa preh¾adnos dátového modelu a pridáva sa záa na databázu vznikom ve¾kıch spájacích tabuliek a ståpcov s cudzími k¾úèmi, ktoré môu by riedko zaplnené, no zaberajú diskovı priestor. \cite[11--12]{graphDBs}
 
-Pri preh¾adáácvaí vzahov v relaènej databáze, kadé prepojenie pridáva vıpoètovú komplexitu. V kadej ïalšej prepojenej tabu¾ke treba vyh¾ada záznam s poadovanım k¾úèom $O(log(n))$. Pouívané relaèné databázové systémy riešia tento vıpoètovı problém pouitím indexov a inımi  optimalizáciami, no pokia¾ je dátová sada štruktúrovaná s ve¾kım mnostvom vzahov systém sa spravidla spomalí.
+Pri preh¾adávaní vzahov v relaènej databáze, kadé prepojenie pridáva vıpoètovú komplexitu. V kadej ïalšej prepojenej tabu¾ke treba vyh¾ada záznam s poadovanım k¾úèom $O(log(n))$. Pouívané relaèné databázové systémy riešia tento vıpoètovı problém pouitím indexov a inımi  optimalizáciami, no pokia¾ je dátová sada štruktúrovaná s ve¾kım mnostvom vzahov systém sa spravidla spomalí.
 
 Na obrázku è. \ref{relational-relationships} vidíme prístup riešenia vzahov v relaènej databáze.
 
@@ -33,7 +33,7 @@ Na obrázku è. \ref{relational-relationships} vidíme prístup riešenia vzahov v r
 
 Benı spôsob na pridanie vzahov do štruktúry dokumentovej databázy je pridanie atribútu do dokumentu , ktorı bude odkazova na k¾úè a kolekciu dokumentu, s ktorım chceme vytvori vzah. Tımto spôsobom vieme poui koncept cudzích k¾úèov z relaènıch databáz. Tento prístup sa však stretá s rovnakımi problémami v rıchlosti ako pri relaènıch databázach s pridanou komplexitou v tom, e tento dopyt musíme èasto implementova aplikaène.
 
-Na obrázku è. \ref{document-relationships} vidíme príklad prístup implemntácie vzahov v dokumentovej databáze.
+Na obrázku è. \ref{document-relationships} vidíme príklad prístup implementácie vzahov v dokumentovej databáze.
 
 \begin{figure}[h]
 	\centering
@@ -101,11 +101,11 @@ Databázu Titan sme vylúèili z vıberu z dôvodu ukonèenia jej vıvoja a urèenia pri
 \label{chap-cypher}
 \noindent Dopytovací jazyk Cypher bol vyvinutı firmou NeoTechnology pre ich databázu Neo4J a prípadnú štandardizáciu tohto jazyka v ostatnıch grafovıch databázach. Cypher bol navrhnutı tak, aby sa ¾ahko èítal a chápal, preto pouíva intuitívnu \textit{"ASCII Art"} notáciu. Cypher pouíva oblé zátvorky na reprezentáciu vrcholov, hranaté zátvorky a pomlèky na reprezentáciu hrán a znaky väèší a menší na upresnenie smerovania hrany. Medzi hlavnı dopytovací príkaz v Cypher je MATCH, tımto príkazom podobne ako SELECT v SQL zaèína kadı dopyt. 
 
-V algoritme è. \ref{cypher} vidíme nieko¾ko príkladov dopytov. Na prvom príklade vidíme dopyt, ktorı vyh¾adá vrchol n s \textit{id = 42} (\textit{id} nieje atribút vrcholu, preto ho musíme získa pomocou funkcie \textit{id()}), z tohto vrcholu vychádzajúce (všimnime si smerovanie "ASCII ART šípky" ) hrany so znaèkou VZTAH, ktoré vedú k cie¾ovım vrcholom so znaèkou \textit{typ}. Všimnime si, e  v zátvorkách reprezentujúcich vrcholy a hrany priraïujeme premennım \textit{n}, \textit{m} a \textit{r} kolekcie vrcholov a hrán. Keïe je v dopyte \textit{RETURN r, m} vrátia sa a vrcholy v tıchto kolekciách, èie nie pôvodnı vrchol s \textit{id = 42}.
+V algoritme è. \ref{cypher} vidíme nieko¾ko príkladov dopytov. Na prvom príklade vidíme dopyt, ktorı vyh¾adá vrchol n s \textit{id = 42} (\textit{id} nie je atribút vrcholu, preto ho musíme získa pomocou funkcie \textit{id()}), z tohto vrcholu vychádzajúce (všimnime si smerovanie "ASCII ART šípky" ) hrany so znaèkou VZTAH, ktoré vedú k cie¾ovım vrcholom so znaèkou \textit{typ}. Všimnime si, e  v zátvorkách reprezentujúcich vrcholy a hrany priraïujeme premennım \textit{n}, \textit{m} a \textit{r} kolekcie vrcholov a hrán. Keïe je v dopyte \textit{RETURN r, m} vrátia sa a vrcholy v tıchto kolekciách, èie nie pôvodnı vrchol s \textit{id = 42}.
 
-Na druhom príklade vidíme dopyt, ktorı zaène z vrcholov, ktorích atribút \textit{nazov} má hodnotu \textit{názov} dalej vyh¾adá a vráti všetky vrcholy ktoré sú od neho v grafe vzdialené tri hrany typu \textit{VZTAH} a ich atribút \textit{text} vyhovuje regulárnemu vırazu \textit{/M.*/}.
+Na druhom príklade vidíme dopyt, ktorı zaène z vrcholov, ktorıch atribút \textit{nazov} má hodnotu \textit{názov} ïalej vyh¾adá a vráti všetky vrcholy ktoré sú od neho v grafe vzdialené tri hrany typu \textit{VZTAH} a ich atribút \textit{text} vyhovuje regulárnemu vırazu \textit{/M.*/}.
 
-Na poslednom príklade vidíme príkaz, ktorı najprv vyh¾adá vrcholy s atribútom \textit{meno Patrik} a \textit{Adam} a pridá hranu smerujúcu od prvého smerom k druhmému. vytvorená hrana bude ma atribút \textit{vaha} s hodnotou \textit{7}.
+Na poslednom príklade vidíme príkaz, ktorı najprv vyh¾adá vrcholy s atribútom \textit{meno Patrik} a \textit{Adam} a pridá hranu smerujúcu od prvého smerom k druhému. vytvorená hrana bude ma atribút \textit{vaha} s hodnotou \textit{7}.
 
 \begin{algorithm}
 	\lstset{
@@ -147,7 +147,7 @@ RETURN r
 
 
 \section{Špecifikácia}
-\noindent V tejto kapitolenajprv struène opíšeme hlavnú funkcionalitu navrhovanje aplikácie, potom zadefinujeme funkcionálne a nefunkcionálne poiadavky na aplikáciu.
+\noindent V tejto kapitole najprv struène opíšeme hlavnú funkcionalitu navrhovanej aplikácie, potom zadefinujeme funkcionálne a nefunkcionálne poiadavky na aplikáciu.
 
 Aplikácia ktorú sme sa rozhodli implementova bude slúi na plánovanie a optimalizáciu trasy cestovate¾a po svete. Bude umoòova pouívate¾ovi sledova ceny cesty z domáceho miest, ktoré si pouívate¾ zadá. Do destinácií, ktoré si pridá na zoznam ob¾úbenıch destinácií. Bude ïalej pouívate¾ovi ukazova ostatnıch pouívate¾ov, ktorı si zvolili rovnaké destinácie, a bude vedie pouívate¾ovi odporuèi ïalšie destinácie na základe zhody s ostatnımi pouívate¾mi. 
 
@@ -178,7 +178,7 @@ Aplikácia ktorú sme sa rozhodli implementova bude slúi na plánovanie a optima
 
 
 \section{Návrh}
-\noindent V tejto kapitole si priblíime proces návrhu našej aplikácie, popíšeme prípady pouitia ktoré pre našu aplikáciu oèakávame. Ïalej si priblíime návrh štruktúry databázy a na koniec si priblíime štuktúru samotnej aplikácie, ktorú budeme implementova.
+\noindent V tejto kapitole si priblíime proces návrhu našej aplikácie, popíšeme prípady pouitia ktoré pre našu aplikáciu oèakávame. Ïalej si priblíime návrh štruktúry databázy a na koniec si priblíime štruktúru samotnej aplikácie, ktorú budeme implementova.
 
 \subsection{Prípady pouitia}
 \noindent Prípady pouitia popisujú interakcie medzi aplikáciou a pouívate¾om, popisujú roly, ktoré rôzny aktéri hrajú v tıchto interakciách. 
@@ -254,7 +254,7 @@ Zobrazovanie dynamického obsahu bude implementované pomocou JavaScript šablón a 
 
 
 \section{Implementácia}
-\noindent V tejto kapitole si priblíime proces implementácie aplikácie. Najprv si opíšeme niektoré z pouitıch technológii, následne opíšeme proces inštalácie a konfigurácie frameworku Laravel a databázy Neo4J. Ïalej opíšeme proces našej implementácie aplikácie s pomocou NeoEloquent OGM a pomocou Neo4J PHP Client. Ïalej opíšeme postup našej implementácie optimalízácie trasy. Potom opíšeme implementáciu získavania informácií z API Rome2Rio a našu implementáciu pouívete¾ského rozhrania pomocou Mapbox.js a Handlebars.js. Na koniec si predstavíme pouívate¾ské rozhranie našej apliákácie.
+\noindent V tejto kapitole si priblíime proces implementácie aplikácie. Najprv si opíšeme niektoré z pouitıch technológii, následne opíšeme proces inštalácie a konfigurácie frameworku Laravel a databázy Neo4J. Ïalej opíšeme proces našej implementácie aplikácie s pomocou NeoEloquent OGM a pomocou Neo4J PHP Client. Ïalej opíšeme postup našej implementácie optimalizácie trasy. Potom opíšeme implementáciu získavania informácií z API Rome2Rio a našu implementáciu pouívate¾ského rozhrania pomocou Mapbox.js a Handlebars.js. Na koniec si predstavíme pouívate¾ské rozhranie našej aplikácie.
 
 \subsection{Pouité technológie}
 \noindent v tejto kapitole si priblíime niektoré z technológií ktoré sme vyuili na implementáciu našej aplikácie. V skrate opíšeme na èo konkrétna technológia slúi, jej históriu a licenciu pod ktorou je vydávaná.
@@ -329,9 +329,9 @@ Trieda NeoEloquent funguje vo väèšine prípadov presne ako Eloquent no v jednom p
 	}%
 	\begin{lstlisting}
 namespace App;
-	
-class User extends \NeoEloquent implements Authenticatable {
 
+class User extends \NeoEloquent implements Authenticatable {
+	
 	// Jeden pouívate¾ môe ma v ob¾úbenıch viac miest 
 	public function follows() {
 		return $this->hasMany('App\Place', 'FOLLOWS');
@@ -341,7 +341,7 @@ class User extends \NeoEloquent implements Authenticatable {
 	public function home() {
 		return $this->hasOne('App\Place', 'HOME');
 	}
-...
+	...
 }
 
 ...
@@ -350,7 +350,7 @@ class Place extends \NeoEloquent {
 	public function followers(){
 		return $this->belongsToMany('App\User','FOLLOWS');
 	}
-...
+	...
 }
 	\end{lstlisting}
 	\caption{Ukáka triedy neoEoquent}
@@ -358,7 +358,7 @@ class Place extends \NeoEloquent {
 \end{algorithm}
 
 
-\subsection{Autetifikácia}
+\subsection{Autentifikácia}
 \noindent Jednou zo silnıch stránok Frameworku Laravel je práve autentifikácia. Pre vytvorenie základnej funkcionality registrácie, prihlasovania a obnovenia zabudnutého hesla staèí poui Artisan - konzolu frameworku príkaz \textit{php artisan make:auth} , ktorá vytvorí URL cesty, obrazovky, triedu pouívate¾a a triedy obsluhujúce túto funkcionalitu. My sme potrebovali poui vlastnú triedu pouívate¾a, ktorá dedí od nášho balíka NeoEloquent, na implementáciu autentifikácie staèilo implementova rozhranie Authenticatable, prida do triedy pouívate¾a pole skrytıch a verejnıch atribútov, a poui charakteristiku 'AuthenticableTrait' a autentifikácia fungovala rovnako ako s relaènou databázou vïaka tomu, e NeoEloquent implementuje podobnú funkcionalitu ako natívne ORM Eloquent. 
 
 \begin{algorithm}
@@ -385,7 +385,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 class User extends \NeoEloquent implements Authenticatable {
-
+	
 	use AuthenticableTrait;
 	
 	// pole verejnıch atribútov
@@ -439,8 +439,8 @@ vısledok = []
 FOR kadú destinácia z destinácie
 	trasa = domov->dopytTrasaOGM(destinácia)
 	¾udia = destinácia->dopytLudiaOGM()
-
-vısledok << destinácia, trasa, ¾udia
+	
+	vısledok << destinácia, trasa, ¾udia
 ENDFOR
 	\end{lstlisting}
 	\caption{Pseudokód algoritmu na získavanie dát pre zoznam ob¾úbenıch destinácií pomocou OGM }
@@ -520,13 +520,15 @@ Dlhı èas vıpoètu pri dopytovaní sa na databázu pripisujeme tomu, e naše dopyty 
 			printf%
 		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
 	}%
-\begin{lstlisting}
+	\begin{lstlisting}
 MATCH (from:Node {name: "Source node" })
 MATCH path = (from)-[:CONNECTED_TO*6]->()
-WHERE ALL(n in nodes(path) WHERE 1 = length(filter(m in nodes(path) WHERE m = n)))
+	WHERE ALL(n in nodes(path) WHERE 1 = length(filter(m in nodes(path) 
+		WHERE m = n)))
 AND length(nodes(path)) = 7
 RETURN path,
-reduce(distance = 0, edge in relationships(path) | distance + edge.distance)
+	reduce(distance = 0, edge in relationships(path) | 
+		distance + edge.distance)
 AS totalDistance
 ORDER BY totalDistance ASC
 LIMIT 1
@@ -551,8 +553,8 @@ Pri testovaní sme zistili, e pri niektorıch trasách API vrátilo niektoré z trás
 \subsection{Vykres¾ovanie máp}
 \noindent Na vizualizáciu destinácií a trás sme na rôznych miestach a aplikácií pouili javascriptovú kninicu Mapbox.js.
 
-Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z servro Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializujeme samotnú mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu klasterov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do klasterov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou klasteru. Na pridanie bodov do klasterov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy klasterov. Následne sa vrstva klasterov pridá do objektu mapy. Vısledok môeme vidie na obrázku \ref{screen-dash}.
-Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. GeoJson je dátová štruktúra zakódovaná do formátu JSON obsahujúca informácie potrebné na vykres¾ovanie kartografickıch velièín. V našej implementácií pouívame nasledovnú štruktúru GeoJson objektu. Hlavnı objekt GeoJson obsahuje typ, u nás \textit{FeatureCollection}, a pole objektov typu \textit{Feature}. Kadı z tıchto objektov obsahuje pole koordinátov, a objekt dodatoènıch atribútov slúiacich na upresnenie vizuálu vykresleného objektu. nané pole koordinátov nám spôsobovalo mierne nedorozumenia, lebo v èíslovanom poli je ako prvı prvok je uloená zemepisná dåka (longitude) a ako druhı zemepisná šírka (latitude) \cite{geojson}, èo je presne opaène ako všetky ostatné API ktoré sme pouívali.
+Keïe Mapbox.js rozširuje kninicu Leaflet, všetky funkcie kninice sa volajú z globálneho objektu \textit{L}. Táto funkcia sa zavolá po naèítaní stránky. Keïe sa mapy Mapbox.js sa sahujú z serverov Mapbox musíme najprv aplikáciu identifikova API k¾úèom, ktorı sme si vygenerovali po registrácií. Následne inicializujeme samotnú mapu volaním funkcie \textit{ L.mapbox.map}. Táto funkcia berie ako prvı parameter id HTML elementu, do ktorého sa má mapa zobrazi, ako druhı parameter berie textovı identifikátor typu mapy, ktorı chceme zobrazi. Po inicializácií sa vytvorí vrstva pre mapu ktorá bude obsahova markery destinácií. Dáta ktoré obsahujú geografickú polohu destinácií sa vyiadajú vo formáte GeoJson z API našej aplikácie. Keïe pri malom priblíení mapy by sa nedali zrete¾ne rozlíši destinácie ktoré sú blízko pri sebe, po naèítaní dát vytvoríme vrstvu klastrov pomocou funkcie \textit{L.MarkerClusterGroup}. Táto vrstva spojí blízke body do klastrov, následne skryje znaèky tıchto bodov a nahradí ich znaèkou klastru. Na pridanie bodov do klastrov sa iteruje cez všetky body, ktoré sú po naèítaní v mape a kadı sa pridá do vrstvy klastrov. Následne sa vrstva klastrov pridá do objektu mapy. Vısledok môeme vidie na obrázku \ref{screen-dash}.
+Ako zdrojovı formát dát pre všetky mapy v našej aplikácií pouívame štandardnı formát GeoJson. GeoJson je dátová štruktúra zakódovaná do formátu JSON obsahujúca informácie potrebné na vykres¾ovanie kartografickıch velièín. V našej implementácií pouívame nasledovnú štruktúru GeoJson objektu. Hlavnı objekt GeoJson obsahuje typ, u nás \textit{FeatureCollection}, a pole objektov typu \textit{Feature}. Kadı z tıchto objektov obsahuje pole koordinátov, a objekt dodatoènıch atribútov slúiacich na upresnenie vizuálu vykresleného objektu. Dané pole koordinátov nám spôsobovalo mierne nedorozumenia, lebo v èíslovanom poli je ako prvı prvok je uloená zemepisná dåka (longitude) a ako druhı zemepisná šírka (latitude) \cite{geojson}, èo je presne opaène ako všetky ostatné API ktoré sme pouívali.
 
 
 \subsection{Vykres¾ovanie tabuliek}
@@ -567,7 +569,7 @@ Naša šablóna \textit{places-template} obsahuje aj aktívne linky a v nasledujúcom
 
 
 \subsection{Pouívate¾ské rozhranie}
-\noindent Pouívate¾ské rozhranie je implementované pomocou HTML, CSS a JavaScript. Pouili sme CSS framework Bootstrap pre zabezpeèenie responzivity a konzisteného vızoru a UX aplikácie. Vo vrchnej èasti rozhrania sa vdy nachádza navigaènı panel.
+\noindent Pouívate¾ské rozhranie je implementované pomocou HTML, CSS a JavaScript. Pouili sme CSS framework Bootstrap pre zabezpeèenie responzivity a konzistentného vızoru a UX aplikácie. Vo vrchnej èasti rozhrania sa vdy nachádza navigaènı panel.
 
 Na hlavnej obrazovke (obrázok è.\ref{screen-dash}) je v navigaènom paneli pridané textové pole na pridávanie destinácií na zoznam ob¾úbenıch. V hlavnej èasti aplikácie sa nachádza mapa vyobrazenımi destináciami zo zoznamu, ïalej tabu¾ka s destináciami, kde si môe pouívate¾ rozbali detaily konkrétnej destinácie alebo ju zmaza a tabu¾ka s odporúèanımi destináciami ktoré si môe pouívate¾ prida do svojho zoznamu.
 
@@ -588,13 +590,11 @@ Nišie je tabu¾ka s podrobnejším opisom trasy s vymenovanımi spôsobmi dopravy. V
 	\label{screen-tsp}
 \end{figure}
 
-Na obrazovke Nastavní sa nacháda mapa, ktorá vyobrazuje aktuálne domáce miesto pouívate¾a, pod òou sa nachádza textové pole, pomocouk torého môe pouívate¾ vyh¾ada a nastavi domáce miesto. V spodnej èasti obrazovnky nastavní je sekcia kde si môe pouívate¾ zmeni heslo.
-
-%TODO Skolitel napisal, ze tato kapitol sa má vlat zhodnotenie
+Na obrazovke Nastavení sa nachádza mapa, ktorá vyobrazuje aktuálne domáce miesto pouívate¾a, pod òou sa nachádza textové pole, pomocou ktorého môe pouívate¾ vyh¾ada a nastavi domáce miesto. V spodnej èasti obrazovky nastavení je sekcia kde si môe pouívate¾ zmeni heslo.
 
 \section{Testovanie}
 \label{chap-test}
-\noindent Všetky testy sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze MYSQL verzie 5.7.18, tabu¾ky boli uloené pomocou InnoDB. Pri testovaní rıchlosti naša aplikácia beala na serveri Apache verzie 2.4.18 s intepretétom PHP verzie 7.0.15.
+\noindent Všetky testy sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze MYSQL verzie 5.7.18, tabu¾ky boli uloené pomocou InnoDB. Pri testovaní rıchlosti naša aplikácia beala na serveri Apache verzie 2.4.18 s interpreterom PHP verzie 7.0.15.
 
 Ako dátovú sadu sme pouili reálne dáta o destináciách a trasách z Rome2Rio API. Aby sme zabezpeèili zvyšovanie ako ve¾kosti tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokraèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do MYSQL databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
 
@@ -633,7 +633,7 @@ WHERE f.`id_user` = 231
 	\label{sql-follows}
 \end{algorithm}
 
-%TODO vyhodit tabulku?
+%TODO vyhodi tabu¾ku?
 \begin{table}[]
 	\centering
 	\caption{Vısledky testu rıchlosti API pre zobrazenie zoznamu ob¾úbenıch destinácií}
@@ -653,13 +653,13 @@ WHERE f.`id_user` = 231
 	\label{speed-plot-sql}
 \end{figure}
 
- Na vysledkoch testu vtabu¾ke  vidíme, pri zväèšovaní a zahusovaní grafu latencia databázy MySQL rastie omnoho rıchlejšie ako Neo4j. Pri 1400 záznamoch vysúpala priemerná latencia a na 2,3966 sekundy. Tento rıchli nárast latencie MySQL prisudzujeme rastu ve¾kosti spájacích tabuliek ktorıch preh¾adávanie je hlavnou príèinou spomalenia relaènej databázy pri preh¾adávaní dátovej sady so zloitou štruktúrou s mnohımi vzahmi. Na rozdiel od toho databáza Neo4J dosahovala pri rovnakej dátovej sade priemernú latenciu 248,9ms. Tieto vısledky ukazujú vhodnos pouitia grafovej databázy oproti relaènej pre prípad pouitia, kde má dátová sada štruktúru grafu. 
+Na vısledkoch testu v tabu¾ke  vidíme, pri zväèšovaní a zahusovaní grafu latencia databázy MySQL rastie omnoho rıchlejšie ako Neo4j. Pri 1400 záznamoch vyšúpala priemerná latencia a na 2,3966 sekundy. Tento rıchli nárast latencie MySQL prisudzujeme rastu ve¾kosti spájacích tabuliek ktorıch preh¾adávanie je hlavnou príèinou spomalenia relaènej databázy pri preh¾adávaní dátovej sady so zloitou štruktúrou s mnohımi vzahmi. Na rozdiel od toho databáza Neo4J dosahovala pri rovnakej dátovej sade priemernú latenciu 248,9ms. Tieto vısledky ukazujú vhodnos pouitia grafovej databázy oproti relaènej pre prípad pouitia, kde má dátová sada štruktúru grafu. 
 
 \subsection{Latencia rôznych prístupov k databáze Neo4J}
 Druhı test ktorı sme robili bol reálny test latencie nami implementovaného API v dvoch verziách. V prvej verzii s pouitím OGM a v druhej s pouitím PHP Neo4J Client. Tento test sme vykonali ako súèas implementácie, aby sme vedeli posúdi ktoré riešenie pouijeme vo finálnej verzií aplikácie. 
 Pri teste sme pouívali rovnakú dátovú sadu ako v prvom teste. Latenciu sme merali tak, e sme posielali dopyty na naše API pre vykreslenie zoznamu ob¾úbenıch destinácií a zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát. test sme opakovali desa krát. 
 
-V tabu¾ke è. \ref{speed-neo-table} vidíme priemernú latenciu nášho API v závislosti od poètu poloiek na zozname. Dáta sú dalej vizualizované v grafe na obrázku è. \ref{speed-neo-plot}. Zo vıseldku nášho testu sme usúdili, e prístup pomocou OGM nebol schopnı vyui plnı potenciál našej grafovej databázy a rozhodli sme sa vo finálnej verzii zmeni implementáciu na prístup pomocou PHP Neo4j Client.
+V tabu¾ke è. \ref{speed-neo-table} vidíme priemernú latenciu nášho API v závislosti od poètu poloiek na zozname. Dáta sú ïalej vizualizované v grafe na obrázku è. \ref{speed-neo-plot}. Zo vısledku nášho testu sme usúdili, e prístup pomocou OGM nebol schopnı vyui plnı potenciál našej grafovej databázy a rozhodli sme sa vo finálnej verzii zmeni implementáciu na prístup pomocou PHP Neo4j Client.
 
 \begin{table}[]
 	\centering
@@ -682,14 +682,14 @@ V tabu¾ke è. \ref{speed-neo-table} vidíme priemernú latenciu nášho API v závislo
 
 
 \section{Zhodnotenie}
-\noindent V kapitole  \ref{chap-test} sme sa blišie venovali testovaniu latencie databázy pri zloitıch dopytoch. Z vısledkov tıcho testov sme usúdili, e v našom prípade 
+\noindent V kapitole  \ref{chap-test} sme sa blišie venovali testovaniu latencie databázy pri zloitıch dopytoch. Z vısledkov tıchto testov sme usúdili, e v našom prípade 
 
 
 Za hlavné vıhody grafovej databázy pre povaujeme jej škálovate¾nos a štruktúru dátového modelu vhodnú pre našu aplikáciu. Ako u bolo spomenuté v kapitole \ref{chap-test} škálovate¾nos grafovej databázy Neo4J bola v našom testovanom prípade omnoho lepšia ako databázy MySQL.
 
-Keïe štruktúra drafovej databázjy je primárne urèená na prácu s grafmi, pre optimálny vıkon sme nemuseli pridáva cudzie k¾úèe ani indexy. Naša dátová sada prirodzene zapadla do modelu našej grafovej databázy.
+Keïe štruktúra grafovej databázy je primárne urèená na prácu s grafmi, pre optimálny vıkon sme nemuseli pridáva cudzie k¾úèe ani indexy. Naša dátová sada prirodzene zapadla do modelu našej grafovej databázy.
 
-Grafová datbáza Neo4J má jednoduché a pri tom silné nástroje na prácu s grafmi. Jeden z nástrojov, ktorı sme pouili bol dopytovací jazyk Cypher. Tento jazyk nám dovolil s pomocou relatívne jednoduchıch príkazov vykonáva zloité operácie v našej databáze. Emulovanie ekvivalentnıch príkazov v relaèenj, èi dokumentovej databázy by bolo omnoho zloitejšie. 
+Grafová databáza Neo4J má jednoduché a pri tom silné nástroje na prácu s grafmi. Jeden z nástrojov, ktorı sme pouili bol dopytovací jazyk Cypher. Tento jazyk nám dovolil s pomocou relatívne jednoduchıch príkazov vykonáva zloité operácie v našej databáze. Emulovanie ekvivalentnıch príkazov v relaènej, èi dokumentovej databázy by bolo omnoho zloitejšie. 
 
 
 
