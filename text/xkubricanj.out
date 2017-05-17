@@ -1,46 +1,44 @@
 \BOOKMARK [1][]{section*.2}{\332vod}{}% 1
 \BOOKMARK [1][]{section.3}{Anal\375za probl\351mu}{}% 2
 \BOOKMARK [2][]{subsection.4}{Grafov\351 datab\341zy}{section.3}% 3
-\BOOKMARK [2][]{subsection.5}{V\375kon grafovej datab\341zy pri dotazoch na vztahy}{section.3}% 4
-\BOOKMARK [2][]{subsection.6}{Vztahy v relacn\375ch datab\341zach}{section.3}% 5
-\BOOKMARK [2][]{subsection.9}{Vztahy v dokumentov\375ch datab\341zach}{section.3}% 6
-\BOOKMARK [2][]{subsection.12}{V\375ber grafovej datab\341zy}{section.3}% 7
-\BOOKMARK [3][]{subsubsection.13}{Neo4J}{subsection.12}% 8
-\BOOKMARK [3][]{subsubsection.14}{OrientDB}{subsection.12}% 9
-\BOOKMARK [3][]{subsubsection.15}{Titan}{subsection.12}% 10
-\BOOKMARK [3][]{subsubsection.16}{Vyhodnotenie}{subsection.12}% 11
-\BOOKMARK [2][]{subsection.17}{Dopytovac\355 jazyk Cypher}{section.3}% 12
-\BOOKMARK [1][]{section.33}{\227pecifik\341cia}{}% 13
-\BOOKMARK [2][]{subsection.34}{Funkcion\341lne po\236iadavky}{section.33}% 14
-\BOOKMARK [2][]{subsection.44}{Nefunkcion\341lne po\236iadavky}{section.33}% 15
-\BOOKMARK [1][]{section.51}{N\341vrh}{}% 16
-\BOOKMARK [2][]{subsection.52}{Pr\355pady pou\236itia}{section.51}% 17
-\BOOKMARK [2][]{subsection.65}{\227trukt\372ra datab\341zy}{section.51}% 18
-\BOOKMARK [2][]{subsection.70}{\227trukt\372ra aplik\341cie}{section.51}% 19
-\BOOKMARK [1][]{section.71}{Implement\341cia}{}% 20
-\BOOKMARK [2][]{subsection.72}{Pou\236it\351 technol\363gie}{section.71}% 21
-\BOOKMARK [3][]{subsubsection.73}{Laravel framework}{subsection.72}% 22
-\BOOKMARK [3][]{subsubsection.74}{NeoEloquent OGM}{subsection.72}% 23
-\BOOKMARK [3][]{subsubsection.75}{GraphAware Neo4j PHP Client}{subsection.72}% 24
-\BOOKMARK [3][]{subsubsection.76}{Mapbox.js}{subsection.72}% 25
-\BOOKMARK [3][]{subsubsection.77}{Handlebars.js}{subsection.72}% 26
-\BOOKMARK [3][]{subsubsection.78}{Rome2Rio Api}{subsection.72}% 27
-\BOOKMARK [2][]{subsection.79}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.71}% 28
-\BOOKMARK [2][]{subsection.80}{In\235tal\341cia a konfigur\341cia datab\341zy Neo4J}{section.71}% 29
-\BOOKMARK [2][]{subsection.81}{Implement\341cia pomocou OGM}{section.71}% 30
-\BOOKMARK [2][]{subsection.108}{Autetifik\341cia}{section.71}% 31
-\BOOKMARK [2][]{subsection.132}{Datab\341zov\351 dopyty pomocou OGM}{section.71}% 32
-\BOOKMARK [2][]{subsection.146}{Datab\341zov\351 dopyty pomocou Cypher klienta}{section.71}% 33
-\BOOKMARK [2][]{subsection.159}{Implement\341cia optimaliz\341cie trasy}{section.71}% 34
-\BOOKMARK [2][]{subsection.171}{Rome2rio API}{section.71}% 35
-\BOOKMARK [2][]{subsection.172}{Vykreslovanie m\341p}{section.71}% 36
-\BOOKMARK [2][]{subsection.173}{Vykreslovanie tabuliek}{section.71}% 37
-\BOOKMARK [2][]{subsection.174}{Pou\236\355vatelsk\351 rozhranie}{section.71}% 38
-\BOOKMARK [1][]{section.179}{V\375sledky pr\341ce}{}% 39
-\BOOKMARK [2][]{subsection.180}{Testovanie}{section.179}% 40
-\BOOKMARK [3][]{subsubsection.181}{Test latencie datab\341zy Neo4j a MySQL}{subsection.180}% 41
-\BOOKMARK [3][]{subsubsection.195}{Test latencie r\364znych pr\355stupov k datab\341ze Neo4J}{subsection.180}% 42
-\BOOKMARK [2][]{subsection.200}{Zhodnotenie }{section.179}% 43
-\BOOKMARK [1][]{section*.201}{Z\341ver}{}% 44
-\BOOKMARK [1][]{section*.202}{Zoznam pou\236itej literat\372ry}{}% 45
-\BOOKMARK [1][]{section*.203}{Pr\355lohy}{}% 46
+\BOOKMARK [2][]{subsection.5}{Vztahy v relacn\375ch datab\341zach}{section.3}% 4
+\BOOKMARK [2][]{subsection.8}{Vztahy v dokumentov\375ch datab\341zach}{section.3}% 5
+\BOOKMARK [2][]{subsection.11}{V\375ber grafovej datab\341zy}{section.3}% 6
+\BOOKMARK [3][]{subsubsection.12}{Neo4J}{subsection.11}% 7
+\BOOKMARK [3][]{subsubsection.13}{OrientDB}{subsection.11}% 8
+\BOOKMARK [3][]{subsubsection.14}{Titan}{subsection.11}% 9
+\BOOKMARK [3][]{subsubsection.15}{Vyhodnotenie}{subsection.11}% 10
+\BOOKMARK [2][]{subsection.16}{Dopytovac\355 jazyk Cypher}{section.3}% 11
+\BOOKMARK [1][]{section.32}{\227pecifik\341cia}{}% 12
+\BOOKMARK [2][]{subsection.33}{Funkcion\341lne po\236iadavky}{section.32}% 13
+\BOOKMARK [2][]{subsection.43}{Nefunkcion\341lne po\236iadavky}{section.32}% 14
+\BOOKMARK [1][]{section.50}{N\341vrh}{}% 15
+\BOOKMARK [2][]{subsection.51}{Pr\355pady pou\236itia}{section.50}% 16
+\BOOKMARK [2][]{subsection.64}{\227trukt\372ra datab\341zy}{section.50}% 17
+\BOOKMARK [2][]{subsection.69}{\227trukt\372ra aplik\341cie}{section.50}% 18
+\BOOKMARK [1][]{section.70}{Implement\341cia}{}% 19
+\BOOKMARK [2][]{subsection.71}{Pou\236it\351 technol\363gie}{section.70}% 20
+\BOOKMARK [3][]{subsubsection.72}{Laravel framework}{subsection.71}% 21
+\BOOKMARK [3][]{subsubsection.73}{NeoEloquent OGM}{subsection.71}% 22
+\BOOKMARK [3][]{subsubsection.74}{GraphAware Neo4j PHP Client}{subsection.71}% 23
+\BOOKMARK [3][]{subsubsection.75}{Mapbox.js}{subsection.71}% 24
+\BOOKMARK [3][]{subsubsection.76}{Handlebars.js}{subsection.71}% 25
+\BOOKMARK [3][]{subsubsection.77}{Rome2Rio Api}{subsection.71}% 26
+\BOOKMARK [2][]{subsection.78}{In\235tal\341cia a konfigur\341cia Laravel Framework-u}{section.70}% 27
+\BOOKMARK [2][]{subsection.79}{In\235tal\341cia a konfigur\341cia datab\341zy Neo4J}{section.70}% 28
+\BOOKMARK [2][]{subsection.80}{Implement\341cia OGM}{section.70}% 29
+\BOOKMARK [2][]{subsection.107}{Autetifik\341cia}{section.70}% 30
+\BOOKMARK [2][]{subsection.131}{Datab\341zov\351 dopyty pomocou OGM}{section.70}% 31
+\BOOKMARK [2][]{subsection.145}{Datab\341zov\351 dopyty pomocou Cypher klienta}{section.70}% 32
+\BOOKMARK [2][]{subsection.158}{Implement\341cia optimaliz\341cie trasy}{section.70}% 33
+\BOOKMARK [2][]{subsection.170}{Rome2rio API}{section.70}% 34
+\BOOKMARK [2][]{subsection.171}{Vykreslovanie m\341p}{section.70}% 35
+\BOOKMARK [2][]{subsection.172}{Vykreslovanie tabuliek}{section.70}% 36
+\BOOKMARK [2][]{subsection.173}{Pou\236\355vatelsk\351 rozhranie}{section.70}% 37
+\BOOKMARK [1][]{section.178}{Testovanie}{}% 38
+\BOOKMARK [2][]{subsection.179}{Latencia datab\341zy Neo4j a MySQL}{section.178}% 39
+\BOOKMARK [2][]{subsection.195}{Latencia r\364znych pr\355stupov k datab\341ze Neo4J}{section.178}% 40
+\BOOKMARK [1][]{section.200}{Zhodnotenie}{}% 41
+\BOOKMARK [1][]{section*.201}{Z\341ver}{}% 42
+\BOOKMARK [1][]{section*.202}{Zoznam pou\236itej literat\372ry}{}% 43
+\BOOKMARK [1][]{section*.203}{Pr\355lohy}{}% 44

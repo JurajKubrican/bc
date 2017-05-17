@@ -1,16 +1,12 @@
 \section{Analıza problému}
-%Súèasnı stav riešenej problematiky
-\noindent 
-
-
+\noindent V tejto kapitole si predstavíme koncept grafovıch databáz a opíšeme ako natívne nieši vzahy medzi dátami. Ïalej si priblíime ako riešia vzahy relaèné a dokumentové databázy. Následne si predstavíme troch najpopulárnejších predstavite¾ov grafovej databázy a vybeieme z nich jednu s ktorou budem dalej pracova. Na koniec si predstavíme syntax dopytovacieho jazyka vybranej databázy.
 
 \subsection{Grafové databázy}
 \noindent Modelovanie grafovej databázy prirodzene zapadá do spôsobu akım bene abstrahujeme problémy pri vıvoji softvéru. Pri návrhu  softvéru objekty opisujeme obdånikmi alebo kruhmi a súvislosti medzi nimi šípkami, èi èiarami. Moderné grafové databázy sú viac ako akáko¾vek iná databázová technológia vhodné na takúto reprezentáciu, lebo to, èo namodelujeme na papier vieme priamo implementova v našej grafovej databáze. \cite[25--27]{graphDBs}
 
 Grafové databázy vyuívajú model ktorı pozostáva z vrcholov, hrán, atribútov a znaèiek. Vrcholy obsahujú atribúty, a sú oznaèené jednou alebo viacerımi znaèkami. Tieto znaèky zoskupujú vrcholy, ktoré zastávajú rovnakú rolu v rámci aplikácie. Hrany v grafovıch databázach spájajú vrcholy a budujú štruktúru grafu. Hrana grafu má vdy smer, názov, vıchodzí vrchol, cie¾ovı vrchol a cie¾ovı vrchol. Fakt, e hany musia ma smer a názov pridáva to sémantickú preh¾adnos do grafu, ak zvolíme správne názov vieme rıchlo identifikova štruktúru grafu a identifikova vıznam vzahov. Hrany môu rovnako ako vrcholy obsahova aj atribúty. Atribúty v hranách môu by praktické na pridanie kvalitatívnych dát (napr. váha, vzdialenos) ku vzahom, tieto dáta sa potom môu poui pri preh¾adávaní grafu.
 
-\subsection{Vıkon grafovej databázy pri dotazoch na vzahy}
-\noindent Natívne grafové databázy pouívajú bez indexovú pri¾ahlos. Absencia cudzích k¾úèov praxi znamená, e pri preh¾adávaní vzahov v je vıpoètová zloitos preh¾adania jednj hrany $O(1)$. Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamymi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Takisto vo vrcholoch sú uloené priame ukazovatele na všetky hrany vychádzajúce z a mieriace do dotyèného vrcholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos $O(1)$ v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom.\cite[149--158]{graphDBs} Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
+Natívne grafové databázy pouívajú bez indexovú pri¾ahlos, toto znamená, e prepojenia sa riešia pomocou ukazovate¾ov a nie cudích k¾úèov ako v relaènıch databázach. Absencia cudzích k¾úèov praxi znamená, e pri preh¾adávaní vzahov v je vıpoètová zloitos preh¾adania jednj hrany $O(1)$. Táto rıchlos je dosiahnutá tak, e všetky hrany sú uloené s priamymi ukazovate¾mi na vrcholy, ktorıch vzah reprezentujú. Takisto vo vrcholoch sú uloené priame ukazovatele na všetky hrany vychádzajúce z a mieriace do dotyèného vrcholu. Takáto štruktúra poskytuje u spomínanú vıpoètovú zloitos $O(1)$ v oboch smeroch hrany, take nielen v smere z vıchodzieho bodu do cie¾ového ale aj opaènım smerom.\cite[149--158]{graphDBs} Pri relaènej databáze by toto muselo by riešené reverznım vyh¾adávaním v cudzích k¾úèoch.
 
 \subsection{Vzahy v relaènıch databázach}
 \label{relational} 
@@ -48,8 +44,6 @@ Na obrázku è. \ref{document-relationships} vidíme príklad prístup implemntácie v
 
 \subsection{Vıber grafovej databázy} 
 \noindent Vybrali sme si troch najpopulárnejších predstavite¾ov grafovıch databáz pod¾a rebríèka DB-Engines.com. V nasledujúcej èasti v skratke priblíime históriu kadej grafovej databázy ich vıhody a nevıhody.
-
-%TODO itemize???
 
 \subsubsection{Neo4J}
 Prvá verzia Neo4J bola vydaná v roku 2007 od vtedy sa stala dlhodobo najpouívanejšou grafovou databázou. Je vyvíjaná Neo Technology, Inc. Neo4j je ponúkaná v dvoch variantoch: Neo4j Community je open source (GPLv3) grafová databáza obsahujúca všetky základné funkcií (Ïalej budeme spomína len túto verziu). A Neo4j Enterprise edícia, ktorá má rozšírené funkcie ako shardovanie cache pamäte, rozšírené monitorovanie a zálohovanie za behu.\cite{dbrank} \cite{neo-product}\\
@@ -153,7 +147,9 @@ RETURN r
 
 
 \section{Špecifikácia}
-\noindent Aplikácia ktorú sme sa rozhodli implementova bude slúi na plánovanie a optimalizáciu trasy cestovate¾a po svete. Bude umoòova pouívate¾ovi sledova ceny cesty z domáceho miest, ktoré si pouívate¾ zadá. Do destinácií, ktoré si pridá na zoznam ob¾úbenıch destinácií. Bude ïalej pouívate¾ovi ukazova ostatnıch pouívate¾ov, ktorı si zvolili rovnaké destinácie, a bude vedie pouívate¾ovi odporuèi ïalšie destinácie na základe zhody s ostatnımi pouívate¾mi. 
+\noindent V tejto kapitolenajprv struène opíšeme hlavnú funkcionalitu navrhovanje aplikácie, potom zadefinujeme funkcionálne a nefunkcionálne poiadavky na aplikáciu.
+
+Aplikácia ktorú sme sa rozhodli implementova bude slúi na plánovanie a optimalizáciu trasy cestovate¾a po svete. Bude umoòova pouívate¾ovi sledova ceny cesty z domáceho miest, ktoré si pouívate¾ zadá. Do destinácií, ktoré si pridá na zoznam ob¾úbenıch destinácií. Bude ïalej pouívate¾ovi ukazova ostatnıch pouívate¾ov, ktorı si zvolili rovnaké destinácie, a bude vedie pouívate¾ovi odporuèi ïalšie destinácie na základe zhody s ostatnımi pouívate¾mi. 
 
 \subsection{Funkcionálne poiadavky}
 \begin{enumerate}
@@ -182,7 +178,7 @@ RETURN r
 
 
 \section{Návrh}
-\noindent V tejto kapitole si priblíime proces návrhu našej aplikácie, popíšeme prípady pouitia ktoré pre našu aplikáciu oèakávame. Ïalej priblíime návrh štruktúry databázy, ktorú plánujeme implementova.
+\noindent V tejto kapitole si priblíime proces návrhu našej aplikácie, popíšeme prípady pouitia ktoré pre našu aplikáciu oèakávame. Ïalej si priblíime návrh štruktúry databázy a na koniec si priblíime štuktúru samotnej aplikácie, ktorú budeme implementova.
 
 \subsection{Prípady pouitia}
 \noindent Prípady pouitia popisujú interakcie medzi aplikáciou a pouívate¾om, popisujú roly, ktoré rôzny aktéri hrajú v tıchto interakciách. 
@@ -257,11 +253,8 @@ Na obrázku è. \ref{example-simple-data} vidíme reprezentáciu dát uloenıch v naš
 Zobrazovanie dynamického obsahu bude implementované pomocou JavaScript šablón a kninice na zobrazenie máp. Dáta na zobrazenie budú poskytované pomocou API našej aplikácie.
 
 
-
-
-
 \section{Implementácia}
-\noindent V tejto kapitole si priblíime proces implementácie aplikácie. Najprv si opíšeme niektoré z pouitıch technológii, následne opíšeme proces inštalácie a konfigurácie frameworku Laravel a databázy Neo4J. Ïalej opíšeme proces našej implementácie aplikácie s pomocou NeoEloquent OGM a pomocou Neo4J PHP Client. Ïalej opíšeme postup našej implementácie optimalízácie trasy. na koniec opíšeme implementáciu získavania informácií z API Rome2Rio a našu implementáciu pouívete¾ského rozhrania pomocou Mapbox.js a Handlebars.js. 
+\noindent V tejto kapitole si priblíime proces implementácie aplikácie. Najprv si opíšeme niektoré z pouitıch technológii, následne opíšeme proces inštalácie a konfigurácie frameworku Laravel a databázy Neo4J. Ïalej opíšeme proces našej implementácie aplikácie s pomocou NeoEloquent OGM a pomocou Neo4J PHP Client. Ïalej opíšeme postup našej implementácie optimalízácie trasy. Potom opíšeme implementáciu získavania informácií z API Rome2Rio a našu implementáciu pouívete¾ského rozhrania pomocou Mapbox.js a Handlebars.js. Na koniec si predstavíme pouívate¾ské rozhranie našej apliákácie.
 
 \subsection{Pouité technológie}
 \noindent v tejto kapitole si priblíime niektoré z technológií ktoré sme vyuili na implementáciu našej aplikácie. V skrate opíšeme na èo konkrétna technológia slúi, jej históriu a licenciu pod ktorou je vydávaná.
@@ -304,7 +297,7 @@ Keïe základná inštalácia frameworku Laravel neobsahuje ovládaè pre databázu Neo
 Na získanie vzdialeného prístupu k administraènému rozhraniu databázy bez otvorenia portu 7474 verejnosti vyuívame SSH tunel. Administraèné rozhranie pouíva okrem portu 7474 ešte port 7687 lebo na komunikáciu s databázou vyuíva technológiu WebScoket.
 
 % TODO READ  THIS be4 seding to Z!!!
-\subsection{Implementácia pomocou OGM}
+\subsection{Implementácia OGM}
 \label{ogm}
 \noindent Keïe framework Laravel natívne obsahuje len ovládaèe pre relaèné databázové ovládaèe a nástroj na objektovo relaèné mapovanie Eloquent Pouili sme open source kninicu NeoEloquent, ktorı obsahuje ovládaè pre databázu Neo4J a zároveò rozširuje dátovı model o prvky grafovej databázy. NeoEloquent umoòuje manipuláciu s vrcholmi aj hranami v Neo4J. Manipulácia s vrcholmi je rovnaká ako s entitami v relaènej databáze, NeoEloquent umoòuje vytvára perzistentné objekty, upravova ich a vyh¾adáva v nich. Pri práca s hranami je mierne odlišná. Najprv treba zadefinova ktorı objekt môe ma aké vzahy, tieto vzahy treba unikátne identifikova ich znaèkou a kardinalitou. Tento vzah vraciame ako návratovú hodnotu funkcie daného objektu. Vrátenı objekt sa správa podobne ako štandardná entitná trieda Eloquent. 
 
@@ -597,17 +590,17 @@ Nišie je tabu¾ka s podrobnejším opisom trasy s vymenovanımi spôsobmi dopravy. V
 
 Na obrazovke Nastavní sa nacháda mapa, ktorá vyobrazuje aktuálne domáce miesto pouívate¾a, pod òou sa nachádza textové pole, pomocouk torého môe pouívate¾ vyh¾ada a nastavi domáce miesto. V spodnej èasti obrazovnky nastavní je sekcia kde si môe pouívate¾ zmeni heslo.
 
-%TODO Skolitel napisal, ze tato kapitol sa m
+%TODO Skolitel napisal, ze tato kapitol sa má vlat zhodnotenie
 
 \section{Testovanie}
+\label{chap-test}
 \noindent Všetky testy sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze MYSQL verzie 5.7.18, tabu¾ky boli uloené pomocou InnoDB. Pri testovaní rıchlosti naša aplikácia beala na serveri Apache verzie 2.4.18 s intepretétom PHP verzie 7.0.15.
 
 Ako dátovú sadu sme pouili reálne dáta o destináciách a trasách z Rome2Rio API. Aby sme zabezpeèili zvyšovanie ako ve¾kosti tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokraèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do MYSQL databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
 
 
-\subsection{Test latencie databázy Neo4j a MySQL}
-\label{chap-test}
-Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na databázu. Cie¾om testu bolo porovna škálovate¾nos relaènej a grafovej databázy v prípadoch podobnıch nášmu. Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktorı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J môeme vidie na príklade \ref{cypher-follows}. Dopyt v databáze MYSQL môeme vidie na príklade \ref{sql-follows}.
+\subsection{Latencia databázy Neo4j a MySQL}
+Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na databázu. Cie¾om testu bolo porovna škálovate¾nos relaènej a grafovej databázy v prípadoch podobnıch nášmu. Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktorı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J môeme vidie na algoritme \ref{cypher-follows}. Dopyt v databáze MYSQL môeme vidie na algoritme \ref{sql-follows}.
 
 \begin{algorithm}
 	\lstset{
@@ -626,23 +619,25 @@ Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na 
 		},emphstyle={\color[rgb]{1,0,0}\bfseries}%
 	}%
 	\begin{lstlisting}
-	SELECT * FROM `follows` f 
-	LEFT JOIN `place` p ON f.`id_place` = p.`id` 
-	LEFT JOIN `routes` r ON r.`id_from` = u.`id_home` AND r.`id_to` = p.`id`
-	LEFT JOIN `follows` fo ON fo.`id_place` = p.`id` 
-	LEFT JOIN `users` u ON u.id = fo.`id_user`
-	LEFT JOIN `tsp` t ON t.`id_user` = f.`id_user` AND t.`id_place` = f.`id_place`
-	WHERE f.`id_user` = 231
+SELECT * FROM `follows` f 
+LEFT JOIN `place` p ON f.`id_place` = p.`id` 
+LEFT JOIN `routes` r ON r.`id_from` = u.`id_home` 
+AND r.`id_to` = p.`id`
+LEFT JOIN `follows` fo ON fo.`id_place` = p.`id` 
+LEFT JOIN `users` u ON u.id = fo.`id_user`
+LEFT JOIN `tsp` t ON t.`id_user` = f.`id_user` 
+AND t.`id_place` = f.`id_place`
+WHERE f.`id_user` = 231
 	\end{lstlisting}
 	\caption{SQL dotaz pre testovanie rıchlosti}
 	\label{sql-follows}
 \end{algorithm}
 
-
+%TODO vyhodit tabulku?
 \begin{table}[]
 	\centering
-	\caption{My caption}
-	\label{my-label}
+	\caption{Vısledky testu rıchlosti API pre zobrazenie zoznamu ob¾úbenıch destinácií}
+	\label{speed-table-sql}
 	\begin{tabular}{|l|l|l|l|l|l|l|l|}
 		\hline
 		Poèet poloiek& 10   & 50   & 100  & 200  & 500   & 1000   & 1400   \\ \hline
@@ -658,9 +653,9 @@ Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na 
 	\label{speed-plot-sql}
 \end{figure}
 
-\noindent Na vysledkoch testu vidíme, pri zväèšovaní a zahusovaní grafu latencia databázy MySQL rastie omnoho rıchlejšie ako Neo4j. Pri 1400 záznamoch vysúpala priemerná latencia a na 2,3966 sekundy. Tento rıchli nárast latencie MySQL prisudzujeme rastu ve¾kosti spájacích tabuliek ktorıch preh¾adávanie je hlavnou príèinou spomalenia relaènej databázy pri preh¾adávaní dátovej sady so zloitou štruktúrou s mnohımi vzahmi. Na rozdiel od toho databáza Neo4J dosahovala pri rovnakej dátovej sade priemernú latenciu 248,9ms. Tieto vısledky ukazujú vhodnos pouitia grafovej databázy oproti relaènej pre prípad pouitia, kde má dátová sada štruktúru grafu. 
+ Na vysledkoch testu vtabu¾ke  vidíme, pri zväèšovaní a zahusovaní grafu latencia databázy MySQL rastie omnoho rıchlejšie ako Neo4j. Pri 1400 záznamoch vysúpala priemerná latencia a na 2,3966 sekundy. Tento rıchli nárast latencie MySQL prisudzujeme rastu ve¾kosti spájacích tabuliek ktorıch preh¾adávanie je hlavnou príèinou spomalenia relaènej databázy pri preh¾adávaní dátovej sady so zloitou štruktúrou s mnohımi vzahmi. Na rozdiel od toho databáza Neo4J dosahovala pri rovnakej dátovej sade priemernú latenciu 248,9ms. Tieto vısledky ukazujú vhodnos pouitia grafovej databázy oproti relaènej pre prípad pouitia, kde má dátová sada štruktúru grafu. 
 
-\subsection{Test latencie rôznych prístupov k databáze Neo4J}
+\subsection{Latencia rôznych prístupov k databáze Neo4J}
 Druhı test ktorı sme robili bol reálny test latencie nami implementovaného API v dvoch verziách. V prvej verzii s pouitím OGM a v druhej s pouitím PHP Neo4J Client. Tento test sme vykonali ako súèas implementácie, aby sme vedeli posúdi ktoré riešenie pouijeme vo finálnej verzií aplikácie. 
 Pri teste sme pouívali rovnakú dátovú sadu ako v prvom teste. Latenciu sme merali tak, e sme posielali dopyty na naše API pre vykreslenie zoznamu ob¾úbenıch destinácií a zaznamenávali sme èas od doruèenia dopytu na server do zaèiatku sahovania dát. test sme opakovali desa krát. 
 
@@ -686,8 +681,10 @@ V tabu¾ke è. \ref{speed-neo-table} vidíme priemernú latenciu nášho API v závislo
 \end{figure}
 
 
-\section{Zhodnotenie vıhod pouitia grafovej databázy}
-%TODO SOMETHING ABOUT THIS
+\section{Zhodnotenie}
+\noindent V kapitole  \ref{chap-test} sme sa blišie venovali testovaniu latencie databázy pri zloitıch dopytoch. Z vısledkov tıcho testov sme usúdili, e v našom prípade 
+
+
 Za hlavné vıhody grafovej databázy pre povaujeme jej škálovate¾nos a štruktúru dátového modelu vhodnú pre našu aplikáciu. Ako u bolo spomenuté v kapitole \ref{chap-test} škálovate¾nos grafovej databázy Neo4J bola v našom testovanom prípade omnoho lepšia ako databázy MySQL.
 
 Keïe štruktúra drafovej databázjy je primárne urèená na prácu s grafmi, pre optimálny vıkon sme nemuseli pridáva cudzie k¾úèe ani indexy. Naša dátová sada prirodzene zapadla do modelu našej grafovej databázy.
