@@ -33,14 +33,17 @@
 \contentsline {subsection}{\numberline {4.6}Datab\'azov\'e dopyty pomocou OGM}{19}{subsection.131}
 \contentsline {subsection}{\numberline {4.7}Datab\'azov\'e dopyty pomocou Cypher klienta}{20}{subsection.145}
 \contentsline {subsection}{\numberline {4.8}Implement\'acia optimaliz\'acie trasy}{21}{subsection.158}
-\contentsline {subsection}{\numberline {4.9}Rome2rio API}{23}{subsection.170}
-\contentsline {subsection}{\numberline {4.10}Vykres\v lovanie m\'ap}{23}{subsection.171}
-\contentsline {subsection}{\numberline {4.11}Vykres\v lovanie tabuliek}{24}{subsection.172}
-\contentsline {subsection}{\numberline {4.12}Pou\v z\IeC {\'\i }vate\v lsk\'e rozhranie}{25}{subsection.173}
-\contentsline {section}{\numberline {5}Testovanie}{27}{section.178}
-\contentsline {subsection}{\numberline {5.1}Latencia datab\'azy Neo4j a MySQL}{27}{subsection.179}
-\contentsline {subsection}{\numberline {5.2}Latencia r\^oznych pr\IeC {\'\i }stupov k datab\'aze Neo4J}{28}{subsection.195}
-\contentsline {section}{\numberline {6}Zhodnotenie}{30}{section.200}
-\contentsline {section}{Z\'{a}ver}{31}{section*.201}
-\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{32}{section*.202}
-\contentsline {section}{Pr\'{i}lohy}{I}{section*.203}
+\contentsline {subsection}{\numberline {4.9}Rome2rio API}{23}{subsection.172}
+\contentsline {subsection}{\numberline {4.10}Vykres\v lovanie m\'ap}{23}{subsection.173}
+\contentsline {subsection}{\numberline {4.11}Vykres\v lovanie tabuliek}{24}{subsection.174}
+\contentsline {subsection}{\numberline {4.12}Pou\v z\IeC {\'\i }vate\v lsk\'e rozhranie}{25}{subsection.175}
+\contentsline {section}{\numberline {5}Testovanie}{27}{section.180}
+\contentsline {subsection}{\numberline {5.1}Latencia datab\'azy Neo4j a MySQL}{27}{subsection.181}
+\contentsline {subsection}{\numberline {5.2}Latencia r\^oznych pr\IeC {\'\i }stupov k datab\'aze Neo4J}{28}{subsection.197}
+\contentsline {section}{\numberline {6}Zhodnotenie}{30}{section.202}
+\contentsline {subsection}{\numberline {6.1}Zhodnotenie implement\'acie}{30}{subsection.203}
+\contentsline {subsection}{\numberline {6.2}Zhodnotenie testovania}{30}{subsection.204}
+\contentsline {subsection}{\numberline {6.3}Zhodnotenie sk\'usenost\IeC {\'\i } s v\'yvovjom pomocou grafovej datab\'azy}{30}{subsection.205}
+\contentsline {section}{Z\'{a}ver}{32}{section*.206}
+\contentsline {section}{Zoznam pou\v {z}itej literat\'{u}ry}{33}{section*.207}
+\contentsline {section}{Pr\'{i}lohy}{I}{section*.208}

@@ -31,14 +31,17 @@
 \BOOKMARK [2][]{subsection.131}{Datab\341zov\351 dopyty pomocou OGM}{section.70}% 31
 \BOOKMARK [2][]{subsection.145}{Datab\341zov\351 dopyty pomocou Cypher klienta}{section.70}% 32
 \BOOKMARK [2][]{subsection.158}{Implement\341cia optimaliz\341cie trasy}{section.70}% 33
-\BOOKMARK [2][]{subsection.170}{Rome2rio API}{section.70}% 34
-\BOOKMARK [2][]{subsection.171}{Vykreslovanie m\341p}{section.70}% 35
-\BOOKMARK [2][]{subsection.172}{Vykreslovanie tabuliek}{section.70}% 36
-\BOOKMARK [2][]{subsection.173}{Pou\236\355vatelsk\351 rozhranie}{section.70}% 37
-\BOOKMARK [1][]{section.178}{Testovanie}{}% 38
-\BOOKMARK [2][]{subsection.179}{Latencia datab\341zy Neo4j a MySQL}{section.178}% 39
-\BOOKMARK [2][]{subsection.195}{Latencia r\364znych pr\355stupov k datab\341ze Neo4J}{section.178}% 40
-\BOOKMARK [1][]{section.200}{Zhodnotenie}{}% 41
-\BOOKMARK [1][]{section*.201}{Z\341ver}{}% 42
-\BOOKMARK [1][]{section*.202}{Zoznam pou\236itej literat\372ry}{}% 43
-\BOOKMARK [1][]{section*.203}{Pr\355lohy}{}% 44
+\BOOKMARK [2][]{subsection.172}{Rome2rio API}{section.70}% 34
+\BOOKMARK [2][]{subsection.173}{Vykreslovanie m\341p}{section.70}% 35
+\BOOKMARK [2][]{subsection.174}{Vykreslovanie tabuliek}{section.70}% 36
+\BOOKMARK [2][]{subsection.175}{Pou\236\355vatelsk\351 rozhranie}{section.70}% 37
+\BOOKMARK [1][]{section.180}{Testovanie}{}% 38
+\BOOKMARK [2][]{subsection.181}{Latencia datab\341zy Neo4j a MySQL}{section.180}% 39
+\BOOKMARK [2][]{subsection.197}{Latencia r\364znych pr\355stupov k datab\341ze Neo4J}{section.180}% 40
+\BOOKMARK [1][]{section.202}{Zhodnotenie}{}% 41
+\BOOKMARK [2][]{subsection.203}{Zhodnotenie implement\341cie}{section.202}% 42
+\BOOKMARK [2][]{subsection.204}{Zhodnotenie testovania}{section.202}% 43
+\BOOKMARK [2][]{subsection.205}{Zhodnotenie sk\372senost\355 s v\375vovjom pomocou grafovej datab\341zy}{section.202}% 44
+\BOOKMARK [1][]{section*.206}{Z\341ver}{}% 45
+\BOOKMARK [1][]{section*.207}{Zoznam pou\236itej literat\372ry}{}% 46
+\BOOKMARK [1][]{section*.208}{Pr\355lohy}{}% 47

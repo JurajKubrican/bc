@@ -538,8 +538,6 @@ LIMIT 1
 \end{algorithm}
 
 
-
-
 \subsection{Rome2rio API}
 \noindent Všetky údaje o destináciách a trasách berieme z API Rome2Rio. Pomocou Autocomplete API umoòujeme pouívate¾ovi pridáva destinácie. Pouívate¾ zadáva písmená do autocomplete textového po¾a na stránke toto pole posiela dotazy na Autocomplete API a ono vracia pole objektov s miestami. Tieto objekty obsahujú informácie o type destinácie(obec, mesto, región, štát, letisko,), geografickú polohu, názov v dlhom a krátkom tvare a kanonickı názov. Pouívate¾ si potom vyberie jenu z destinácií a príslušnı objekt sa zašle na náš server. Na unikátnu identifikáciu objektu pouívame kanonickı názov, ktoré je pod¾a dokumentácie unikátnym identifikátorom miesta. 
 
@@ -593,13 +591,13 @@ Nišie je tabu¾ka s podrobnejším opisom trasy s vymenovanımi spôsobmi dopravy. V
 Na obrazovke Nastavení sa nachádza mapa, ktorá vyobrazuje aktuálne domáce miesto pouívate¾a, pod òou sa nachádza textové pole, pomocou ktorého môe pouívate¾ vyh¾ada a nastavi domáce miesto. V spodnej èasti obrazovky nastavení je sekcia kde si môe pouívate¾ zmeni heslo.
 
 \section{Testovanie}
-\label{chap-test}
 \noindent Všetky testy sme vykonávali na našom serveri s Ubuntu 16.04.2 LTS S jednım virtuálnym jadrom a 4GB RAM. Testovali sme na databáze Neo4j Community verzie 3.1.4 a na databáze MYSQL verzie 5.7.18, tabu¾ky boli uloené pomocou InnoDB. Pri testovaní rıchlosti naša aplikácia beala na serveri Apache verzie 2.4.18 s interpreterom PHP verzie 7.0.15.
 
 Ako dátovú sadu sme pouili reálne dáta o destináciách a trasách z Rome2Rio API. Aby sme zabezpeèili zvyšovanie ako ve¾kosti tak aj hustoty grafu zaèali sme s jednım pouívate¾om s desiatimi polokami, v druhom kroku sme pridali pouívate¾a s pädesiatimi destináciami, ktorı mal zároveò pridané všetky destinácie prvého pouívate¾a, takto sme pokraèovali a po poèet destinácií 1400. Dáta sme generovali našou aplikáciou a následne migrovali do MYSQL databázy štruktúrovanou ako v našom návrhu \ref{database-diagram}
 
 
 \subsection{Latencia databázy Neo4j a MySQL}
+\label{chap-test}
 Prvı test, ktorı sme robili bol syntetickı test rıchlosti komplexného dopytu na databázu. Cie¾om testu bolo porovna škálovate¾nos relaènej a grafovej databázy v prípadoch podobnıch nášmu. Dopyt ktorého latenciu sme testovali bol na zoznam ob¾úbenıch destinácií, ku kadej destinácií sme vyh¾adali ešte trasu ktorá k nej vedie z domáceho miesta pouívate¾a a zoznam ostatnıch pouívate¾ov ktorı tie majú túto destináciu na zozname. Dopyt v databáze Neo4J môeme vidie na algoritme \ref{cypher-follows}. Dopyt v databáze MYSQL môeme vidie na algoritme \ref{sql-follows}.
 
 \begin{algorithm}
@@ -682,14 +680,21 @@ V tabu¾ke è. \ref{speed-neo-table} vidíme priemernú latenciu nášho API v závislo
 
 
 \section{Zhodnotenie}
-\noindent V kapitole  \ref{chap-test} sme sa blišie venovali testovaniu latencie databázy pri zloitıch dopytoch. Z vısledkov tıchto testov sme usúdili, e v našom prípade 
+\noindent V tejto, poslednej kapitole sa budeme venova zhodnoteniu vıslekov našej implementácie a zhrnutiu vısledkov nášho testovania.
 
+\subsection{Zhodnotenie implementácie}
+\noindent Ako súèas práce sme implementovali aplikáciu na plánovanie a optimalizáciu trasy cestovate¾a. Aplikácia obsahuje registráciu a prihlásenie pouívate¾a, po prihlásení si pouívate¾ môe vyh¾ada a prida destinácie na svoj zoznam ob¾úbenıch. Pri zobrazovaní zoznamu aplikácia poskytuje informácie o trasách vedúcich z do konkrétnych destinácií v rátane informácií o cene a spôsobe dopravy a informáciu o tom, akı ïalší pouívatelia majú tie aplikáciu na zozname.  Ïalej aplikácia na základe u pridanıch destinácií zobrazuje pouívate¾ovi zoznam odporúèanıch destinácií.  Všetky tieto údaje sú dopytované pomocou rıchlejšieho prístupu k databáze pomocou PHP Neo4J Client. 
 
-Za hlavné vıhody grafovej databázy pre povaujeme jej škálovate¾nos a štruktúru dátového modelu vhodnú pre našu aplikáciu. Ako u bolo spomenuté v kapitole \ref{chap-test} škálovate¾nos grafovej databázy Neo4J bola v našom testovanom prípade omnoho lepšia ako databázy MySQL.
+Ïalej je aplikácií obrazovka na optimalizáciu trasy. Na tejto obrazovke si pouívate¾ zo svojho zoznamu môe vybra niektoré destinácie a aplikácia po vráti poradie v akom by mal pouívate¾ navštívi zvolené destinácie pre optimalizovanie nákladov na cestu. Pre nedostatok èasu a komplexitu tohto vıpoètu sme implementáciu optimalizácie nechali v staršej verzií – s pouitím prístupu k databáze pomocou OGM. Aby sme zlepšili UX pouívate¾a implementovali sme nieko¾ko vrstiev cache pamäte aby  sa vısledky zobrazovali èo najskôr. 
 
-Keïe štruktúra grafovej databázy je primárne urèená na prácu s grafmi, pre optimálny vıkon sme nemuseli pridáva cudzie k¾úèe ani indexy. Naša dátová sada prirodzene zapadla do modelu našej grafovej databázy.
+\subsection{Zhodnotenie testovania}
+\noindent Po fáze implemnácie sme testovali latenciu našich dopytov na databázu testy sme porovnávali s obdobnımi testami na rovnakıch dátach v databázye MySQL. Pri testoch sme dokázali, e grafová databáza má aj v našom reálnom  príklade merate¾ne vyšší vıkon pri práci s grafovım dátovım setom ve¾kosti nieko¾ko sto vrcholov a hrán. Potvrdili sme teda lepšiu škálovate¾nos grafovej databázy v 
 
-Grafová databáza Neo4J má jednoduché a pri tom silné nástroje na prácu s grafmi. Jeden z nástrojov, ktorı sme pouili bol dopytovací jazyk Cypher. Tento jazyk nám dovolil s pomocou relatívne jednoduchıch príkazov vykonáva zloité operácie v našej databáze. Emulovanie ekvivalentnıch príkazov v relaènej, èi dokumentovej databázy by bolo omnoho zloitejšie. 
+%TODO DEVELOPER EXPERIENCE
+\subsection{Zhodnotenie skúseností s vıvovjom pomocou grafovej databázy}
+\noindent Natívna štruktúra pouitej grafovej databázy prirodzene poòala našu dátovú sadu bez potreby dáta trasnformova, èi rozdelova do tabuliek. Flexibilita bezshémovej grafovej datbázy nám oproti relaènım databázam poskytla monos rıchlo iterova testova variácie v štruktúre našej databázy.
+
+Grafová databáza Neo4J ïalej poskytuje jednoduché, pri tom silné nástroje na prácu s grafmi. Nástroje ako jednoduchı a silnı dopytovací jazyk Cypher, a pouívate¾ské rozhranie databázy s preh¾adnımi interaktívnymi vizualizáciami dát pomohli zmierni krivku uèenia spojenú s novım typom databázy.
 
 
 

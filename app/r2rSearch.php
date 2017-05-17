@@ -16,9 +16,9 @@ class r2rSearch {
 
     $data = $this->cachedRequest($from,$to,$options);
 
-    $this->aVehicles = $data->vehicles;
-    $this->aPlaces = $data->places;
-    $this->aRoutes = $data->routes;
+    $this->aVehicles = isset($data->vehicles) ? $data->vehicles : [];
+    $this->aPlaces = isset($data->places)?$data->places : [];
+    $this->aRoutes = isset($data->routes)?$data->routes : [];
   }
 
   public function getRoutes(){
