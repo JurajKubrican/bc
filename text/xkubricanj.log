@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  17 MAY 2017 17:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  18 MAY 2017 13:04
 entering extended mode
 **./xkubricanj.tex
 (xkubricanj.tex
@@ -589,7 +589,7 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [1]
-<img/zadanie1.jpg, id=202, 614.295pt x 794.97pt>
+<img/zadanie1.jpg, id=206, 614.295pt x 794.97pt>
 File: img/zadanie1.jpg Graphic file (type jpg)
  <use img/zadanie1.jpg>
 Package pdftex.def Info: img/zadanie1.jpg used on input line 17.
@@ -598,7 +598,7 @@ Package pdftex.def Info: img/zadanie1.jpg used on input line 17.
 Overfull \vbox (109.05547pt too high) has occurred while \output is active []
 
 
-[2 <./img/zadanie1.jpg>] <img/zadanie2.jpg, id=207, 614.295pt x 794.97pt>
+[2 <./img/zadanie1.jpg>] <img/zadanie2.jpg, id=211, 614.295pt x 794.97pt>
 File: img/zadanie2.jpg Graphic file (type jpg)
 
 <use img/zadanie2.jpg>
@@ -624,7 +624,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 20--20
  []
 
 (includes/abstractEN.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 1--20
+Underfull \hbox (badness 10000) in paragraph at lines 3--20
 
  []
 
@@ -697,29 +697,19 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \openout7 = `xkubricanj.lot'.
 
  [10] (includes/AbbreviationsAndSymbols.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 27--27
-
- []
-
 [11] (xkubricanj.loa)
 \tf@loa=\write8
 \openout8 = `xkubricanj.loa'.
 
- [12] (includes/introduction.tex
-Overfull \hbox (9.40009pt too wide) in paragraph at lines 3--4
-[]\T1/lmr/m/n/12 Grafové databázy sú natívne prispô-sobené prácu s grafmi, neuk
--ladajú údaje v tabu©kách
- []
-
-) [1
+ [12] (includes/introduction.tex) [1
 
 
 
 
 ] (includes/core.tex
-Overfull \hbox (4.4957pt too wide) in paragraph at lines 2--3
-\T1/lmr/m/n/12 vz´ahy medzi dá-tami. „alej si pri-blíºime ako rie²ia vz´ahy re-
-la£né a doku-men-tové databázy.
+Overfull \hbox (11.7056pt too wide) in paragraph at lines 2--3
+\T1/lmr/m/n/12 databázy. Následne si pred-stavíme troch na-jpop-ulárne-j²ích pr
+ed-stavite©ov grafových databáz
  []
 
 
@@ -732,42 +722,39 @@ Package hyperref Warning: Composite letter `\textasciicaron+c'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 11.
 
-[2] <img/relational-relationships.png, id=364, 986.18437pt x 1025.33063pt>
+[2] <img/relational-relationships.png, id=372, 986.18437pt x 1025.33063pt>
 File: img/relational-relationships.png Graphic file (type png)
 
 <use img/relational-relationships.png>
 Package pdftex.def Info: img/relational-relationships.png used on input line 25
 .
 (pdftex.def)             Requested size: 227.62204pt x 236.65028pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+ [3]
 
 Package hyperref Warning: Composite letter `\textasciicaron+t'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 31.
 
-[3] <img/document-relationships.png, id=372, 1170.62344pt x 880.03781pt>
+
+Overfull \hbox (17.01883pt too wide) in paragraph at lines 36--37
+[]\T1/lmr/m/n/12 Na obrázku £.[][]2[][] vidíme prík-lad prís-tupu im-ple-men-tá
+-cie vz´a-hov v doku-men-tovej databáze. 
+ []
+
+<img/document-relationships.png, id=380, 1170.62344pt x 880.03781pt>
 File: img/document-relationships.png Graphic file (type png)
 
 <use img/document-relationships.png>
 Package pdftex.def Info: img/document-relationships.png used on input line 40.
 (pdftex.def)             Requested size: 227.62204pt x 171.11655pt.
-
-Overfull \hbox (9.5768pt too wide) in paragraph at lines 46--47
+ [4 <./img/relational-relationships.png>]
+Overfull \hbox (11.86163pt too wide) in paragraph at lines 46--47
 \T1/lmr/m/n/12 DB-Engines.com. V nasle-du-júcej £asti v skratke pri-blíºime his
-tóriu kaºdej grafovej databázy
+tóriu kaºdej grafovej databázy,
  []
 
-[4 <./img/relational-relationships.png> <./img/document-relationships.png>]
 
 LaTeX Warning: Citation `neo-product' on page 5 undefined on input line 49.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
 
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 54.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
@@ -775,9 +762,9 @@ File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 54.
+ [5 <./img/document-relationships.png>]
 
-
-LaTeX Warning: Citation `orientdb-product' on page 5 undefined on input line 66
+LaTeX Warning: Citation `orientdb-product' on page 6 undefined on input line 66
 .
 
 
@@ -785,9 +772,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
-[5]
 
-LaTeX Warning: Citation `titan-product' on page 6 undefined on input line 82.
+LaTeX Warning: Citation `titan-product' on page 6 undefined on input line 83.
 
 [6] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -795,217 +781,171 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
 File: lstlang2.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 126.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 127.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 129.
-LaTeX Font Info:    Try loading font information for OMS+lmss on input line 133
+(Font)              <10.95> on input line 130.
+LaTeX Font Info:    Try loading font information for OMS+lmss on input line 134
 .
-LaTeX Font Info:    No file OMSlmss.fd. on input line 133.
+LaTeX Font Info:    No file OMSlmss.fd. on input line 134.
 
 
 LaTeX Font Warning: Font shape `OMS/lmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textasteriskcentered' on input line 133.
+(Font)              for symbol `textasteriskcentered' on input line 134.
 
 
-Overfull \hbox (2.71304pt too wide) in paragraph at lines 137--138
+Overfull \hbox (2.71304pt too wide) in paragraph at lines 138--139
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
 
  []
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 141.
-[7]
-Overfull \hbox (16.84077pt too wide) in paragraph at lines 164--165
-[]\T1/lmr/m/n/12 V ap-liká-cií bude obra-zovka kde si bude pouºí-vate© vy-bra´ 
-nieko©ko zo svo-jich ob©úbených
- []
-
-[8] [9] <uml/usecase-login.pdf, id=445, 338.01282pt x 289.83281pt>
+put line 142.
+[7] [8] [9] <uml/usecase-login.pdf, id=453, 338.01282pt x 289.83281pt>
 File: uml/usecase-login.pdf Graphic file (type pdf)
 
 <use uml/usecase-login.pdf>
-Package pdftex.def Info: uml/usecase-login.pdf used on input line 190.
+Package pdftex.def Info: uml/usecase-login.pdf used on input line 191.
 (pdftex.def)             Requested size: 284.52756pt x 243.97974pt.
 
-<uml/usecase-settings.pdf, id=447, 331.2375pt x 268.00125pt>
+<uml/usecase-settings.pdf, id=455, 331.2375pt x 268.00125pt>
 File: uml/usecase-settings.pdf Graphic file (type pdf)
 
 <use uml/usecase-settings.pdf>
-Package pdftex.def Info: uml/usecase-settings.pdf used on input line 198.
+Package pdftex.def Info: uml/usecase-settings.pdf used on input line 199.
 (pdftex.def)             Requested size: 284.52756pt x 230.21893pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<uml/usecase-dash.pdf, id=449, 453.19313pt x 403.5075pt>
+ [10 <./uml/usecase-login.pdf>]
+<uml/usecase-dash.pdf, id=495, 453.19313pt x 403.5075pt>
 File: uml/usecase-dash.pdf Graphic file (type pdf)
 
 <use uml/usecase-dash.pdf>
-Package pdftex.def Info: uml/usecase-dash.pdf used on input line 206.
-(pdftex.def)             Requested size: 341.43306pt x 304.0029pt.
- [10 <./uml/usecase-login.pdf>]
+Package pdftex.def Info: uml/usecase-dash.pdf used on input line 207.
+(pdftex.def)             Requested size: 284.52756pt x 253.33061pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (0.72095pt too wide) in paragraph at lines 204--210
+[]\T1/lmr/m/n/12 Tretí prí-pad pouºi-tia (obrá-zok £.[][]5[][]) opisuje ak-cie,
+ ktoré bude môc´ pouºí-vate© vykoná-
+ []
 
-<uml/usecase-tsp.pdf, id=488, 326.72063pt x 290.58563pt>
+[11 <./uml/usecase-settings.pdf>]
+<uml/usecase-tsp.pdf, id=532, 326.72063pt x 290.58563pt>
 File: uml/usecase-tsp.pdf Graphic file (type pdf)
 
 <use uml/usecase-tsp.pdf>
-Package pdftex.def Info: uml/usecase-tsp.pdf used on input line 215.
+Package pdftex.def Info: uml/usecase-tsp.pdf used on input line 216.
 (pdftex.def)             Requested size: 284.52756pt x 253.05576pt.
+ [12 <./uml/usecase-dash.pdf> <./uml/usecase-tsp.pdf
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11 <./uml/usecase-settings.pdf>]
-<uml/database.pdf, id=525, 542.77782pt x 295.85532pt>
+pdfTeX warning: pdflatex.exe (file ./uml/usecase-tsp.pdf): PDF inclusion: multi
+ple pdfs with page group included in a single page
+>] <uml/database.pdf, id=607, 542.77782pt x 295.85532pt>
 File: uml/database.pdf Graphic file (type pdf)
- <use uml/database.pdf>
-Package pdftex.def Info: uml/database.pdf used on input line 236.
+
+<use uml/database.pdf>
+Package pdftex.def Info: uml/database.pdf used on input line 237.
 (pdftex.def)             Requested size: 398.33858pt x 217.13277pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<img/example-simple-data.png, id=527, 347.79938pt x 241.65282pt>
+<img/example-simple-data.png, id=609, 347.79938pt x 241.65282pt>
 File: img/example-simple-data.png Graphic file (type png)
 
 <use img/example-simple-data.png>
-Package pdftex.def Info: img/example-simple-data.png used on input line 246.
-(pdftex.def)             Requested size: 483.69684pt x 336.08818pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[12 <./uml/usecase-dash.pdf>] [13 <./uml/usecase-tsp.pdf>] [14 <./uml/database.
-pdf>] [15 <./img/example-simple-data.png>]
-Overfull \hbox (4.01736pt too wide) in paragraph at lines 295--296
+Package pdftex.def Info: img/example-simple-data.png used on input line 245.
+(pdftex.def)             Requested size: 426.79134pt x 296.54904pt.
+ [13 <./uml/database.pdf>] [14 <./img/example-simple-data.png>] [15] [16]
+Overfull \hbox (7.28136pt too wide) in paragraph at lines 293--294
 []\T1/lmr/m/n/12 Ke¤ºe zák-ladná in-²-talá-cia frame-worku Lar-avel neob-sahuje
- ovlá-da£ pre databázu Neo4J
+ ovlá-da£ pre databázu Neo4J,
  []
 
-[16]
+[17]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 335.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 333.
 
-Overfull \hbox (55.27347pt too wide) in paragraph at lines 349--350
-[][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (2.71304pt too wide) in paragraph at lines 351--352
+Overfull \hbox (2.71304pt too wide) in paragraph at lines 350--351
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[17] [18]
+[18] [19] [20]
 
-LaTeX Warning: Reference `speedtest' on page 19 undefined on input line 415.
+LaTeX Warning: Reference `app-api' on page 21 undefined on input line 450.
 
-[19]
-
-LaTeX Warning: Reference `app-api' on page 20 undefined on input line 451.
-
-[20]
-
-LaTeX Warning: Reference `app-api' on page 21 undefined on input line 462.
-
-
-Overfull \hbox (2.71304pt too wide) in paragraph at lines 485--486
+[21]
+Overfull \hbox (2.71304pt too wide) in paragraph at lines 484--485
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[21]
-Overfull \hbox (61.84352pt too wide) in paragraph at lines 526--527
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[22]
+[22] [23]
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 551.
-
-[23]
-
-Package hyperref Warning: Composite letter `\textasciicaron+l'
-(hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 558.
+(hyperref)                removing `\textasciicaron' on input line 550.
 
 [24]
 
 Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
-(hyperref)                removing `\textasciicaron' on input line 569.
+(hyperref)                removing `\textasciicaron' on input line 557.
 
-<img/screen-dash.png, id=793, 434.37282pt x 579.66562pt>
+[25]
+
+Package hyperref Warning: Composite letter `\textasciicaron+l'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 568.
+
+<img/screen-dash.png, id=808, 434.37282pt x 580.41844pt>
 File: img/screen-dash.png Graphic file (type png)
 
 <use img/screen-dash.png>
-Package pdftex.def Info: img/screen-dash.png used on input line 576.
-(pdftex.def)             Requested size: 227.62204pt x 303.76292pt.
- [25 <./img/screen-dash.png>]
-<img/screen-tsp.png, id=800, 436.63126pt x 578.91281pt>
+Package pdftex.def Info: img/screen-dash.png used on input line 573.
+(pdftex.def)             Requested size: 284.52756pt x 380.20786pt.
+ [26 <./img/screen-dash.png>]
+<img/screen-tsp.png, id=815, 435.12563pt x 581.17125pt>
 File: img/screen-tsp.png Graphic file (type png)
 
 <use img/screen-tsp.png>
-Package pdftex.def Info: img/screen-tsp.png used on input line 586.
-(pdftex.def)             Requested size: 227.62204pt x 301.79607pt.
- [26 <./img/screen-tsp.png>]
-Overfull \hbox (2.60425pt too wide) in paragraph at lines 601--602
-\T1/lmr/m/n/12 padoch podob-ných ná²mu. Dopyt ktorého la-ten-ciu sme testo-vali
- bol na zoz-nam ob©úbených
- []
+Package pdftex.def Info: img/screen-tsp.png used on input line 582.
+(pdftex.def)             Requested size: 284.52756pt x 380.04477pt.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+<img/screen-settings.png, id=817, 435.12563pt x 394.47375pt>
+File: img/screen-settings.png Graphic file (type png)
+
+<use img/screen-settings.png>
+Package pdftex.def Info: img/screen-settings.png used on input line 592.
+(pdftex.def)             Requested size: 284.52756pt x 257.95784pt.
+ [27 <./img/screen-tsp.png>] [28 <./img/screen-settings.png>] ("C:\Program File
+s\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 635.
-
-<img/speed-sql.pdf, id=809, 794.97pt x 614.295pt>
+[29] <img/speed-sql.pdf, id=846, 794.97pt x 614.295pt>
 File: img/speed-sql.pdf Graphic file (type pdf)
  <use img/speed-sql.pdf>
-Package pdftex.def Info: img/speed-sql.pdf used on input line 649.
+Package pdftex.def Info: img/speed-sql.pdf used on input line 655.
 (pdftex.def)             Requested size: 398.33858pt x 307.81224pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[27] [28 <./img/speed-sql.pdf>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 662.
-
-<img/speed.pdf, id=848, 794.97pt x 614.295pt>
+[30 <./img/speed-sql.pdf>] <img/speed.pdf, id=871, 794.97pt x 614.295pt>
 File: img/speed.pdf Graphic file (type pdf)
- <use img/speed.pdf>
-Package pdftex.def Info: img/speed.pdf used on input line 676.
-(pdftex.def)             Requested size: 398.33858pt x 307.81224pt.
- [29 <./img/speed.pdf>]
-Overfull \hbox (5.11119pt too wide) in paragraph at lines 694--694
- |[]\T1/lmr/bx/n/16 Zhodnotenie skúseností s vývovjom po-mo-cou grafovej
+
+<use img/speed.pdf>
+Package pdftex.def Info: img/speed.pdf used on input line 682.
+(pdftex.def)             Requested size: 341.43306pt x 263.84175pt.
+ [31 <./img/speed.pdf>]
+Overfull \hbox (6.4607pt too wide) in paragraph at lines 689--690
+\T1/lmr/m/n/12 V tejto kapi-tole sa budeme ven-o-va´ zhod-note-niu výsled-kov n
+a²ej im-ple-men-tá-cie a celkovému
  []
 
-[30]) [31] (includes/conclusion.tex)
-Overfull \hbox (0.18036pt too wide) in paragraph at lines 8--35
-[]\T1/lmr/m/n/12 Na koniec sme ako hlavné výhody pouºi-tia Grafovej databázy Ne
-o4J vy-brali: Rýchlos´
- []
-
-
-Overfull \hbox (5.61786pt too wide) in paragraph at lines 8--35
+) [32] [33] (includes/conclusion.tex)
+Overfull \hbox (5.61786pt too wide) in paragraph at lines 9--35
 \T1/lmr/m/n/12 v pre-h©adá-vaní grafu oproti re-la£nej databáze, vhod-nos´ dá-t
 ového mod-elu grafovej databázy
  []
 
-[32
+[34
 
 
 ] (xkubricanj.bbl
@@ -1024,17 +964,32 @@ Overfull \hbox (32.33403pt too wide) in paragraph at lines 30--35
 lM2Y2OGY5Mzhj$[][]
  []
 
-) [33
+) [35
 
 
 ] (xkubricanj.pri)
 \tf@pri=\write9
 \openout9 = `xkubricanj.pri'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 42.
  [1
 
 
+
+
+]
+
+Package hyperref Warning: Composite letter `\textasciicaron+c'
+(hyperref)                not defined in PD1 encoding,
+(hyperref)                removing `\textasciicaron' on input line 40.
+
+(includes/prilohaA.tex
+Underfull \hbox (badness 10000) in paragraph at lines 1--5
+
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 42.
+ [2
 
 
 ]
@@ -1043,7 +998,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 42.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 42.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 42.
 Package rerunfilecheck Info: File `xkubricanj.out' has not changed.
-(rerunfilecheck)             Checksum: F58408ED90E117DEB2E67F40891906C7;3425.
+(rerunfilecheck)             Checksum: F764ECF89A8C020A435D05D7531597ED;3502.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1054,13 +1009,13 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 42.
  ) 
 Here is how much of TeX's memory you used:
- 13707 strings out of 493333
- 201058 string characters out of 3139194
- 585659 words of memory out of 3000000
- 16709 multiletter control sequences out of 15000+200000
+ 13731 strings out of 493333
+ 201447 string characters out of 3139194
+ 595084 words of memory out of 3000000
+ 16720 multiletter control sequences out of 15000+200000
  83328 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,8n,41p,1377b,3319s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,8n,41p,1339b,3319s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit
@@ -1074,9 +1029,9 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program
 ic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on xkubricanj.pdf (47 pages, 2008794 bytes).
+Output written on xkubricanj.pdf (50 pages, 2176110 bytes).
 PDF statistics:
- 1007 PDF objects out of 1200 (max. 8388607)
- 263 named destinations out of 1000 (max. 500000)
- 447 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1039 PDF objects out of 1200 (max. 8388607)
+ 272 named destinations out of 1000 (max. 500000)
+ 460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

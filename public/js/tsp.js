@@ -82,7 +82,7 @@ var app = (function($,appData) {
   function refreshPage (){
     var template = Handlebars.compile($("#places-template").html());
 
-    $.get('/placeapi?type=template&user='+appData.user, function (data) {
+    $.get('/placeapi?type=template&filter=new', function (data) {
       data = JSON.parse(data);
       home = data.places[0];
       $('#places_body').html(template(data));

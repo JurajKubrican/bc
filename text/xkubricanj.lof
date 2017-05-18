@@ -1,14 +1,15 @@
 \select@language {english}
 \thispagestyle {empty}
 \contentsline {figure}{\numberline {1}{\ignorespaces Uk\'a\v zka rie\v senia vz\v tahov v rela\v cnej datab\'aze \cite [12]{graphDBs}}}{4}{figure.7}
-\contentsline {figure}{\numberline {2}{\ignorespaces Uk\'a\v zka rie\v senia vz\v tahov v dokumentovej datab\'aze \cite [15]{graphDBs}}}{4}{figure.10}
-\contentsline {figure}{\numberline {3}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - Registr\'acia, autentifik\'acia a nastavenia}}{10}{figure.54}
-\contentsline {figure}{\numberline {4}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - Registr\'acia, autentifik\'acia a nastavenia}}{11}{figure.57}
-\contentsline {figure}{\numberline {5}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - dashboard}}{12}{figure.60}
-\contentsline {figure}{\numberline {6}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - tsp}}{13}{figure.63}
-\contentsline {figure}{\numberline {7}{\ignorespaces \v Strukt\'ura datab\'azy}}{14}{figure.66}
-\contentsline {figure}{\numberline {8}{\ignorespaces Pr\IeC {\'\i }klad d\'at v datab\'aze}}{15}{figure.68}
-\contentsline {figure}{\numberline {9}{\ignorespaces Uk\'a\v zka hlavnej obrazovky pou\v z\IeC {\'\i }vate\v la}}{25}{figure.177}
-\contentsline {figure}{\numberline {10}{\ignorespaces Uk\'a\v zka obrazovky TSP}}{26}{figure.179}
-\contentsline {figure}{\numberline {11}{\ignorespaces V\'ysledky testu r\'ychlosti API pre zobrazenie zoznamu ob\v l\'uben\'ych destin\'aci\IeC {\'\i }}}{28}{figure.196}
-\contentsline {figure}{\numberline {12}{\ignorespaces V\'ysledky testu r\'ychlosti API pre zobrazenie zoznamu ob\v l\'uben\'ych destin\'aci\IeC {\'\i }}}{29}{figure.201}
+\contentsline {figure}{\numberline {2}{\ignorespaces Uk\'a\v zka rie\v senia vz\v tahov v dokumentovej datab\'aze \cite [15]{graphDBs}}}{5}{figure.10}
+\contentsline {figure}{\numberline {3}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - Registr\'acia, autentifik\'acia, obnova hesla a prezeranie inform\'aci\IeC {\'\i }}}{10}{figure.54}
+\contentsline {figure}{\numberline {4}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - Nastavenia}}{11}{figure.57}
+\contentsline {figure}{\numberline {5}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - Dashboard}}{12}{figure.60}
+\contentsline {figure}{\numberline {6}{\ignorespaces Pr\IeC {\'\i }pad pou\v zitia - TSP}}{12}{figure.63}
+\contentsline {figure}{\numberline {7}{\ignorespaces \v Strukt\'ura datab\'azy}}{13}{figure.66}
+\contentsline {figure}{\numberline {8}{\ignorespaces Pr\IeC {\'\i }klad d\'at v datab\'aze}}{14}{figure.68}
+\contentsline {figure}{\numberline {9}{\ignorespaces Uk\'a\v zka hlavnej obrazovky pou\v z\IeC {\'\i }vate\v la}}{26}{figure.178}
+\contentsline {figure}{\numberline {10}{\ignorespaces Uk\'a\v zka obrazovky TSP}}{27}{figure.180}
+\contentsline {figure}{\numberline {11}{\ignorespaces Uk\'a\v zka obrazovky Nastavenia}}{28}{figure.182}
+\contentsline {figure}{\numberline {12}{\ignorespaces V\'ysledky testu r\'ychlosti API pre zobrazenie zoznamu ob\v l\'uben\'ych destin\'aci\IeC {\'\i }}}{30}{figure.199}
+\contentsline {figure}{\numberline {13}{\ignorespaces V\'ysledky testu r\'ychlosti API pre zobrazenie zoznamu ob\v l\'uben\'ych destin\'aci\IeC {\'\i }}}{31}{figure.204}
