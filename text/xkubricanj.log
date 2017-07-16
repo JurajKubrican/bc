@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  18 MAY 2017 13:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6210 64-bit) (preloaded format=pdflatex 2017.4.12)  4 JUL 2017 13:44
 entering extended mode
 **./xkubricanj.tex
 (xkubricanj.tex
@@ -870,11 +870,7 @@ Overfull \hbox (2.71304pt too wide) in paragraph at lines 350--351
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[18] [19] [20]
-
-LaTeX Warning: Reference `app-api' on page 21 undefined on input line 450.
-
-[21]
+[18] [19] [20] [21]
 Overfull \hbox (2.71304pt too wide) in paragraph at lines 484--485
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -897,21 +893,21 @@ Package hyperref Warning: Composite letter `\textasciicaron+l'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textasciicaron' on input line 568.
 
-<img/screen-dash.png, id=808, 434.37282pt x 580.41844pt>
+<img/screen-dash.png, id=809, 434.37282pt x 580.41844pt>
 File: img/screen-dash.png Graphic file (type png)
 
 <use img/screen-dash.png>
 Package pdftex.def Info: img/screen-dash.png used on input line 573.
 (pdftex.def)             Requested size: 284.52756pt x 380.20786pt.
  [26 <./img/screen-dash.png>]
-<img/screen-tsp.png, id=815, 435.12563pt x 581.17125pt>
+<img/screen-tsp.png, id=816, 435.12563pt x 581.17125pt>
 File: img/screen-tsp.png Graphic file (type png)
 
 <use img/screen-tsp.png>
 Package pdftex.def Info: img/screen-tsp.png used on input line 582.
 (pdftex.def)             Requested size: 284.52756pt x 380.04477pt.
 
-<img/screen-settings.png, id=817, 435.12563pt x 394.47375pt>
+<img/screen-settings.png, id=818, 435.12563pt x 394.47375pt>
 File: img/screen-settings.png Graphic file (type png)
 
 <use img/screen-settings.png>
@@ -921,13 +917,13 @@ Package pdftex.def Info: img/screen-settings.png used on input line 592.
 s\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-[29] <img/speed-sql.pdf, id=846, 794.97pt x 614.295pt>
+[29] <img/speed-sql.pdf, id=847, 794.97pt x 614.295pt>
 File: img/speed-sql.pdf Graphic file (type pdf)
  <use img/speed-sql.pdf>
 Package pdftex.def Info: img/speed-sql.pdf used on input line 655.
 (pdftex.def)             Requested size: 398.33858pt x 307.81224pt.
 
-[30 <./img/speed-sql.pdf>] <img/speed.pdf, id=871, 794.97pt x 614.295pt>
+[30 <./img/speed-sql.pdf>] <img/speed.pdf, id=872, 794.97pt x 614.295pt>
 File: img/speed.pdf Graphic file (type pdf)
 
 <use img/speed.pdf>
@@ -1009,10 +1005,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 42.
  ) 
 Here is how much of TeX's memory you used:
- 13731 strings out of 493333
- 201447 string characters out of 3139194
+ 13730 strings out of 493333
+ 201438 string characters out of 3139194
  595084 words of memory out of 3000000
- 16720 multiletter control sequences out of 15000+200000
+ 16719 multiletter control sequences out of 15000+200000
  83328 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,8n,41p,1339b,3319s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1029,9 +1025,9 @@ r12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program
 ic/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsso10.p
 fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb>
-Output written on xkubricanj.pdf (50 pages, 2176110 bytes).
+Output written on xkubricanj.pdf (50 pages, 2176251 bytes).
 PDF statistics:
- 1039 PDF objects out of 1200 (max. 8388607)
+ 1040 PDF objects out of 1200 (max. 8388607)
  272 named destinations out of 1000 (max. 500000)
  460 words of extra memory for PDF output out of 10000 (max. 10000000)
 
